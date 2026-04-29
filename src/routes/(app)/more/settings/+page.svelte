@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Card from '$lib/components/ui/Card.svelte';
+
+	type ThemePref = 'auto' | 'dark' | 'light';
 
 	const BUS_OPTIONS = [
 		{ value: '18', label: 'Bus 18 — Coklat B' },
@@ -8,34 +11,62 @@
 	];
 
 	let selectedBus = $state('18');
-	let darkMode = $state(false);
+	let themePref = $state<ThemePref>('auto');
 	let dateOverride = $state('');
 	let showDateOverride = $state(false);
 
-	$effect(() => {
-		document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-		localStorage.setItem('patuna-dark', darkMode ? '1' : '0');
-	});
-
-	$effect(() => {
-		if (dateOverride) {
-			localStorage.setItem('patuna-date-override', dateOverride);
-		} else {
-			localStorage.removeItem('patuna-date-override');
-		}
-	});
-
-	function initFromStorage() {
-		const savedDark = localStorage.getItem('patuna-dark');
-		if (savedDark === '1') darkMode = true;
-		const savedDate = localStorage.getItem('patuna-date-override');
-		if (savedDate) {
-			dateOverride = savedDate;
-			showDateOverride = true;
-		}
+	function isAfterMaghrib(): boolean {
+		const h = new Date().getHours();
+		return h >= 18 || h < 4;
 	}
 
-	initFromStorage();
+	function applyTheme(pref: ThemePref) {
+		const dark = pref === 'dark' || (pref === 'auto' && isAfterMaghrib());
+		document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+	}
+
+		$effect(() => {
+			if (!browser) return;
+			applyTheme(themePref);
+			localStorage.setItem('patuna-theme', themePref);
+		});
+
+		$effect(() => {
+			if (!browser) return;
+			if (dateOverride) {
+				localStorage.setItem('patuna-date-override', dateOverride);
+			} else {
+				localStorage.removeItem('patuna-date-override');
+			}
+		});
+
+		function initFromStorage() {
+			const saved = localStorage.getItem('patuna-theme');
+			if (saved === 'dark' || saved === 'light' || saved === 'auto') {
+				themePref = saved;
+			} else {
+				const legacy = localStorage.getItem('patuna-dark');
+				if (legacy === '1') themePref = 'dark';
+				else if (legacy === '0') themePref = 'light';
+				localStorage.removeItem('patuna-dark');
+			}
+			const savedDate = localStorage.getItem('patuna-date-override');
+			if (savedDate) {
+				dateOverride = savedDate;
+				showDateOverride = true;
+			}
+		}
+
+		if (browser) initFromStorage();
+
+		let intervalId: ReturnType<typeof setInterval> | undefined;
+		$effect(() => {
+			if (!browser) return;
+			if (intervalId) clearInterval(intervalId);
+			if (themePref === 'auto') {
+				intervalId = setInterval(() => applyTheme('auto'), 60_000);
+			}
+		});
 </script>
 
 <svelte:head><title>Pengaturan — Patuna Coklat-B</title></svelte:head>
@@ -106,24 +137,28 @@
 		<!-- Appearance -->
 		<Card>
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Tampilan</p>
-			<label class="flex cursor-pointer items-center justify-between">
-				<span class="text-sm text-foreground">Mode gelap (malam)</span>
-				<button
-					role="switch"
-					aria-checked={darkMode}
-					aria-label="Mode gelap"
-					onclick={() => (darkMode = !darkMode)}
-					class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-200 {darkMode
-						? 'bg-(--color-brand)'
-						: 'bg-border'}"
-				>
-					<span
-						class="inline-block h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200 {darkMode
-							? 'translate-x-6'
-							: 'translate-x-1'}"
-					></span>
-				</button>
-			</label>
+			<div class="flex rounded-xl border border-border bg-background p-1">
+				{#each [{ value: 'auto' as ThemePref, label: 'Otomatis' }, { value: 'light' as ThemePref, label: 'Terang' }, { value: 'dark' as ThemePref, label: 'Gelap' }] as opt}
+					<button
+						onclick={() => (themePref = opt.value)}
+						class="tap-target flex-1 rounded-lg px-3 py-2 text-center text-xs font-semibold transition-colors duration-150 {themePref ===
+						opt.value
+							? 'bg-(--color-brand) text-white'
+							: 'text-muted'}"
+					>
+						{opt.label}
+					</button>
+				{/each}
+			</div>
+			<p class="mt-2 text-xs text-muted">
+				{#if themePref === 'auto'}
+					Otomatis gelap setelah Maghrib (18:00–04:00)
+				{:else if themePref === 'dark'}
+					Selalu tampil gelap
+				{:else}
+					Selalu tampil terang
+				{/if}
+			</p>
 		</Card>
 
 		<!-- Date override (dev/demo) -->

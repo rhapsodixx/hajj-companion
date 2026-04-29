@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-theme="light">
+<html lang="id">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -13,6 +13,21 @@
 			name="description"
 			content="Panduan ibadah haji Patuna Coklat B — jadwal, doa, dan bimbingan ritual untuk jamaah 2026."
 		/>
+		<script>
+			(function () {
+				var t = 'auto';
+				try {
+					t = localStorage.getItem('patuna-theme') || 'auto';
+				} catch (e) {}
+				var dark = false;
+				if (t === 'dark') dark = true;
+				else if (t === 'auto') {
+					var h = new Date().getHours();
+					dark = h >= 18 || h < 4;
+				}
+				document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
