@@ -1,0 +1,248 @@
+[
+	{
+		"id": "ihram-umrah",
+		"title": "Panduan Umrah",
+		"subtitle": "Ihram, Tawaf, Sa'i, Tahallul",
+		"phase": "madinah-to-makkah",
+		"overview": "Umrah pertama Anda — momen paling bersejarah dalam perjalanan ini. Panduan ini membantu Anda melalui setiap langkah: dari berihram di Bir Ali hingga tahallul di depan Ka'bah.",
+		"preparation": [
+			"Mandi sebelum berihram (sunnah)",
+			"Pakai baju ihram: pria 2 lembar kain putih, wanita gamis putih",
+			"Jangan semprot parfum setelah ihram",
+			"Pakai sandal yang menampakkan mata kaki (pria)",
+			"Bawa mukena untuk sholat (wanita)"
+		],
+		"steps": [
+			{
+				"title": "Niat Umrah di Bir Ali (Miqat)",
+				"instruction": "Saat tiba di Masjid Bir Ali, shalat 2 rakaat sunnah ihram. Kemudian niat Umrah dalam hati:",
+				"arabic": "لَبَّيْكَ اللَّهُمَّ عُمْرَةً",
+				"arabicSource": "niat-umrah",
+				"note": "Setelah niat, perbanyak talbiyah sepanjang perjalanan ke Makkah."
+			},
+			{
+				"title": "Perbanyak Talbiyah",
+				"instruction": "Selama dalam ihram, terus ulangi talbiyah hingga melihat Ka'bah:",
+				"arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيكَ لَكَ",
+				"arabicSource": "talbiyah",
+				"note": "Laki-lafi disunnahkan mengeraskan suara, wanita cukup terdengar oleh diri sendiri."
+			},
+			{
+				"title": "Tawaf 7 Putaran",
+				"instruction": "Masuk Masjidil Haram, berwudhu. Mulai tawaf dari Hajar Aswad (sudut dekat Ka'bah). Putar 7 kali berlawanan arah jarum jam.",
+				"note": "Pria: idhtiba' (buka bahu kanan) dan ramal (berlari kecil di 3 putaran pertama).",
+				"warning": "Jangan push orang untuk menyentuh Ka'bah. Tawaf biasa sudah sah."
+			},
+			{
+				"title": "Shalat 2 Rakaat di Belakang Maqam Ibrahim",
+				"instruction": "Setelah tawaf selesai, shalat 2 rakaat di belakang Maqam Ibrahim. Al Fatihah + Al Kafirun (rakaat 1), Al Fatihah + Al Ikhlas (rakaat 2)."
+			},
+			{
+				"title": "Minum Air Zamzam",
+				"instruction": "Minum air zamzam secukupnya. Baca doa minum zamzam jika hafal."
+			},
+			{
+				"title": "Sa'i Safa — Marwah (7 Kali)",
+				"instruction": "Mulai dari Bukit Safa, berjalan ke Marwah (1x). Kembali ke Safa (2x). Lanjutkan hingga 7x (berakhir di Marwah).",
+				"note": "Laki-laki berlari kecil antara tiang hijau (milaian). Wanita berjalan biasa."
+			},
+			{
+				"title": "Tahallul",
+				"instruction": "Setelah sa'i selesai: pria cukur rambut (halq — lebih utama) atau potong pendek (taqsir). Wanita potong ujung rambut sejengkal.",
+				"note": "Setelah tahallul, semua larangan ihram terlepas. Umrah selesai."
+			}
+		],
+		"closingNote": "Alhamdulillah, Umrah Anda selesai. Segala larangan ihram sudah terlepas. Istirahat dan persiapkan diri untuk ibadah haji.",
+		"duaIds": ["niat-umrah", "talbiyah", "dua-melihat-kabah", "dua-tawaf", "dua-safa-marwah"],
+		"dayNumbers": [7]
+	},
+	{
+		"id": "wukuf-arafah",
+		"title": "Wukuf di Arafah",
+		"subtitle": "Puncak Ibadah Haji",
+		"phase": "rukun",
+		"overview": "Hari Arafah (9 Zulhijjah) adalah inti ibadah haji — haji tidak sah tanpa wukuf. Panduan ini mencakup persiapan ihram dari Ash Shishah, perjalanan ke Arafah, dan puncak wukuf.",
+		"preparation": [
+			"Mandi ihram setelah makan malam di Ash Shishah",
+			"Kenakan baju ihram sebelum naik bus",
+			"Niat haji saat bus berangkat dari Ash Shishah",
+			"Bawa botol minum besar — cuaca sangat panas",
+			"Bawa payung kecil atau kipas tangan"
+		],
+		"steps": [
+			{
+				"title": "Mandi Ihram & Berpakaian Ihram",
+				"instruction": "Setelah makan malam di apartment, mandi ihram dan kenakan baju ihram. Ini sunnah, tapi sangat dianjurkan."
+			},
+			{
+				"title": "Niat Haji (di perjalanan)",
+				"instruction": "Setelah bus berangkat dari Ash Shishah (sekitar pukul 23:59), niat Haji dalam hati:",
+				"arabic": "لَبَّيْكَ اللَّهُمَّ حَجًّا",
+				"arabicSource": "niat-haji",
+				"note": "Perbanyak talbiyah sepanjang perjalanan menuju Arafah."
+			},
+			{
+				"title": "Tiba di Tenda Arafah — Sholat Subuh",
+				"instruction": "Sholat Subuh berjamaah di tenda. Makan pagi. Istirahat sambil menunggu waktu Zuhur."
+			},
+			{
+				"title": "Khutbah Wukuf + Sholat Zuhur-Ashar Jamak",
+				"instruction": "Dengarkan khutbah wukuf dari imam. Setelah selesai, sholat Zuhur dan Ashar dijamak takdim qashar (diniyyah)."
+			},
+			{
+				"title": "Wukuf — Perbanyak Doa & Dzikir",
+				"instruction": "Ini adalah puncak haji. Berwudhu, menghadap kiblat, perbanyak doa, dzikir, tahmid, dan tahlil. Waktu mustajab sampai terbenam matahari.",
+				"note": "Nabi ﷺ bersabda: \"Sebaik-baik doa adalah doa di hari Arafah.\"",
+				"warning": "Jangan tinggalkan batas Arafah sampai matahari terbenam."
+			},
+			{
+				"title": "Berangkat ke Muzdalifah (setelah Maghrib)",
+				"instruction": "Setelah Maghrib, sholat Maghrib dan Isya dijamak takdim qashar di Muzdalifah. Mabit (bermalam) di Muzdalifah.",
+				"note": "Kumpulkan 49 batu kecil untuk lontar jumrah (atau 70 jika 3 hari)."
+			}
+		],
+		"closingNote": "Alhamdulillah, wukuf selesai. Ini adalah hari paling agung. Semoga Allah menerima seluruh ibadah Anda.",
+		"duaIds": ["niat-haji", "talbiyah", "dua-wukuf-arafah", "dua-arafah", "dua-muzdalifah"],
+		"dayNumbers": [15, 16]
+	},
+	{
+		"id": "mabit-muzdalifah-jumrah-aqobah",
+		"title": "Idul Adha — Thawaf Ifadhah & Jumrah Aqobah",
+		"subtitle": "Hari Terpanjang Haji (10 Zulhijjah)",
+		"phase": "rukun",
+		"overview": "Hari Idul Adha — hari terpanjang dan tersibuk. Tengah malam: Thawaf Ifadhah + Sa'i + Tahallul Awal di Makkah. Sore: Lontar Jumrah Aqobah di Mina.",
+		"preparation": [
+			"Bawa batu jumrah yang dikumpulkan di Muzdalifah (7 batu untuk Aqobah)",
+			"Pakai sandal kuat — banyak jalan kaki",
+			"Bawa air minum dan snack ringan",
+			"Baju ihram masih dipakai sampai Tahallul Akhir"
+		],
+		"steps": [
+			{
+				"title": "Berangkat ke Makkah untuk Thawaf Ifadhah",
+				"instruction": "Setelah lewat tengah malam, berangkat dari Muzdalifah/Mina menuju Makkah. Lakukan Thawaf Ifadhah (7 putaran) di Masjidil Haram.",
+				"note": "Thawaf Ifadhah adalah rukun haji — wajib dikerjakan."
+			},
+			{
+				"title": "Sa'i Safa — Marwah",
+				"instruction": "Setelah Thawaf Ifadhah, lakukan Sa'i 7 kali antara Safa dan Marwah (sama seperti sa'i Umrah)."
+			},
+			{
+				"title": "Tahallul Awal",
+				"instruction": "Setelah Sa'i, tahallul: pria cukur/gunting rambut, wanita potong ujung rambut sejengkal.",
+				"note": "Tahallul Awal mengangkat sebagian larangan ihram — boleh ganti baju biasa, tapi hubungan suami-istri belum halal."
+			},
+			{
+				"title": "Istirahat & Ganti Baju di Ash Shishah",
+				"instruction": "Kembali ke apartment, mandi, ganti baju biasa, istirahat."
+			},
+			{
+				"title": "Lontar Jumrah Aqobah (setelah Ashar)",
+				"instruction": "Menuju Mina. Lontar 7 batu ke Jumrah Aqobah (yang paling besar/terdekat). Satu per satu sambil bertakbir.",
+				"arabic": "بِسْمِ اللَّهِ، اللَّهُ أَكْبَرُ",
+				"arabicSource": "dua-lontar-jumrah",
+				"warning": "Hati-hati crowded — ikuti arus jamaah, jangan dorong."
+			},
+			{
+				"title": "Tahallul Akhir + Mabit di Mina",
+				"instruction": "Setelah Jumrah Aqobah, lakukan Tahallul Akhir (cukur/gunting rambut lagi jika perlu). Semua larangan ihram terlepas. Mabit di tenda Mina."
+			}
+		],
+		"closingNote": "Alhamdulillah — hari terberat sudah lewat. Semua larangan ihram terlepas. Besok dan lusa tinggal lontar 3 jumrah.",
+		"duaIds": ["dua-tawaf", "dua-safa-marwah", "dua-lontar-jumrah"],
+		"dayNumbers": [17]
+	},
+	{
+		"id": "lontar-tiga-jumrah",
+		"title": "Lontar Tiga Jumrah",
+		"subtitle": "Hari Tasyriq (11–12 Zulhijjah)",
+		"phase": "rukun",
+		"overview": "Lontar tiga jumrah selama hari Tasyriq. Panduan ini berlaku untuk kedua hari (Hari 18 dan 19). Urutan: Ula → Wustha → Aqobah. Masing-masing 7 batu.",
+		"preparation": [
+			"Siapkan 21 batu kecil per hari (7 × 3 jumrah)",
+			"Pakai sandal kuat",
+			"Bawa botol minum besar",
+			"Baju ringan — cuaca panas di Mina"
+		],
+		"steps": [
+			{
+				"title": "Jumrah Ula (Terkecil)",
+				"instruction": "Lontar 7 batu ke Jumrah Ula (tiang paling kecil/jauh dari Ka'bah). Satu per satu sambil bertakbir.",
+				"arabic": "بِسْمِ اللَّهِ، اللَّهُ أَكْبَرُ",
+				"arabicSource": "dua-lontar-jumrah"
+			},
+			{
+				"title": "Berdiam & Berdoa (setelah Ula)",
+				"instruction": "Mundur sedikit, menghadap kiblat. Angkat tangan dan berdoa panjang. Ini sunnah yang sering terlewat.",
+				"note": "Doa di sini sangat mustajab — manfaatkan waktu ini."
+			},
+			{
+				"title": "Jumrah Wustha (Tengah)",
+				"instruction": "Lontar 7 batu ke Jumrah Wustha (tiang tengah). Satu per satu sambil bertakbir."
+			},
+			{
+				"title": "Berdiam & Berdoa (setelah Wustha)",
+				"instruction": "Sama seperti setelah Ula — mundur, menghadap kiblat, berdoa panjang."
+			},
+			{
+				"title": "Jumrah Aqobah (Terbesar)",
+				"instruction": "Lontar 7 batu ke Jumrah Aqobah (tiang paling besar/terdekat Ka'bah). Setelah selesai, langsung pergi — tidak perlu berdoa di sini.",
+				"warning": "Urutan wajib: Ula → Wustha → Aqobah. Jangan terbalik."
+			},
+			{
+				"title": "Kembali ke Ash Shishah",
+				"instruction": "Setelah lontar selesai, kembali ke apartment untuk makan dan istirahat.",
+				"note": "Hari 19 (Nafar Awal): wajib meninggalkan Mina sebelum Maghrib. Setelah itu seluruh amalan wajib haji selesai."
+			}
+		],
+		"closingNote": "Selamat — jika ini Hari 19 dan Anda sudah kembali sebelum Maghrib, seluruh ibadah haji Anda telah selesai. Alhamdulillah.",
+		"duaIds": ["dua-lontar-jumrah", "dua-antara-jumrah"],
+		"dayNumbers": [18, 19]
+	},
+	{
+		"id": "thawaf-wada",
+		"title": "Thawaf Wada — Perpisahan",
+		"subtitle": "Tawaf Perpisahan dengan Ka'bah",
+		"phase": "departure",
+		"overview": "Thawaf Wada adalah tawaf perpisahan sebelum meninggalkan Makkah. Momen emosional — untuk sementara, atau mungkin selamanya. Kerjakan dengan penuh kekhusyukan.",
+		"preparation": [
+			"Pakai baju rapi dan bersih",
+			"Pastikan semua barang sudah dikemas",
+			"Bawa dokumen kepulangan: paspor, boarding pass",
+			"Sholat 2 rakaat sebelum tawaf (sunnah)"
+		],
+		"steps": [
+			{
+				"title": "Check-out Apartment Ash Shishah",
+				"instruction": "Kemas semua barang. Koper besar sudah dikirim ke Jeddah. Bawa hanya tas kabin."
+			},
+			{
+				"title": "Berangkat ke Masjidil Haram",
+				"instruction": "Bus menuju Makkah sekitar pukul 21:00. Tiba di Masjidil Haram, berwudhu."
+			},
+			{
+				"title": "Thawaf Wada — 7 Putaran",
+				"instruction": "Tawaf 7 putaran seperti biasa. Perlahan, khusyuk. Hati-hati crowded.",
+				"note": "Thawaf Wada adalah wajib — tidak boleh ditinggalkan."
+			},
+			{
+				"title": "Shalat 2 Rakaat + Minum Zamzam",
+				"instruction": "Shalat di belakang Maqam Ibrahim. Minum zamzam terakhir kali."
+			},
+			{
+				"title": "Pandangan Terakhir ke Ka'bah",
+				"instruction": "Berdiri, pandangi Ka'bah. Berdoa dengan sepenuh hati. Ini mungkin pandangan terakhir Anda.",
+				"note": "Banyak ulama menangis di momen ini — tidak apa-apa."
+			},
+			{
+				"title": "Berangkat ke Jeddah → Jakarta",
+				"instruction": "Naik bus menuju Bandara Jeddah. Baca doa safar sebelum berangkat.",
+				"arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ",
+				"arabicSource": "dua-safar"
+			}
+		],
+		"closingNote": "Semoga Allah menerima ibadah haji Anda sebagai haji yang mabrur. Semoga kita dikembalikan ke Baitullah. Amin.",
+		"duaIds": ["dua-thawaf-wada", "dua-tawaf", "dua-safar"],
+		"dayNumbers": [25]
+	}
+]
