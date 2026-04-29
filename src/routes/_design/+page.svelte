@@ -1,14 +1,20 @@
 <script lang="ts">
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
+	import Card from '$lib/components/ui/Card.svelte';
+	import HeroCard from '$lib/components/ui/HeroCard.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
+	import PhoneButton from '$lib/components/ui/PhoneButton.svelte';
+	import WhatsAppButton from '$lib/components/ui/WhatsAppButton.svelte';
+	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 
 	const phases = [
-		{ key: 'arrival', label: 'Arrival', color: 'var(--color-phase-arrival)' },
-		{ key: 'madinah', label: 'Madinah', color: 'var(--color-phase-madinah)' },
-		{ key: 'makkah', label: 'Makkah', color: 'var(--color-phase-makkah)' },
-		{ key: 'ash-shishah', label: 'Ash Shishah', color: 'var(--color-phase-ash-shishah)' },
-		{ key: 'rukun', label: 'Rukun (Wukuf)', color: 'var(--color-phase-rukun)' },
-		{ key: 'post-hajj', label: 'Post-Hajj', color: 'var(--color-phase-post-hajj)' },
-		{ key: 'departure', label: 'Departure', color: 'var(--color-phase-departure)' }
+		{ key: 'arrival', label: 'Kedatangan' },
+		{ key: 'madinah', label: 'Madinah' },
+		{ key: 'makkah', label: 'Makkah' },
+		{ key: 'ash-shishah', label: 'Ash-Shishah' },
+		{ key: 'rukun', label: 'Rukun Haji' },
+		{ key: 'post-hajj', label: 'Pasca Haji' },
+		{ key: 'departure', label: 'Kepulangan' }
 	];
 
 	const talbiyah =
@@ -17,68 +23,121 @@
 	const niatHaji = 'لَبَّيْكَ اللَّهُمَّ حَجًّا';
 </script>
 
-<svelte:head><title>Design Tokens — Dev Only</title></svelte:head>
+<svelte:head><title>Design Gallery — Dev Only</title></svelte:head>
 
 <div class="mx-auto max-w-[480px] space-y-12 px-4 py-10">
 	<header>
 		<p class="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
 			Dev Route
 		</p>
-		<h1 class="mt-1 text-2xl font-semibold">Design Tokens</h1>
-		<p class="mt-1 text-sm text-[var(--color-muted)]">Patuna Coklat-B Hajj Companion</p>
+		<h1 class="mt-1 text-2xl font-semibold">Design Gallery</h1>
+		<p class="mt-1 text-sm text-[var(--color-muted)]">Patuna Coklat-B Hajj Companion — Task 10</p>
 	</header>
 
-	<!-- Colors -->
+	<!-- ── Phase Ribbons ── -->
 	<section class="space-y-3">
-		<h2 class="text-lg font-semibold">Brand Colors</h2>
-		<div class="flex gap-2">
-			<div
-				class="h-12 w-12 rounded-lg"
-				style="background: var(--color-brand)"
-				title="brand #5C3A21"
-			></div>
-			<div
-				class="h-12 w-12 rounded-lg"
-				style="background: var(--color-gold)"
-				title="gold #C8A971"
-			></div>
-			<div
-				class="h-12 w-12 rounded-lg border border-[var(--color-border)]"
-				style="background: var(--color-background)"
-				title="background #FAFAF7"
-			></div>
-			<div
-				class="h-12 w-12 rounded-lg"
-				style="background: var(--color-foreground)"
-				title="foreground #1A1A1A"
-			></div>
-			<div
-				class="h-12 w-12 rounded-lg"
-				style="background: var(--color-muted)"
-				title="muted #6B6560"
-			></div>
-		</div>
-	</section>
-
-	<!-- Phase colors -->
-	<section class="space-y-3">
-		<h2 class="text-lg font-semibold">Phase Colors</h2>
-		<div class="space-y-2">
-			{#each phases as phase}
-				<div class="flex items-center gap-3">
-					<div
-						class="h-4 w-full rounded-full phase-ribbon"
-						style="background: {phase.color}"
-					></div>
-					<span class="w-32 shrink-0 text-sm text-[var(--color-muted)]">{phase.label}</span>
-				</div>
+		<h2 class="text-lg font-semibold">PhaseRibbon</h2>
+		<div class="flex flex-wrap gap-2">
+			{#each phases as p}
+				<PhaseRibbon phase={p.key} label={p.label} />
 			{/each}
 		</div>
 	</section>
 
-	<!-- Type scale -->
+	<!-- ── Buttons ── -->
 	<section class="space-y-3">
-		<h2 class="text-lg font-semibold">Type Scale (Inter)</h2>
+		<h2 class="text-lg font-semibold">Button</h2>
+		<div class="flex flex-wrap gap-3">
+			<Button>Lihat Detail</Button>
+			<Button variant="secondary">Simpan</Button>
+			<Button variant="ghost">Batal</Button>
+		</div>
+		<div class="flex flex-wrap gap-3">
+			<Button size="sm">Kecil</Button>
+			<Button size="md">Sedang</Button>
+			<Button size="lg">Besar</Button>
+		</div>
+		<div class="flex flex-wrap gap-3">
+			<Button disabled>Disabled</Button>
+			<Button href="/itinerary">Link Button →</Button>
+		</div>
+	</section>
+
+	<!-- ── Phone + WhatsApp ── -->
+	<section class="space-y-3">
+		<h2 class="text-lg font-semibold">PhoneButton + WhatsAppButton</h2>
+		<div class="flex flex-wrap gap-3">
+			<PhoneButton number="+62 812 3456 7890" label="Pak Ahmad (Muthawwif)" />
+			<WhatsAppButton number="+62 812 3456 7890" label="WhatsApp Ketua" message="Assalamu'alaikum Pak, saya jamaah Coklat B..." />
+		</div>
+	</section>
+
+	<!-- ── Cards ── -->
+	<section class="space-y-3">
+		<h2 class="text-lg font-semibold">Card</h2>
+		<Card>
+			<p class="font-medium">Kartu biasa</p>
+			<p class="mt-1 text-sm text-[var(--color-muted)]">Tanpa efek tekan</p>
+		</Card>
+		<Card pressable>
+			<p class="font-medium">Kartu bisa ditekan</p>
+			<p class="mt-1 text-sm text-[var(--color-muted)]">Scale 0.98 saat active — 100ms ease-out</p>
+		</Card>
+		<Card pressable href="/itinerary">
+			<p class="font-medium">Kartu sebagai link →</p>
+			<p class="mt-1 text-sm text-[var(--color-muted)]">Navigasi ke /itinerary</p>
+		</Card>
+	</section>
+
+	<!-- ── HeroCard ── -->
+	<section class="space-y-3">
+		<h2 class="text-lg font-semibold">HeroCard</h2>
+		{#each phases as p}
+			<HeroCard phase={p.key}>
+				{#snippet label()}
+					<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">{p.label}</p>
+				{/snippet}
+				<p class="text-xl font-semibold text-white">Hari 16 — Wukuf di Arafah</p>
+				<p class="mt-1 text-sm text-white/80">9 Zulhijjah · 26 Mei 2026</p>
+			</HeroCard>
+		{/each}
+	</section>
+
+	<!-- ── Arabic Rendering ── -->
+	<section class="space-y-4">
+		<h2 class="text-lg font-semibold">Arabic Rendering (Amiri)</h2>
+		<Card>
+			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">xl — Niat Haji</p>
+			<ArabicText text={niatHaji} size="xl" />
+			<p class="mt-1 text-sm italic text-[var(--color-muted)]">Labbaik Allahumma Hajjan</p>
+		</Card>
+		<Card>
+			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">lg — Niat Umrah</p>
+			<ArabicText text={niatUmrah} size="lg" />
+			<p class="mt-1 text-sm italic text-[var(--color-muted)]">Labbaik Allahumma 'Umratan</p>
+		</Card>
+		<Card>
+			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">base — Talbiyah</p>
+			<ArabicText text={talbiyah} size="base" />
+			<p class="mt-1 text-sm text-[var(--color-muted)]">Labbaik Allahumma Labbaik...</p>
+		</Card>
+	</section>
+
+	<!-- ── HeroCard with Arabic ── -->
+	<section class="space-y-3">
+		<h2 class="text-lg font-semibold">HeroCard + Arabic (Niat Card)</h2>
+		<HeroCard phase="rukun">
+			{#snippet label()}
+				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">Niat Haji</p>
+			{/snippet}
+			<ArabicText text={niatHaji} size="xl" class="text-white" />
+			<p class="mt-2 text-sm text-white/70 italic">Labbaik Allahumma Hajjan</p>
+		</HeroCard>
+	</section>
+
+	<!-- ── Type Scale ── -->
+	<section class="space-y-3">
+		<h2 class="text-lg font-semibold">Type Scale</h2>
 		<div class="space-y-2">
 			<p style="font-size: var(--text-3xl); font-weight: 600; line-height: 1.2">Hari 16 — Wukuf</p>
 			<p style="font-size: var(--text-2xl); font-weight: 600">Padang Arafah</p>
@@ -94,64 +153,17 @@
 		</div>
 	</section>
 
-	<!-- Arabic rendering — THE critical test -->
-	<section class="space-y-4">
-		<h2 class="text-lg font-semibold">Arabic Rendering (Amiri)</h2>
-		<div
-			class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 space-y-4"
-		>
-			<div>
-				<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">
-					xl — Niat Haji (hero card)
-				</p>
-				<ArabicText text={niatHaji} size="xl" />
-				<p class="mt-1 text-sm italic text-[var(--color-muted)]">
-					Labbaik Allahumma Hajjan
-				</p>
-			</div>
-			<div>
-				<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">
-					lg — Niat Umrah
-				</p>
-				<ArabicText text={niatUmrah} size="lg" />
-				<p class="mt-1 text-sm italic text-[var(--color-muted)]">
-					Labbaik Allahumma 'Umratan
-				</p>
-			</div>
-			<div>
-				<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">
-					base — Talbiyah (full)
-				</p>
-				<ArabicText text={talbiyah} size="base" />
-				<p class="mt-1 text-sm text-[var(--color-muted)]">
-					Labbaik Allahumma Labbaik, Labbaik laa syariika laka labbaik...
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Card press test -->
-	<section class="space-y-3">
-		<h2 class="text-lg font-semibold">Card Press Animation</h2>
-		<div
-			class="card-pressable rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5"
-		>
-			<p class="font-medium">Tap me — should scale to 0.98</p>
-			<p class="mt-1 text-sm text-[var(--color-muted)]">100ms ease-out, no bounce</p>
-		</div>
-	</section>
-
-	<!-- Dark mode toggle -->
+	<!-- ── Dark mode toggle ── -->
 	<section class="space-y-3">
 		<h2 class="text-lg font-semibold">Dark Mode</h2>
-		<button
-			class="tap-target rounded-lg border border-[var(--color-border)] px-4 text-sm font-medium"
+		<Button
+			variant="secondary"
 			onclick={() => {
 				const html = document.documentElement;
 				html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
 			}}
 		>
 			Toggle Dark Mode
-		</button>
+		</Button>
 	</section>
 </div>
