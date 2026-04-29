@@ -1,39 +1,67 @@
+/* Fonts — self-hosted via fontsource, works offline after first load */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/source-serif-4/wght.css';
+@import '@fontsource/amiri/400.css';
+@import '@fontsource/amiri/700.css';
+@import '@fontsource/amiri/400-italic.css';
+
 @import 'tailwindcss';
 
 @theme {
-	/* Colors */
-	--color-background: #fafaf7;
-	--color-foreground: #1a1a1a;
+	/* ── Brand colors ── */
 	--color-brand: #5c3a21;
+	--color-brand-light: #7a5035;
 	--color-gold: #c8a971;
-	--color-phase-madinah: #0f4c3a;
-	--color-phase-makkah: #5c3a21;
-	--color-phase-rukun: #c8a971;
+	--color-gold-light: #e0c99a;
+
+	/* ── Neutral ── */
+	--color-background: #fafaf7;
+	--color-surface: #f2efe8;
+	--color-border: #e5e0d5;
+	--color-foreground: #1a1a1a;
+	--color-muted: #6b6560;
+
+	/* ── Dark mode ── */
+	--color-background-dark: #0e0e0c;
+	--color-surface-dark: #1a1916;
+	--color-border-dark: #2e2c28;
+	--color-foreground-dark: #edeae2;
+	--color-muted-dark: #9a9590;
+
+	/* ── Phase colors (ribbon + accent) ── */
 	--color-phase-arrival: #2d4a6e;
+	--color-phase-madinah: #0f4c3a;
+	--color-phase-madinah-to-makkah: #5c3a21;
+	--color-phase-makkah: #5c3a21;
 	--color-phase-ash-shishah: #4a3728;
+	--color-phase-rukun: #9a7a3a;
 	--color-phase-post-hajj: #5c3a21;
 	--color-phase-departure: #2d4a6e;
 
-	/* Dark mode */
-	--color-background-dark: #0e0e0c;
-	--color-foreground-dark: #edeae2;
+	/* ── Typography ── */
+	--font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+	--font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+	--font-arabic: 'Amiri', serif;
 
-	/* Typography */
-	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-	--font-serif: 'Source Serif 4', Georgia, serif;
-	--font-arabic: 'Amiri', 'Scheherazade New', serif;
+	/* ── Type scale ── */
+	--text-xs: 0.8125rem; /* 13px */
+	--text-sm: 0.9375rem; /* 15px */
+	--text-base: 1rem; /* 16px */
+	--text-lg: 1.125rem; /* 18px */
+	--text-xl: 1.375rem; /* 22px */
+	--text-2xl: 1.75rem; /* 28px */
+	--text-3xl: 2.25rem; /* 36px */
+	--text-arabic-base: 1.5rem; /* 24px — Arabic needs larger size */
+	--text-arabic-lg: 2rem; /* 32px — niat cards */
+	--text-arabic-xl: 2.5rem; /* 40px — hero niat */
 
-	/* Type scale */
-	--text-xs: 0.875rem;
-	--text-sm: 0.9375rem;
-	--text-base: 1rem;
-	--text-lg: 1.125rem;
-	--text-xl: 1.375rem;
-	--text-2xl: 1.75rem;
-	--text-3xl: 2.25rem;
+	/* ── Spacing ── */
+	--spacing-safe-top: env(safe-area-inset-top, 0px);
+	--spacing-safe-bottom: env(safe-area-inset-bottom, 0px);
+	--spacing-nav-height: 64px;
 }
 
-/* Base */
+/* ── Base reset ── */
 *,
 *::before,
 *::after {
@@ -47,42 +75,74 @@ html {
 	color: var(--color-foreground);
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
-}
-
-html[data-theme='dark'] {
-	background-color: var(--color-background-dark);
-	color: var(--color-foreground-dark);
+	scroll-behavior: smooth;
 }
 
 body {
 	margin: 0;
 	min-height: 100dvh;
-	min-height: -webkit-fill-available;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
 }
 
-/* Safe area utilities */
-.safe-top {
-	padding-top: env(safe-area-inset-top);
-}
-.safe-bottom {
-	padding-bottom: env(safe-area-inset-bottom);
+/* ── Dark mode ── */
+html[data-theme='dark'] {
+	background-color: var(--color-background-dark);
+	color: var(--color-foreground-dark);
 }
 
-/* Arabic text */
+html[data-theme='dark'] body {
+	--color-surface: var(--color-surface-dark);
+	--color-border: var(--color-border-dark);
+	--color-muted: var(--color-muted-dark);
+}
+
+/* ── Arabic text ── */
 .arabic {
 	font-family: var(--font-arabic);
 	direction: rtl;
 	text-align: right;
-	line-height: 2;
+	line-height: 2.2;
+	font-size: var(--text-arabic-base);
 }
 
-/* Tap target minimum */
+.arabic-lg {
+	font-family: var(--font-arabic);
+	direction: rtl;
+	text-align: right;
+	line-height: 2.2;
+	font-size: var(--text-arabic-lg);
+}
+
+.arabic-xl {
+	font-family: var(--font-arabic);
+	direction: rtl;
+	text-align: right;
+	line-height: 2.2;
+	font-size: var(--text-arabic-xl);
+}
+
+/* ── Safe area utilities ── */
+.pt-safe {
+	padding-top: env(safe-area-inset-top, 0px);
+}
+.pb-safe {
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pb-nav {
+	padding-bottom: calc(var(--spacing-nav-height) + env(safe-area-inset-bottom, 0px));
+}
+
+/* ── Tap target ── */
 .tap-target {
 	min-height: 44px;
 	min-width: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-/* Page transition */
+/* ── Page transition ── */
 .page-enter {
 	animation: page-in 200ms ease-out;
 }
@@ -96,4 +156,19 @@ body {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+/* ── Phase ribbon transition ── */
+.phase-ribbon {
+	transition: background-color 800ms ease-in-out;
+}
+
+/* ── Card press animation ── */
+.card-pressable {
+	transition: transform 100ms ease-out;
+	cursor: pointer;
+}
+
+.card-pressable:active {
+	transform: scale(0.98);
 }
