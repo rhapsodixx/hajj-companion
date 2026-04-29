@@ -36,6 +36,7 @@ Design a mobile UI system with these exact characteristics:
 **Atmosphere:** Paper-quiet and contemplative. Think a beautifully printed manasik guidebook brought to life on screen. Restrained like Apple Notes, typographically precise like Stripe Docs, spiritually grounded like the printed Quran. Density 3 out of 10 — generous whitespace, nothing crowded. Variance 5 — calm asymmetry, not rigid symmetry. Motion 3 — subtle and purposeful, nothing decorative.
 
 **Color Palette:**
+
 - Ihram White (#FAFAF7) — primary background, warm off-white like unbleached cotton
 - Surface Parchment (#F2EFE8) — card backgrounds, slightly warmer than background
 - Border Sand (#E5E0D5) — all dividers and card borders, 1px only
@@ -48,6 +49,7 @@ Design a mobile UI system with these exact characteristics:
 - Dark Text (#EDEAE2) — dark mode primary text
 
 **Typography:**
+
 - Headlines and UI labels: Inter Variable, weight 600, tight letter-spacing
 - Body prose (tips, explanations, descriptions): Source Serif 4 Variable, weight 400, line-height 1.7
 - Arabic text (du'a, niat, address cards): Amiri, minimum 24px, direction RTL, line-height 2.2, full diacritics always
@@ -55,6 +57,7 @@ Design a mobile UI system with these exact characteristics:
 - NEVER use decorative display fonts — this is not a marketing app
 
 **Components:**
+
 - Cards: rounded-2xl (16px), Surface Parchment background, Border Sand 1px border, no drop shadow. On tap: scale to 0.98 over 100ms, no bounce.
 - Buttons primary: Patuna Brown fill, white text, rounded-xl, 52px height minimum, no outer glow
 - Buttons ghost: Border Sand 1px border, Kiswah Black text, same sizing
@@ -63,18 +66,21 @@ Design a mobile UI system with these exact characteristics:
 - Arabic niat cards: parchment background (#EDE8DC), generous padding, rounded-2xl, centered Arabic at 40px, Latin transliteration in italic Muted Stone below
 
 **Layout:**
+
 - Single column, max width 480px, centered on larger screens
 - Minimum tap target 44×44px everywhere
 - iOS safe area insets respected top and bottom
 - Content scrolls behind fixed bottom nav — always add bottom padding equal to nav height + safe area
 
 **Motion (minimal):**
+
 - Page transitions: 200ms ease-out fade + 4px upward slide
 - Card press: 100ms scale to 0.98, immediate release
 - Phase ribbon color: 800ms ease-in-out color drift
 - BANNED: bounce, parallax, confetti, carousels, scroll-jacking, spinning loaders
 
 **Anti-patterns — NEVER do any of these:**
+
 - No green-and-gold Islamic clipart or ornamental geometric borders
 - No Ramadan-greeting-card aesthetic
 - No mosque silhouettes or Kaaba icons as decoration
@@ -152,6 +158,7 @@ Design the day detail screen for Hari 16 — Wukuf di Arafah. This is the most s
 **Top bar:** "← Jadwal" ghost text button in Patuna Brown, left-aligned, 44px tap target.
 
 **Day header block:**
+
 - "HARI 16" in 11px tracking-widest Muted Stone uppercase
 - "Wukuf di Arafah" in 28px semibold Kiswah Black — this is the most prominent line
 - "Selasa, 26 Mei 2026 · 9 Zulhijjah 1447" in 14px Muted Stone
@@ -184,6 +191,7 @@ Design the ritual guide walkthrough screen for Wukuf Arafah. This is the most im
 **Step dots:** 6 small dots centered below the top bar, 8px gap between. Current dot (dot 2): 8px diameter, Patuna Brown filled. Other dots: 6px diameter, Border Sand filled with Muted Stone border. No numbers. No progress bar. Just quiet dots.
 
 **Step card:** Large card filling most of the screen height, 16px horizontal margin, Surface Parchment background, rounded-2xl, 24px padding. Content inside:
+
 - "Langkah 2 dari 6" in 11px tracking-widest Muted Stone uppercase
 - "Niat Haji" in 22px semibold Kiswah Black
 - Arabic in Amiri 40px centered: لَبَّيْكَ اللَّهُمَّ حَجًّا
@@ -267,6 +275,7 @@ After each screen, use short targeted follow-ups if needed. Examples:
 ## After All Screens Are Approved
 
 Export each screen as PNG. Place them at:
+
 ```
 docs/mockups/screen-1-home-daytime.png
 docs/mockups/screen-2-home-evening.png

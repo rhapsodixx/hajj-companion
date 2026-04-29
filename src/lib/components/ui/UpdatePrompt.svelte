@@ -20,13 +20,13 @@
 	>
 		<div class="mx-auto flex max-w-120 items-center gap-3">
 			<p class="min-w-0 flex-1 text-sm text-white">
-				Pembaruan tersedia — informasi jadwal terbaru.
+				Ada informasi jadwal terbaru. Silakan muat ulang.
 			</p>
 			<button
 				onclick={update}
 				class="tap-target shrink-0 rounded-lg bg-white px-4 text-sm font-semibold text-(--color-brand)"
 			>
-				Perbarui
+				Update
 			</button>
 		</div>
 	</div>

@@ -39,23 +39,17 @@
 	>
 		<div class="mx-auto flex max-w-120 items-center gap-3">
 			<div class="min-w-0 flex-1">
-				<p class="text-sm font-semibold text-foreground">
-					Simpan di layar utama
-				</p>
-				<p class="text-xs text-muted">Akses offline tanpa koneksi internet</p>
+				<p class="text-sm font-semibold text-foreground">Simpan di layar utama</p>
+				<p class="text-xs text-muted">Bisa dibuka walau tanpa internet</p>
 			</div>
-			<button
-				onclick={dismiss}
-				class="tap-target shrink-0 text-sm text-muted"
-				aria-label="Tutup"
-			>
+			<button onclick={dismiss} class="tap-target shrink-0 text-sm text-muted" aria-label="Tutup">
 				Nanti
 			</button>
 			<button
 				onclick={install}
 				class="tap-target shrink-0 rounded-lg bg-(--color-brand) px-4 text-sm font-semibold text-white"
 			>
-				Pasang
+				Simpan
 			</button>
 		</div>
 	</div>

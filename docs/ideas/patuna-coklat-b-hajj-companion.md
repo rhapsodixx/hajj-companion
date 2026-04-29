@@ -143,6 +143,17 @@ Bundled JSON of ~30 most relevant du'a, extracted from _Doa Zikir Haji Umrah.pdf
 - Du'a Thawaf Wada
 - Each entry: Arabic + Latin + Bahasa, with a "kapan dibaca" tag
 
+**Discovery: category chips + search bar.**
+
+Two complementary paths for finding du'as:
+
+1. **Category chips** — Horizontal scrollable row of tappable chips (Semua, Niat, Masjid, Tawaf, Sa'i, Wukuf, Jumrah, Safar, Umum). One tap filters the list. Primary path for the target demographic (45–65, avoids typing).
+2. **Search bar** — Filters across `title`, `translation`, and `whenToRead`. Case-insensitive, accent-insensitive. Overrides chip selection when active. Serves edge cases where a pilgrim knows a keyword but not the category.
+
+When neither is active, the list renders grouped by category. When a chip is selected, only that category renders flat. When searching, results render flat with category as secondary text.
+
+See `docs/ideas/dua-search.md` for full design spec.
+
 ### 5.7 Climate Reference
 
 Bundled JSON: per-city, per-Hijri-date typical climate norm. Sourced from historical data for Madinah, Makkah, Mina, Arafah, Muzdalifah. No live forecast.

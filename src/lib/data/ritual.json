@@ -4,7 +4,7 @@
 		"title": "Panduan Umrah",
 		"subtitle": "Ihram, Tawaf, Sa'i, Tahallul",
 		"phase": "madinah-to-makkah",
-		"overview": "Umrah pertama Anda — momen paling bersejarah dalam perjalanan ini. Panduan ini membantu Anda melalui setiap langkah: dari berihram di Bir Ali hingga tahallul di depan Ka'bah.",
+		"overview": "Umrah pertama — momen paling bersejarah dalam perjalanan ini. Panduan ini akan membimbing melalui setiap langkah: dari berihram di Bir Ali hingga tahallul di depan Ka'bah.",
 		"preparation": [
 			"Mandi sebelum berihram (sunnah)",
 			"Pakai baju ihram: pria 2 lembar kain putih, wanita gamis putih",
@@ -25,7 +25,7 @@
 				"instruction": "Selama dalam ihram, terus ulangi talbiyah hingga melihat Ka'bah:",
 				"arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيكَ لَكَ",
 				"arabicSource": "talbiyah",
-				"note": "Laki-lafi disunnahkan mengeraskan suara, wanita cukup terdengar oleh diri sendiri."
+				"note": "Laki-laki disunnahkan mengeraskan suara, wanita cukup terdengar oleh diri sendiri."
 			},
 			{
 				"title": "Tawaf 7 Putaran",
@@ -52,7 +52,7 @@
 				"note": "Setelah tahallul, semua larangan ihram terlepas. Umrah selesai."
 			}
 		],
-		"closingNote": "Alhamdulillah, Umrah Anda selesai. Segala larangan ihram sudah terlepas. Istirahat dan persiapkan diri untuk ibadah haji.",
+		"closingNote": "Alhamdulillah, ibadah Umrah telah selesai. Segala larangan ihram sudah terlepas. Istirahat dan persiapkan diri untuk ibadah haji.",
 		"duaIds": ["niat-umrah", "talbiyah", "dua-melihat-kabah", "dua-tawaf", "dua-safa-marwah"],
 		"dayNumbers": [7]
 	},
@@ -101,7 +101,7 @@
 				"note": "Kumpulkan 49 batu kecil untuk lontar jumrah (atau 70 jika 3 hari)."
 			}
 		],
-		"closingNote": "Alhamdulillah, wukuf selesai. Ini adalah hari paling agung. Semoga Allah menerima seluruh ibadah Anda.",
+		"closingNote": "Alhamdulillah, wukuf selesai. Ini adalah hari paling agung. Semoga Allah menerima seluruh ibadah jamaah.",
 		"duaIds": ["niat-haji", "talbiyah", "dua-wukuf-arafah", "dua-arafah", "dua-muzdalifah"],
 		"dayNumbers": [15, 16]
 	},
@@ -195,7 +195,7 @@
 				"note": "Hari 19 (Nafar Awal): wajib meninggalkan Mina sebelum Maghrib. Setelah itu seluruh amalan wajib haji selesai."
 			}
 		],
-		"closingNote": "Selamat — jika ini Hari 19 dan Anda sudah kembali sebelum Maghrib, seluruh ibadah haji Anda telah selesai. Alhamdulillah.",
+		"closingNote": "Selamat — jika ini Hari 19 dan jamaah sudah kembali sebelum Maghrib, seluruh rangkaian haji telah selesai. Alhamdulillah.",
 		"duaIds": ["dua-lontar-jumrah", "dua-antara-jumrah"],
 		"dayNumbers": [18, 19]
 	},
@@ -231,7 +231,7 @@
 			},
 			{
 				"title": "Pandangan Terakhir ke Ka'bah",
-				"instruction": "Berdiri, pandangi Ka'bah. Berdoa dengan sepenuh hati. Ini mungkin pandangan terakhir Anda.",
+				"instruction": "Berdiri, pandangi Ka'bah. Berdoa dengan sepenuh hati. Ini mungkin pandangan terakhir ke Baitullah.",
 				"note": "Banyak ulama menangis di momen ini — tidak apa-apa."
 			},
 			{
@@ -241,7 +241,7 @@
 				"arabicSource": "dua-safar"
 			}
 		],
-		"closingNote": "Semoga Allah menerima ibadah haji Anda sebagai haji yang mabrur. Semoga kita dikembalikan ke Baitullah. Amin.",
+		"closingNote": "Semoga Allah menerima ibadah haji jamaah sebagai haji yang mabrur. Semoga kita dikembalikan ke Baitullah. Amin.",
 		"duaIds": ["dua-thawaf-wada", "dua-tawaf", "dua-safar"],
 		"dayNumbers": [25]
 	}

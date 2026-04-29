@@ -13,7 +13,7 @@
 		{ key: 'makkah', label: 'Makkah' },
 		{ key: 'ash-shishah', label: 'Ash-Shishah' },
 		{ key: 'rukun', label: 'Rukun Haji' },
-		{ key: 'post-hajj', label: 'Pasca Haji' },
+		{ key: 'post-hajj', label: 'Setelah Haji' },
 		{ key: 'departure', label: 'Kepulangan' }
 	];
 
@@ -27,9 +27,7 @@
 
 <div class="mx-auto max-w-120 space-y-12 px-4 py-10">
 	<header>
-		<p class="text-xs font-semibold tracking-widest text-muted uppercase">
-			Dev Route
-		</p>
+		<p class="text-xs font-semibold tracking-widest text-muted uppercase">Dev Route</p>
 		<h1 class="mt-1 text-2xl font-semibold">Design Gallery</h1>
 		<p class="mt-1 text-sm text-muted">Patuna Coklat-B Hajj Companion — Task 10</p>
 	</header>
@@ -68,7 +66,11 @@
 		<h2 class="text-lg font-semibold">PhoneButton + WhatsAppButton</h2>
 		<div class="flex flex-wrap gap-3">
 			<PhoneButton number="+62 812 3456 7890" label="Pak Ahmad (Muthawwif)" />
-			<WhatsAppButton number="+62 812 3456 7890" label="WhatsApp Ketua" message="Assalamu'alaikum Pak, saya jamaah Coklat B..." />
+			<WhatsAppButton
+				number="+62 812 3456 7890"
+				label="WhatsApp Ketua"
+				message="Assalamu'alaikum Pak, saya jamaah Coklat B..."
+			/>
 		</div>
 	</section>
 
@@ -105,16 +107,16 @@
 
 	<!-- ── Arabic Rendering ── -->
 	<section class="space-y-4">
-		<h2 class="text-lg font-semibold">Arabic Rendering (Amiri)</h2>
+		<h2 class="text-lg font-semibold">Arabic Rendering (Noto Naskh Arabic)</h2>
 		<Card>
 			<p class="mb-1 text-xs font-medium text-muted uppercase">xl — Niat Haji</p>
 			<ArabicText text={niatHaji} size="xl" />
-			<p class="mt-1 text-sm italic text-muted">Labbaik Allahumma Hajjan</p>
+			<p class="mt-1 text-sm text-muted italic">Labbaik Allahumma Hajjan</p>
 		</Card>
 		<Card>
 			<p class="mb-1 text-xs font-medium text-muted uppercase">lg — Niat Umrah</p>
 			<ArabicText text={niatUmrah} size="lg" />
-			<p class="mt-1 text-sm italic text-muted">Labbaik Allahumma 'Umratan</p>
+			<p class="mt-1 text-sm text-muted italic">Labbaik Allahumma 'Umratan</p>
 		</Card>
 		<Card>
 			<p class="mb-1 text-xs font-medium text-muted uppercase">base — Talbiyah</p>

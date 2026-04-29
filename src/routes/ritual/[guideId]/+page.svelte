@@ -2,11 +2,22 @@
 	import { page } from '$app/state';
 	import { getGuide } from '$lib/data/ritual';
 	import { getDuaByIds } from '$lib/data/dua';
+	import { getContact } from '$lib/data/contacts';
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
+	import LostButton from '$lib/components/ui/LostButton.svelte';
 
 	const guideId = $derived(page.params?.guideId ?? '');
 	const guide = $derived(getGuide(guideId));
 	const relatedDuas = $derived(guide ? getDuaByIds(guide.duaIds) : []);
+
+	function getHotelForDay(dayNumbers: number[]) {
+		const firstDay = dayNumbers[0] ?? 0;
+		if (firstDay >= 1 && firstDay <= 6) return getContact('hotel-madinah');
+		if (firstDay >= 7 && firstDay <= 10) return getContact('hotel-makkah');
+		return getContact('apartment-ash-shishah');
+	}
+
+	const hotel = $derived(guide ? getHotelForDay(guide.dayNumbers) : null);
 </script>
 
 <svelte:head>
@@ -144,6 +155,11 @@
 					{/each}
 				</div>
 			</section>
+		{/if}
+
+		<!-- Lost? Show hotel address to taxi driver -->
+		{#if hotel}
+			<LostButton {hotel} />
 		{/if}
 	</div>
 {:else}

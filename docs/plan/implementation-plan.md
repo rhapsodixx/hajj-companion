@@ -423,23 +423,30 @@ If you fall behind by Day 7, cut Task 21 (Supabase overrides). The PRD already s
 
 ### Task 16: Du'a library
 
-**What:** Build `/dua` per PRD §5.6: searchable, grouped by Hajj phase. Each entry: title in Bahasa, expand to show Arabic (large, Amiri) + Latin + Bahasa, tap-to-copy.
+**What:** Build `/dua` per PRD §5.6 with category chips + search bar (see `docs/ideas/dua-search.md` for full spec). Two discovery paths: tappable category chips (primary) + text search across title/translation/whenToRead (secondary). Grouped by category when no filter active, flat filtered list when chip or search is active.
 
 **Files:**
 
-- `src/routes/dua/+page.svelte`
-- `src/lib/components/dua/DuaListItem.svelte`
+- `src/routes/(app)/dua/+page.svelte`
 - `src/lib/components/dua/SearchBar.svelte`
+- `src/lib/components/dua/CategoryChips.svelte`
 
 **Acceptance:**
 
-- All ~30 du'a render
-- Search filters by title + Bahasa translation (case-insensitive, accent-insensitive)
-- Tap-to-copy copies Arabic text to clipboard with toast confirmation
-- Arabic renders in Amiri at 28px+ for readability
-- Group headers use phase colors
+- All du'as render grouped by category (default state)
+- Category chip row: 9 chips (Semua + 8 categories), horizontal scroll, tap to filter, tap again to deselect
+- Search filters by title + translation + whenToRead (case-insensitive, accent-insensitive via NFD normalization)
+- Search overrides chip selection when active; clearing search restores chip state
+- Result count shown when filtering ("3 doa ditemukan")
+- Empty state when no results ("Doa tidak ditemukan. Coba kata lain.")
+- Sticky header (search + chips) on scroll
+- Clear button (×) in search input
+- Arabic renders in Noto Naskh Arabic at `arabic-lg` size for readability
+- No new dependencies — native `String.includes()` on normalized strings
 
-**Effort:** 2h
+**Not in this task:** tap-to-copy Arabic text, Arabic text search, fuzzy search, search history
+
+**Effort:** 2–3h
 **Dependencies:** Task 11, Task 5
 
 ---

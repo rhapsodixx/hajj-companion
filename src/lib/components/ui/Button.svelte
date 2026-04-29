@@ -23,7 +23,8 @@
 		class: className = ''
 	}: Props = $props();
 
-	const base = 'inline-flex items-center justify-center font-medium rounded-lg tap-target transition-transform duration-100 ease-out active:scale-[0.98] select-none';
+	const base =
+		'inline-flex items-center justify-center font-medium rounded-lg tap-target transition-transform duration-100 ease-out active:scale-[0.98] select-none';
 
 	const variants = {
 		primary: 'bg-(--color-brand) text-white',

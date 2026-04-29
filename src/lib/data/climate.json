@@ -1,65 +1,65 @@
 [
-  {
-    "id": "jakarta-may",
-    "city": "Jakarta",
-    "month": "May",
-    "tempMinC": 25,
-    "tempMaxC": 32,
-    "humidity": 75,
-    "advice": "Cuaca Jakarta biasanya panas dan lembab. Kenakan pakaian yang nyaman dan pastikan sudah berpamitan dengan keluarga."
-  },
-  {
-    "id": "madinah-may",
-    "city": "Madinah",
-    "month": "May",
-    "tempMinC": 24,
-    "tempMaxC": 41,
-    "humidity": 15,
-    "advice": "Madinah sangat panas dan kering di siang hari. Minum minimal 3 liter air per hari. Masjid Nabawi berpendingin — bawa jaket tipis. Hindari aktivitas di luar antara pukul 11.00–15.00."
-  },
-  {
-    "id": "makkah-may",
-    "city": "Makkah",
-    "month": "May",
-    "tempMinC": 27,
-    "tempMaxC": 43,
-    "humidity": 20,
-    "advice": "Makkah lebih panas dari Madinah. Minum 3–4 liter air per hari. Masjidil Haram berpendingin kuat — bawa jaket. Gunakan payung saat di luar. Hindari aktivitas berat di siang hari terik."
-  },
-  {
-    "id": "makkah-june",
-    "city": "Makkah",
-    "month": "June",
-    "tempMinC": 29,
-    "tempMaxC": 45,
-    "humidity": 18,
-    "advice": "Juni adalah bulan terpanas. Suhu bisa mencapai 45°C di siang hari. Perbanyak minum zamzam. Gunakan pelembab kulit dan lip balm karena udara sangat kering."
-  },
-  {
-    "id": "arafah-may",
-    "city": "Arafah",
-    "month": "May",
-    "tempMinC": 26,
-    "tempMaxC": 42,
-    "humidity": 12,
-    "advice": "Padang Arafah sangat panas dan terbuka. Minum 4–5 liter air selama wukuf. Gunakan payung atau kipas tangan. Tenda Patuna berpendingin — istirahat di dalam tenda saat tidak ibadah. Ini hari terpenting — jaga stamina."
-  },
-  {
-    "id": "mina-may",
-    "city": "Mina",
-    "month": "May",
-    "tempMinC": 26,
-    "tempMaxC": 41,
-    "humidity": 15,
-    "advice": "Mina panas dengan jalanan yang padat jamaah. Minum banyak air sebelum lontar jumrah. Gunakan sandal yang kuat. Perjalanan ke Jumrah bisa memakan waktu 1–2 jam — simpan tenaga dan jangan terburu-buru."
-  },
-  {
-    "id": "jeddah-june",
-    "city": "Jeddah",
-    "month": "June",
-    "tempMinC": 28,
-    "tempMaxC": 40,
-    "humidity": 55,
-    "advice": "Jeddah lebih lembab dari Makkah karena dekat laut. Bandara berpendingin kuat. Pastikan dokumen kepulangan siap dan koper sudah melewati batas bagasi."
-  }
+	{
+		"id": "jakarta-may",
+		"city": "Jakarta",
+		"month": "May",
+		"tempMinC": 25,
+		"tempMaxC": 32,
+		"humidity": 75,
+		"advice": "Cuaca Jakarta biasanya panas dan lembab. Kenakan pakaian yang nyaman dan pastikan sudah berpamitan dengan keluarga."
+	},
+	{
+		"id": "madinah-may",
+		"city": "Madinah",
+		"month": "May",
+		"tempMinC": 24,
+		"tempMaxC": 41,
+		"humidity": 15,
+		"advice": "Madinah sangat panas dan kering di siang hari. Minum minimal 3 liter air per hari. Masjid Nabawi berpendingin — bawa jaket tipis. Hindari aktivitas di luar antara pukul 11.00–15.00."
+	},
+	{
+		"id": "makkah-may",
+		"city": "Makkah",
+		"month": "May",
+		"tempMinC": 27,
+		"tempMaxC": 43,
+		"humidity": 20,
+		"advice": "Makkah lebih panas dari Madinah. Minum 3–4 liter air per hari. Masjidil Haram berpendingin kuat — bawa jaket. Gunakan payung saat di luar. Hindari aktivitas berat di siang hari terik."
+	},
+	{
+		"id": "makkah-june",
+		"city": "Makkah",
+		"month": "June",
+		"tempMinC": 29,
+		"tempMaxC": 45,
+		"humidity": 18,
+		"advice": "Juni adalah bulan terpanas. Suhu bisa mencapai 45°C di siang hari. Perbanyak minum zamzam. Gunakan pelembab kulit dan lip balm karena udara sangat kering."
+	},
+	{
+		"id": "arafah-may",
+		"city": "Arafah",
+		"month": "May",
+		"tempMinC": 26,
+		"tempMaxC": 42,
+		"humidity": 12,
+		"advice": "Padang Arafah sangat panas dan terbuka. Minum 4–5 liter air selama wukuf. Gunakan payung atau kipas tangan. Tenda Patuna berpendingin — istirahat di dalam tenda saat tidak ibadah. Ini hari terpenting — jaga stamina."
+	},
+	{
+		"id": "mina-may",
+		"city": "Mina",
+		"month": "May",
+		"tempMinC": 26,
+		"tempMaxC": 41,
+		"humidity": 15,
+		"advice": "Mina panas dengan jalanan yang padat jamaah. Minum banyak air sebelum lontar jumrah. Gunakan sandal yang kuat. Perjalanan ke Jumrah bisa memakan waktu 1–2 jam — simpan tenaga dan jangan terburu-buru."
+	},
+	{
+		"id": "jeddah-june",
+		"city": "Jeddah",
+		"month": "June",
+		"tempMinC": 28,
+		"tempMaxC": 40,
+		"humidity": 55,
+		"advice": "Jeddah lebih lembab dari Makkah karena dekat laut. Bandara berpendingin kuat. Pastikan dokumen kepulangan siap dan koper sudah melewati batas bagasi."
+	}
 ]
