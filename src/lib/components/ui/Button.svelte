@@ -26,9 +26,9 @@
 	const base = 'inline-flex items-center justify-center font-medium rounded-lg tap-target transition-transform duration-100 ease-out active:scale-[0.98] select-none';
 
 	const variants = {
-		primary: 'bg-[var(--color-brand)] text-white',
-		secondary: 'bg-[var(--color-surface)] text-[var(--color-foreground)] border border-[var(--color-border)]',
-		ghost: 'text-[var(--color-brand)] bg-transparent'
+		primary: 'bg-(--color-brand) text-white',
+		secondary: 'bg-surface text-foreground border border-border',
+		ghost: 'text-(--color-brand) bg-transparent'
 	};
 
 	const sizes = {

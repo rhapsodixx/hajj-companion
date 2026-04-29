@@ -12,7 +12,7 @@
 
 <a
 	{href}
-	class="tap-target inline-flex items-center gap-2 rounded-lg bg-[var(--color-surface)] px-4 text-sm font-medium text-[var(--color-foreground)] border border-[var(--color-border)] transition-transform duration-100 ease-out active:scale-[0.98] {className}"
+	class="tap-target inline-flex items-center gap-2 rounded-lg bg-surface px-4 text-sm font-medium text-foreground border border-border transition-transform duration-100 ease-out active:scale-[0.98] {className}"
 	aria-label="Telepon {label ?? number}"
 >
 	<!-- Phone icon -->

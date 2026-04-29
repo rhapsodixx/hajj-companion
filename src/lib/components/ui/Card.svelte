@@ -11,12 +11,12 @@
 	let { children, pressable = false, href, class: className = '' }: Props = $props();
 
 	const base =
-		'rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4';
+		'rounded-xl border border-border bg-surface p-4';
 	const press = $derived(pressable ? 'card-pressable' : '');
 </script>
 
 {#if href}
-	<a {href} class="{base} {press} block no-underline text-[var(--color-foreground)] {className}">
+	<a {href} class="{base} {press} block no-underline text-foreground {className}">
 		{@render children()}
 	</a>
 {:else}
