@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+@theme {
+	/* Colors */
+	--color-background: #fafaf7;
+	--color-foreground: #1a1a1a;
+	--color-brand: #5c3a21;
+	--color-gold: #c8a971;
+	--color-phase-madinah: #0f4c3a;
+	--color-phase-makkah: #5c3a21;
+	--color-phase-rukun: #c8a971;
+	--color-phase-arrival: #2d4a6e;
+	--color-phase-ash-shishah: #4a3728;
+	--color-phase-post-hajj: #5c3a21;
+	--color-phase-departure: #2d4a6e;
+
+	/* Dark mode */
+	--color-background-dark: #0e0e0c;
+	--color-foreground-dark: #edeae2;
+
+	/* Typography */
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-serif: 'Source Serif 4', Georgia, serif;
+	--font-arabic: 'Amiri', 'Scheherazade New', serif;
+
+	/* Type scale */
+	--text-xs: 0.875rem;
+	--text-sm: 0.9375rem;
+	--text-base: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.375rem;
+	--text-2xl: 1.75rem;
+	--text-3xl: 2.25rem;
+}
+
+/* Base */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-sans);
+	font-size: 16px;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+html[data-theme='dark'] {
+	background-color: var(--color-background-dark);
+	color: var(--color-foreground-dark);
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+	min-height: -webkit-fill-available;
+}
+
+/* Safe area utilities */
+.safe-top {
+	padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Arabic text */
+.arabic {
+	font-family: var(--font-arabic);
+	direction: rtl;
+	text-align: right;
+	line-height: 2;
+}
+
+/* Tap target minimum */
+.tap-target {
+	min-height: 44px;
+	min-width: 44px;
+}
+
+/* Page transition */
+.page-enter {
+	animation: page-in 200ms ease-out;
+}
+
+@keyframes page-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
