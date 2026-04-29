@@ -1,0 +1,191 @@
+[
+  {
+    "id": "talbiyah",
+    "title": "Talbiyah",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",
+    "latin": "Labbaik Allahumma labbaik, labbaika laa syariika laka labbaik, innal hamda wan ni'mata laka wal mulk, laa syariika lak",
+    "translation": "Aku penuhi panggilan-Mu ya Allah, aku penuhi panggilan-Mu. Aku penuhi panggilan-Mu, tiada sekutu bagi-Mu, aku penuhi panggilan-Mu. Sesungguhnya segala puji, nikmat, dan kerajaan adalah milik-Mu. Tiada sekutu bagi-Mu.",
+    "whenToRead": "Dibaca berulang-ulang sejak niat ihram hingga melempar Jumrah Aqobah (haji) atau hingga memulai tawaf (umrah). Dikeraskan suara bagi laki-laki.",
+    "category": "niat"
+  },
+  {
+    "id": "niat-umrah",
+    "title": "Niat Umrah",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ عُمْرَةً",
+    "latin": "Labbaik Allahumma umratan",
+    "translation": "Aku penuhi panggilan-Mu ya Allah untuk melaksanakan umrah.",
+    "whenToRead": "Dibaca saat berihram di miqat (Bir Ali) untuk umrah, bersamaan dengan mengenakan pakaian ihram.",
+    "category": "niat"
+  },
+  {
+    "id": "niat-haji",
+    "title": "Niat Haji",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ حَجًّا",
+    "latin": "Labbaik Allahumma hajjan",
+    "translation": "Aku penuhi panggilan-Mu ya Allah untuk melaksanakan haji.",
+    "whenToRead": "Dibaca saat berniat haji dalam perjalanan menuju Arafah (8 Zulhijjah malam), bersamaan dengan mengenakan ihram.",
+    "category": "niat"
+  },
+  {
+    "id": "dua-masuk-masjid",
+    "title": "Doa Masuk Masjid",
+    "arabic": "بِسْمِ اللهِ، اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+    "latin": "Bismillah, Allahumma shalli 'ala Muhammad, Allahumma iftah li abwaba rahmatik",
+    "translation": "Dengan nama Allah. Ya Allah, limpahkanlah shalawat kepada Muhammad. Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu.",
+    "whenToRead": "Saat masuk ke masjid mana pun, termasuk Masjid Nabawi dan Masjidil Haram.",
+    "category": "masjid"
+  },
+  {
+    "id": "dua-keluar-masjid",
+    "title": "Doa Keluar Masjid",
+    "arabic": "بِسْمِ اللهِ، اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+    "latin": "Bismillah, Allahumma shalli 'ala Muhammad, Allahumma inni as'aluka min fadlik",
+    "translation": "Dengan nama Allah. Ya Allah, limpahkanlah shalawat kepada Muhammad. Ya Allah, aku memohon karunia-Mu.",
+    "whenToRead": "Saat keluar dari masjid.",
+    "category": "masjid"
+  },
+  {
+    "id": "dua-melihat-kabah",
+    "title": "Doa Melihat Ka'bah Pertama Kali",
+    "arabic": "اللَّهُمَّ زِدْ هَذَا الْبَيْتَ تَشْرِيفًا وَتَعْظِيمًا وَتَكْرِيمًا وَمَهَابَةً، وَزِدْ مَنْ شَرَّفَهُ وَكَرَّمَهُ مِمَّنْ حَجَّهُ أَوِ اعْتَمَرَهُ تَشْرِيفًا وَتَكْرِيمًا وَتَعْظِيمًا وَبِرًّا",
+    "latin": "Allahumma zid hadzal baita tasyriifan wa ta'dziiman wa takriiman wa mahaabatan, wa zid man syarrafahuu wa karramahuu mimman hajjahuu awi'tamarahuu tasyriifan wa takriiman wa ta'dziiman wa birraa",
+    "translation": "Ya Allah, tambahkanlah kemuliaan, keagungan, kehormatan, dan kewibawaan rumah ini. Dan tambahkanlah pula kemuliaan, kehormatan, keagungan, dan kebaikan bagi orang yang memuliakan dan menghormatinya di antara orang yang berhaji atau berumrah.",
+    "whenToRead": "Saat pertama kali melihat Ka'bah. Ini saat yang paling mustajab — berdoalah apa saja.",
+    "category": "tawaf"
+  },
+  {
+    "id": "dua-tawaf",
+    "title": "Doa Tawaf (Antara Rukun Yamani dan Hajar Aswad)",
+    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    "latin": "Rabbanaa aatinaa fid dunyaa hasanatan wa fil aakhirati hasanatan wa qinaa 'adzaaban naar",
+    "translation": "Ya Tuhan kami, berikanlah kepada kami kebaikan di dunia dan kebaikan di akhirat, dan jagalah kami dari azab neraka.",
+    "whenToRead": "Dibaca di setiap putaran tawaf, khususnya antara Rukun Yamani dan Hajar Aswad.",
+    "category": "tawaf"
+  },
+  {
+    "id": "dua-istilam-hajar-aswad",
+    "title": "Doa Istilam Hajar Aswad",
+    "arabic": "بِسْمِ اللهِ وَاللهُ أَكْبَرُ",
+    "latin": "Bismillahi wallahu akbar",
+    "translation": "Dengan nama Allah dan Allah Maha Besar.",
+    "whenToRead": "Setiap kali mencium atau mengisyaratkan tangan ke arah Hajar Aswad di awal setiap putaran tawaf.",
+    "category": "tawaf"
+  },
+  {
+    "id": "dua-multazam",
+    "title": "Doa di Multazam",
+    "arabic": "اللَّهُمَّ إِنَّ لَكَ عَلَيَّ حُقُوقًا فَتَصَدَّقْ بِهَا عَلَيَّ، وَلِلنَّاسِ عِنْدِي مَظَالِمُ فَأَعِنِّي عَلَى رَدِّهَا إِلَيْهِمْ وَأَخُذْ مَا قِبَلَكَ عَنِّي",
+    "latin": "Allahumma inna laka 'alayya huquuqan fa tashaddaq bihaa 'alayya, wa lin naasi 'indii mazhaalima fa a'inni 'alaa raddiha ilayhim wa khudz maa qibalaka 'anni",
+    "translation": "Ya Allah, sesungguhnya Engkau memiliki hak-hak atas diriku, maka sedekahkanlah hak-hak itu kepadaku. Dan aku pun memiliki kezhaliman terhadap orang lain, maka tolonglah aku untuk mengembalikannya kepada mereka dan ambillah dari-Mu untuk diriku.",
+    "whenToRead": "Saat berada di Multazam (antara Hajar Aswad dan pintu Ka'bah) — tempat yang sangat mustajab untuk berdoa.",
+    "category": "tawaf"
+  },
+  {
+    "id": "dua-safa",
+    "title": "Doa di Bukit Safa",
+    "arabic": "إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ، أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ، اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    "latin": "Innas shafaa wal marwata min sya'aa'irillah, abd'au bimaa bada'allaahu bih. Allahu akbar, Allahu akbar, Allahu akbar. Laa ilaaha illallaahu wahdahu laa syariika lah, lahul mulku wa lahul hamdu wa huwa 'alaa kulli syay'in qadiir",
+    "translation": "Sesungguhnya Shafa dan Marwah adalah sebagian dari syiar-syiar Allah. Aku mulai dengan apa yang Allah mulai. Allah Maha Besar (3x). Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya segala kerajaan dan segala puji, dan Dia Maha Kuasa atas segala sesuatu.",
+    "whenToRead": "Dibaca saat pertama kali naik ke Bukit Safa, menghadap Ka'bah, sebelum memulai sa'i.",
+    "category": "sai"
+  },
+  {
+    "id": "dua-safa-marwah",
+    "title": "Doa Sa'i (di antara Safa dan Marwah)",
+    "arabic": "رَبِّ اغْفِرْ وَارْحَمْ وَاعْفُ وَتَكَرَّمْ وَتَجَاوَزْ عَمَّا تَعْلَمُ إِنَّكَ تَعْلَمُ مَا لَا نَعْلَمُ إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ",
+    "latin": "Rabbighfir warham wa'fu wa takarram wa tajaawaz 'amma ta'lam, innaka ta'lamu maa laa na'lam, innaka antal a'azzul akram",
+    "translation": "Ya Tuhanku, ampunilah, rahmatilah, maafkanlah, muliakanlah, dan lewatilah (kesalahanku) dari apa yang Engkau ketahui. Sesungguhnya Engkau mengetahui apa yang tidak kami ketahui. Sesungguhnya Engkau Maha Mulia lagi Maha Pemurah.",
+    "whenToRead": "Dibaca berulang selama berjalan antara Safa dan Marwah (7 kali bolak-balik).",
+    "category": "sai"
+  },
+  {
+    "id": "dua-wukuf-arafah",
+    "title": "Doa Wukuf Arafah",
+    "arabic": "لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    "latin": "Laa ilaaha illallaahu wahdahu laa syariika lah, lahul mulku wa lahul hamdu wa huwa 'alaa kulli syay'in qadiir",
+    "translation": "Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya segala puji. Dia Maha Kuasa atas segala sesuatu.",
+    "whenToRead": "Bacaan utama yang dianjurkan Nabi ﷺ pada hari Arafah. Perbanyak sepanjang hari wukuf.",
+    "category": "wukuf"
+  },
+  {
+    "id": "dua-arafah",
+    "title": "Doa Arafah (Doa Mustajab)",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ أَنْ تُحَقِّقَ لِي مَا أَتَمَنَّى فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ، وَأَنْ تَجْعَلَ لِي فِيمَا قَضَيْتَ خَيْرًا",
+    "latin": "Allahumma inni as'aluka an tuhaqqiqa li maa atamannaa fid diini wad dunyaa wal aakhirah, wa an taj'ala li fiimaa qadhayata khairaa",
+    "translation": "Ya Allah, aku memohon kepada-Mu agar Engkau mewujudkan segala harapanku dalam urusan agama, dunia, dan akhirat, dan agar Engkau menjadikan kebaikan bagiku dalam segala yang telah Engkau tetapkan.",
+    "whenToRead": "Berdoa dengan doa apapun saat wukuf di Arafah — ini waktu paling mustajab dalam setahun.",
+    "category": "wukuf"
+  },
+  {
+    "id": "dua-lontar-jumrah",
+    "title": "Doa Saat Melempar Jumrah",
+    "arabic": "بِسْمِ اللهِ، اللهُ أَكْبَرُ",
+    "latin": "Bismillah, Allahu akbar",
+    "translation": "Dengan nama Allah, Allah Maha Besar.",
+    "whenToRead": "Diucapkan setiap kali melempar satu batu ke jumrah (Ula, Wustha, dan Aqobah).",
+    "category": "jumrah"
+  },
+  {
+    "id": "dua-antara-jumrah",
+    "title": "Doa Antara Jumrah Ula dan Wustha",
+    "arabic": "اللَّهُمَّ اجْعَلْهُ حَجًّا مَبْرُورًا وَذَنْبًا مَغْفُورًا",
+    "latin": "Allahumma aj'alhu hajjan mabruuran wa dzanban maghfuuraa",
+    "translation": "Ya Allah, jadikanlah ini haji yang mabrur dan dosa yang terampuni.",
+    "whenToRead": "Dibaca sambil berdiri menghadap kiblat setelah selesai melempar Jumrah Ula dan sebelum berpindah ke Jumrah Wustha.",
+    "category": "jumrah"
+  },
+  {
+    "id": "dua-thawaf-wada",
+    "title": "Doa Thawaf Wada (Perpisahan)",
+    "arabic": "اللَّهُمَّ إِنَّ هَذَا الْبَيْتَ بَيْتُكَ، وَالْعَبْدُ عَبْدُكَ، وَابْنُ عَبْدِكَ، وَابْنُ أَمَتِكَ، حَمَلْتَنِي عَلَى مَا سَخَّرْتَ لِي مِنْ خَلْقِكَ، وَسَيَّرْتَنِي فِي بِلَادِكَ حَتَّى بَلَّغْتَنِي بِنِعْمَتِكَ إِلَى بَيْتِكَ",
+    "latin": "Allahumma inna hadzal baita baytuk, wal 'abdu 'abduk, wabnu 'abdik, wabnu amatik, hamaltani 'alaa maa sakhkharta li min khalqik, wa sayyartani fi bilaadik hattaa ballaghtani bini'matika ilaa baytik",
+    "translation": "Ya Allah, sesungguhnya rumah ini adalah rumah-Mu, dan hamba ini adalah hamba-Mu, anak dari hamba-Mu laki-laki, dan anak dari hamba-Mu perempuan. Engkau telah membawaku dengan apa yang telah Engkau tundukkan dari makhluk-Mu, dan Engkau telah menjalankanku di negeri-Mu hingga Engkau mengantarkanku dengan nikmat-Mu ke rumah-Mu.",
+    "whenToRead": "Saat melaksanakan Thawaf Wada — tawaf perpisahan sebelum meninggalkan Makkah.",
+    "category": "tawaf"
+  },
+  {
+    "id": "dua-safar",
+    "title": "Doa Perjalanan (Safar)",
+    "arabic": "اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى",
+    "latin": "Allahu akbar, Allahu akbar, Allahu akbar. Subhanalladzi sakhkhara lanaa hadzaa wa maa kunnaa lahu muqriniin, wa innaa ilaa rabbinaa lamunqalibuun. Allahumma innaa nas'aluka fi safarina hadzdza al birra wat taqwaa",
+    "translation": "Allah Maha Besar (3x). Maha Suci Allah yang telah menundukkan kendaraan ini bagi kami, padahal sebelumnya kami tidak mampu menguasainya. Dan sesungguhnya kami akan kembali kepada Tuhan kami. Ya Allah, kami memohon kepada-Mu dalam perjalanan ini kebaikan dan ketakwaan.",
+    "whenToRead": "Saat berangkat safar (naik pesawat, bus, atau kendaraan).",
+    "category": "safar"
+  },
+  {
+    "id": "dua-masuk-madinah",
+    "title": "Doa Masuk Kota Madinah",
+    "arabic": "اللَّهُمَّ هَذَا حَرَمُ نَبِيِّكَ فَاجْعَلْهُ لِي وِقَايَةً مِنَ النَّارِ وَأَمَانًا مِنَ الْعَذَابِ وَسُوءِ الْحِسَابِ",
+    "latin": "Allahumma haadzaa haramu nabiyyik, faj'alhu lii wiqaayatan minan naari wa amaanan minal 'adzaabi wa suu'il hisaab",
+    "translation": "Ya Allah, ini adalah tanah suci Nabi-Mu, maka jadikanlah ia sebagai penjaga bagiku dari neraka, keamanan dari azab, dan buruknya perhitungan.",
+    "whenToRead": "Saat pertama kali memasuki kota Madinah Al Munawwarah.",
+    "category": "safar"
+  },
+  {
+    "id": "dua-shalawat-nabi",
+    "title": "Shalawat Ibrahimiyah",
+    "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
+    "latin": "Allahumma shalli 'alaa Muhammadin wa 'alaa aali Muhammadin, kamaa shallayta 'alaa Ibraahiima wa 'alaa aali Ibraahiim, innaka hamiidun majiid",
+    "translation": "Ya Allah, limpahkanlah shalawat kepada Muhammad dan keluarga Muhammad, sebagaimana Engkau telah melimpahkan shalawat kepada Ibrahim dan keluarga Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia.",
+    "whenToRead": "Perbanyak shalawat saat berada di Madinah dan di seluruh perjalanan haji.",
+    "category": "umum"
+  },
+  {
+    "id": "dua-muzdalifah",
+    "title": "Doa di Muzdalifah",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ أَنْ تَرْزُقَنِي حَجًّا مَبْرُورًا وَسَعْيًا مَشْكُورًا وَذَنْبًا مَغْفُورًا وَتِجَارَةً لَنْ تَبُورَ",
+    "latin": "Allahumma inni as'aluka an tarzuqani hajjan mabruura wa sa'yan masykuura wa dzanban maghfuura wa tijaaratan lan tabuura",
+    "translation": "Ya Allah, aku memohon kepada-Mu rezeki haji yang mabrur, sa'i yang diterima, dosa yang diampuni, dan perdagangan yang tidak akan rugi.",
+    "whenToRead": "Saat berada di Muzdalifah antara Arafah dan Mina, sambil menunggu waktu fajar.",
+    "category": "wukuf"
+  },
+  {
+    "id": "dua-minum-zamzam",
+    "title": "Doa Minum Air Zamzam",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا وَاسِعًا وَشِفَاءً مِنْ كُلِّ دَاءٍ",
+    "latin": "Allahumma inni as'aluka 'ilman naafi'an wa rizqan waasi'an wa syifaa'an min kulli daa'",
+    "translation": "Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang luas, dan kesembuhan dari segala penyakit.",
+    "whenToRead": "Dibaca sebelum minum air zamzam — boleh berdoa apa saja karena air zamzam diminum sesuai niat.",
+    "category": "umum"
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "muthawwif-ketua",
+    "name": "TBD — Muthawwif Ketua",
+    "role": "Ketua Muthawwif Coklat B (Bus 18–21)",
+    "phone": null,
+    "whatsapp": null,
+    "note": "Nomor akan diisi saat Manasik 9 Mei 2026 di ICE BSD.",
+    "category": "muthawwif"
+  },
+  {
+    "id": "muthawwif-bus18",
+    "name": "TBD — Pembimbing Bus 18",
+    "role": "Pembimbing Ibadah Bus 18",
+    "phone": null,
+    "whatsapp": null,
+    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "category": "muthawwif"
+  },
+  {
+    "id": "muthawwif-bus19",
+    "name": "TBD — Pembimbing Bus 19",
+    "role": "Pembimbing Ibadah Bus 19",
+    "phone": null,
+    "whatsapp": null,
+    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "category": "muthawwif"
+  },
+  {
+    "id": "muthawwif-bus20",
+    "name": "TBD — Pembimbing Bus 20",
+    "role": "Pembimbing Ibadah Bus 20",
+    "phone": null,
+    "whatsapp": null,
+    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "category": "muthawwif"
+  },
+  {
+    "id": "muthawwif-bus21",
+    "name": "TBD — Pembimbing Bus 21",
+    "role": "Pembimbing Ibadah Bus 21",
+    "phone": null,
+    "whatsapp": null,
+    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "category": "muthawwif"
+  },
+  {
+    "id": "patuna-office",
+    "name": "Patuna Travel Jakarta",
+    "role": "Kantor Patuna — Darurat dari Indonesia",
+    "phone": "+622129039000",
+    "whatsapp": null,
+    "note": "Hubungi jika ada darurat yang membutuhkan bantuan dari Jakarta.",
+    "category": "patuna"
+  },
+  {
+    "id": "hotel-madinah",
+    "name": "Grand Plaza Badr Al Maqam",
+    "role": "Hotel Madinah",
+    "phone": "+966148613666",
+    "address": "Jl. King Abdul Aziz Rd, Madinah, Arab Saudi",
+    "addressArabic": "فندق جراند بلازا بدر المقام، طريق الملك عبدالعزيز، المدينة المنورة",
+    "note": "Hotel jamaah selama di Madinah (Hari 2–6).",
+    "category": "hotel"
+  },
+  {
+    "id": "hotel-makkah",
+    "name": "Marriott Jabal Omar",
+    "role": "Hotel Makkah",
+    "phone": "+966125710000",
+    "address": "Jabal Omar, Makkah Al Mukarramah, Arab Saudi",
+    "addressArabic": "فندق ماريوت جبل عمر، جبل عمر، مكة المكرمة",
+    "note": "Hotel jamaah selama di Makkah (Hari 7–10).",
+    "category": "hotel"
+  },
+  {
+    "id": "apartment-ash-shishah",
+    "name": "Apartment Ash Shishah",
+    "role": "Apartemen Transit Ash Shishah",
+    "phone": null,
+    "address": "Ash Shishah, Makkah Al Mukarramah, Arab Saudi",
+    "addressArabic": "شقق العزيزية، مكة المكرمة",
+    "note": "Tempat menginap sebelum dan sesudah Wukuf (Hari 11–25). Nomor spesifik akan dikonfirmasi pembimbing.",
+    "category": "hotel"
+  },
+  {
+    "id": "emergency-saudi",
+    "name": "Darurat Saudi Arabia",
+    "role": "Nomor Darurat Terpadu Saudi",
+    "phone": "911",
+    "note": "Nomor darurat terpadu Arab Saudi untuk polisi, kebakaran, dan ambulans.",
+    "category": "emergency"
+  },
+  {
+    "id": "emergency-saudi-medical",
+    "name": "Layanan Kesehatan Saudi",
+    "role": "Darurat Medis Saudi Arabia",
+    "phone": "920002879",
+    "note": "Layanan kesehatan haji Saudi — tersedia di area Arafah, Mina, dan Muzdalifah.",
+    "category": "emergency"
+  },
+  {
+    "id": "kjri-jeddah",
+    "name": "KJRI Jeddah",
+    "role": "Konsulat Jenderal RI Jeddah",
+    "phone": "+96626516800",
+    "whatsapp": "966552552637",
+    "address": "Jl. Falastin No. 56, Ash Sharafiyah, Jeddah 23324",
+    "addressArabic": "القنصلية العامة للجمهورية الإندونيسية، شارع فلسطين 56، الشرفية، جدة",
+    "note": "Hubungi untuk masalah paspor, kecelakaan serius, atau darurat konsuler.",
+    "category": "consulate"
+  },
+  {
+    "id": "kbri-riyadh",
+    "name": "KBRI Riyadh",
+    "role": "Kedutaan Besar RI Riyadh",
+    "phone": "+9661460100",
+    "note": "Kedutaan Besar Indonesia di Riyadh — untuk darurat di luar jangkauan KJRI Jeddah.",
+    "category": "consulate"
+  }
+]

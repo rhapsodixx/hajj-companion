@@ -1,0 +1,1274 @@
+[
+  {
+    "dayNumber": 1,
+    "gregorianDate": "2026-05-11",
+    "hijriDate": "24 Zulqa'dah 1447",
+    "hijriDay": 24,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "arrival",
+    "location": "Jakarta",
+    "routeLabel": "JAKARTA → JEDDAH",
+    "activities": [
+      {
+        "time": "20:40",
+        "title": "Berkumpul di Bandara Soekarno-Hatta T3",
+        "description": "Seluruh jamaah bersiap menuju Bandara Internasional Soekarno-Hatta Terminal 3 menggunakan bus yang telah disiapkan.",
+        "location": "Bandara Soekarno-Hatta Terminal 3"
+      },
+      {
+        "time": null,
+        "title": "Proses Imigrasi & Keberangkatan",
+        "description": "Setibanya di bandara, jamaah langsung memasuki Terminal 3 dilanjutkan menuju imigrasi.",
+        "location": "Bandara Soekarno-Hatta Terminal 3"
+      }
+    ],
+    "whatToDo": "Hari keberangkatan. Kenakan seragam batik haji Patuna dan bawahan hitam (pria) atau bawahan bebas (wanita) dengan hijab segi empat. Paspor akan dibagikan di hotel sebelumnya. Berkumpul tepat waktu di Terminal 3 dan ikuti arahan pembimbing ibadah.",
+    "whatToBring": [
+      "Dokumen: paspor, visa, tiket, kartu identitas",
+      "Tas kabin dengan perlengkapan darurat ihram",
+      "Obat pribadi secukupnya di tas tangan",
+      "Uang riyal dan rupiah secukupnya",
+      "Charger dan power bank"
+    ],
+    "dressCode": {
+      "men": "Seragam batik haji Patuna + bawahan hitam",
+      "women": "Seragam batik haji Patuna + bawahan bebas + hijab segi empat"
+    },
+    "tips": [
+      "Paspor akan dibagikan di hotel sebelum berangkat — pastikan sudah diterima.",
+      "Simpan dokumen penting di tas badan yang tidak mudah terlepas.",
+      "Cek koper besar sudah dikunci dan ada label nama Patuna."
+    ],
+    "duaIds": ["dua-safar"],
+    "climateNormId": "jakarta-may",
+    "patunaNote": "Menggunakan Seragam Haji Batik Patuna dan Bawahan Hitam (khusus pria) Bawahan Bebas (khusus Wanita) serta Hijab segi empat. Pembagian paspor dilakukan di Hotel."
+  },
+  {
+    "dayNumber": 2,
+    "gregorianDate": "2026-05-12",
+    "hijriDate": "25 Zulqa'dah 1447",
+    "hijriDay": 25,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "arrival",
+    "location": "Madinah",
+    "routeLabel": "JEDDAH → MADINAH AL MUNAWWARAH",
+    "activities": [
+      {
+        "time": "00:40",
+        "title": "Penerbangan ke Jeddah (SV 827)",
+        "description": "Dengan pesawat Saudia Airlines SV 827, penerbangan menuju Jeddah.",
+        "location": "In-flight"
+      },
+      {
+        "time": "06:10",
+        "title": "Tiba di Bandara King Abdul Aziz Jeddah",
+        "description": "Insya Allah tiba di Bandara Internasional King Abdul Aziz Jeddah. Proses imigrasi dilanjutkan.",
+        "location": "Bandara King Abdul Aziz, Jeddah"
+      },
+      {
+        "time": null,
+        "title": "Perjalanan Bus ke Madinah",
+        "description": "Setelah imigrasi, perjalanan menuju kota suci Madinah Al Munawwarah menggunakan bus.",
+        "location": "Jeddah → Madinah"
+      },
+      {
+        "time": null,
+        "title": "Sarapan Pagi (Nasi Box)",
+        "description": "Makan pagi nasi box selama perjalanan."
+      },
+      {
+        "time": null,
+        "title": "Check-in Hotel & Istirahat",
+        "description": "Tiba di hotel Grand Plaza Badr Al Maqam, proses check-in dan istirahat.",
+        "location": "Hotel Grand Plaza Badr Al Maqam, Madinah"
+      },
+      {
+        "time": null,
+        "title": "Makan Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel hari ini."
+      }
+    ],
+    "whatToDo": "Tiba di Madinah setelah penerbangan dan perjalanan panjang. Prioritas utama: istirahat dan pemulihan fisik. Setelah check-in, mulai memperbanyak ibadah di Masjid Nabawi sesuai kemampuan.",
+    "whatToBring": [
+      "Mukena/sajadah untuk sholat di Masjid Nabawi",
+      "Botol minum — isi di zamzam dispenser Masjid",
+      "Sandal yang mudah dilepas-pasang"
+    ],
+    "tips": [
+      "Waktu Saudi lebih lambat 4 jam dari WIB — atur ulang jam tangan.",
+      "Masjid Nabawi sangat dingin ber-AC, bawa jaket tipis.",
+      "Jangan langsung banyak aktivitas — atasi jet lag dulu."
+    ],
+    "duaIds": ["dua-safar", "dua-masuk-madinah"],
+    "climateNormId": "madinah-may"
+  },
+  {
+    "dayNumber": 3,
+    "gregorianDate": "2026-05-13",
+    "hijriDate": "26 Zulqa'dah 1447",
+    "hijriDay": 26,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "madinah",
+    "location": "Madinah",
+    "routeLabel": "MADINAH AL MUNAWWARAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjid Nabawi",
+        "description": "Sholat berjamaah di Masjid Nabawi — pahalanya 1.000× dibanding masjid lain."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel."
+      },
+      {
+        "time": "08:00",
+        "title": "Sholat Sunnah di Raudhah & Ziarah ke Makam Nabi ﷺ",
+        "description": "Sholat sunnah di Raudhah (taman surga) dan ziarah ke Makam Nabi Muhammad ﷺ di Masjid Nabawi.",
+        "location": "Raudhah, Masjid Nabawi",
+        "conditional": true
+      }
+    ],
+    "whatToDo": "Hari penuh ibadah di Madinah. Utamakan sholat lima waktu berjamaah di Masjid Nabawi. Kunjungi Raudhah jika kesempatan ada — ikuti antrean tertib. Perbanyak dzikir, baca Al-Qur'an, dan shalawat.",
+    "whatToBring": [
+      "Al-Qur'an kecil atau aplikasi",
+      "Botol minum — zamzam tersedia gratis di masjid",
+      "Buku doa/dzikir"
+    ],
+    "tips": [
+      "Raudhah untuk pria lebih longgar di waktu subuh dan setelah isya.",
+      "Untuk wanita, Raudhah memiliki jadwal khusus — tanyakan pembimbing.",
+      "Hindari Raudhah di waktu padat antara pukul 08–11 pagi.",
+      "Bawa sandal yang tidak mudah hilang — simpan di kantong atau bawa masuk."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-shalawat-nabi"],
+    "climateNormId": "madinah-may"
+  },
+  {
+    "dayNumber": 4,
+    "gregorianDate": "2026-05-14",
+    "hijriDate": "27 Zulqa'dah 1447",
+    "hijriDay": 27,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "madinah",
+    "location": "Madinah",
+    "routeLabel": "MADINAH AL MUNAWWARAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjid Nabawi",
+        "description": "Sholat berjamaah di Masjid Nabawi."
+      },
+      {
+        "time": "07:00",
+        "title": "Makan Pagi di Hotel",
+        "description": "Sarapan pagi di hotel."
+      },
+      {
+        "time": "07:30",
+        "title": "Ziarah Kota Madinah",
+        "description": "Mengunjungi Masjid Quba, Kebun Kurma, Jabal Uhud, melewati Makam Baqi dan Masjid Khomsah.",
+        "location": "Masjid Quba, Jabal Uhud, Kebun Kurma",
+        "conditional": true
+      },
+      {
+        "time": null,
+        "title": "Makan Siang & Malam di Hotel",
+        "description": "Kembali ke hotel untuk makan."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas untuk ibadah mandiri."
+      }
+    ],
+    "whatToDo": "Ziarah keliling kota Madinah: Masjid Quba (sholat 2 rakaat setara umrah), Jabal Uhud (mengenang syuhada), Kebun Kurma, Makam Baqi, dan Masjid Khomsah. Ikuti bus Patuna dan jangan tertinggal.",
+    "whatToBring": [
+      "Topi atau payung untuk terik matahari",
+      "Botol minum besar",
+      "Uang riyal kecil untuk belanja di Kebun Kurma",
+      "Sandal nyaman untuk berjalan"
+    ],
+    "tips": [
+      "Sholat 2 rakaat di Masjid Quba pahalanya seperti umrah.",
+      "Di Jabal Uhud, cukup berdoa dan ingat perjuangan Sahabat — tidak perlu naik.",
+      "Kurma segar di Kebun Kurma lebih murah dari di Masjid."
+    ],
+    "duaIds": ["dua-masuk-masjid"],
+    "climateNormId": "madinah-may"
+  },
+  {
+    "dayNumber": 5,
+    "gregorianDate": "2026-05-15",
+    "hijriDate": "28 Zulqa'dah 1447",
+    "hijriDay": 28,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "madinah",
+    "location": "Madinah",
+    "routeLabel": "MADINAH AL MUNAWWARAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjid Nabawi",
+        "description": "Sholat berjamaah di Masjid Nabawi."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel."
+      },
+      {
+        "time": null,
+        "title": "Sholat Jumat di Masjid Nabawi",
+        "description": "Sholat Jumat berjamaah — datang lebih awal karena masjid akan sangat penuh.",
+        "location": "Masjid Nabawi"
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas untuk ibadah mandiri, belanja oleh-oleh, atau istirahat."
+      }
+    ],
+    "whatToDo": "Jumat di Madinah. Prioritas Sholat Jumat di Masjid Nabawi — datang minimal 1 jam sebelum adzan Jumat agar mendapat tempat di dalam masjid. Sore hari bisa diisi dengan free program atau ibadah mandiri.",
+    "whatToBring": [
+      "Baju bersih untuk Sholat Jumat",
+      "Sajadah kecil",
+      "Botol minum"
+    ],
+    "tips": [
+      "Masjid Nabawi sangat penuh saat Jumat — berangkat lebih awal.",
+      "Sholat Jumat di Masjid Nabawi mengikuti khatib Madinah — khutbah dalam bahasa Arab.",
+      "Waktu free program bisa digunakan untuk belanja oleh-oleh di sekitar Masjid."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-shalawat-nabi"],
+    "climateNormId": "madinah-may"
+  },
+  {
+    "dayNumber": 6,
+    "gregorianDate": "2026-05-16",
+    "hijriDate": "29 Zulqa'dah 1447",
+    "hijriDay": 29,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "madinah",
+    "location": "Madinah",
+    "routeLabel": "MADINAH AL MUNAWWARAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjid Nabawi",
+        "description": "Sholat berjamaah di Masjid Nabawi."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel."
+      },
+      {
+        "time": null,
+        "title": "Persiapan Berangkat ke Makkah",
+        "description": "Siapkan 2 pasang pakaian termasuk baju ihram untuk Umrah di luar koper besar. Koper besar Patuna disiapkan untuk dibawa ke Makkah."
+      }
+    ],
+    "whatToDo": "Hari terakhir di Madinah. Manfaatkan untuk ibadah maksimal di Masjid Nabawi. Malam ini mulai persiapkan koper: pisahkan baju ihram dan perlengkapan 1–2 hari ke dalam tas kecil, karena koper besar akan langsung dikirim ke Makkah.",
+    "whatToBring": [],
+    "dressCode": {
+      "men": "Siapkan kain ihram untuk besok",
+      "women": "Siapkan gamis/baju ihram putih untuk besok"
+    },
+    "koperNote": "Siapkan 2 pasang pakaian termasuk baju ihram di luar koper besar. Koper besar Patuna disiapkan untuk dibawa ke Makkah.",
+    "tips": [
+      "Malam ini bisa mandi sunnah ihram di hotel sebelum tidur.",
+      "Pastikan koper besar sudah diberi label Patuna dan dikunci.",
+      "Baju ihram dan perlengkapan 1–2 hari harus di tas kabin, bukan koper besar."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-shalawat-nabi"],
+    "climateNormId": "madinah-may",
+    "patunaNote": "Mohon agar dapat Menyiapkan 2 Pasang Pakaian, Termasuk baju Ihram untuk melaksanakan Umrah (diluar koper besar). Koper Besar PATUNA disiapkan untuk di bawa menuju kota Makkah Al Mukarramah."
+  },
+  {
+    "dayNumber": 7,
+    "gregorianDate": "2026-05-17",
+    "hijriDate": "30 Zulqa'dah 1447",
+    "hijriDay": 30,
+    "hijriMonth": "Zulqa'dah",
+    "hijriYear": 1447,
+    "phase": "madinah-to-makkah",
+    "location": "Makkah",
+    "routeLabel": "MADINAH → MAKKAH AL MUKARRAMAH (UMRAH)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Subuh di Masjid Nabawi",
+        "description": "Sholat Subuh terakhir di Masjid Nabawi. Laksanakan sunnah-sunnah ihram setelah subuh."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi di Hotel & Check-out",
+        "description": "Sarapan pagi kemudian check-out hotel."
+      },
+      {
+        "time": "09:00",
+        "title": "Berangkat ke Makkah — Miqat di Bir Ali",
+        "description": "Bus berangkat menuju Makkah. Singgah di Masjid Bir Ali untuk miqat: niat Umrah (Labbaik Allahumma Umratan) dan sholat sunnah ihram.",
+        "location": "Masjid Bir Ali"
+      },
+      {
+        "time": null,
+        "title": "Sholat Zuhur & Ashar di Perjalanan",
+        "description": "Sholat jamak takdim qashar di dalam perjalanan menuju Makkah."
+      },
+      {
+        "time": null,
+        "title": "Makan Siang (Nasi Box)",
+        "description": "Makan siang nasi box di perjalanan."
+      },
+      {
+        "time": null,
+        "title": "Tiba di Makkah — Proses Paspor di Maktab",
+        "description": "Setibanya di Makkah, singgah di Maktab untuk pemeriksaan paspor.",
+        "location": "Maktab, Makkah"
+      },
+      {
+        "time": null,
+        "title": "Check-in Hotel Marriott Jabal Omar",
+        "description": "Tiba di hotel, proses check-in dan makan malam.",
+        "location": "Hotel Marriott Jabal Omar, Makkah"
+      },
+      {
+        "time": null,
+        "title": "Pelaksanaan Umrah",
+        "description": "Melaksanakan Umrah: Tawaf 7 putaran mengelilingi Ka'bah, Sa'i Safa-Marwah 7 kali, kemudian Tahallul (cukur/potong rambut).",
+        "location": "Masjidil Haram"
+      }
+    ],
+    "whatToDo": "Hari paling bersejarah dalam perjalanan ini: Umrah pertama. Berihram di Bir Ali dengan niat Umrah, perbanyak talbiyah sepanjang jalan, laksanakan Tawaf + Sa'i + Tahallul malam ini di Masjidil Haram. Jaga kekhusyukan — larangan ihram berlaku sejak niat di Bir Ali.",
+    "whatToBring": [
+      "Baju ihram (pria: 2 lembar kain putih, wanita: gamis putih)",
+      "Mukena untuk sholat (wanita)",
+      "Sandal ihram/jepit",
+      "Buku doa tawaf + sa'i",
+      "Botol minum kecil"
+    ],
+    "dressCode": {
+      "men": "Kain ihram Patuna (2 lembar putih)",
+      "women": "Gamis putih + Mukena Atasan Ungu Patuna"
+    },
+    "tips": [
+      "Perbanyak talbiyah selama perjalanan dari Bir Ali ke Makkah.",
+      "Larangan ihram: jangan potong rambut/kuku, jangan pakai wewangian, jangan menikah.",
+      "Tawaf dimulai dari Hajar Aswad — ikuti pembimbing jangan sampai terpencar.",
+      "Kondisi Masjidil Haram bisa sangat ramai — pegang tangan teman jika perlu.",
+      "Setelah tahallul, larangan ihram selesai."
+    ],
+    "duaIds": ["niat-umrah", "talbiyah", "dua-melihat-kabah", "dua-tawaf", "dua-safa-marwah"],
+    "climateNormId": "makkah-may",
+    "ritualGuideId": "ihram-umrah",
+    "patunaNote": "Jamaah sudah Mandi, Berpakaian Ihrom Patuna bagi Laki-Laki dan Wanita baju Gamis Putih (Mukena Atasan Ungu Patuna). Miqot di Masjid Bir Ali: Niat Umrah: Labbaik Allohumma Umrotan."
+  },
+  {
+    "dayNumber": 8,
+    "gregorianDate": "2026-05-18",
+    "hijriDate": "1 Zulhijjah 1447",
+    "hijriDay": 1,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "makkah",
+    "location": "Makkah",
+    "routeLabel": "MAKKAH AL MUKARRAMAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjidil Haram",
+        "description": "Sholat berjamaah di Masjidil Haram — pahalanya 100.000× dibanding masjid biasa."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas untuk ibadah mandiri: tawaf sunnah, membaca Al-Qur'an di Masjidil Haram, atau istirahat."
+      }
+    ],
+    "whatToDo": "Hari pemulihan setelah Umrah tadi malam. Manfaatkan untuk tawaf sunnah, membaca Al-Qur'an menghadap Ka'bah, atau sekedar duduk berdoa di dalam Masjidil Haram. Jangan terlalu lelah karena masih ada perjalanan panjang.",
+    "whatToBring": [
+      "Al-Qur'an",
+      "Botol minum — zamzam tersedia di masjid",
+      "Sandal nyaman"
+    ],
+    "tips": [
+      "Mulai hari ke-1 Zulhijjah — perbanyak amalan sunnah (puasa, dzikir, shalawat).",
+      "Tawaf sunnah bisa dilakukan kapan saja selain waktu-waktu terlarang.",
+      "Jangan lupa minum air zamzam sambil berdoa."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-melihat-kabah", "dua-tawaf"],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 9,
+    "gregorianDate": "2026-05-19",
+    "hijriDate": "2 Zulhijjah 1447",
+    "hijriDay": 2,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "makkah",
+    "location": "Makkah",
+    "routeLabel": "MAKKAH AL MUKARRAMAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjidil Haram",
+        "description": "Sholat berjamaah di Masjidil Haram."
+      },
+      {
+        "time": "07:00",
+        "title": "Makan Pagi di Hotel",
+        "description": "Sarapan pagi di hotel."
+      },
+      {
+        "time": "07:30",
+        "title": "Ziarah Tempat Bersejarah Makkah",
+        "description": "Ziarah melewati Jabal Tsur, Jabal Nur, Arafah, Muzdalifah, dan Mina. Bagi yang ingin Umrah kedua sudah berpakaian putih — miqat di Tan'im.",
+        "location": "Jabal Tsur, Jabal Nur, Arafah, Muzdalifah, Mina",
+        "conditional": true
+      },
+      {
+        "time": null,
+        "title": "Makan Siang & Malam di Hotel",
+        "description": "Makan ditanggung hotel."
+      }
+    ],
+    "whatToDo": "Ziarah keliling tempat bersejarah di sekitar Makkah sambil mengenal lokasi Wukuf, Muzdalifah, dan Mina yang akan dikunjungi di hari-hari Haji nanti. Kesempatan untuk Umrah kedua bagi yang ingin — miqat di Tan'im.",
+    "whatToBring": [
+      "Topi atau payung",
+      "Botol minum besar",
+      "Baju ihram jika ingin Umrah kedua (wanita: gamis putih)"
+    ],
+    "tips": [
+      "Perhatikan lokasi Arafah, Muzdalifah, dan Mina saat melintas — ini penting untuk orientasi Wukuf nanti.",
+      "Jabal Nur ada Gua Hira — tidak wajib naik, cukup lihat dari bawah.",
+      "Umrah kedua dari Tan'im — tanya pembimbing jika berminat."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-tawaf", "dua-safa-marwah"],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 10,
+    "gregorianDate": "2026-05-20",
+    "hijriDate": "3 Zulhijjah 1447",
+    "hijriDay": 3,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "makkah",
+    "location": "Makkah",
+    "routeLabel": "MAKKAH AL MUKARRAMAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Masjidil Haram",
+        "description": "Sholat berjamaah di Masjidil Haram."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Hotel",
+        "description": "Seluruh makan ditanggung hotel."
+      },
+      {
+        "time": null,
+        "title": "Sholat Jumat di Masjidil Haram",
+        "description": "Sholat Jumat di Masjidil Haram — datang lebih awal.",
+        "location": "Masjidil Haram"
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas untuk ibadah mandiri."
+      }
+    ],
+    "whatToDo": "Jumat terakhir di Makkah sebelum pindah ke Ash Shishah. Prioritas Sholat Jumat di Masjidil Haram. Persiapkan koper besar untuk dipindah ke Ash Shishah.",
+    "whatToBring": [],
+    "koperNote": "Mohon siapkan Koper Besar Patuna untuk dibawa ke Apartemen Ash Shishah.",
+    "tips": [
+      "Sholat Jumat di Masjidil Haram — datang 1–2 jam sebelumnya.",
+      "Mulai pisahkan koper besar dan tas kecil untuk pindah ke Ash Shishah.",
+      "Ini mungkin kesempatan terakhir tawaf bebas sebelum fokus persiapan haji."
+    ],
+    "duaIds": ["dua-masuk-masjid", "dua-tawaf"],
+    "climateNormId": "makkah-may",
+    "patunaNote": "Mohon agar dapat Menyiapkan Koper Besar Patuna untuk dibawa ke Apartemen Ash Shishah."
+  },
+  {
+    "dayNumber": 11,
+    "gregorianDate": "2026-05-21",
+    "hijriDate": "4 Zulhijjah 1447",
+    "hijriDay": 4,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "ash-shishah",
+    "location": "Ash Shishah",
+    "routeLabel": "MAKKAH → ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Subuh di Masjidil Haram",
+        "description": "Sholat Subuh terakhir di Masjidil Haram."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi & Siang di Hotel",
+        "description": "Makan pagi dan siang di hotel Makkah sebelum check-out."
+      },
+      {
+        "time": "14:00",
+        "title": "Check-out & Berangkat ke Ash Shishah",
+        "description": "Check-out hotel Marriott Jabal Omar, perjalanan menuju Apartment Ash Shishah menggunakan bus.",
+        "location": "Ash Shishah"
+      },
+      {
+        "time": null,
+        "title": "Pembagian Kunci Kamar & Istirahat",
+        "description": "Tiba di Apartment Ash Shishah, pembagian kunci kamar."
+      },
+      {
+        "time": null,
+        "title": "Pembacaan Surat Yasin Setelah Maghrib",
+        "description": "Bersama-sama membaca Surat Yasin setelah sholat Maghrib."
+      },
+      {
+        "time": null,
+        "title": "Makan Malam di Apartment",
+        "description": "Makan malam di Apartment Ash Shishah."
+      }
+    ],
+    "whatToDo": "Pindah ke Apartment Ash Shishah — tempat singgah sebelum dan sesudah Wukuf. Lebih sederhana dari hotel, tapi akan menjadi 'base camp' selama momen paling sakral haji. Manfaatkan untuk istirahat dan memantapkan persiapan ritual.",
+    "whatToBring": [
+      "Tas kecil untuk 1–2 hari (koper besar sudah dikirim terpisah)",
+      "Baju ihram — simpan mudah dijangkau untuk hari ke-15"
+    ],
+    "tips": [
+      "Ash Shishah lebih jauh dari Masjidil Haram — ada bus shuttle Patuna.",
+      "Simpan baju ihram di tempat yang mudah dijangkau.",
+      "Manfaatkan malam ini untuk berdoa dan memantapkan niat."
+    ],
+    "duaIds": ["dua-masuk-masjid"],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 12,
+    "gregorianDate": "2026-05-22",
+    "hijriDate": "5 Zulhijjah 1447",
+    "hijriDay": 5,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "ash-shishah",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu & Kajian di Apartment",
+        "description": "Sholat dan kajian agama bersama di Apartment Ash Shishah."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan ditanggung di apartment."
+      },
+      {
+        "time": null,
+        "title": "Sholat Jumat di Area Ash Shishah",
+        "description": "Sholat Jumat di masjid terdekat dari area Ash Shishah.",
+        "location": "Masjid area Ash Shishah"
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas untuk ibadah mandiri."
+      }
+    ],
+    "whatToDo": "Hari pertama di Ash Shishah. Ikuti kajian agama bersama pembimbing untuk memantapkan pemahaman manasik haji. Sholat Jumat di masjid sekitar apartment. Istirahat cukup.",
+    "whatToBring": [],
+    "tips": [
+      "Kajian manasik sangat penting diikuti — ini persiapan final sebelum Wukuf.",
+      "Simpan tenaga — 1 minggu lagi akan menjadi momen terberat sekaligus terindah."
+    ],
+    "duaIds": ["dua-masuk-masjid"],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 13,
+    "gregorianDate": "2026-05-23",
+    "hijriDate": "6 Zulhijjah 1447",
+    "hijriDay": 6,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "ash-shishah",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu & Kajian di Apartment",
+        "description": "Sholat dan kajian bersama."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Survei Mina & Tempat Lontar Jumrah (Setelah Isya)",
+        "description": "Setelah sholat Isya, survei lokasi Tenda Mina dan tempat lontar Jumrah untuk orientasi.",
+        "location": "Mina",
+        "conditional": true
+      }
+    ],
+    "whatToDo": "Hari kajian dan survei Mina. Ikuti survei lokasi Mina dan Jumrah malam ini jika program jadi dilaksanakan — ini sangat membantu orientasi saat hari H nanti. Jangan sampai terpisah dari rombongan.",
+    "whatToBring": [
+      "Sandal kuat untuk berjalan jauh",
+      "Botol minum"
+    ],
+    "tips": [
+      "Survei Mina bersifat kondisional — ikuti arahan pembimbing.",
+      "Catat posisi tenda Mina dan jalur ke Jumrah — akan berguna saat mabit.",
+      "Jangan kelelahan malam ini — simpan tenaga untuk hari-hari kritis."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 14,
+    "gregorianDate": "2026-05-24",
+    "hijriDate": "7 Zulhijjah 1447",
+    "hijriDay": 7,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "ash-shishah",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Pengajian Setelah Subuh",
+        "description": "Pengajian manasik di Apartment Ash Shishah setelah sholat Subuh."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas."
+      },
+      {
+        "time": null,
+        "title": "Pemantapan Manasik Menjelang Wukuf",
+        "description": "Sesi pemantapan manasik khusus untuk persiapan Wukuf dan Mabit."
+      }
+    ],
+    "whatToDo": "Hari pemantapan terakhir sebelum Wukuf dimulai besok malam. Ikuti sesi pemantapan manasik dengan serius — hafalkan urutan tata cara haji. Istirahat dan tidur cukup malam ini.",
+    "whatToBring": [],
+    "tips": [
+      "Hafalkan niat haji: Labbaik Allahumma Hajjan.",
+      "Siapkan fisik dan mental — besok malam berangkat ke Arafah.",
+      "Berdoa sebanyak-banyaknya memohon kelancaran ibadah haji."
+    ],
+    "duaIds": ["niat-haji", "talbiyah"],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 15,
+    "gregorianDate": "2026-05-25",
+    "hijriDate": "8 Zulhijjah 1447",
+    "hijriDay": 8,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "rukun",
+    "location": "Arafah",
+    "routeLabel": "ASH SHISHAH → ARAFAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu & Kajian di Apartment",
+        "description": "Sholat dan kajian terakhir di Ash Shishah."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi & Siang di Apartment",
+        "description": "Makan terakhir di apartment sebelum berangkat."
+      },
+      {
+        "time": null,
+        "title": "Mandi Ihram & Berpakaian Ihram",
+        "description": "Setelah makan malam, mandi ihram dan berpakaian ihram di kamar masing-masing."
+      },
+      {
+        "time": "23:59",
+        "title": "Berangkat ke Arafah",
+        "description": "Seluruh jamaah memasuki Bus Patuna dan berangkat menuju Arafah. Pada waktu yang ditentukan, bersama-sama berniat Haji: Labbaik Allahumma Hajjan.",
+        "location": "Arafah"
+      }
+    ],
+    "whatToDo": "Hari paling bersejarah dimulai malam ini: Yaumut Tarwiyah (8 Zulhijjah). Mandi ihram setelah makan malam, kenakan baju ihram, lalu berangkat ke Arafah menjelang tengah malam. Niat Haji bersama-sama di bus. Perbanyak talbiyah sepanjang perjalanan.",
+    "whatToBring": [
+      "Baju ihram (pria: 2 lembar kain putih, wanita: gamis putih)",
+      "Sandal ihram",
+      "Botol minum besar",
+      "Selimut tipis untuk malam di tenda",
+      "Buku doa / hp dengan doa Arafah"
+    ],
+    "dressCode": {
+      "men": "Kain ihram Patuna + sandal ihram",
+      "women": "Gamis putih bebas + Mukena Atasan Putih Patuna"
+    },
+    "tips": [
+      "Mandi ihram adalah sunnah — lakukan setelah makan malam.",
+      "Larangan ihram berlaku setelah niat — jangan semprotkan parfum setelahnya.",
+      "Perbanyak talbiyah di bus — ini momen yang sangat khidmat.",
+      "Simpan tenaga untuk Wukuf esok hari."
+    ],
+    "duaIds": ["niat-haji", "talbiyah"],
+    "climateNormId": "arafah-may",
+    "ritualGuideId": "wukuf-arafah",
+    "patunaNote": "Dengan seragam untuk Laki-laki Ihrom Patuna dan Wanita baju/Gamis Putih bebas (Mukena Atasan Putih Patuna). Seluruh Jamaah memasuki Bus Patuna pukul 23:59 dan berangkat menuju Arafah. Pada waktu yang telah ditentukan, bersama-sama berniat: Niat Haji: Labbaik Allohumma Hajjan."
+  },
+  {
+    "dayNumber": 16,
+    "gregorianDate": "2026-05-26",
+    "hijriDate": "9 Zulhijjah 1447",
+    "hijriDay": 9,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "rukun",
+    "location": "Arafah",
+    "routeLabel": "ARAFAH → MUZDALIFAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Subuh & Makan Pagi di Tenda Arafah",
+        "description": "Sholat Subuh berjamaah dan makan pagi di Tenda Arafah.",
+        "location": "Tenda Arafah"
+      },
+      {
+        "time": null,
+        "title": "Persiapan Wukuf — Berwudhu & Perbanyak Dzikir",
+        "description": "Bersiap untuk Wukuf dalam keadaan berwudhu, memperbanyak dzikir sampai waktu adzan Zuhur."
+      },
+      {
+        "time": null,
+        "title": "Khutbah Wukuf & Sholat Zuhur-Ashar (Jamak Takdim Qashar)",
+        "description": "Mendengarkan Khutbah Wukuf lalu Sholat Zuhur dan Ashar dijamak takdim qashar. Doa Arafah berjamaah setelahnya.",
+        "location": "Padang Arafah"
+      },
+      {
+        "time": null,
+        "title": "Wukuf — Perbanyak Ibadah & Doa",
+        "description": "Selama di Padang Arafah, perbanyak ibadah, dzikir, dan doa. Ini adalah puncak haji — mohon apa saja kepada Allah.",
+        "location": "Padang Arafah"
+      },
+      {
+        "time": null,
+        "title": "Sholat Maghrib & Isya (Jamak Takdim Qashar) & Makan Malam",
+        "description": "Sholat Maghrib dan Isya dijamak takdim qashar, dilanjutkan makan malam."
+      },
+      {
+        "time": null,
+        "title": "Berangkat ke Muzdalifah",
+        "description": "Persiapan meninggalkan Arafah menuju Muzdalifah setelah makan malam. Seluruh jamaah memasuki bus.",
+        "location": "Muzdalifah"
+      }
+    ],
+    "whatToDo": "Hari paling agung dalam seluruh perjalanan haji: Wukuf di Arafah (9 Zulhijjah). Haji tidak sah tanpa wukuf ini. Habiskan seluruh waktu siang ini untuk berdoa, dzikir, dan memohon kepada Allah. Tangisan dan kekhusyukan sangat dianjurkan. Malam ini berangkat ke Muzdalifah.",
+    "whatToBring": [
+      "Buku doa Arafah",
+      "Botol minum extra besar (cuaca sangat panas)",
+      "Payung atau kipas tangan"
+    ],
+    "tips": [
+      "Wukuf dimulai dari masuk waktu Zuhur hingga terbenam matahari.",
+      "Doa apapun sangat mustajab di Padang Arafah — manfaatkan sebaik mungkin.",
+      "Minum air sesering mungkin — suhu bisa mencapai 42°C.",
+      "Jangan keluar area tenda tanpa pembimbing.",
+      "Setelah maghrib, segera bersiap ke Muzdalifah mengikuti bus Patuna."
+    ],
+    "duaIds": ["dua-wukuf-arafah", "dua-arafah"],
+    "climateNormId": "arafah-may",
+    "ritualGuideId": "wukuf-arafah"
+  },
+  {
+    "dayNumber": 17,
+    "gregorianDate": "2026-05-27",
+    "hijriDate": "10 Zulhijjah 1447",
+    "hijriDay": 10,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "rukun",
+    "location": "Mina",
+    "routeLabel": "MUZDALIFAH → MAKKAH → ASH SHISHAH → MINA",
+    "activities": [
+      {
+        "time": "00:01",
+        "title": "Berangkat ke Makkah — Thawaf Ifadhah, Sa'i & Tahallul Awal",
+        "description": "Setelah lewat tengah malam, melanjutkan perjalanan menuju Makkah untuk Thawaf Ifadhah, Sa'i, dan Tahallul Awal. Bus masuk dan parkir di Jumeirah Hotel. Jamaah menuju masjid dan berwudhu, lalu bersama-sama Thawaf Ifadhah + Sa'i + Tahallul Awal.",
+        "location": "Masjidil Haram, Makkah"
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi di Jumeirah Hotel",
+        "description": "Sarapan pagi di Jumeirah Hotel setelah selesai Thawaf.",
+        "location": "Jumeirah Hotel"
+      },
+      {
+        "time": null,
+        "title": "Kembali ke Ash Shishah — Ganti Baju & Istirahat",
+        "description": "Dijemput dari Jumeirah Hotel untuk kembali ke Apartment Ash Shishah. Ganti pakaian biasa, makan siang, dan istirahat.",
+        "location": "Ash Shishah"
+      },
+      {
+        "time": "16:00",
+        "title": "Berangkat ke Mina — Lontar Jumrah Aqobah (Tahallul Akhir)",
+        "description": "Setelah Sholat Ashar, menuju Mina untuk melontar Jumrah Aqobah (7 batu) sebagai pertanda Tahallul Akhir.",
+        "location": "Mina",
+        "conditional": true
+      },
+      {
+        "time": null,
+        "title": "Makan Malam & Mabit di Tenda Mina",
+        "description": "Makan malam di Mina, kemudian mabit (bermalam) di Tenda Mina.",
+        "location": "Tenda Mina"
+      }
+    ],
+    "whatToDo": "Hari 10 Zulhijjah — Idul Adha, hari terpanjang dan tersibuk haji. Tengah malam Thawaf Ifadhah + Sa'i + Tahallul Awal di Masjidil Haram, kembali ke Ash Shishah untuk istirahat singkat, lalu sore hari lontar Jumrah Aqobah (Tahallul Akhir) dan mabit di Mina.",
+    "whatToBring": [
+      "Baju ihram masih dipakai hingga Tahallul Akhir (lontar Aqobah)",
+      "Baju biasa untuk setelah Tahallul Akhir",
+      "Sandal kuat untuk berjalan jauh",
+      "Botol minum besar",
+      "Perlengkapan mabit di tenda (selimut, bantal kecil)"
+    ],
+    "tips": [
+      "Thawaf Ifadhah tengah malam lebih sepi dibanding siang hari.",
+      "Tahallul Awal setelah Sa'i: boleh ganti baju biasa tapi belum halal berhubungan suami-istri.",
+      "Tahallul Akhir setelah lontar Aqobah: semua larangan ihram selesai.",
+      "Lontar waktu sore lebih aman dari terik matahari.",
+      "Minta pembimbing untuk jalur lontar Aqobah yang tepat."
+    ],
+    "duaIds": ["dua-tawaf", "dua-safa-marwah", "dua-lontar-jumrah"],
+    "climateNormId": "mina-may",
+    "ritualGuideId": "mabit-muzdalifah-jumrah-aqobah"
+  },
+  {
+    "dayNumber": 18,
+    "gregorianDate": "2026-05-28",
+    "hijriDate": "11 Zulhijjah 1447",
+    "hijriDay": 11,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "rukun",
+    "location": "Mina",
+    "routeLabel": "MINA → ASH SHISHAH → MINA",
+    "activities": [
+      {
+        "time": null,
+        "title": "Kembali ke Ash Shishah Lewat Tengah Malam",
+        "description": "Setelah lewat tengah malam, kembali ke Apartment Ash Shishah dari Mina."
+      },
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu & Makan di Apartment",
+        "description": "Sholat lima waktu, makan pagi, siang, dan malam di Apartment Ash Shishah."
+      },
+      {
+        "time": "16:00",
+        "title": "Lontar 3 Jumrah (Ula, Wustha, Aqobah)",
+        "description": "Setelah Sholat Ashar, menuju Mina untuk melontar tiga Jumrah (Ula, Wustha, dan Aqobah) — masing-masing 7 batu.",
+        "location": "Mina",
+        "conditional": true
+      },
+      {
+        "time": null,
+        "title": "Mabit di Tenda Mina",
+        "description": "Setelah selesai lontar, menuju Tenda Mina untuk mabit (menginap).",
+        "location": "Tenda Mina"
+      }
+    ],
+    "whatToDo": "Hari Tasyriq pertama (11 Zulhijjah). Istirahat di Ash Shishah pagi dan siang, lalu sore lontar tiga Jumrah secara berurutan: mulai dari Ula (kecil) → Wustha (tengah) → Aqobah (besar). Masing-masing 7 batu. Mabit di Mina malam ini.",
+    "whatToBring": [
+      "Sandal kuat",
+      "Botol minum besar",
+      "Baju ringan/longgar untuk cuaca panas"
+    ],
+    "tips": [
+      "Urutan lontar: Ula (terkecil) → Wustha → Aqobah — tidak boleh terbalik.",
+      "Antara Ula dan Wustha, berdiam sebentar menghadap kiblat untuk doa.",
+      "Lontar sore hari lebih baik dari siang — lebih sejuk dan tidak terlalu padat.",
+      "Pastikan batu-batu digenggam satu per satu, tidak dilempar sekaligus."
+    ],
+    "duaIds": ["dua-lontar-jumrah"],
+    "climateNormId": "mina-may",
+    "ritualGuideId": "lontar-tiga-jumrah"
+  },
+  {
+    "dayNumber": 19,
+    "gregorianDate": "2026-05-29",
+    "hijriDate": "12 Zulhijjah 1447",
+    "hijriDay": 12,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "rukun",
+    "location": "Ash Shishah",
+    "routeLabel": "MINA → ASH SHISHAH (NAFAR AWAL)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Lontar Jumrah (Ula, Wustha, Aqobah) Setelah Subuh",
+        "description": "Setelah Sholat Subuh, melontar tiga Jumrah (Ula, Wustha, Aqobah) dan kemudian kembali ke Apartment Ash Shishah.",
+        "location": "Mina → Ash Shishah"
+      },
+      {
+        "time": null,
+        "title": "Nafar Awal — Jamaah Selesai Melaksanakan",
+        "description": "Setelah lontar dan kembali sebelum Maghrib pada 12 Zulhijjah, jamaah telah selesai melaksanakan Nafar Awal."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di Apartment Ash Shishah."
+      },
+      {
+        "time": null,
+        "title": "Sholat Jumat di Area Ash Shishah",
+        "description": "Sholat Jumat di masjid sekitar Ash Shishah.",
+        "location": "Area Ash Shishah"
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas — istirahat total sangat dianjurkan."
+      }
+    ],
+    "whatToDo": "Hari Tasyriq kedua dan Nafar Awal. Lontar tiga Jumrah setelah Subuh, lalu kembali ke Ash Shishah sebelum Maghrib — ini yang disebut Nafar Awal (pulang lebih awal). Setelah itu, seluruh rukun haji telah selesai! Istirahat total, Sholat Jumat, dan syukuri perjalanan luar biasa ini.",
+    "whatToBring": [],
+    "tips": [
+      "Nafar Awal: wajib meninggalkan Mina sebelum terbenam matahari 12 Zulhijjah.",
+      "Setelah Nafar Awal, seluruh amalan wajib haji selesai.",
+      "Istirahat sebanyak mungkin — fisik sudah sangat terkuras.",
+      "Hari ini layak bersyukur dan menangis haru karena ibadah haji sudah selesai."
+    ],
+    "duaIds": ["dua-lontar-jumrah"],
+    "climateNormId": "makkah-may",
+    "ritualGuideId": "lontar-tiga-jumrah"
+  },
+  {
+    "dayNumber": 20,
+    "gregorianDate": "2026-05-30",
+    "hijriDate": "13 Zulhijjah 1447",
+    "hijriDay": 13,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "post-hajj",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas — istirahat dan pemulihan."
+      }
+    ],
+    "whatToDo": "Hari pertama pasca-haji. Istirahat total sangat dianjurkan — tubuh telah melalui perjalanan luar biasa. Manfaatkan untuk tidur, makan, dan bersyukur. Mulai pikirkan oleh-oleh yang belum dibeli.",
+    "whatToBring": [],
+    "tips": [
+      "Jangan paksa diri beraktivitas berat hari ini.",
+      "Minum banyak air dan makan dengan baik untuk pemulihan.",
+      "Bisa mulai belanja oleh-oleh di sekitar Ash Shishah."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 21,
+    "gregorianDate": "2026-05-31",
+    "hijriDate": "14 Zulhijjah 1447",
+    "hijriDay": 14,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "post-hajj",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas."
+      }
+    ],
+    "whatToDo": "Hari istirahat pasca-haji. Manfaatkan waktu untuk ibadah mandiri, tawaf sunnah di Masjidil Haram jika kondisi memungkinkan, atau istirahat di apartment.",
+    "whatToBring": [],
+    "tips": [
+      "Jika ke Masjidil Haram, gunakan bus shuttle Patuna.",
+      "Jaga kesehatan — banyak jamaah sakit setelah Wukuf.",
+      "Perbanyak sholawat dan dzikir di waktu istirahat."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 22,
+    "gregorianDate": "2026-06-01",
+    "hijriDate": "15 Zulhijjah 1447",
+    "hijriDay": 15,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "post-hajj",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas."
+      }
+    ],
+    "whatToDo": "Hari istirahat. Manfaatkan untuk tawaf sunnah, belanja oleh-oleh, atau istirahat total.",
+    "whatToBring": [],
+    "tips": [
+      "Belanja oleh-oleh lebih baik dilakukan sekarang sebelum kesibukan kepulangan.",
+      "Harga kurma, kopi Arabia, dan parfum oud bisa ditawar.",
+      "Tawaf sunnah gratis — tidak perlu alasan khusus untuk ke Masjidil Haram."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 23,
+    "gregorianDate": "2026-06-02",
+    "hijriDate": "16 Zulhijjah 1447",
+    "hijriDay": 16,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "post-hajj",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas."
+      }
+    ],
+    "whatToDo": "Hari istirahat pasca-haji. Manfaatkan untuk ibadah mandiri dan persiapan kepulangan.",
+    "whatToBring": [],
+    "tips": [
+      "Mulai cek berat koper — batas bagasi pesawat biasanya 32kg.",
+      "Pisahkan oleh-oleh cairan (parfum, minyak) ke koper yang benar."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may"
+  },
+  {
+    "dayNumber": 24,
+    "gregorianDate": "2026-06-03",
+    "hijriDate": "17 Zulhijjah 1447",
+    "hijriDay": 17,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "post-hajj",
+    "location": "Ash Shishah",
+    "routeLabel": "ASH SHISHAH (APARTMENT)",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": null,
+        "title": "Free Program",
+        "description": "Waktu bebas."
+      }
+    ],
+    "whatToDo": "Hari terakhir penuh di Ash Shishah sebelum kepulangan. Siapkan koper besar untuk dikirim ke Jeddah.",
+    "whatToBring": [],
+    "koperNote": "Mohon siapkan Koper Besar Patuna untuk dibawa ke Jeddah.",
+    "tips": [
+      "Koper besar akan dikirim ke Jeddah — pastikan sudah terkunci dan berlabel.",
+      "Persiapkan dokumen kepulangan: paspor, boarding pass, kartu kesehatan.",
+      "Thawaf Wada akan dilaksanakan besok malam — siapkan diri."
+    ],
+    "duaIds": [],
+    "climateNormId": "makkah-may",
+    "patunaNote": "Mohon agar dapat Menyiapkan Koper Besar Patuna untuk dibawa ke Jeddah."
+  },
+  {
+    "dayNumber": 25,
+    "gregorianDate": "2026-06-04",
+    "hijriDate": "18 Zulhijjah 1447",
+    "hijriDay": 18,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "departure",
+    "location": "Jeddah",
+    "routeLabel": "ASH SHISHAH → MAKKAH (THAWAF WADA) → JEDDAH",
+    "activities": [
+      {
+        "time": null,
+        "title": "Sholat Lima Waktu di Apartment",
+        "description": "Sholat berjamaah di apartment."
+      },
+      {
+        "time": null,
+        "title": "Makan Pagi, Siang & Malam di Apartment",
+        "description": "Seluruh makan di apartment."
+      },
+      {
+        "time": "21:00",
+        "title": "Check-out & Berangkat ke Makkah untuk Thawaf Wada",
+        "description": "Check-out Apartment Ash Shishah lalu menuju Makkah untuk melaksanakan Thawaf Wada (tawaf perpisahan).",
+        "location": "Masjidil Haram, Makkah"
+      }
+    ],
+    "whatToDo": "Hari kepulangan dimulai malam ini dengan Thawaf Wada — tawaf perpisahan dengan Ka'bah. Ini momen yang sangat emosional. Kenakan seragam batik Patuna. Setelah Thawaf Wada, langsung menuju Jeddah untuk penerbangan pulang.",
+    "whatToBring": [
+      "Tas kabin — koper besar sudah dikirim ke Jeddah",
+      "Dokumen kepulangan: paspor, boarding pass",
+      "Seragam batik Patuna"
+    ],
+    "dressCode": {
+      "men": "Seragam batik haji Patuna + bawahan hitam",
+      "women": "Seragam batik haji Patuna + bawahan bebas + hijab segi empat + mukena atasan ungu Patuna untuk Thawaf Wada"
+    },
+    "tips": [
+      "Thawaf Wada adalah tawaf perpisahan — lakukan dengan penuh kekhusyukan.",
+      "Setelah Thawaf Wada, dilarang kembali ke Masjidil Haram kecuali darurat.",
+      "Menangis saat Thawaf Wada adalah hal yang sangat wajar.",
+      "Perpisahan dengan Ka'bah — mohon diberikan kesempatan kembali ke sini."
+    ],
+    "duaIds": ["dua-thawaf-wada", "dua-tawaf"],
+    "climateNormId": "makkah-june",
+    "ritualGuideId": "thawaf-wada",
+    "patunaNote": "Seragam Pria Memakai Batik Haji Patuna dan Bawahan Hitam. Seragam Wanita Memakai Batik Haji Patuna, Bawahan Bebas dan Hijab segi empat serta membawa Mukena atasan ungu Patuna untuk digunakan ketika Thawaf Wada."
+  },
+  {
+    "dayNumber": 26,
+    "gregorianDate": "2026-06-05",
+    "hijriDate": "19 Zulhijjah 1447",
+    "hijriDay": 19,
+    "hijriMonth": "Zulhijjah",
+    "hijriYear": 1447,
+    "phase": "departure",
+    "location": "Jeddah",
+    "routeLabel": "JEDDAH → JAKARTA",
+    "activities": [
+      {
+        "time": null,
+        "title": "Setelah Thawaf Wada — Semua Amalan Haji Selesai",
+        "description": "Setelah pelaksanaan Thawaf Wada, seluruh amalan-amalan Haji selesai. Alhamdulillah."
+      },
+      {
+        "time": "03:40",
+        "title": "Perjalanan ke Bandara Jeddah",
+        "description": "Perjalanan menuju Bandara Internasional King Abdul Aziz Jeddah.",
+        "location": "Jeddah"
+      },
+      {
+        "time": "04:40",
+        "title": "Tiba di Bandara & Proses Bagasi + Imigrasi",
+        "description": "Tiba di Bandara Internasional King Abdul Aziz Jeddah, dilanjut proses bagasi dan imigrasi.",
+        "location": "Bandara King Abdul Aziz, Jeddah"
+      },
+      {
+        "time": "08:40",
+        "title": "Penerbangan Kembali ke Jakarta (SV 826)",
+        "description": "Penerbangan kembali menuju Jakarta dengan pesawat Saudia Airlines SV 826.",
+        "location": "In-flight"
+      },
+      {
+        "time": "22:45",
+        "title": "Tiba di Jakarta — Program Selesai",
+        "description": "Setibanya di Jakarta, berakhirlah program Haji bersama Patuna. Terima kasih.",
+        "location": "Bandara Soekarno-Hatta, Jakarta"
+      }
+    ],
+    "whatToDo": "Hari kepulangan. Setelah Thawaf Wada semalam, semua amalan haji telah selesai. Proses bagasi dan imigrasi di Bandara Jeddah, penerbangan pagi hari, dan tiba di Jakarta malam hari. Alhamdulillah, haji mabrur.",
+    "whatToBring": [
+      "Dokumen kepulangan lengkap",
+      "Tas oleh-oleh di kabin sesuai ketentuan penerbangan"
+    ],
+    "dressCode": {
+      "men": "Seragam batik haji Patuna + bawahan bebas",
+      "women": "Seragam batik haji Patuna + hijab seragam + bawahan bebas"
+    },
+    "tips": [
+      "Pastikan paspor, boarding pass, dan kartu kesehatan mudah dijangkau.",
+      "Bagasi cair (parfum, minyak) harus di koper bagasi, bukan kabin.",
+      "Di pesawat, bisa mulai beristirahat total — perjalanan panjang hampir selesai.",
+      "Sesampai di Jakarta, langsung minum air lokal dan istirahat panjang."
+    ],
+    "duaIds": ["dua-safar"],
+    "climateNormId": "jeddah-june",
+    "patunaNote": "Menggunakan Seragam Batik Patuna beserta Hijab Seragam (khusus Wanita) dan Bawahan Bebas. Program Selesai. Akomodasi: Madinah: Grand Plaza Badr Al Maqam | Makkah: Marriott Jabal Omar | Apartment Transit: Ash Shishah."
+  }
+]
