@@ -18,6 +18,47 @@
 	}
 
 	const hotel = $derived(guide ? getHotelForDay(guide.dayNumbers) : null);
+
+	type Mode = 'overview' | 'steps' | 'closing';
+	let mode = $state<Mode>('overview');
+	let stepIndex = $state(0);
+
+	const totalSteps = $derived(guide ? guide.steps.length : 0);
+	const currentStep = $derived(guide?.steps[stepIndex] ?? null);
+
+	function startSteps() {
+		stepIndex = 0;
+		mode = 'steps';
+	}
+
+	function nextStep() {
+		if (stepIndex < totalSteps - 1) stepIndex++;
+		else mode = 'closing';
+	}
+
+	function prevStep() {
+		if (stepIndex > 0) stepIndex--;
+		else mode = 'overview';
+	}
+
+	function goToStep(i: number) {
+		stepIndex = i;
+		mode = 'steps';
+	}
+
+	let touchStartX = 0;
+	const SWIPE_THRESHOLD = 50;
+
+	function onTouchStart(e: TouchEvent) {
+		touchStartX = e.touches[0]?.clientX ?? 0;
+	}
+
+	function onTouchEnd(e: TouchEvent) {
+		const dx = (e.changedTouches[0]?.clientX ?? 0) - touchStartX;
+		if (Math.abs(dx) < SWIPE_THRESHOLD) return;
+		if (dx < 0) nextStep();
+		else prevStep();
+	}
 </script>
 
 <svelte:head>
@@ -25,7 +66,7 @@
 </svelte:head>
 
 {#if guide}
-	<div class="pt-safe page-enter mx-auto max-w-120 px-4 pb-8">
+	<div class="pt-safe page-enter mx-auto flex min-h-dvh max-w-120 flex-col px-4 pb-8">
 		<!-- Back link -->
 		<div class="pt-4 pb-3">
 			<a href="/" class="inline-flex items-center gap-1 text-sm text-muted">
@@ -55,110 +96,179 @@
 			{/if}
 		</header>
 
-		<!-- Overview -->
-		<p class="mb-6 font-serif text-sm leading-relaxed text-foreground">{guide.overview}</p>
-
-		<!-- Preparation -->
-		{#if guide.preparation.length > 0}
-			<section class="mb-6">
-				<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
-				<div class="space-y-2 rounded-xl border border-border bg-surface p-4">
-					{#each guide.preparation as item}
-						<div class="flex gap-2.5 text-sm text-foreground">
-							<span class="mt-0.5 shrink-0 text-gold">·</span>
-							<span>{item}</span>
-						</div>
-					{/each}
-				</div>
-			</section>
-		{/if}
-
-		<!-- Steps -->
-		<section class="mb-6">
-			<p class="mb-4 text-[10px] font-bold tracking-widest text-muted uppercase">Langkah-langkah</p>
-			<div class="space-y-4">
-				{#each guide.steps as step, i}
-					<div class="relative pl-8">
-						<!-- Step number -->
-						<div
-							class="absolute top-0 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-(--color-brand) text-xs font-bold text-white"
-						>
-							{i + 1}
-						</div>
-
-						<div>
-							<p class="font-semibold text-foreground">{step.title}</p>
-							<p class="mt-1 font-serif text-sm leading-relaxed text-foreground">
-								{step.instruction}
-							</p>
-
-							{#if step.arabic}
-								<div class="mt-3 rounded-xl border border-border bg-surface p-4">
-									<ArabicText text={step.arabic} size="lg" />
-									{#if step.arabicSource}
-										<p class="mt-2 text-right text-xs text-muted">— {step.arabicSource}</p>
-									{/if}
-								</div>
-							{/if}
-
-							{#if step.note}
-								<div class="mt-2 flex gap-2 text-sm text-muted">
-									<span class="shrink-0">💡</span>
-									<span class="font-serif">{step.note}</span>
-								</div>
-							{/if}
-
-							{#if step.warning}
-								<div
-									class="mt-2 flex gap-2 rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-foreground"
-								>
-									<span class="shrink-0">⚠️</span>
-									<span>{step.warning}</span>
-								</div>
-							{/if}
-						</div>
-
-						<!-- Connector line (except last) -->
-						{#if i < guide.steps.length - 1}
-							<div class="absolute top-7 bottom-0 left-2.75 w-px bg-border"></div>
-						{/if}
-					</div>
+		<!-- Step dots (always visible when in step mode) -->
+		{#if mode === 'steps'}
+			<div
+				class="mb-5 flex items-center justify-center gap-1.5"
+				role="tablist"
+				aria-label="Langkah"
+			>
+				{#each guide.steps as _, i (i)}
+					<button
+						onclick={() => goToStep(i)}
+						role="tab"
+						aria-selected={i === stepIndex}
+						aria-label="Langkah {i + 1}"
+						class="tap-target rounded-full transition-all duration-150 {i === stepIndex
+							? 'h-2.5 w-2.5 bg-(--color-brand)'
+							: 'h-2 w-2 bg-border'}"
+					></button>
 				{/each}
 			</div>
-		</section>
-
-		<!-- Closing note -->
-		{#if guide.closingNote}
-			<section class="mb-6">
-				<div class="rounded-xl border border-gold/30 bg-gold/5 p-4">
-					<p class="font-serif text-sm leading-relaxed text-foreground">{guide.closingNote}</p>
-				</div>
-			</section>
 		{/if}
 
-		<!-- Related du'as -->
-		{#if relatedDuas.length > 0}
-			<section class="mb-6">
-				<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Doa Terkait</p>
-				<div class="space-y-3">
-					{#each relatedDuas as dua}
-						<div class="rounded-xl border border-border bg-surface p-4">
-							<p class="mb-2 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-								{dua.title}
-							</p>
-							<ArabicText text={dua.arabic} size="base" />
-							{#if dua.latin}
-								<p class="mt-2 text-sm text-muted italic">{dua.latin}</p>
-							{/if}
-							<p class="mt-1 font-serif text-sm text-foreground">{dua.translation}</p>
+		<!-- Content area -->
+		<div class="flex-1">
+			<!-- ═══ OVERVIEW MODE ═══ -->
+			{#if mode === 'overview'}
+				<p class="mb-6 font-serif text-sm leading-relaxed text-foreground">{guide.overview}</p>
+
+				{#if guide.preparation.length > 0}
+					<section class="mb-6">
+						<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
+						<div class="space-y-2 rounded-xl border border-border bg-surface p-4">
+							{#each guide.preparation as item (item)}
+								<div class="flex gap-2.5 text-sm text-foreground">
+									<span class="mt-0.5 shrink-0 text-gold">·</span>
+									<span>{item}</span>
+								</div>
+							{/each}
 						</div>
-					{/each}
+					</section>
+				{/if}
+
+				<!-- Start button -->
+				<button
+					onclick={startSteps}
+					class="tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+				>
+					Mulai Panduan — {totalSteps} Langkah
+				</button>
+
+				<!-- ═══ STEP-BY-STEP MODE ═══ -->
+			{:else if mode === 'steps' && currentStep}
+				<div role="document" class="page-enter" ontouchstart={onTouchStart} ontouchend={onTouchEnd}>
+					<!-- Step number label -->
+					<p class="mb-3 text-xs font-semibold tracking-widest text-(--color-brand) uppercase">
+						Langkah {stepIndex + 1} dari {totalSteps}
+					</p>
+
+					<!-- Step content -->
+					<div class="rounded-xl border border-border bg-surface p-5">
+						<p class="text-lg font-semibold text-foreground">{currentStep.title}</p>
+						<p class="mt-3 font-serif text-sm leading-relaxed text-foreground">
+							{currentStep.instruction}
+						</p>
+
+						{#if currentStep.arabic}
+							<div class="mt-4 rounded-xl border border-border bg-background p-4">
+								<ArabicText text={currentStep.arabic} size="lg" />
+								{#if currentStep.arabicSource}
+									<p class="mt-2 text-right text-xs text-muted">— {currentStep.arabicSource}</p>
+								{/if}
+							</div>
+						{/if}
+
+						{#if currentStep.note}
+							<div class="mt-3 flex gap-2 text-sm text-muted">
+								<span class="shrink-0">💡</span>
+								<span class="font-serif">{currentStep.note}</span>
+							</div>
+						{/if}
+
+						{#if currentStep.warning}
+							<div
+								class="mt-3 flex gap-2 rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-foreground"
+							>
+								<span class="shrink-0">⚠️</span>
+								<span>{currentStep.warning}</span>
+							</div>
+						{/if}
+					</div>
 				</div>
-			</section>
+
+				<!-- ═══ CLOSING MODE ═══ -->
+			{:else if mode === 'closing'}
+				<div class="page-enter">
+					{#if guide.closingNote}
+						<section class="mb-6">
+							<div class="rounded-xl border border-gold/30 bg-gold/5 p-4">
+								<p class="font-serif text-sm leading-relaxed text-foreground">
+									{guide.closingNote}
+								</p>
+							</div>
+						</section>
+					{/if}
+
+					{#if relatedDuas.length > 0}
+						<section class="mb-6">
+							<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">
+								Doa Terkait
+							</p>
+							<div class="space-y-3">
+								{#each relatedDuas as dua (dua.id)}
+									<div class="rounded-xl border border-border bg-surface p-4">
+										<p
+											class="mb-2 text-xs font-semibold tracking-wide text-(--color-brand) uppercase"
+										>
+											{dua.title}
+										</p>
+										<ArabicText text={dua.arabic} size="base" />
+										{#if dua.latin}
+											<p class="mt-2 text-sm text-muted italic">{dua.latin}</p>
+										{/if}
+										<p class="mt-1 font-serif text-sm text-foreground">{dua.translation}</p>
+									</div>
+								{/each}
+							</div>
+						</section>
+					{/if}
+				</div>
+			{/if}
+		</div>
+
+		<!-- Navigation buttons -->
+		{#if mode !== 'overview'}
+			<div class="mt-6 flex gap-3">
+				<button
+					onclick={prevStep}
+					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-border bg-surface px-4 py-3.5 text-sm font-semibold text-foreground transition-transform duration-100 ease-out active:scale-[0.98]"
+				>
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
+					>
+					Sebelumnya
+				</button>
+				<button
+					onclick={nextStep}
+					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-(--color-brand) px-4 py-3.5 text-sm font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+				>
+					{mode === 'steps' && stepIndex === totalSteps - 1 ? 'Selesai' : 'Selanjutnya'}
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg
+					>
+				</button>
+			</div>
 		{/if}
 
 		<!-- Lost? Show hotel address to taxi driver -->
-		{#if hotel}
+		{#if hotel && mode === 'closing'}
 			<LostButton {hotel} />
 		{/if}
 	</div>
