@@ -21,3 +21,6 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# PDFs — source docs are too large for git; small ones are bundled into static/pdfs/
+docs/*.pdf
