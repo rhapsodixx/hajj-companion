@@ -1,86 +1,86 @@
 [
   {
     "id": "muthawwif-ketua",
-    "name": "TBD — Muthawwif Ketua",
-    "role": "Ketua Muthawwif Coklat B (Bus 18–21)",
+    "name": "Denny Eko Sulistio",
+    "role": "PIC Grup Coklat B — Bus 18",
     "phone": null,
     "whatsapp": null,
-    "note": "Nomor akan diisi saat Manasik 9 Mei 2026 di ICE BSD.",
+    "note": "Penanggung jawab kelompok Bus 18.",
     "category": "muthawwif"
   },
   {
-    "id": "muthawwif-bus18",
-    "name": "TBD — Pembimbing Bus 18",
+    "id": "muthawwif-bus18-ibadah",
+    "name": "Ust. Saiful Akib, Lc, MA",
     "role": "Pembimbing Ibadah Bus 18",
     "phone": null,
     "whatsapp": null,
-    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "note": "Pembimbing ibadah, manasik, dan teknis perjalanan Bus 18.",
     "category": "muthawwif"
   },
   {
-    "id": "muthawwif-bus19",
-    "name": "TBD — Pembimbing Bus 19",
-    "role": "Pembimbing Ibadah Bus 19",
+    "id": "muthawwif-bus18-dokter",
+    "name": "Dr. Arinda Putri Pitarini",
+    "role": "Tim Dokter Coklat B",
     "phone": null,
     "whatsapp": null,
-    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "note": "Monitoring kesehatan jamaah Coklat B.",
     "category": "muthawwif"
   },
   {
-    "id": "muthawwif-bus20",
-    "name": "TBD — Pembimbing Bus 20",
-    "role": "Pembimbing Ibadah Bus 20",
-    "phone": null,
-    "whatsapp": null,
-    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
+    "id": "muthawwif-bus18-dokumentasi",
+    "name": "Ade Muamad Irfan",
+    "role": "Tim Dokumentasi Bus 18",
+    "phone": "+6281295565526",
+    "whatsapp": "6281295565526",
+    "note": "Tim dokumentasi perjalanan.",
     "category": "muthawwif"
   },
   {
-    "id": "muthawwif-bus21",
-    "name": "TBD — Pembimbing Bus 21",
-    "role": "Pembimbing Ibadah Bus 21",
-    "phone": null,
-    "whatsapp": null,
-    "note": "Nomor akan diisi saat Manasik 9 Mei 2026.",
-    "category": "muthawwif"
+    "id": "patuna-ops-nesya",
+    "name": "Nesya",
+    "role": "Tim Operasional Jakarta — Patuna",
+    "phone": "+6285692200201",
+    "whatsapp": "6285692200201",
+    "note": "Tim operasional Jakarta.",
+    "category": "patuna"
   },
   {
-    "id": "patuna-office",
-    "name": "Patuna Travel Jakarta",
-    "role": "Kantor Patuna — Darurat dari Indonesia",
-    "phone": "+622129039000",
-    "whatsapp": null,
-    "note": "Hubungi jika ada darurat yang membutuhkan bantuan dari Jakarta.",
+    "id": "patuna-ops-nani",
+    "name": "Nani",
+    "role": "Tim Operasional Jakarta — Patuna",
+    "phone": "+6287888659154",
+    "whatsapp": "6287888659154",
+    "note": "Tim operasional Jakarta.",
     "category": "patuna"
   },
   {
     "id": "hotel-madinah",
     "name": "Grand Plaza Badr Al Maqam",
-    "role": "Hotel Madinah",
+    "role": "Hotel Madinah (Hari 2–6)",
     "phone": "+966148613666",
-    "address": "Jl. King Abdul Aziz Rd, Madinah, Arab Saudi",
+    "address": "King Abdul Aziz Rd, Madinah Al Munawwarah, Arab Saudi",
     "addressArabic": "فندق جراند بلازا بدر المقام، طريق الملك عبدالعزيز، المدينة المنورة",
-    "note": "Hotel jamaah selama di Madinah (Hari 2–6).",
+    "note": "Hotel jamaah selama di Madinah.",
     "category": "hotel"
   },
   {
     "id": "hotel-makkah",
     "name": "Marriott Jabal Omar",
-    "role": "Hotel Makkah",
+    "role": "Hotel Makkah (Hari 7–10)",
     "phone": "+966125710000",
     "address": "Jabal Omar, Makkah Al Mukarramah, Arab Saudi",
     "addressArabic": "فندق ماريوت جبل عمر، جبل عمر، مكة المكرمة",
-    "note": "Hotel jamaah selama di Makkah (Hari 7–10).",
+    "note": "Hotel jamaah selama di Makkah.",
     "category": "hotel"
   },
   {
     "id": "apartment-ash-shishah",
     "name": "Apartment Ash Shishah",
-    "role": "Apartemen Transit Ash Shishah",
+    "role": "Apartemen Transit (Hari 11–25)",
     "phone": null,
-    "address": "Ash Shishah, Makkah Al Mukarramah, Arab Saudi",
+    "address": "Ash Shishah (Al Aziziyah), Makkah Al Mukarramah, Arab Saudi",
     "addressArabic": "شقق العزيزية، مكة المكرمة",
-    "note": "Tempat menginap sebelum dan sesudah Wukuf (Hari 11–25). Nomor spesifik akan dikonfirmasi pembimbing.",
+    "note": "Tempat menginap sebelum dan sesudah Wukuf. Nomor spesifik dikonfirmasi pembimbing.",
     "category": "hotel"
   },
   {
@@ -88,15 +88,15 @@
     "name": "Darurat Saudi Arabia",
     "role": "Nomor Darurat Terpadu Saudi",
     "phone": "911",
-    "note": "Nomor darurat terpadu Arab Saudi untuk polisi, kebakaran, dan ambulans.",
+    "note": "Nomor darurat terpadu — polisi, kebakaran, dan ambulans.",
     "category": "emergency"
   },
   {
     "id": "emergency-saudi-medical",
-    "name": "Layanan Kesehatan Saudi",
+    "name": "Layanan Kesehatan Haji Saudi",
     "role": "Darurat Medis Saudi Arabia",
     "phone": "920002879",
-    "note": "Layanan kesehatan haji Saudi — tersedia di area Arafah, Mina, dan Muzdalifah.",
+    "note": "Tersedia di area Arafah, Mina, dan Muzdalifah selama musim haji.",
     "category": "emergency"
   },
   {
@@ -115,7 +115,7 @@
     "name": "KBRI Riyadh",
     "role": "Kedutaan Besar RI Riyadh",
     "phone": "+9661460100",
-    "note": "Kedutaan Besar Indonesia di Riyadh — untuk darurat di luar jangkauan KJRI Jeddah.",
+    "note": "Kedutaan Besar Indonesia di Riyadh — darurat di luar jangkauan KJRI Jeddah.",
     "category": "consulate"
   }
 ]

@@ -34,26 +34,26 @@
 
 {#if showBanner}
 	<div
-		class="fixed right-0 bottom-0 left-0 z-50 border-t border-[var(--color-border)] bg-[var(--color-background)] px-4 py-3 shadow-lg"
+		class="fixed right-0 bottom-0 left-0 z-50 border-t border-border bg-[var(--color-background)] px-4 py-3 shadow-lg"
 		style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px))"
 	>
-		<div class="mx-auto flex max-w-[480px] items-center gap-3">
+		<div class="mx-auto flex max-w-120 items-center gap-3">
 			<div class="min-w-0 flex-1">
-				<p class="text-sm font-semibold text-[var(--color-foreground)]">
+				<p class="text-sm font-semibold text-foreground">
 					Simpan di layar utama
 				</p>
-				<p class="text-xs text-[var(--color-muted)]">Akses offline tanpa koneksi internet</p>
+				<p class="text-xs text-muted">Akses offline tanpa koneksi internet</p>
 			</div>
 			<button
 				onclick={dismiss}
-				class="tap-target shrink-0 text-sm text-[var(--color-muted)]"
+				class="tap-target shrink-0 text-sm text-muted"
 				aria-label="Tutup"
 			>
 				Nanti
 			</button>
 			<button
 				onclick={install}
-				class="tap-target shrink-0 rounded-lg bg-[var(--color-brand)] px-4 text-sm font-semibold text-white"
+				class="tap-target shrink-0 rounded-lg bg-(--color-brand) px-4 text-sm font-semibold text-white"
 			>
 				Pasang
 			</button>

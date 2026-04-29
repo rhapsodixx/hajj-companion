@@ -25,13 +25,13 @@
 
 <svelte:head><title>Design Gallery — Dev Only</title></svelte:head>
 
-<div class="mx-auto max-w-[480px] space-y-12 px-4 py-10">
+<div class="mx-auto max-w-120 space-y-12 px-4 py-10">
 	<header>
-		<p class="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
+		<p class="text-xs font-semibold tracking-widest text-muted uppercase">
 			Dev Route
 		</p>
 		<h1 class="mt-1 text-2xl font-semibold">Design Gallery</h1>
-		<p class="mt-1 text-sm text-[var(--color-muted)]">Patuna Coklat-B Hajj Companion — Task 10</p>
+		<p class="mt-1 text-sm text-muted">Patuna Coklat-B Hajj Companion — Task 10</p>
 	</header>
 
 	<!-- ── Phase Ribbons ── -->
@@ -77,15 +77,15 @@
 		<h2 class="text-lg font-semibold">Card</h2>
 		<Card>
 			<p class="font-medium">Kartu biasa</p>
-			<p class="mt-1 text-sm text-[var(--color-muted)]">Tanpa efek tekan</p>
+			<p class="mt-1 text-sm text-muted">Tanpa efek tekan</p>
 		</Card>
 		<Card pressable>
 			<p class="font-medium">Kartu bisa ditekan</p>
-			<p class="mt-1 text-sm text-[var(--color-muted)]">Scale 0.98 saat active — 100ms ease-out</p>
+			<p class="mt-1 text-sm text-muted">Scale 0.98 saat active — 100ms ease-out</p>
 		</Card>
 		<Card pressable href="/itinerary">
 			<p class="font-medium">Kartu sebagai link →</p>
-			<p class="mt-1 text-sm text-[var(--color-muted)]">Navigasi ke /itinerary</p>
+			<p class="mt-1 text-sm text-muted">Navigasi ke /itinerary</p>
 		</Card>
 	</section>
 
@@ -107,19 +107,19 @@
 	<section class="space-y-4">
 		<h2 class="text-lg font-semibold">Arabic Rendering (Amiri)</h2>
 		<Card>
-			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">xl — Niat Haji</p>
+			<p class="mb-1 text-xs font-medium text-muted uppercase">xl — Niat Haji</p>
 			<ArabicText text={niatHaji} size="xl" />
-			<p class="mt-1 text-sm italic text-[var(--color-muted)]">Labbaik Allahumma Hajjan</p>
+			<p class="mt-1 text-sm italic text-muted">Labbaik Allahumma Hajjan</p>
 		</Card>
 		<Card>
-			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">lg — Niat Umrah</p>
+			<p class="mb-1 text-xs font-medium text-muted uppercase">lg — Niat Umrah</p>
 			<ArabicText text={niatUmrah} size="lg" />
-			<p class="mt-1 text-sm italic text-[var(--color-muted)]">Labbaik Allahumma 'Umratan</p>
+			<p class="mt-1 text-sm italic text-muted">Labbaik Allahumma 'Umratan</p>
 		</Card>
 		<Card>
-			<p class="mb-1 text-xs font-medium text-[var(--color-muted)] uppercase">base — Talbiyah</p>
+			<p class="mb-1 text-xs font-medium text-muted uppercase">base — Talbiyah</p>
 			<ArabicText text={talbiyah} size="base" />
-			<p class="mt-1 text-sm text-[var(--color-muted)]">Labbaik Allahumma Labbaik...</p>
+			<p class="mt-1 text-sm text-muted">Labbaik Allahumma Labbaik...</p>
 		</Card>
 	</section>
 

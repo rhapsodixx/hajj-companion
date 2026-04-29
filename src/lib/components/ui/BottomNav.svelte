@@ -32,18 +32,18 @@
 </script>
 
 <nav
-	class="fixed right-0 bottom-0 left-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-background)]"
+	class="fixed right-0 bottom-0 left-0 z-40 border-t border-border bg-[var(--color-background)]"
 	style="padding-bottom: env(safe-area-inset-bottom, 0px)"
 	aria-label="Navigasi utama"
 >
-	<div class="mx-auto flex max-w-[480px]">
+	<div class="mx-auto flex max-w-120">
 		{#each nav as item}
 			{@const active = item.match(currentPath)}
 			<a
 				href={item.href}
 				class="tap-target flex flex-1 flex-col items-center gap-0.5 px-2 text-xs font-medium transition-colors duration-150"
-				class:text-[var(--color-brand)]={active}
-				class:text-[var(--color-muted)]={!active}
+				class:text-(--color-brand)={active}
+				class:text-muted={!active}
 				aria-current={active ? 'page' : undefined}
 			>
 				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
