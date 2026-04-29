@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { itinerary, getDayByDate } from '$lib/data/itinerary';
 	import { getClimate } from '$lib/data/climate';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
@@ -13,7 +14,7 @@
 		makkah: 'Makkah',
 		'ash-shishah': 'Ash Shishah',
 		rukun: 'Rukun Haji',
-		'post-hajj': 'Pasca Haji',
+		'post-hajj': 'Setelah Haji',
 		departure: 'Kepulangan'
 	};
 
@@ -30,7 +31,15 @@
 		return itinerary.find((d) => d.dayNumber === dayNumber + 1);
 	}
 
-	function getNextActivity(activities: { time?: string | null; title: string; description: string; location?: string; conditional?: boolean }[]) {
+	function getNextActivity(
+		activities: {
+			time?: string | null;
+			title: string;
+			description: string;
+			location?: string;
+			conditional?: boolean;
+		}[]
+	) {
 		const now = new Date();
 		const hhmm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 		const timed = activities.filter((a) => a.time && a.time !== null);
@@ -53,7 +62,7 @@
 		return m > 0 ? `${h} jam ${m} menit lagi` : `${h} jam lagi`;
 	}
 
-	const today = getTodayISO();
+	const today = (browser && localStorage.getItem('patuna-date-override')) || getTodayISO();
 	const todayDay = getDayByDate(today);
 	const afterMaghrib = isAfterMaghrib();
 	const nextDay = todayDay ? getNextDay(todayDay.dayNumber) : null;
@@ -72,8 +81,7 @@
 
 <svelte:head><title>Patuna Coklat-B — Hajj Companion</title></svelte:head>
 
-<main class="mx-auto max-w-120 px-4 pt-safe space-y-4 py-5">
-
+<main class="pt-safe mx-auto max-w-120 space-y-4 px-4 py-5">
 	<!-- ── Header ── -->
 	<header class="flex items-center justify-between">
 		<div>
@@ -104,11 +112,13 @@
 
 		<Card>
 			<p class="text-sm font-semibold text-foreground">Manasik — Santika ICE BSD</p>
-			<p class="mt-1 text-sm text-muted">9–11 Mei 2026 · Persiapan terakhir sebelum keberangkatan</p>
+			<p class="mt-1 text-sm text-muted">
+				9–11 Mei 2026 · Persiapan terakhir sebelum keberangkatan
+			</p>
 		</Card>
 
 		<Card>
-			<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Persiapan Haji</p>
+			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Haji</p>
 			<ul class="space-y-1 text-sm text-foreground">
 				<li>✓ Pastikan paspor & visa sudah di tangan</li>
 				<li>✓ Cek koper: seragam batik Patuna, ihram, obat pribadi</li>
@@ -117,7 +127,7 @@
 			</ul>
 		</Card>
 
-	<!-- ══════════════════════════════════════
+		<!-- ══════════════════════════════════════
 	     STATE 2: During trip — After Maghrib
 	══════════════════════════════════════ -->
 	{:else if todayDay && afterMaghrib && nextDay}
@@ -134,17 +144,19 @@
 
 		<!-- Tomorrow's key info -->
 		<Card>
-			<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Besok akan</p>
-			<p class="text-sm text-foreground leading-relaxed">{nextDay.whatToDo}</p>
+			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas besok</p>
+			<p class="text-sm leading-relaxed text-foreground">{nextDay.whatToDo}</p>
 		</Card>
 
 		{#if nextDay.whatToBring.length > 0}
 			<Card>
-				<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Bawa besok</p>
+				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
+					Yang perlu dibawa
+				</p>
 				<ul class="space-y-1">
 					{#each nextDay.whatToBring as item}
 						<li class="flex gap-2 text-sm text-foreground">
-							<span class="text-(--color-brand) shrink-0">·</span>
+							<span class="shrink-0 text-(--color-brand)">·</span>
 							<span>{item}</span>
 						</li>
 					{/each}
@@ -154,7 +166,7 @@
 
 		{#if nextDay.dressCode}
 			<Card>
-				<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Seragam besok</p>
+				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian besok</p>
 				<div class="space-y-1 text-sm">
 					<p><span class="text-muted">Pria:</span> {nextDay.dressCode.men}</p>
 					<p><span class="text-muted">Wanita:</span> {nextDay.dressCode.women}</p>
@@ -164,24 +176,26 @@
 
 		{#if nextDay.koperNote}
 			<Card>
-				<p class="text-xs font-semibold text-(--color-brand) uppercase tracking-wide mb-1">Koper</p>
+				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
+					Info Koper
+				</p>
 				<p class="text-sm text-foreground">{nextDay.koperNote}</p>
 			</Card>
 		{/if}
 
 		<!-- Today card (secondary) -->
 		<div class="border-t border-border pt-4">
-			<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-3">Hari ini</p>
+			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
 			<Card>
 				<p class="font-medium">Hari {todayDay.dayNumber} — {todayDay.location}</p>
 				<p class="mt-1 text-sm text-muted">{todayDay.hijriDate}</p>
 				<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
-					Lihat detail →
+					Lihat jadwal lengkap →
 				</Button>
 			</Card>
 		</div>
 
-	<!-- ══════════════════════════════════════
+		<!-- ══════════════════════════════════════
 	     STATE 3: During trip — Daytime (Now/Next)
 	══════════════════════════════════════ -->
 	{:else if todayDay}
@@ -198,8 +212,10 @@
 
 		<!-- What to do today -->
 		<Card>
-			<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Hari ini</p>
-			<p class="text-sm text-foreground leading-relaxed">{todayDay.whatToDo}</p>
+			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
+				Aktivitas hari ini
+			</p>
+			<p class="text-sm leading-relaxed text-foreground">{todayDay.whatToDo}</p>
 			<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
 				Jadwal lengkap →
 			</Button>
@@ -211,7 +227,7 @@
 			<Card>
 				<div class="flex items-start justify-between gap-3">
 					<div class="min-w-0 flex-1">
-						<p class="text-xs font-semibold text-muted uppercase tracking-wide">Selanjutnya</p>
+						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Setelah ini</p>
 						<p class="mt-1 font-medium text-foreground">{nextActivity.title}</p>
 						{#if nextActivity.location}
 							<p class="mt-0.5 text-sm text-muted">{nextActivity.location}</p>
@@ -230,8 +246,8 @@
 			<Card>
 				<div class="flex items-center justify-between gap-3">
 					<div class="min-w-0 flex-1">
-						<p class="text-xs font-semibold text-muted uppercase tracking-wide">Cuaca Tipikal</p>
-						<p class="mt-1 text-sm text-foreground leading-relaxed">{climate.advice}</p>
+						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Info Cuaca</p>
+						<p class="mt-1 text-sm leading-relaxed text-foreground">{climate.advice}</p>
 					</div>
 					<div class="shrink-0 text-right">
 						<p class="text-2xl font-semibold text-foreground">{climate.tempMaxC}°</p>
@@ -244,11 +260,11 @@
 		<!-- Tips -->
 		{#if todayDay.tips.length > 0}
 			<Card>
-				<p class="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Tips hari ini</p>
+				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips hari ini</p>
 				<ul class="space-y-2">
 					{#each todayDay.tips as tip}
 						<li class="flex gap-2 text-sm text-foreground">
-							<span class="text-gold shrink-0">·</span>
+							<span class="shrink-0 text-gold">·</span>
 							<span>{tip}</span>
 						</li>
 					{/each}
@@ -261,17 +277,30 @@
 			<Card pressable href="/ritual/{todayDay.ritualGuideId}">
 				<div class="flex items-center justify-between gap-3">
 					<div>
-						<p class="text-xs font-semibold text-(--color-brand) uppercase tracking-wide">Panduan Ritual</p>
+						<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
+							Panduan Ritual
+						</p>
 						<p class="mt-1 font-medium text-foreground">Buka panduan langkah demi langkah →</p>
 					</div>
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-(--color-brand)" aria-hidden="true">
-						<polyline points="9 18 15 12 9 6"/>
+					<svg
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="shrink-0 text-(--color-brand)"
+						aria-hidden="true"
+					>
+						<polyline points="9 18 15 12 9 6" />
 					</svg>
 				</div>
 			</Card>
 		{/if}
 
-	<!-- ══════════════════════════════════════
+		<!-- ══════════════════════════════════════
 	     STATE 4: After trip
 	══════════════════════════════════════ -->
 	{:else if afterTrip}
@@ -284,11 +313,10 @@
 		</HeroCard>
 
 		<Card>
-			<p class="text-sm text-foreground">Kenangan perjalanan haji Anda tersimpan di bawah ini.</p>
+			<p class="text-sm text-foreground">Kenangan perjalanan haji tersimpan di bawah ini.</p>
 			<Button href="/itinerary" variant="secondary" size="md" class="mt-3 w-full">
 				Lihat Semua Jadwal
 			</Button>
 		</Card>
 	{/if}
-
 </main>

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://charm.land/crush.json",
+	"models": {},
+	"providers": {},
+	"options": {
+		"attribution": {
+			"trailer_style": "assisted-by",
+			"generated_with": true
+		}
+	},
+	"lsp": {
+		"typescript": {
+			"command": "typescript-language-server",
+			"args": ["--stdio"]
+		}
+	}
+}

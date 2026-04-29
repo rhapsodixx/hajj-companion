@@ -22,7 +22,7 @@
 </script>
 
 <span
-	class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold text-white tracking-wide phase-ribbon {className}"
+	class="phase-ribbon inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide text-white {className}"
 	style="background: {color};"
 >
 	{label}

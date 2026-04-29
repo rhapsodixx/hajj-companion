@@ -1,9 +1,8 @@
 /* Fonts — self-hosted via fontsource, works offline after first load */
 @import '@fontsource-variable/inter/wght.css';
 @import '@fontsource-variable/source-serif-4/wght.css';
-@import '@fontsource/amiri/400.css';
-@import '@fontsource/amiri/700.css';
-@import '@fontsource/amiri/400-italic.css';
+@import '@fontsource/noto-naskh-arabic/400.css';
+@import '@fontsource/noto-naskh-arabic/700.css';
 
 @import 'tailwindcss';
 
@@ -41,7 +40,7 @@
 	/* ── Typography ── */
 	--font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
 	--font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
-	--font-arabic: 'Amiri', serif;
+	--font-arabic: 'Noto Naskh Arabic', serif;
 
 	/* ── Type scale ── */
 	--text-xs: 0.8125rem; /* 13px */
