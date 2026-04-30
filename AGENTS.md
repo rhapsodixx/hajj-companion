@@ -42,17 +42,17 @@ Additional context files:
 
 ## File References
 
-| What                       | Where                          |
-| -------------------------- | ------------------------------ |
-| Design tokens & global CSS | `src/routes/layout.css`        |
-| Type definitions           | `src/lib/types/*.ts`           |
-| Static data (JSON)         | `src/lib/data/*.json`          |
-| Data accessors (typed)     | `src/lib/data/*.ts`            |
-| UI components              | `src/lib/components/ui/`       |
-| App routes                 | `src/routes/(app)/`            |
-| More sub-pages             | `src/routes/(app)/more/*/`     |
-| Ritual routes (no nav)     | `src/routes/ritual/`           |
-| Admin panel                | `src/routes/admin/`            |
-| Service worker             | `src/service-worker.ts`        |
-| Svelte config              | `svelte.config.js`             |
-| Vite config                | `vite.config.ts`               |
+| What                       | Where                      |
+| -------------------------- | -------------------------- |
+| Design tokens & global CSS | `src/routes/layout.css`    |
+| Type definitions           | `src/lib/types/*.ts`       |
+| Static data (JSON)         | `src/lib/data/*.json`      |
+| Data accessors (typed)     | `src/lib/data/*.ts`        |
+| UI components              | `src/lib/components/ui/`   |
+| App routes                 | `src/routes/(app)/`        |
+| More sub-pages             | `src/routes/(app)/more/*/` |
+| Ritual routes (no nav)     | `src/routes/ritual/`       |
+| Admin panel                | `src/routes/admin/`        |
+| Service worker             | `src/service-worker.ts`    |
+| Svelte config              | `svelte.config.js`         |
+| Vite config                | `vite.config.ts`           |

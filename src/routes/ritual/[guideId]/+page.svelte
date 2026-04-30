@@ -129,12 +129,12 @@
 						<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
 						<Card>
 							<div class="space-y-2">
-							{#each guide.preparation as item (item)}
-								<div class="flex gap-2.5 text-sm text-foreground">
-									<span class="text-(--color-brand) mt-0.5 shrink-0">·</span>
-									<span>{item}</span>
-								</div>
-							{/each}
+								{#each guide.preparation as item (item)}
+									<div class="flex gap-2.5 text-sm text-foreground">
+										<span class="mt-0.5 shrink-0 text-(--color-brand)">·</span>
+										<span>{item}</span>
+									</div>
+								{/each}
 							</div>
 						</Card>
 					</section>
@@ -195,7 +195,9 @@
 				<div class="page-enter">
 					{#if guide.closingNote}
 						<section class="mb-6">
-							<div class="rounded-2xl border border-(--color-brand)/20 bg-(--color-accent-light) p-4">
+							<div
+								class="rounded-2xl border border-(--color-brand)/20 bg-(--color-accent-light) p-4"
+							>
 								<p class="font-serif text-sm leading-relaxed text-foreground">
 									{guide.closingNote}
 								</p>

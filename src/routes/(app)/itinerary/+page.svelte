@@ -3,6 +3,7 @@
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 
 	const PHASE_ORDER = [
+		'manasik',
 		'arrival',
 		'madinah',
 		'madinah-to-makkah',
@@ -16,7 +17,6 @@
 	const today = getEffectiveToday();
 	const todayDayNumber = itinerary.find((d) => d.gregorianDate === today)?.dayNumber;
 
-	// Group days by phase, preserving order
 	type PhaseGroup = { phase: string; days: typeof itinerary };
 	const groups: PhaseGroup[] = [];
 	for (const phase of PHASE_ORDER) {
@@ -27,6 +27,24 @@
 	function formatGregorian(iso: string): string {
 		const d = new Date(iso + 'T00:00:00');
 		return d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' });
+	}
+
+	function dayBadge(day: (typeof itinerary)[0]): string {
+		if (day.phase === 'manasik') {
+			return String(Math.abs(day.dayNumber + 2) + 1);
+		}
+		return day.dayNumber.toString();
+	}
+
+	function phaseDayRange(group: PhaseGroup): string {
+		if (group.phase === 'manasik') {
+			const first = formatGregorian(group.days[0].gregorianDate);
+			const last = formatGregorian(group.days[group.days.length - 1].gregorianDate);
+			return `${first} – ${last}`;
+		}
+		const d0 = group.days[0].dayNumber;
+		const dN = group.days[group.days.length - 1].dayNumber;
+		return dN > d0 ? `Hari ${d0}–${dN}` : `Hari ${d0}`;
 	}
 
 	function scrollToToday() {
@@ -41,7 +59,7 @@
 	<div class="sticky top-0 z-10 flex items-center justify-between bg-background pt-4 pb-3">
 		<div>
 			<h1 class="text-xl font-semibold">Jadwal Perjalanan</h1>
-			<p class="mt-0.5 text-xs text-muted">26 hari · Coklat B · 1447 H</p>
+			<p class="mt-0.5 text-xs text-muted">Manasik + 26 hari · Coklat B · 1447 H</p>
 		</div>
 		{#if todayDayNumber}
 			<button
@@ -56,14 +74,10 @@
 	<!-- Phase groups -->
 	<div class="space-y-6">
 		{#each groups as group}
-			<!-- Phase heading -->
 			<div>
 				<div class="mb-2 flex items-center gap-3">
 					<PhaseRibbon phase={group.phase} label={PHASE_LABELS[group.phase] ?? group.phase} />
-					<span class="text-xs text-muted">
-						Hari {group.days[0].dayNumber}
-						{#if group.days.length > 1}– {group.days[group.days.length - 1].dayNumber}{/if}
-					</span>
+					<span class="text-xs text-muted">{phaseDayRange(group)}</span>
 				</div>
 
 				<!-- Day rows -->
@@ -88,7 +102,7 @@
 										? 'bg-border text-muted'
 										: 'bg-border/60 text-foreground'}"
 							>
-								{day.dayNumber}
+								{dayBadge(day)}
 							</div>
 
 							<!-- Content -->
@@ -98,7 +112,7 @@
 										class="truncate text-sm leading-tight font-medium
 										{isPast && !isToday ? 'text-muted' : 'text-foreground'}"
 									>
-										{day.location}
+										{day.phase === 'manasik' ? day.routeLabel : day.location}
 									</p>
 									{#if day.ritualGuideId}
 										<span

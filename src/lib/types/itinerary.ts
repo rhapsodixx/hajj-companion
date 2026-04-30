@@ -1,4 +1,5 @@
 export type Phase =
+	| 'manasik'
 	| 'arrival'
 	| 'madinah'
 	| 'madinah-to-makkah'
@@ -9,6 +10,7 @@ export type Phase =
 	| 'departure';
 
 export type Location =
+	| 'Tangerang'
 	| 'Jakarta'
 	| 'Jeddah'
 	| 'Madinah'

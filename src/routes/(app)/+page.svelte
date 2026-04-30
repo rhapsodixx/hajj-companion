@@ -16,13 +16,14 @@
 	const todayDay = getDayByDate(today);
 	const climate = todayDay ? getClimate(todayDay.climateNormId) : null;
 
-	const tripStart = itinerary[0].gregorianDate;
+	const hajjStart =
+		itinerary.find((d) => d.dayNumber === 1)?.gregorianDate ?? itinerary[0].gregorianDate;
 	const tripEnd = itinerary[itinerary.length - 1].gregorianDate;
-	const beforeTrip = today < tripStart;
-	const afterTrip = today > tripEnd;
+	const beforeTrip = !todayDay && today < hajjStart;
+	const afterTrip = !todayDay && today > tripEnd;
 
 	const daysUntilTrip = beforeTrip
-		? Math.ceil((new Date(tripStart).getTime() - new Date(today).getTime()) / 86400000)
+		? Math.ceil((new Date(hajjStart).getTime() - new Date(today).getTime()) / 86400000)
 		: 0;
 
 	let afterMaghrib = $derived.by(() => {
@@ -31,9 +32,11 @@
 		return h >= 18 || h < 4;
 	});
 
-	let nextDay = $derived(
-		todayDay ? itinerary.find((d) => d.dayNumber === todayDay.dayNumber + 1) : null
-	);
+	let nextDay = $derived.by(() => {
+		if (!todayDay) return null;
+		const idx = itinerary.findIndex((d) => d.gregorianDate === today);
+		return idx >= 0 && idx < itinerary.length - 1 ? itinerary[idx + 1] : null;
+	});
 
 	let nextActivity = $derived.by(() => {
 		nowTick;
@@ -60,6 +63,11 @@
 		const m = minutes % 60;
 		return m > 0 ? `${h} jam ${m} menit lagi` : `${h} jam lagi`;
 	}
+
+	function formatGregorian(iso: string): string {
+		const d = new Date(iso + 'T00:00:00');
+		return d.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
+	}
 </script>
 
 <svelte:head><title>Patuna Coklat-B — Hajj Companion</title></svelte:head>
@@ -79,7 +87,7 @@
 	</header>
 
 	<!-- ══════════════════════════════════════
-	     STATE 1: Before trip
+	     STATE 1: Before trip (no matching day)
 	══════════════════════════════════════ -->
 	{#if beforeTrip}
 		<HeroCard phase="arrival">
@@ -111,16 +119,17 @@
 		</Card>
 
 		<!-- ══════════════════════════════════════
-	     STATE 2: During trip — After Maghrib
+	     STATE 2: After Maghrib — "Persiapan Besok"
 	══════════════════════════════════════ -->
 	{:else if todayDay && afterMaghrib && nextDay}
-		<!-- Persiapan Besok card -->
 		<HeroCard phase={nextDay.phase}>
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Persiapan Besok</p>
 			{/snippet}
 			<p class="text-xl font-semibold text-foreground">
-				Hari {nextDay.dayNumber} — {nextDay.routeLabel}
+				{nextDay.phase === 'manasik'
+					? nextDay.routeLabel
+					: `Hari ${nextDay.dayNumber} — ${nextDay.routeLabel}`}
 			</p>
 			<p class="mt-1 text-sm text-muted">{nextDay.gregorianDate} · {nextDay.hijriDate}</p>
 		</HeroCard>
@@ -170,7 +179,11 @@
 		<div class="border-t border-border/40 pt-5">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
 			<Card>
-				<p class="font-medium">Hari {todayDay.dayNumber} — {todayDay.location}</p>
+				<p class="font-medium">
+					{todayDay.phase === 'manasik'
+						? todayDay.routeLabel
+						: `Hari ${todayDay.dayNumber} — ${todayDay.location}`}
+				</p>
 				<p class="mt-1 text-sm text-muted">{todayDay.hijriDate}</p>
 				<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
 					Lihat jadwal lengkap →
@@ -179,18 +192,22 @@
 		</div>
 
 		<!-- ══════════════════════════════════════
-	     STATE 3: During trip — Daytime (Now/Next)
+	     STATE 3: Daytime (Now/Next)
 	══════════════════════════════════════ -->
 	{:else if todayDay}
 		<!-- NOW card -->
 		<HeroCard phase={todayDay.phase}>
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest text-muted uppercase">
-					Hari {todayDay.dayNumber} · {todayDay.hijriDate}
+					{todayDay.phase === 'manasik'
+						? todayDay.routeLabel
+						: `Hari ${todayDay.dayNumber} · ${todayDay.hijriDate}`}
 				</p>
 			{/snippet}
 			<p class="text-xl font-semibold text-foreground">{todayDay.routeLabel}</p>
-			<p class="mt-1 text-sm text-muted">{todayDay.location} · {todayDay.gregorianDate}</p>
+			<p class="mt-1 text-sm text-muted">
+				{todayDay.location} · {formatGregorian(todayDay.gregorianDate)}
+			</p>
 		</HeroCard>
 
 		<!-- What to do today -->
@@ -252,6 +269,16 @@
 						</li>
 					{/each}
 				</ul>
+			</Card>
+		{/if}
+
+		<!-- Koper note -->
+		{#if todayDay.koperNote}
+			<Card>
+				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
+					Info Koper
+				</p>
+				<p class="text-sm text-foreground">{todayDay.koperNote}</p>
 			</Card>
 		{/if}
 

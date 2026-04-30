@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
+	import { itinerary, getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
@@ -18,6 +18,12 @@
 	const today = getEffectiveToday();
 	const isToday = $derived(day?.gregorianDate === today);
 
+	const dayIndex = $derived(day ? itinerary.indexOf(day) : -1);
+	const prevDay = $derived(dayIndex > 0 ? itinerary[dayIndex - 1] : null);
+	const nextDayEntry = $derived(
+		dayIndex >= 0 && dayIndex < itinerary.length - 1 ? itinerary[dayIndex + 1] : null
+	);
+
 	const bus = $derived(browser ? (localStorage.getItem('patuna-bus') ?? '18') : '18');
 	const dayOverrides = $derived(day ? getOverrideForDay(day.dayNumber, bus) : []);
 	const departureOverride = $derived(dayOverrides.find((o) => o.field === 'departureTime'));
@@ -32,18 +38,26 @@
 			year: 'numeric'
 		});
 	}
+
+	function dayTitle(d: (typeof itinerary)[0]): string {
+		return d.phase === 'manasik' ? d.routeLabel : `Hari ${d.dayNumber} — ${d.routeLabel}`;
+	}
+
+	function navLabel(d: (typeof itinerary)[0]): string {
+		return d.phase === 'manasik' ? d.routeLabel : `Hari ${d.dayNumber}`;
+	}
 </script>
 
 <svelte:head>
 	<title
 		>{day
-			? `Hari ${day.dayNumber} — ${day.location} · Patuna Coklat-B`
+			? `${day.phase === 'manasik' ? day.routeLabel : `Hari ${day.dayNumber}`} — ${day.location} · Patuna Coklat-B`
 			: 'Jadwal — Patuna Coklat-B'}</title
 	>
 </svelte:head>
 
 {#if day}
-	<div class="mx-auto max-w-120">
+	<div class="page-enter mx-auto max-w-120">
 		<!-- Back nav -->
 		<div class="pt-safe px-4 pt-4 pb-2">
 			<a href="/itinerary" class="inline-flex items-center gap-1 text-sm text-muted">
@@ -78,7 +92,7 @@
 				{/snippet}
 
 				<h1 class="mt-2 text-2xl leading-tight font-semibold text-foreground">
-					Hari {day.dayNumber} — {day.routeLabel}
+					{dayTitle(day)}
 				</h1>
 				<p class="mt-1.5 text-sm text-muted">{formatGregorian(day.gregorianDate)}</p>
 				<p class="mt-0.5 text-sm text-muted">{day.hijriDate}</p>
@@ -156,6 +170,37 @@
 				</p>
 				<p class="text-sm leading-relaxed text-foreground">{day.whatToDo}</p>
 			</Card>
+
+			<!-- Departure override -->
+			{#if departureOverride}
+				<Card>
+					<div class="flex items-center gap-2">
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="shrink-0 text-(--color-brand)"
+							aria-hidden="true"
+							><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
+						>
+						<div class="min-w-0 flex-1">
+							<p class="text-sm font-medium text-foreground">
+								Waktu berangkat diperbarui: <span class="font-semibold text-(--color-brand)"
+									>{departureOverride.value}</span
+								>
+							</p>
+							<p class="mt-0.5 text-xs text-muted">
+								Diperbarui oleh {departureOverride.publishedBy}
+							</p>
+						</div>
+					</div>
+				</Card>
+			{/if}
 
 			<!-- Timeline -->
 			{#if day.activities.length > 0}
@@ -307,16 +352,26 @@
 
 			<!-- Prev / Next navigation -->
 			<div class="flex gap-3 pt-2">
-				{#if dayNumber > 1}
-					<Button href="/itinerary/{dayNumber - 1}" variant="secondary" size="md" class="flex-1">
-						← Hari {dayNumber - 1}
+				{#if prevDay}
+					<Button
+						href="/itinerary/{prevDay.dayNumber}"
+						variant="secondary"
+						size="md"
+						class="flex-1"
+					>
+						← {navLabel(prevDay)}
 					</Button>
 				{:else}
 					<div class="flex-1"></div>
 				{/if}
-				{#if dayNumber < 26}
-					<Button href="/itinerary/{dayNumber + 1}" variant="secondary" size="md" class="flex-1">
-						Hari {dayNumber + 1} →
+				{#if nextDayEntry}
+					<Button
+						href="/itinerary/{nextDayEntry.dayNumber}"
+						variant="secondary"
+						size="md"
+						class="flex-1"
+					>
+						{navLabel(nextDayEntry)} →
 					</Button>
 				{:else}
 					<div class="flex-1"></div>

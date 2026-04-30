@@ -26,6 +26,7 @@ export function getTodayNumber(): number | undefined {
 }
 
 export const PHASE_LABELS: Record<string, string> = {
+	manasik: 'Manasik',
 	arrival: 'Kedatangan',
 	madinah: 'Madinah',
 	'madinah-to-makkah': 'Madinah → Makkah',
@@ -37,6 +38,7 @@ export const PHASE_LABELS: Record<string, string> = {
 };
 
 export const PHASE_COLORS: Record<string, string> = {
+	manasik: 'var(--color-phase-manasik)',
 	arrival: 'var(--color-phase-arrival)',
 	madinah: 'var(--color-phase-madinah)',
 	'madinah-to-makkah': 'var(--color-phase-madinah-to-makkah)',

@@ -21,8 +21,8 @@ export default defineConfig({
 				short_name: 'Patuna B',
 				description:
 					'Panduan ibadah haji Patuna Coklat B — jadwal, doa, dan bimbingan ritual untuk jamaah 2026.',
-				theme_color: '#5C3A21',
-				background_color: '#FAFAF7',
+				theme_color: '#5a8a6a',
+				background_color: '#f8faf9',
 				display: 'standalone',
 				orientation: 'portrait',
 				scope: '/',
