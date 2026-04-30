@@ -273,3 +273,12 @@ html[data-theme='dark'] body {
 .card-pressable:active {
 	transform: scale(0.98);
 }
+
+/* ── Hide scrollbar ── */
+.scrollbar-none {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+	display: none; /* Chrome, Safari and Opera */
+}
