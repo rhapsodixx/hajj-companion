@@ -645,15 +645,15 @@ If you bring in a second hand for any portion:
 
 ## Definition of Done — v1
 
-- [ ] All 22 tasks (or 21 if Task 21 cut) marked complete
-- [ ] Deployed to Cloudflare Pages production URL
-- [ ] PWA installs on iOS Safari + Android Chrome + Samsung Internet
-- [ ] Works offline after first install (verified via airplane mode)
-- [ ] All 26 days of itinerary present and correct
-- [ ] All 5 ritual guides accessible and content-reviewed
-- [ ] Lighthouse mobile: Performance ≥ 90, A11y ≥ 95, PWA installable
-- [ ] At least 3 jamaah at manasik successfully install the app
-- [ ] Self: I've used the app for a full mock-day and it answered my questions
+- [x] All 22 tasks (or 21 if Task 21 cut) marked complete
+- [x] Deployed to Cloudflare Pages production URL
+- [x] PWA installs on iOS Safari + Android Chrome + Samsung Internet
+- [x] Works offline after first install (verified via airplane mode)
+- [x] All 26 days of itinerary present and correct
+- [x] All 5 ritual guides accessible and content-reviewed
+- [x] Lighthouse mobile: Performance ≥ 90, A11y ≥ 95, PWA installable
+- [x] At least 3 jamaah at manasik successfully install the app
+- [x] Self: I've used the app for a full mock-day and it answered my questions
 
 ---
 

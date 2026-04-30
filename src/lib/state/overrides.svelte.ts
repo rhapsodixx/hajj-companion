@@ -1,10 +1,11 @@
 import { browser } from '$app/environment';
+import { SvelteMap } from 'svelte/reactivity';
 import { supabase } from '$lib/data/supabase';
 import type { DailyOverride } from '$lib/types/override';
 
 type OverrideMap = Map<string, DailyOverride>;
 
-const store = $state({ overrides: new Map<string, DailyOverride>() as OverrideMap });
+const store = $state({ overrides: new SvelteMap<string, DailyOverride>() as OverrideMap });
 let lastFetched = $state<string>('');
 let loading = $state(false);
 
@@ -65,7 +66,7 @@ export async function fetchOverrides(): Promise<void> {
 		}
 
 		if (data) {
-			const map = new Map<string, DailyOverride>();
+			const map = new SvelteMap<string, DailyOverride>();
 			for (const row of data as DailyOverride[]) {
 				const key = overrideKey(row.dayNumber, row.field, row.bus);
 				if (!map.has(key)) {
@@ -73,6 +74,7 @@ export async function fetchOverrides(): Promise<void> {
 				}
 			}
 			store.overrides = map;
+			// eslint-disable-next-line svelte/prefer-svelte-reactivity
 			lastFetched = new Date().toISOString();
 			localStorage.setItem('patuna-overrides', JSON.stringify(data));
 			localStorage.setItem('patuna-overrides-ts', lastFetched);
@@ -91,7 +93,7 @@ function restoreFromCache() {
 	if (cached) {
 		try {
 			const data = JSON.parse(cached) as DailyOverride[];
-			const map = new Map<string, DailyOverride>();
+			const map = new SvelteMap<string, DailyOverride>();
 			for (const row of data) {
 				const key = overrideKey(row.dayNumber, row.field, row.bus);
 				if (!map.has(key)) {
