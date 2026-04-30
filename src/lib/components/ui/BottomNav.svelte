@@ -10,28 +10,32 @@
 			label: 'Sekarang',
 			match: (p: string) => p === '/',
 			icon: Compass,
-			color: 'var(--color-pastel-green)'
+			bgColor: 'var(--nav-bg-green)',
+			textColor: 'var(--nav-text-green)'
 		},
 		{
 			href: '/itinerary',
 			label: 'Jadwal',
 			match: (p: string) => p.startsWith('/itinerary'),
 			icon: CalendarBlank,
-			color: 'var(--color-pastel-blue)'
+			bgColor: 'var(--nav-bg-blue)',
+			textColor: 'var(--nav-text-blue)'
 		},
 		{
 			href: '/dua',
 			label: "Du'a",
 			match: (p: string) => p.startsWith('/dua'),
 			icon: BookOpenText,
-			color: 'var(--color-pastel-yellow)'
+			bgColor: 'var(--nav-bg-yellow)',
+			textColor: 'var(--nav-text-yellow)'
 		},
 		{
 			href: '/more',
 			label: 'Lainnya',
 			match: (p: string) => p.startsWith('/more'),
 			icon: List,
-			color: 'var(--color-brand-light)'
+			bgColor: 'var(--nav-bg-default)',
+			textColor: 'var(--nav-text-default)'
 		}
 	];
 
@@ -92,15 +96,15 @@
 				href={item.href}
 				use:setupTapAnimation
 				class="tap-target relative z-10 flex flex-1 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-xs font-medium transition-colors duration-300"
-				class:text-foreground={active}
+				style={active ? `color: ${item.textColor}` : ''}
 				class:text-muted={!active}
 				aria-current={active ? 'page' : undefined}
 			>
 				{#if active}
 					<div
 						use:animateIndicator
-						class="absolute inset-0 z-[-1] rounded-xl opacity-40"
-						style="background-color: {item.color}; transform-origin: center bottom;"
+						class="absolute inset-0 z-[-1] rounded-xl"
+						style="background-color: {item.bgColor}; transform-origin: center bottom;"
 					></div>
 				{/if}
 				<div class="relative transition-transform duration-300 {active ? '-translate-y-1' : ''}">
