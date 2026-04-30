@@ -207,7 +207,10 @@
 	</div>
 
 	<!-- Floating Search FAB Wrapper -->
-	<div class="pointer-events-none fixed right-0 bottom-24 left-0 z-50 flex justify-center px-4">
+	<div
+		class="pointer-events-none fixed right-0 left-0 z-50 flex justify-center px-4"
+		style="bottom: calc(env(safe-area-inset-bottom, 0px) + 7rem);"
+	>
 		<div class="relative h-14 w-full max-w-120">
 			<div
 				bind:this={floatingContainerRef}
