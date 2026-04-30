@@ -50,6 +50,7 @@
 		"@fontsource-variable/manrope": "^5.2.8",
 		"@fontsource-variable/piazzolla": "^5.2.8",
 		"@fontsource/noto-naskh-arabic": "^5.2.11",
-		"@supabase/supabase-js": "^2.105.1"
+		"@supabase/supabase-js": "^2.105.1",
+		"motion": "^12.38.0"
 	}
 }

@@ -46,8 +46,7 @@ registerRoute(
 	})
 );
 
-// Activate immediately — don't wait for old SW to die
-self.addEventListener('install', () => self.skipWaiting());
+// Do not call self.skipWaiting() here, let the UpdatePrompt handle it
 self.addEventListener('activate', (event) => {
 	event.waitUntil(self.clients.claim());
 });
