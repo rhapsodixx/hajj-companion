@@ -18,7 +18,7 @@
 		// Check for iOS
 		const ua = window.navigator.userAgent.toLowerCase();
 		const isIosDevice = /iphone|ipad|ipod/.test(ua);
-		
+
 		if (isIosDevice) {
 			isIos = true;
 			// For iOS we just show the banner right away
@@ -60,7 +60,8 @@
 				<p class="text-sm font-semibold text-foreground">Simpan di layar utama</p>
 				{#if isIos}
 					<p class="text-xs leading-snug text-muted">
-						Ketuk ikon <span class="font-bold">Share</span> di bawah, lalu pilih <span class="font-bold">Add to Home Screen</span>
+						Ketuk ikon <span class="font-bold">Share</span> di bawah, lalu pilih
+						<span class="font-bold">Add to Home Screen</span>
 					</p>
 				{:else}
 					<p class="text-xs text-muted">Bisa dibuka walau tanpa internet</p>

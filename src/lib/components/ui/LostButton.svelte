@@ -18,7 +18,7 @@
 <div class="sticky bottom-4 z-40 mx-auto mt-4 max-w-120 px-4">
 	<button
 		onclick={() => (showCard = true)}
-		class="tap-target flex w-full items-center justify-center gap-2 rounded-2xl border border-red-400/40 bg-white px-5 py-3.5 text-sm font-semibold text-red-600 shadow-sm transition-transform duration-100 ease-out active:scale-[0.98]"
+		class="tap-target flex w-full items-center justify-center gap-2 rounded-pill border border-border bg-surface px-5 py-3.5 text-sm font-semibold text-foreground shadow-level-3 transition-transform duration-100 ease-out active:scale-[0.98]"
 		aria-label="Tunjukkan alamat hotel dalam bahasa Arab"
 	>
 		<svg

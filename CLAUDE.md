@@ -211,74 +211,11 @@ Every page must include:
 </svelte:head>
 ```
 
-## Design Tokens
+## Design Tokens & Principles
 
-These are defined once in `src/routes/layout.css` under `@theme`. Reference them by CSS variable name — **never hardcode hex values**.
+All visual design, colors, typography, component stylings, layout rules, and overarching principles are strictly defined in `DESIGN.md`.
 
-### Brand & Accent Colors (Pastel Green Palette)
-
-| Token                  | Value     | Usage                                      |
-| ---------------------- | --------- | ------------------------------------------ |
-| `--color-brand`        | `#5a8a6a` | Primary green — headers, key actions       |
-| `--color-brand-light`  | `#7aaa8a` | Lighter brand for hover states             |
-| `--color-accent`       | `#d4e8d9` | Soft green accent — badges, highlights     |
-| `--color-accent-light` | `#eef5f0` | Very light green tint — subtle backgrounds |
-
-### Neutral Colors
-
-| Token                | Value     | Usage                   |
-| -------------------- | --------- | ----------------------- |
-| `--color-background` | `#f8faf9` | Main page background    |
-| `--color-surface`    | `#ffffff` | Card / elevated surface |
-| `--color-border`     | `#e8ede9` | Subtle borders          |
-| `--color-foreground` | `#1c2b22` | Primary text            |
-| `--color-muted`      | `#7a8f80` | Secondary / helper text |
-
-### Dark Mode Overrides
-
-| Token                     | Value     |
-| ------------------------- | --------- |
-| `--color-background-dark` | `#0d110e` |
-| `--color-surface-dark`    | `#161c18` |
-| `--color-border-dark`     | `#263028` |
-| `--color-foreground-dark` | `#e4ede7` |
-| `--color-muted-dark`      | `#8a9f8e` |
-
-### Phase Colors
-
-| Token                             | Value     | Phase             |
-| --------------------------------- | --------- | ----------------- |
-| `--color-phase-arrival`           | `#5a7fa0` | Arrival           |
-| `--color-phase-madinah`           | `#5a8a6a` | Madinah           |
-| `--color-phase-madinah-to-makkah` | `#8a9a78` | Transit           |
-| `--color-phase-makkah`            | `#a08a6a` | Makkah            |
-| `--color-phase-ash-shishah`       | `#9a8a7a` | Ash-Shishah prep  |
-| `--color-phase-rukun`             | `#b8a070` | Rukun (hajj days) |
-| `--color-phase-post-hajj`         | `#6a9a7a` | Post-hajj         |
-| `--color-phase-departure`         | `#5a7fa0` | Departure         |
-
-### Typography
-
-**Type scale:** 13 / 15 / 16 / 18 / 22 / 28 / 36 px (via `--text-xs` through `--text-3xl`).
-
-**Arabic scale:** 24 / 32 / 40 px (via `--text-arabic-base`, `--text-arabic-lg`, `--text-arabic-xl`).
-
-**Fonts:**
-
-- Headlines: Inter Variable (sans-serif, weight 600)
-- Body: Source Serif 4 Variable (serif, weight 400, line-height 1.6)
-- Arabic: Noto Naskh Arabic (weight 400 + 700)
-
-## Design Principles
-
-- **Quiet, sacred, contemplative.** Not corporate, not flashy. Think Apple Notes meets Muslim Pro at its most restrained.
-- **Minimalist with pastel accents.** Predominantly white surfaces, soft green accents. Clean and calm.
-- **Anti-references:** No skeuomorphic mosques, no green-and-gold Islamic clip art, no Ramadan-greeting-card energy, no neon, no carousels.
-- **Motion:** Subtle only. 200ms ease-out page transitions, 100ms scale on tap, 800ms phase-ribbon color drift. 300ms card entrance with stagger. **Forbidden:** bounce, parallax, confetti, scroll-jacking.
-- **Big tappable targets** for older fingers. High contrast for Saudi sun glare.
-- **High Contrast:** Every UI element must maintain a contrast ratio of at least 4.5:1 for readability in intense Saudi sunlight. Avoid thin weights for body text; prefer `font-normal` (400) or `font-medium` (500).
-- **Accessibility:** Global `focus-visible` outlines (2px brand-colored) are defined in `layout.css`. Every icon-only button or link must have an explicit `aria-label`. Use the `.tap-target` utility for all interactive elements to guarantee a minimum 44px hit area.
-- **No checklists in Ritual Guide** — pilgrims' hands are occupied during ritual. Guide is read-before, not interact-during.
+Please refer to `DESIGN.md` for any UI design direction.
 
 ## Do Not
 

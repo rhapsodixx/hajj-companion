@@ -1,6 +1,6 @@
 /* Fonts — self-hosted via fontsource, works offline after first load */
-@import '@fontsource-variable/inter/wght.css';
-@import '@fontsource-variable/source-serif-4/wght.css';
+@import '@fontsource-variable/manrope/wght.css';
+@import '@fontsource-variable/piazzolla/wght.css';
 @import '@fontsource/noto-naskh-arabic/400.css';
 @import '@fontsource/noto-naskh-arabic/700.css';
 
@@ -8,24 +8,25 @@
 
 @theme {
 	/* ── Brand colors ── */
-	--color-brand: #5a8a6a;
-	--color-brand-light: #7aaa8a;
-	--color-accent: #d4e8d9;
-	--color-accent-light: #eef5f0;
+	--color-brand: #000000;
+	--color-brand-light: #e2e2e2;
+	--color-accent: #efefef;
+	--color-accent-light: #f3f3f3;
 
 	/* ── Neutral ── */
-	--color-background: #f8faf9;
+	--color-background: #ffffff;
 	--color-surface: #ffffff;
-	--color-border: #e8ede9;
-	--color-foreground: #1c2b22;
-	--color-muted: #7a8f80;
+	--color-border: #e2e2e2;
+	--color-foreground: #000000;
+	--color-muted: #4b4b4b;
+	--color-muted-light: #afafaf;
 
 	/* ── Dark mode ── */
-	--color-background-dark: #0d110e;
-	--color-surface-dark: #161c18;
-	--color-border-dark: #263028;
-	--color-foreground-dark: #e4ede7;
-	--color-muted-dark: #8a9f8e;
+	--color-background-dark: #000000;
+	--color-surface-dark: #121212;
+	--color-border-dark: #333333;
+	--color-foreground-dark: #ffffff;
+	--color-muted-dark: #afafaf;
 
 	/* ── Phase colors (used for left-border accent + outline tags) ── */
 	--color-phase-manasik: #7a6a58;
@@ -39,8 +40,8 @@
 	--color-phase-departure: #5a7fa0;
 
 	/* ── Typography ── */
-	--font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
-	--font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+	--font-sans: 'Manrope Variable', 'Manrope', system-ui, -apple-system, sans-serif;
+	--font-serif: 'Piazzolla Variable', 'Piazzolla', Georgia, serif;
 	--font-arabic: 'Noto Naskh Arabic', serif;
 
 	/* ── Type scale ── */
@@ -59,6 +60,14 @@
 	--spacing-safe-top: env(safe-area-inset-top, 0px);
 	--spacing-safe-bottom: env(safe-area-inset-bottom, 0px);
 	--spacing-nav-height: 64px;
+
+	/* ── Radius ── */
+	--radius-pill: 999px;
+
+	/* ── Shadows ── */
+	--shadow-level-1: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px;
+	--shadow-level-2: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+	--shadow-level-3: rgba(0, 0, 0, 0.16) 0px 2px 8px 0px;
 }
 
 /* ── Base reset ── */

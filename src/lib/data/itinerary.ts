@@ -36,15 +36,3 @@ export const PHASE_LABELS: Record<string, string> = {
 	'post-hajj': 'Setelah Haji',
 	departure: 'Kepulangan'
 };
-
-export const PHASE_COLORS: Record<string, string> = {
-	manasik: 'var(--color-phase-manasik)',
-	arrival: 'var(--color-phase-arrival)',
-	madinah: 'var(--color-phase-madinah)',
-	'madinah-to-makkah': 'var(--color-phase-madinah-to-makkah)',
-	makkah: 'var(--color-phase-makkah)',
-	'ash-shishah': 'var(--color-phase-ash-shishah)',
-	rukun: 'var(--color-phase-rukun)',
-	'post-hajj': 'var(--color-phase-post-hajj)',
-	departure: 'var(--color-phase-departure)'
-};

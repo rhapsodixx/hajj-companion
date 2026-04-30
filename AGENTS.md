@@ -11,7 +11,7 @@ Additional context files:
 - **PRD:** `docs/ideas/patuna-coklat-b-hajj-companion.md` — full product requirements
 - **Implementation plan:** `docs/plan/implementation-plan.md` — task breakdown and sequencing
 - **Design prompt:** `docs/claude-design-prompt.md` — UI design direction and screen specs
-- **Stitch design:** `docs/stitch-design-prompt.md` — visual design system reference
+- **Design system:** `DESIGN.md` — unified visual design system reference, overriding previous styles
 
 ## Agent Workflow
 
