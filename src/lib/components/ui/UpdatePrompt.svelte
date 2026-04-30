@@ -21,6 +21,16 @@
 		}
 	});
 
+	async function triggerUpdate() {
+		$needRefresh = false;
+		await updateServiceWorker(true);
+		
+		// Fallback reload just in case controllerchange doesn't fire from the plugin
+		setTimeout(() => {
+			window.location.reload();
+		}, 1200);
+	}
+
 	async function update() {
 		if (promptElement) {
 			gsap.to(promptElement, {
@@ -28,14 +38,10 @@
 				autoAlpha: 0,
 				duration: 0.3,
 				ease: 'power2.in',
-				onComplete: async () => {
-					await updateServiceWorker(true);
-					window.location.reload();
-				}
+				onComplete: triggerUpdate
 			});
 		} else {
-			await updateServiceWorker(true);
-			window.location.reload();
+			triggerUpdate();
 		}
 	}
 </script>

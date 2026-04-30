@@ -144,11 +144,11 @@
 		<h1 class="text-xl font-semibold">Kumpulan Doa</h1>
 
 		<!-- Search input -->
-		<div class="relative mt-3">
+		<div class="relative mt-4">
 			<MagnifyingGlass
-				size={16}
+				size={20}
 				weight="regular"
-				class="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-muted"
+				class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-muted"
 				aria-hidden="true"
 			/>
 			<input
@@ -156,44 +156,48 @@
 				value={query}
 				oninput={onSearchInput}
 				placeholder="Cari doa..."
-				class="w-full rounded-lg border border-border/50 bg-surface py-2.5 pr-9 pl-9 text-sm text-foreground placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-1 focus:ring-(--color-brand)/20 focus:outline-none"
+				class="w-full rounded-2xl border border-border/60 bg-surface/80 py-3.5 pr-12 pl-12 text-base text-foreground shadow-sm backdrop-blur-md transition-all placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-2 focus:ring-(--color-pastel-green) focus:outline-none"
 				aria-label="Cari doa"
 			/>
 			{#if query}
 				<button
 					onclick={clearSearch}
-					class="tap-target absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-1 text-muted"
+					class="tap-target absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-2 text-muted hover:bg-black/5 dark:hover:bg-white/5"
 					aria-label="Hapus pencarian"
 				>
-					<X size={14} weight="bold" />
+					<X size={16} weight="bold" />
 				</button>
 			{/if}
 		</div>
 
 		<!-- Category chips -->
-		<div class="scrollbar-none mt-2.5 flex gap-2 overflow-x-auto pb-1">
-			<button
-				onclick={() => selectCategory(null)}
-				class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
-				null
-					? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
-					: 'border border-border/50 bg-surface text-muted'}"
-				aria-pressed={selectedCategory === null}
-			>
-				Semua
-			</button>
-			{#each CATEGORY_ORDER as cat (cat)}
+		<div class="relative mt-5 mb-2 -mx-4">
+			<!-- Fade edge masks -->
+			<div class="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-4 bg-gradient-to-r from-[var(--color-background)] to-transparent"></div>
+			<div class="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-8 bg-gradient-to-l from-[var(--color-background)] to-transparent"></div>
+			
+			<div class="scrollbar-none flex gap-2.5 overflow-x-auto px-4 pb-2 pt-1" style="-webkit-overflow-scrolling: touch;">
 				<button
-					onclick={() => selectCategory(cat)}
-					class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
-					cat
-						? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
-						: 'border border-border/50 bg-surface text-muted'}"
-					aria-pressed={selectedCategory === cat}
+					onclick={() => selectCategory(null)}
+					class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory === null
+						? 'bg-foreground text-background shadow-md scale-[1.02]'
+						: 'border border-border/50 bg-surface text-muted shadow-sm hover:bg-black/5'}"
+					aria-pressed={selectedCategory === null}
 				>
-					{CATEGORY_LABELS[cat]}
+					Semua
 				</button>
-			{/each}
+				{#each CATEGORY_ORDER as cat (cat)}
+					<button
+						onclick={() => selectCategory(cat)}
+						class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory === cat
+							? 'bg-foreground text-background shadow-md scale-[1.02]'
+							: 'border border-border/50 bg-surface text-muted shadow-sm hover:bg-black/5'}"
+						aria-pressed={selectedCategory === cat}
+					>
+						{CATEGORY_LABELS[cat]}
+					</button>
+				{/each}
+			</div>
 		</div>
 
 		<!-- Result count or subtitle -->
