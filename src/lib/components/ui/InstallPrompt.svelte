@@ -8,6 +8,10 @@
 		// Only show if not already installed
 		if (window.matchMedia('(display-mode: standalone)').matches) return;
 
+		// Respect 3-day dismissal cooldown
+		const dismissedUntil = localStorage.getItem('patuna.installDismissed');
+		if (dismissedUntil && Number(dismissedUntil) > Date.now()) return;
+
 		window.addEventListener('beforeinstallprompt', (e) => {
 			e.preventDefault();
 			deferredPrompt = e;
