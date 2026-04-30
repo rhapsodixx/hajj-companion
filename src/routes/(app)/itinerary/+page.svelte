@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { itinerary } from '$lib/data/itinerary';
+	import { itinerary, getEffectiveToday } from '$lib/data/itinerary';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 
 	const PHASE_LABELS: Record<string, string> = {
@@ -24,7 +24,7 @@
 		'departure'
 	];
 
-	const today = new Date().toISOString().slice(0, 10);
+	const today = getEffectiveToday();
 	const todayDayNumber = itinerary.find((d) => d.gregorianDate === today)?.dayNumber;
 
 	// Group days by phase, preserving order

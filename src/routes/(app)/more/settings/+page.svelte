@@ -5,9 +5,10 @@
 	type ThemePref = 'auto' | 'dark' | 'light';
 
 	const BUS_OPTIONS = [
-		{ value: '18', label: 'Bus 18 — Coklat B' },
-		{ value: '17', label: 'Bus 17 — Coklat A' },
-		{ value: '19', label: 'Bus 19 — Coklat C' }
+		{ value: '18', label: 'Bus 18' },
+		{ value: '19', label: 'Bus 19' },
+		{ value: '20', label: 'Bus 20' },
+		{ value: '21', label: 'Bus 21' }
 	];
 
 	let selectedBus = $state('18');
@@ -25,48 +26,57 @@
 		document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
 	}
 
-		$effect(() => {
-			if (!browser) return;
-			applyTheme(themePref);
-			localStorage.setItem('patuna-theme', themePref);
-		});
+	$effect(() => {
+		if (!browser) return;
+		applyTheme(themePref);
+		localStorage.setItem('patuna-theme', themePref);
+	});
 
-		$effect(() => {
-			if (!browser) return;
-			if (dateOverride) {
-				localStorage.setItem('patuna-date-override', dateOverride);
-			} else {
-				localStorage.removeItem('patuna-date-override');
-			}
-		});
-
-		function initFromStorage() {
-			const saved = localStorage.getItem('patuna-theme');
-			if (saved === 'dark' || saved === 'light' || saved === 'auto') {
-				themePref = saved;
-			} else {
-				const legacy = localStorage.getItem('patuna-dark');
-				if (legacy === '1') themePref = 'dark';
-				else if (legacy === '0') themePref = 'light';
-				localStorage.removeItem('patuna-dark');
-			}
-			const savedDate = localStorage.getItem('patuna-date-override');
-			if (savedDate) {
-				dateOverride = savedDate;
-				showDateOverride = true;
-			}
+	$effect(() => {
+		if (!browser) return;
+		if (dateOverride) {
+			localStorage.setItem('patuna-date-override', dateOverride);
+		} else {
+			localStorage.removeItem('patuna-date-override');
 		}
+	});
 
-		if (browser) initFromStorage();
+	$effect(() => {
+		if (!browser) return;
+		localStorage.setItem('patuna-bus', selectedBus);
+	});
 
-		let intervalId: ReturnType<typeof setInterval> | undefined;
-		$effect(() => {
-			if (!browser) return;
-			if (intervalId) clearInterval(intervalId);
-			if (themePref === 'auto') {
-				intervalId = setInterval(() => applyTheme('auto'), 60_000);
-			}
-		});
+	function initFromStorage() {
+		const savedBus = localStorage.getItem('patuna-bus');
+		if (savedBus && BUS_OPTIONS.some((o) => o.value === savedBus)) {
+			selectedBus = savedBus;
+		}
+		const saved = localStorage.getItem('patuna-theme');
+		if (saved === 'dark' || saved === 'light' || saved === 'auto') {
+			themePref = saved;
+		} else {
+			const legacy = localStorage.getItem('patuna-dark');
+			if (legacy === '1') themePref = 'dark';
+			else if (legacy === '0') themePref = 'light';
+			localStorage.removeItem('patuna-dark');
+		}
+		const savedDate = localStorage.getItem('patuna-date-override');
+		if (savedDate) {
+			dateOverride = savedDate;
+			showDateOverride = true;
+		}
+	}
+
+	if (browser) initFromStorage();
+
+	let intervalId: ReturnType<typeof setInterval> | undefined;
+	$effect(() => {
+		if (!browser) return;
+		if (intervalId) clearInterval(intervalId);
+		if (themePref === 'auto') {
+			intervalId = setInterval(() => applyTheme('auto'), 60_000);
+		}
+	});
 </script>
 
 <svelte:head><title>Pengaturan — Patuna Coklat-B</title></svelte:head>
@@ -109,7 +119,7 @@
 					</label>
 				{/each}
 			</div>
-			<p class="mt-2 text-xs text-muted">Jadwal akan berubah otomatis sesuai bus yang dipilih.</p>
+			<p class="mt-2 text-xs text-muted">Pilih bus Anda untuk informasi yang akurat.</p>
 		</Card>
 
 		<!-- About -->
@@ -118,7 +128,7 @@
 			<p class="text-sm text-foreground">Patuna Coklat-B Hajj Companion</p>
 			<p class="mt-1 text-xs text-muted">v1.0.0 · Bisa dibuka offline</p>
 			<p class="mt-2 text-xs leading-relaxed text-muted">
-				Dibuat khusus untuk jamaah haji Patuna kelompok Coklat B, Bus 18. Semua data tersimpan di HP
+				Dibuat khusus untuk jamaah haji Patuna kelompok Coklat B, Bus {selectedBus}. Semua data tersimpan di HP
 				Anda dan bisa dibuka walau tanpa internet.
 			</p>
 		</Card>
@@ -127,7 +137,7 @@
 		<Card>
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Informasi</p>
 			<div class="space-y-1.5 text-sm text-foreground">
-				<p>Kloter: Coklat B · Bus 18</p>
+				<p>Kloter: Coklat B · Bus {selectedBus}</p>
 				<p>Travel: Patuna Tour & Travel</p>
 				<p>Muthawwif/PIC: Denny Eko Sulistio</p>
 				<p>Pembimbing: Ust. Saiful Akib, Lc, MA</p>

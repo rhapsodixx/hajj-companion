@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { getDay } from '$lib/data/itinerary';
+	import { getDay, getEffectiveToday } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
+	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
@@ -24,8 +26,19 @@
 	const day = $derived(getDay(dayNumber));
 	const duas = $derived(day ? getDuaByIds(day.duaIds) : []);
 	const climate = $derived(day ? getClimate(day.climateNormId) : null);
-	const today = new Date().toISOString().slice(0, 10);
+	const today = getEffectiveToday();
 	const isToday = $derived(day?.gregorianDate === today);
+
+	const bus = $derived(
+		browser ? (localStorage.getItem('patuna-bus') ?? '18') : '18'
+	);
+	const dayOverrides = $derived(
+		day ? getOverrideForDay(day.dayNumber, bus) : []
+	);
+	const departureOverride = $derived(
+		dayOverrides.find((o) => o.field === 'departureTime')
+	);
+	const noteOverride = $derived(dayOverrides.find((o) => o.field === 'note'));
 
 	function formatGregorian(iso: string): string {
 		const d = new Date(iso + 'T00:00:00');
@@ -116,6 +129,21 @@
 						>
 							<polyline points="9 18 15 12 9 6" />
 						</svg>
+					</div>
+				</Card>
+			{/if}
+
+			<!-- Dynamic override note -->
+			{#if noteOverride}
+				<Card>
+					<div class="flex items-start gap-2">
+						<span class="mt-0.5 shrink-0 text-gold">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+						</span>
+						<div class="min-w-0 flex-1">
+							<p class="text-sm leading-relaxed font-medium text-foreground">{noteOverride.value}</p>
+							<p class="mt-1 text-xs text-muted">Diperbarui oleh {noteOverride.publishedBy}</p>
+						</div>
 					</div>
 				</Card>
 			{/if}

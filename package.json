@@ -49,6 +49,7 @@
 		"@fontsource-variable/source-serif-4": "^5.2.9",
 		"@fontsource/inter": "^5.2.8",
 		"@fontsource/noto-naskh-arabic": "^5.2.11",
-		"@fontsource/source-serif-4": "^5.2.9"
+		"@fontsource/source-serif-4": "^5.2.9",
+		"@supabase/supabase-js": "^2.105.1"
 	}
 }

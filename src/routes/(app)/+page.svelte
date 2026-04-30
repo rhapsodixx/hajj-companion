@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { itinerary, getDayByDate } from '$lib/data/itinerary';
+	import { itinerary, getDayByDate, getEffectiveToday } from '$lib/data/itinerary';
 	import { getClimate } from '$lib/data/climate';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -17,10 +16,6 @@
 		'post-hajj': 'Setelah Haji',
 		departure: 'Kepulangan'
 	};
-
-	function getTodayISO(): string {
-		return new Date().toISOString().slice(0, 10);
-	}
 
 	function isAfterMaghrib(): boolean {
 		const h = new Date().getHours();
@@ -62,7 +57,7 @@
 		return m > 0 ? `${h} jam ${m} menit lagi` : `${h} jam lagi`;
 	}
 
-	const today = (browser && localStorage.getItem('patuna-date-override')) || getTodayISO();
+	const today = getEffectiveToday();
 	const todayDay = getDayByDate(today);
 	const afterMaghrib = isAfterMaghrib();
 	const nextDay = todayDay ? getNextDay(todayDay.dayNumber) : null;
