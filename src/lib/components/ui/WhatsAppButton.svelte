@@ -18,7 +18,7 @@
 	{href}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="tap-target inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 text-sm font-medium text-white transition-transform duration-100 ease-out active:scale-[0.98] {className}"
+	class="tap-target inline-flex items-center gap-2 rounded-pill bg-[#25D366] px-4 text-sm font-medium text-white transition-transform duration-100 ease-out active:scale-[0.98] {className}"
 	aria-label="WhatsApp {label ?? number}"
 >
 	<!-- WhatsApp icon -->
