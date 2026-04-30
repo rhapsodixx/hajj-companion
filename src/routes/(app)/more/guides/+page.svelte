@@ -65,7 +65,7 @@
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="2.5"
+				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
@@ -87,14 +87,14 @@
 								<path
 									d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
 									stroke="currentColor"
-									stroke-width="2"
+									stroke-width="1.5"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 								/>
 								<polyline
 									points="14 2 14 8 20 8"
 									stroke="currentColor"
-									stroke-width="2"
+									stroke-width="1.5"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 								/>
@@ -115,7 +115,7 @@
 								viewBox="0 0 24 24"
 								fill="none"
 								stroke="currentColor"
-								stroke-width="2"
+								stroke-width="1.5"
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								aria-hidden="true"
@@ -144,7 +144,7 @@
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2.5"
+						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						class="mt-1 shrink-0 text-muted"

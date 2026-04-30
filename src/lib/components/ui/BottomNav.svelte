@@ -32,7 +32,7 @@
 </script>
 
 <nav
-	class="fixed right-0 bottom-0 left-0 z-40 bg-white/80 shadow-[0_-1px_3px_rgba(0,0,0,0.03)] backdrop-blur-md"
+	class="fixed right-0 bottom-0 left-0 z-40 bg-surface/80 shadow-[0_-1px_3px_rgba(0,0,0,0.03)] backdrop-blur-md"
 	style="padding-bottom: env(safe-area-inset-bottom, 0px)"
 	aria-label="Navigasi utama"
 >

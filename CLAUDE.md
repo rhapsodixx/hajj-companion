@@ -61,7 +61,7 @@ src/lib/data/*.json   → Raw static data
 src/lib/data/*.ts     → Typed exports + lookup helpers (e.g., getDay(), getDuaByCategory())
 ```
 
-Four data domains: `itinerary`, `dua`, `climate`, `contacts`. Each follows the same pattern: JSON → typed cast → exported array + accessor functions.
+Six data domains: `itinerary`, `dua`, `climate`, `contacts`, `ritual`, `supabase`. Each static domain follows the same pattern: JSON → typed cast → exported array + accessor functions. The `supabase` module provides optional runtime overrides.
 
 **Date Safety:** Always use `new Date().toISOString().slice(0, 10)` for date comparisons to ensure consistency regardless of the user's device timezone (vital for JKT -> SAU transition).
 
@@ -71,7 +71,7 @@ Dynamic overrides (Supabase `daily_overrides`) are optional and non-blocking —
 
 ```
 src/routes/
-  +layout.svelte              → Root: layout.css, UpdatePrompt, InstallPrompt
+  +layout.svelte              → Root: layout.css, favicon, UpdatePrompt, InstallPrompt
   layout.css                  → Global styles, @theme block, design tokens
   (app)/
     +layout.svelte            → App shell with BottomNav + pb-nav padding
@@ -79,9 +79,14 @@ src/routes/
     itinerary/+page.svelte    → 26-day grouped list
     itinerary/[day]/+page.svelte → Daily detail
     dua/+page.svelte          → Du'a library
-    more/+page.svelte         → Contacts, Guides, Settings
+    more/+page.svelte         → "Lainnya" hub (links to contacts, guides, settings)
+    more/contacts/+page.svelte → Emergency contacts
+    more/guides/+page.svelte   → Ritual guides list
+    more/settings/+page.svelte → Settings (dark mode, phase override)
   ritual/[guideId]/+page.svelte → Ritual walkthrough (outside app group — no bottom nav, immersive)
+  admin/+page.svelte          → Admin override panel (dev/internal use)
   _design/+page.svelte        → Dev-only component gallery
+  _debug/                     → Empty debug route (reserved)
 ```
 
 No `+page.ts` or `+page.server.ts` load functions — all data is client-side from static JSON imports.
@@ -149,12 +154,33 @@ Use `onclick={handler}` (lowercase, no colon). Use `{@render children()}` instea
 | --------------------------------------- | ------------------------------------------------------------- |
 | `.arabic` / `.arabic-lg` / `.arabic-xl` | Arabic text with Noto Naskh Arabic font, RTL, line-height 2.2 |
 | `.pb-nav`                               | Bottom padding for BottomNav safe area                        |
+| `.pt-safe` / `.pb-safe`                 | Safe-area padding for notched devices                         |
 | `.tap-target`                           | Min 44×44px touch target                                      |
-| `.card-pressable`                       | Scale 0.98 on `:active`                                       |
-| `.phase-ribbon`                         | 4px colored phase indicator bar                               |
-| `.page-enter`                           | 200ms fade+slide page transition animation                    |
+| `.card-pressable`                       | Scale 0.98 on `:active`, 100ms transition                     |
+| `.phase-ribbon`                         | 800ms color transition for phase indicator bars               |
+| `.page-enter`                           | 200ms fade+slide-up page transition animation                 |
+| `.card-enter`                           | 300ms fade+slide-up entrance for cards                        |
+| `.stagger-1` … `.stagger-5`            | 50ms-increment animation-delay for staggered card lists       |
+| `.expand-enter`                         | 200ms slide-down for expand/collapse content                  |
 
 **Arabic RTL:** Always apply `dir="rtl"` to the parent block of any Arabic text to ensure punctuation and numbers anchor correctly.
+
+### Shared UI Components
+
+Use these standard components instead of building one-off containers:
+
+| Component           | Purpose                                                                  |
+| ------------------- | ------------------------------------------------------------------------ |
+| `Card.svelte`       | Standard surface card — `bg-surface`, rounded-2xl, shadow. Supports `pressable` and `href` props. |
+| `HeroCard.svelte`   | Phase-accented card with left border color from `PHASE_COLORS`. Uses `bg-surface` (not phase bg). |
+| `DuaCard.svelte`    | Expandable du'a card with Arabic text, translation, and chevron toggle.  |
+| `PhaseRibbon.svelte` | Thin colored bar for phase indicator.                                   |
+| `BottomNav.svelte`  | Fixed bottom navigation with 4 tabs. Uses `bg-surface/80` + backdrop-blur. |
+| `Button.svelte`     | Standard button with variant support.                                    |
+| `PhoneButton.svelte` / `WhatsAppButton.svelte` | Contact action buttons.                          |
+| `ArabicAddressCard.svelte` | Copyable Arabic address card with clipboard feedback.             |
+| `LostButton.svelte` | Emergency "I'm lost" floating action.                                    |
+| `InstallPrompt.svelte` / `UpdatePrompt.svelte` | PWA install and update prompts.               |
 
 ### File Naming
 
@@ -171,7 +197,9 @@ Use `onclick={handler}` (lowercase, no colon). Use `{@render children()}` instea
 
 ### Icons
 
-No icon library. All icons are inline SVG strings stored as constants, rendered via `{@html icon}`.
+No icon library. All icons are inline SVGs — either directly in markup or stored as template-literal constants rendered via `{@html icon}`.
+
+**Stroke-width standard:** All inline SVG icons must use `stroke-width="1.5"` for visual consistency. Do not use `2`, `2.5`, or other weights.
 
 ### Page Titles
 
@@ -187,34 +215,69 @@ Every page must include:
 
 These are defined once in `src/routes/layout.css` under `@theme`. Reference them by CSS variable name — **never hardcode hex values**.
 
-| Token                   | Value     | Usage                                     |
-| ----------------------- | --------- | ----------------------------------------- |
-| `--color-brand`         | `#5C3A21` | Patuna brown — headers, key actions       |
-| `--color-gold`          | `#C8A971` | Rukun phase accent, ritual-day highlights |
-| `--color-background`    | `#FAFAF7` | Ihram white — main background             |
-| `--color-surface`       | `#F2EFE8` | Card background                           |
-| `--color-border`        | `#E5E0D5` | Subtle borders                            |
-| `--color-foreground`    | `#1A1A1A` | Kiswah black — primary text               |
-| `--color-muted`         | `#6B6560` | Secondary text                            |
-| `--color-phase-madinah` | `#0F4C3A` | Madinah phase                             |
-| `--color-phase-rukun`   | `#C8A971` | Rukun phase (gold)                        |
+### Brand & Accent Colors (Pastel Green Palette)
 
-**Typography scale:** 14 / 16 / 18 / 22 / 28 / 36 px (via `--text-*` tokens).
+| Token                  | Value     | Usage                                     |
+| ---------------------- | --------- | ----------------------------------------- |
+| `--color-brand`        | `#5a8a6a` | Primary green — headers, key actions      |
+| `--color-brand-light`  | `#7aaa8a` | Lighter brand for hover states            |
+| `--color-accent`       | `#d4e8d9` | Soft green accent — badges, highlights    |
+| `--color-accent-light` | `#eef5f0` | Very light green tint — subtle backgrounds|
+
+### Neutral Colors
+
+| Token                | Value     | Usage                      |
+| -------------------- | --------- | -------------------------- |
+| `--color-background` | `#f8faf9` | Main page background       |
+| `--color-surface`    | `#ffffff` | Card / elevated surface    |
+| `--color-border`     | `#e8ede9` | Subtle borders             |
+| `--color-foreground` | `#1c2b22` | Primary text               |
+| `--color-muted`      | `#7a8f80` | Secondary / helper text    |
+
+### Dark Mode Overrides
+
+| Token                     | Value     |
+| ------------------------- | --------- |
+| `--color-background-dark` | `#0d110e` |
+| `--color-surface-dark`    | `#161c18` |
+| `--color-border-dark`     | `#263028` |
+| `--color-foreground-dark` | `#e4ede7` |
+| `--color-muted-dark`      | `#8a9f8e` |
+
+### Phase Colors
+
+| Token                            | Value     | Phase             |
+| -------------------------------- | --------- | ----------------- |
+| `--color-phase-arrival`          | `#5a7fa0` | Arrival           |
+| `--color-phase-madinah`          | `#5a8a6a` | Madinah           |
+| `--color-phase-madinah-to-makkah`| `#8a9a78` | Transit           |
+| `--color-phase-makkah`          | `#a08a6a` | Makkah            |
+| `--color-phase-ash-shishah`      | `#9a8a7a` | Ash-Shishah prep  |
+| `--color-phase-rukun`           | `#b8a070` | Rukun (hajj days) |
+| `--color-phase-post-hajj`       | `#6a9a7a` | Post-hajj         |
+| `--color-phase-departure`       | `#5a7fa0` | Departure         |
+
+### Typography
+
+**Type scale:** 13 / 15 / 16 / 18 / 22 / 28 / 36 px (via `--text-xs` through `--text-3xl`).
+
+**Arabic scale:** 24 / 32 / 40 px (via `--text-arabic-base`, `--text-arabic-lg`, `--text-arabic-xl`).
 
 **Fonts:**
 
-- Headlines: Inter (sans-serif, weight 600)
-- Body: Source Serif 4 (serif, weight 400, line-height 1.7)
-- Arabic: Noto Naskh Arabic (for du'a/niat, large), Scheherazade New (inline)
+- Headlines: Inter Variable (sans-serif, weight 600)
+- Body: Source Serif 4 Variable (serif, weight 400, line-height 1.6)
+- Arabic: Noto Naskh Arabic (weight 400 + 700)
 
 ## Design Principles
 
 - **Quiet, sacred, contemplative.** Not corporate, not flashy. Think Apple Notes meets Muslim Pro at its most restrained.
+- **Minimalist with pastel accents.** Predominantly white surfaces, soft green accents. Clean and calm.
 - **Anti-references:** No skeuomorphic mosques, no green-and-gold Islamic clip art, no Ramadan-greeting-card energy, no neon, no carousels.
-- **Motion:** Subtle only. 200ms ease-out page transitions, 100ms scale on tap, 800ms phase-ribbon color drift. **Forbidden:** bounce, parallax, confetti, scroll-jacking.
+- **Motion:** Subtle only. 200ms ease-out page transitions, 100ms scale on tap, 800ms phase-ribbon color drift. 300ms card entrance with stagger. **Forbidden:** bounce, parallax, confetti, scroll-jacking.
 - **Big tappable targets** for older fingers. High contrast for Saudi sun glare.
 - **High Contrast:** Every UI element must maintain a contrast ratio of at least 4.5:1 for readability in intense Saudi sunlight. Avoid thin weights for body text; prefer `font-normal` (400) or `font-medium` (500).
-- **Accessibility:** Every icon-only button or link must have an explicit `aria-label`. Use the `.tap-target` utility for all interactive elements to guarantee a minimum 44px hit area.
+- **Accessibility:** Global `focus-visible` outlines (2px brand-colored) are defined in `layout.css`. Every icon-only button or link must have an explicit `aria-label`. Use the `.tap-target` utility for all interactive elements to guarantee a minimum 44px hit area.
 - **No checklists in Ritual Guide** — pilgrims' hands are occupied during ritual. Guide is read-before, not interact-during.
 
 ## Do Not
@@ -232,6 +295,8 @@ These are defined once in `src/routes/layout.css` under `@theme`. Reference them
 - Do not use `moment.js` — use native `Date` or `Intl` APIs.
 - Do not use `$lib/index.ts` barrel file — import directly from subpaths.
 - Do not add comments in code unless explicitly asked.
+- Do not use `stroke-width` values other than `1.5` for inline SVG icons.
+- Do not use `bg-white` in components — use `bg-surface` for dark-mode compatibility.
 
 ## Formatting
 

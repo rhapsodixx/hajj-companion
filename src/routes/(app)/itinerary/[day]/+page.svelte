@@ -53,7 +53,7 @@
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
-					stroke-width="2.5"
+					stroke-width="1.5"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
@@ -70,18 +70,18 @@
 						<PhaseRibbon phase={day.phase} label={PHASE_LABELS[day.phase] ?? day.phase} />
 						{#if isToday}
 							<span
-								class="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white/90 uppercase"
+								class="rounded-full bg-(--color-accent) px-2 py-0.5 text-[10px] font-bold tracking-wide text-(--color-brand) uppercase"
 								>Hari ini</span
 							>
 						{/if}
 					</div>
 				{/snippet}
 
-				<h1 class="mt-2 text-2xl leading-tight font-semibold text-white">
+				<h1 class="mt-2 text-2xl leading-tight font-semibold text-foreground">
 					Hari {day.dayNumber} — {day.routeLabel}
 				</h1>
-				<p class="mt-1.5 text-sm text-white/80">{formatGregorian(day.gregorianDate)}</p>
-				<p class="mt-0.5 text-sm text-white/70">{day.hijriDate}</p>
+				<p class="mt-1.5 text-sm text-muted">{formatGregorian(day.gregorianDate)}</p>
+				<p class="mt-0.5 text-sm text-muted">{day.hijriDate}</p>
 			</HeroCard>
 		</div>
 
@@ -104,7 +104,7 @@
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							stroke-width="2"
+							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							class="shrink-0 text-(--color-brand)"
@@ -127,7 +127,7 @@
 								viewBox="0 0 24 24"
 								fill="none"
 								stroke="currentColor"
-								stroke-width="2"
+								stroke-width="1.5"
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								aria-hidden="true"

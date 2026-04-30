@@ -25,7 +25,7 @@
 
 <svelte:head><title>Kontak Penting — Patuna Coklat-B</title></svelte:head>
 
-<div class="pt-safe mx-auto max-w-120 px-4 pb-6">
+<div class="page-enter pt-safe mx-auto max-w-120 px-4 pb-6">
 	<!-- Header -->
 	<div class="pt-4 pb-3">
 		<a href="/more" class="inline-flex items-center gap-1 text-sm text-muted">
@@ -35,7 +35,7 @@
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="2.5"
+				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg

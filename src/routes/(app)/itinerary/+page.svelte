@@ -36,7 +36,7 @@
 
 <svelte:head><title>Jadwal — Patuna Coklat-B</title></svelte:head>
 
-<div class="pt-safe mx-auto max-w-120 px-4 pb-4">
+<div class="page-enter pt-safe mx-auto max-w-120 px-4 pb-4">
 	<!-- Header -->
 	<div class="sticky top-0 z-10 flex items-center justify-between bg-background pt-4 pb-3">
 		<div>
@@ -125,7 +125,7 @@
 										viewBox="0 0 24 24"
 										fill="none"
 										stroke="currentColor"
-										stroke-width="2.5"
+										stroke-width="1.5"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 										class="text-border"

@@ -11,6 +11,7 @@ Additional context files:
 - **PRD:** `docs/ideas/patuna-coklat-b-hajj-companion.md` — full product requirements
 - **Implementation plan:** `docs/plan/implementation-plan.md` — task breakdown and sequencing
 - **Design prompt:** `docs/claude-design-prompt.md` — UI design direction and screen specs
+- **Stitch design:** `docs/stitch-design-prompt.md` — visual design system reference
 
 ## Agent Workflow
 
@@ -18,9 +19,11 @@ Additional context files:
 2. Read the relevant data types in `src/lib/types/` before modifying data structures.
 3. Read the relevant data module in `src/lib/data/` before adding or changing static content.
 4. Follow the Svelte 5 runes patterns exactly — no legacy syntax.
-5. Run `bun run check` after changes to verify types.
-6. Run `bun run lint` before considering work complete.
-7. Run `bun run format` to auto-format before committing.
+5. Use standard UI components (`Card`, `HeroCard`, `Button`, etc.) — do not create one-off containers.
+6. Run `bun run check` after changes to verify types.
+7. Run `bun run build` to verify production build.
+8. Run `bun run lint` before considering work complete.
+9. Run `bun run format` to auto-format before committing.
 
 ## Key Reminders
 
@@ -32,18 +35,24 @@ Additional context files:
 - Max content width is 480px (`max-w-120`). Mobile-first, single-column.
 - Min tap target 44×44px. The target user is 45–65 years old with medium phone literacy.
 - Dark mode uses `html[data-theme='dark']` CSS variable overrides, not Tailwind `dark:` classes.
+- All inline SVG icons must use `stroke-width="1.5"` — no other weights.
+- Use `bg-surface` instead of `bg-white` for dark-mode compatibility.
+- Every page root container should include the `page-enter` class for entrance animation.
+- Global `focus-visible` outlines are in `layout.css` — do not add per-component focus styles.
 
 ## File References
 
-| What                       | Where                    |
-| -------------------------- | ------------------------ |
-| Design tokens & global CSS | `src/routes/layout.css`  |
-| Type definitions           | `src/lib/types/*.ts`     |
-| Static data (JSON)         | `src/lib/data/*.json`    |
-| Data accessors (typed)     | `src/lib/data/*.ts`      |
-| UI components              | `src/lib/components/ui/` |
-| App routes                 | `src/routes/(app)/`      |
-| Ritual routes (no nav)     | `src/routes/ritual/`     |
-| Service worker             | `src/service-worker.ts`  |
-| Svelte config              | `svelte.config.js`       |
-| Vite config                | `vite.config.ts`         |
+| What                       | Where                          |
+| -------------------------- | ------------------------------ |
+| Design tokens & global CSS | `src/routes/layout.css`        |
+| Type definitions           | `src/lib/types/*.ts`           |
+| Static data (JSON)         | `src/lib/data/*.json`          |
+| Data accessors (typed)     | `src/lib/data/*.ts`            |
+| UI components              | `src/lib/components/ui/`       |
+| App routes                 | `src/routes/(app)/`            |
+| More sub-pages             | `src/routes/(app)/more/*/`     |
+| Ritual routes (no nav)     | `src/routes/ritual/`           |
+| Admin panel                | `src/routes/admin/`            |
+| Service worker             | `src/service-worker.ts`        |
+| Svelte config              | `svelte.config.js`             |
+| Vite config                | `vite.config.ts`               |
