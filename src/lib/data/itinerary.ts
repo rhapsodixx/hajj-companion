@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import type { Day, Itinerary } from '$lib/types/itinerary';
 import raw from './itinerary.json';
 
@@ -11,7 +12,15 @@ export function getDayByDate(isoDate: string): Day | undefined {
 	return itinerary.find((d) => d.gregorianDate === isoDate);
 }
 
+export function getTodayISO(): string {
+	return new Date().toISOString().slice(0, 10);
+}
+
+export function getEffectiveToday(): string {
+	return (browser && localStorage.getItem('patuna-date-override')) || getTodayISO();
+}
+
 export function getTodayNumber(): number | undefined {
-	const today = new Date().toISOString().slice(0, 10);
+	const today = getEffectiveToday();
 	return itinerary.find((d) => d.gregorianDate === today)?.dayNumber;
 }
