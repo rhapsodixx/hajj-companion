@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { getDay, getEffectiveToday } from '$lib/data/itinerary';
+	import { getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
@@ -11,17 +11,6 @@
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 
-	const PHASE_LABELS: Record<string, string> = {
-		arrival: 'Kedatangan',
-		madinah: 'Madinah',
-		'madinah-to-makkah': 'Madinah → Makkah',
-		makkah: 'Makkah',
-		'ash-shishah': 'Ash Shishah',
-		rukun: 'Rukun Haji',
-		'post-hajj': 'Setelah Haji',
-		departure: 'Kepulangan'
-	};
-
 	const dayNumber = $derived(page.params?.day ? parseInt(page.params.day, 10) : 0);
 	const day = $derived(getDay(dayNumber));
 	const duas = $derived(day ? getDuaByIds(day.duaIds) : []);
@@ -29,15 +18,9 @@
 	const today = getEffectiveToday();
 	const isToday = $derived(day?.gregorianDate === today);
 
-	const bus = $derived(
-		browser ? (localStorage.getItem('patuna-bus') ?? '18') : '18'
-	);
-	const dayOverrides = $derived(
-		day ? getOverrideForDay(day.dayNumber, bus) : []
-	);
-	const departureOverride = $derived(
-		dayOverrides.find((o) => o.field === 'departureTime')
-	);
+	const bus = $derived(browser ? (localStorage.getItem('patuna-bus') ?? '18') : '18');
+	const dayOverrides = $derived(day ? getOverrideForDay(day.dayNumber, bus) : []);
+	const departureOverride = $derived(dayOverrides.find((o) => o.field === 'departureTime'));
 	const noteOverride = $derived(dayOverrides.find((o) => o.field === 'note'));
 
 	function formatGregorian(iso: string): string {
@@ -137,11 +120,29 @@
 			{#if noteOverride}
 				<Card>
 					<div class="flex items-start gap-2">
-						<span class="mt-0.5 shrink-0 text-gold">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+						<span class="text-gold mt-0.5 shrink-0">
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line
+									x1="12"
+									y1="16"
+									x2="12.01"
+									y2="16"
+								/></svg
+							>
 						</span>
 						<div class="min-w-0 flex-1">
-							<p class="text-sm leading-relaxed font-medium text-foreground">{noteOverride.value}</p>
+							<p class="text-sm leading-relaxed font-medium text-foreground">
+								{noteOverride.value}
+							</p>
 							<p class="mt-1 text-xs text-muted">Diperbarui oleh {noteOverride.publishedBy}</p>
 						</div>
 					</div>
@@ -248,7 +249,7 @@
 					<ul class="space-y-2">
 						{#each day.tips as tip}
 							<li class="flex gap-2 text-sm text-foreground">
-								<span class="mt-0.5 shrink-0 text-gold">·</span>
+								<span class="text-gold mt-0.5 shrink-0">·</span>
 								<span>{tip}</span>
 							</li>
 						{/each}

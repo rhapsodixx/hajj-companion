@@ -1,17 +1,6 @@
 <script lang="ts">
-	import { itinerary, getEffectiveToday } from '$lib/data/itinerary';
+	import { itinerary, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
-
-	const PHASE_LABELS: Record<string, string> = {
-		arrival: 'Kedatangan',
-		madinah: 'Madinah',
-		'madinah-to-makkah': 'Madinah → Makkah',
-		makkah: 'Makkah',
-		'ash-shishah': 'Ash Shishah',
-		rukun: 'Rukun Haji',
-		'post-hajj': 'Setelah Haji',
-		departure: 'Kepulangan'
-	};
 
 	const PHASE_ORDER = [
 		'arrival',

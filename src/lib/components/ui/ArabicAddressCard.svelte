@@ -13,18 +13,16 @@
 
 <!-- Full-screen overlay for showing to taxi drivers -->
 <div
-	class="fixed inset-0 z-50 flex flex-col bg-white"
+	class="fixed inset-0 z-50 flex flex-col bg-background"
 	role="dialog"
 	aria-label="Alamat hotel dalam bahasa Arab"
 >
 	<!-- Close button -->
 	<div class="pt-safe flex items-center justify-between px-4 pb-2">
-		<p class="text-xs font-semibold tracking-wide text-gray-400 uppercase">
-			Tunjukkan ke pengemudi
-		</p>
+		<p class="text-xs font-semibold tracking-wide text-muted uppercase">Tunjukkan ke pengemudi</p>
 		<button
 			onclick={onClose}
-			class="tap-target flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-gray-100"
+			class="tap-target flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface"
 			aria-label="Tutup"
 		>
 			<svg
@@ -48,7 +46,7 @@
 	<div class="flex flex-1 flex-col items-center justify-center px-8">
 		<div dir="rtl" class="w-full text-center">
 			{#if hotel.addressArabic}
-				<p class="text-3xl leading-loose font-semibold text-gray-900" lang="ar">
+				<p class="text-3xl leading-loose font-semibold text-foreground" lang="ar">
 					{hotel.addressArabic}
 				</p>
 			{/if}
@@ -56,9 +54,9 @@
 
 		<!-- Hotel name in Latin for reference -->
 		<div class="mt-8 text-center">
-			<p class="text-sm font-semibold text-gray-900">{hotel.name}</p>
+			<p class="text-sm font-semibold text-foreground">{hotel.name}</p>
 			{#if hotel.address}
-				<p class="mt-1 text-sm text-gray-500">{hotel.address}</p>
+				<p class="mt-1 text-sm text-muted">{hotel.address}</p>
 			{/if}
 		</div>
 	</div>
@@ -68,7 +66,7 @@
 		{#if phoneHref}
 			<a
 				href={phoneHref}
-				class="tap-target flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-4 text-base font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+				class="tap-target flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-4 text-base font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
 				aria-label="Telepon {hotel.name}"
 			>
 				<svg

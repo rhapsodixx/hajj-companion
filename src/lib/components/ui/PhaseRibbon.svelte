@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { PHASE_COLORS } from '$lib/data/itinerary';
+
 	interface Props {
 		phase: string;
 		label: string;
@@ -7,23 +9,12 @@
 
 	let { phase, label, class: className = '' }: Props = $props();
 
-	const phaseColors: Record<string, string> = {
-		arrival: 'var(--color-phase-arrival)',
-		madinah: 'var(--color-phase-madinah)',
-		'madinah-to-makkah': 'var(--color-phase-madinah-to-makkah)',
-		makkah: 'var(--color-phase-makkah)',
-		'ash-shishah': 'var(--color-phase-ash-shishah)',
-		rukun: 'var(--color-phase-rukun)',
-		'post-hajj': 'var(--color-phase-post-hajj)',
-		departure: 'var(--color-phase-departure)'
-	};
-
-	const color = $derived(phaseColors[phase] ?? 'var(--color-brand)');
+	const color = $derived(PHASE_COLORS[phase] ?? 'var(--color-brand)');
 </script>
 
 <span
-	class="phase-ribbon inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide text-white {className}"
-	style="background: {color};"
+	class="phase-ribbon inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium tracking-wide {className}"
+	style="border-color: {color}; color: {color};"
 >
 	{label}
 </span>

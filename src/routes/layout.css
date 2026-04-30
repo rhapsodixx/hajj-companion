@@ -8,34 +8,34 @@
 
 @theme {
 	/* ── Brand colors ── */
-	--color-brand: #5c3a21;
-	--color-brand-light: #7a5035;
-	--color-gold: #c8a971;
-	--color-gold-light: #e0c99a;
+	--color-brand: #5a8a6a;
+	--color-brand-light: #7aaa8a;
+	--color-accent: #d4e8d9;
+	--color-accent-light: #eef5f0;
 
 	/* ── Neutral ── */
-	--color-background: #fafaf7;
-	--color-surface: #f2efe8;
-	--color-border: #e5e0d5;
-	--color-foreground: #1a1a1a;
-	--color-muted: #6b6560;
+	--color-background: #f8faf9;
+	--color-surface: #ffffff;
+	--color-border: #e8ede9;
+	--color-foreground: #1c2b22;
+	--color-muted: #7a8f80;
 
 	/* ── Dark mode ── */
-	--color-background-dark: #0e0e0c;
-	--color-surface-dark: #1a1916;
-	--color-border-dark: #2e2c28;
-	--color-foreground-dark: #edeae2;
-	--color-muted-dark: #9a9590;
+	--color-background-dark: #0d110e;
+	--color-surface-dark: #161c18;
+	--color-border-dark: #263028;
+	--color-foreground-dark: #e4ede7;
+	--color-muted-dark: #8a9f8e;
 
-	/* ── Phase colors (ribbon + accent) ── */
-	--color-phase-arrival: #2d4a6e;
-	--color-phase-madinah: #0f4c3a;
-	--color-phase-madinah-to-makkah: #5c3a21;
-	--color-phase-makkah: #5c3a21;
-	--color-phase-ash-shishah: #4a3728;
-	--color-phase-rukun: #9a7a3a;
-	--color-phase-post-hajj: #5c3a21;
-	--color-phase-departure: #2d4a6e;
+	/* ── Phase colors (used for left-border accent + outline tags) ── */
+	--color-phase-arrival: #5a7fa0;
+	--color-phase-madinah: #5a8a6a;
+	--color-phase-madinah-to-makkah: #8a9a78;
+	--color-phase-makkah: #a08a6a;
+	--color-phase-ash-shishah: #9a8a7a;
+	--color-phase-rukun: #b8a070;
+	--color-phase-post-hajj: #6a9a7a;
+	--color-phase-departure: #5a7fa0;
 
 	/* ── Typography ── */
 	--font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
@@ -157,9 +157,59 @@ html[data-theme='dark'] body {
 	}
 }
 
+/* ── Staggered card entrance ── */
+.card-enter {
+	animation: card-in 300ms ease-out both;
+}
+
+@keyframes card-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.stagger-1 {
+	animation-delay: 50ms;
+}
+.stagger-2 {
+	animation-delay: 100ms;
+}
+.stagger-3 {
+	animation-delay: 150ms;
+}
+.stagger-4 {
+	animation-delay: 200ms;
+}
+.stagger-5 {
+	animation-delay: 250ms;
+}
+
+/* ── Smooth expand/collapse ── */
+.expand-enter {
+	animation: expand-in 200ms ease-out;
+}
+
+@keyframes expand-in {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 /* ── Phase ribbon transition ── */
 .phase-ribbon {
-	transition: background-color 800ms ease-in-out;
+	transition:
+		border-color 800ms ease-in-out,
+		color 800ms ease-in-out;
 }
 
 /* ── Card press animation ── */

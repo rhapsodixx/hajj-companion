@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { duaLibrary } from '$lib/data/dua';
-	import Card from '$lib/components/ui/Card.svelte';
-	import ArabicText from '$lib/components/ui/ArabicText.svelte';
+	import DuaCard from '$lib/components/ui/DuaCard.svelte';
 
 	type DuaCategory = 'niat' | 'tawaf' | 'sai' | 'wukuf' | 'jumrah' | 'safar' | 'masjid' | 'umum';
 
@@ -98,7 +97,7 @@
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="2.5"
+				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				class="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-muted"
@@ -112,7 +111,7 @@
 				value={query}
 				oninput={onSearchInput}
 				placeholder="Cari doa..."
-				class="w-full rounded-lg border border-border bg-surface py-2.5 pr-9 pl-9 text-sm text-foreground placeholder:text-muted/60 focus:border-(--color-brand) focus:outline-none"
+				class="w-full rounded-lg border border-border/50 bg-white py-2.5 pr-9 pl-9 text-sm text-foreground placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-1 focus:ring-(--color-brand)/20 focus:outline-none"
 				aria-label="Cari doa"
 			/>
 			{#if query}
@@ -127,7 +126,7 @@
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2.5"
+						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 					>
@@ -144,8 +143,8 @@
 				onclick={() => selectCategory(null)}
 				class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
 				null
-					? 'bg-(--color-brand) text-white'
-					: 'bg-surface text-muted'}"
+					? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
+					: 'border border-border/50 bg-white text-muted'}"
 				aria-pressed={selectedCategory === null}
 			>
 				Semua
@@ -155,8 +154,8 @@
 					onclick={() => selectCategory(cat)}
 					class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
 					cat
-						? 'bg-(--color-brand) text-white'
-						: 'bg-surface text-muted'}"
+						? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
+						: 'border border-border/50 bg-white text-muted'}"
 					aria-pressed={selectedCategory === cat}
 				>
 					{CATEGORY_LABELS[cat]}
@@ -187,85 +186,20 @@
 		<!-- Flat list when searching -->
 		<div class="space-y-2">
 			{#each filteredFlat as dua (dua.id)}
-				<Card>
-					<button
-						class="w-full text-left"
-						onclick={() => toggle(dua.id)}
-						aria-expanded={expanded === dua.id}
-					>
-						<div class="flex items-center justify-between gap-3">
-							<p class="text-sm font-semibold text-(--color-brand)">{dua.title}</p>
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="shrink-0 text-muted transition-transform duration-200 {expanded === dua.id
-									? 'rotate-180'
-									: ''}"
-								aria-hidden="true"
-							>
-								<polyline points="6 9 12 15 18 9" />
-							</svg>
-						</div>
-						<p class="mt-0.5 text-[10px] text-muted">{CATEGORY_LABELS[dua.category]}</p>
-						<p class="mt-1 text-xs text-muted">{dua.whenToRead}</p>
-					</button>
-
-					{#if expanded === dua.id}
-						<div class="mt-3 space-y-3 border-t border-border pt-3">
-							<ArabicText text={dua.arabic} size="lg" />
-							<p class="text-xs leading-relaxed text-muted italic">{dua.latin}</p>
-							<p class="text-sm leading-relaxed text-foreground">{dua.translation}</p>
-						</div>
-					{/if}
-				</Card>
+				<DuaCard
+					{dua}
+					expanded={expanded === dua.id}
+					onToggle={() => toggle(dua.id)}
+					showCategory={true}
+					categoryLabel={CATEGORY_LABELS[dua.category]}
+				/>
 			{/each}
 		</div>
 	{:else if selectedCategory}
 		<!-- Single category (no group header needed) -->
 		<div class="space-y-2">
 			{#each filteredFlat as dua (dua.id)}
-				<Card>
-					<button
-						class="w-full text-left"
-						onclick={() => toggle(dua.id)}
-						aria-expanded={expanded === dua.id}
-					>
-						<div class="flex items-center justify-between gap-3">
-							<p class="text-sm font-semibold text-(--color-brand)">{dua.title}</p>
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="shrink-0 text-muted transition-transform duration-200 {expanded === dua.id
-									? 'rotate-180'
-									: ''}"
-								aria-hidden="true"
-							>
-								<polyline points="6 9 12 15 18 9" />
-							</svg>
-						</div>
-						<p class="mt-1 text-xs text-muted">{dua.whenToRead}</p>
-					</button>
-
-					{#if expanded === dua.id}
-						<div class="mt-3 space-y-3 border-t border-border pt-3">
-							<ArabicText text={dua.arabic} size="lg" />
-							<p class="text-xs leading-relaxed text-muted italic">{dua.latin}</p>
-							<p class="text-sm leading-relaxed text-foreground">{dua.translation}</p>
-						</div>
-					{/if}
-				</Card>
+				<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
 			{/each}
 		</div>
 	{:else}
@@ -278,43 +212,7 @@
 					</p>
 					<div class="space-y-2">
 						{#each group.duas as dua (dua.id)}
-							<Card>
-								<button
-									class="w-full text-left"
-									onclick={() => toggle(dua.id)}
-									aria-expanded={expanded === dua.id}
-								>
-									<div class="flex items-center justify-between gap-3">
-										<p class="text-sm font-semibold text-(--color-brand)">{dua.title}</p>
-										<svg
-											width="16"
-											height="16"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2.5"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="shrink-0 text-muted transition-transform duration-200 {expanded ===
-											dua.id
-												? 'rotate-180'
-												: ''}"
-											aria-hidden="true"
-										>
-											<polyline points="6 9 12 15 18 9" />
-										</svg>
-									</div>
-									<p class="mt-1 text-xs text-muted">{dua.whenToRead}</p>
-								</button>
-
-								{#if expanded === dua.id}
-									<div class="mt-3 space-y-3 border-t border-border pt-3">
-										<ArabicText text={dua.arabic} size="lg" />
-										<p class="text-xs leading-relaxed text-muted italic">{dua.latin}</p>
-										<p class="text-sm leading-relaxed text-foreground">{dua.translation}</p>
-									</div>
-								{/if}
-							</Card>
+							<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
 						{/each}
 					</div>
 				</div>

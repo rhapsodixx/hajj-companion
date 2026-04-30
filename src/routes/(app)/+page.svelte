@@ -1,47 +1,49 @@
 <script lang="ts">
-	import { itinerary, getDayByDate, getEffectiveToday } from '$lib/data/itinerary';
+	import { itinerary, getDayByDate, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getClimate } from '$lib/data/climate';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 
-	const PHASE_LABELS: Record<string, string> = {
-		arrival: 'Kedatangan',
-		madinah: 'Madinah',
-		'madinah-to-makkah': 'Madinah → Makkah',
-		makkah: 'Makkah',
-		'ash-shishah': 'Ash Shishah',
-		rukun: 'Rukun Haji',
-		'post-hajj': 'Setelah Haji',
-		departure: 'Kepulangan'
-	};
+	let nowTick = $state(Date.now());
+	$effect(() => {
+		const id = setInterval(() => (nowTick = Date.now()), 60_000);
+		return () => clearInterval(id);
+	});
 
-	function isAfterMaghrib(): boolean {
+	const today = getEffectiveToday();
+	const todayDay = getDayByDate(today);
+	const climate = todayDay ? getClimate(todayDay.climateNormId) : null;
+
+	const tripStart = itinerary[0].gregorianDate;
+	const tripEnd = itinerary[itinerary.length - 1].gregorianDate;
+	const beforeTrip = today < tripStart;
+	const afterTrip = today > tripEnd;
+
+	const daysUntilTrip = beforeTrip
+		? Math.ceil((new Date(tripStart).getTime() - new Date(today).getTime()) / 86400000)
+		: 0;
+
+	let afterMaghrib = $derived.by(() => {
+		nowTick;
 		const h = new Date().getHours();
 		return h >= 18 || h < 4;
-	}
+	});
 
-	function getNextDay(dayNumber: number) {
-		return itinerary.find((d) => d.dayNumber === dayNumber + 1);
-	}
+	let nextDay = $derived(todayDay ? itinerary.find((d) => d.dayNumber === todayDay.dayNumber + 1) : null);
 
-	function getNextActivity(
-		activities: {
-			time?: string | null;
-			title: string;
-			description: string;
-			location?: string;
-			conditional?: boolean;
-		}[]
-	) {
+	let nextActivity = $derived.by(() => {
+		nowTick;
+		if (!todayDay) return null;
 		const now = new Date();
 		const hhmm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-		const timed = activities.filter((a) => a.time && a.time !== null);
+		const timed = todayDay.activities.filter((a) => a.time);
 		return timed.find((a) => (a.time ?? '') > hhmm) ?? timed[timed.length - 1] ?? null;
-	}
+	});
 
 	function minutesUntil(timeStr: string): number {
+		nowTick;
 		const [hh, mm] = timeStr.split(':').map(Number);
 		const now = new Date();
 		const target = new Date(now);
@@ -56,27 +58,11 @@
 		const m = minutes % 60;
 		return m > 0 ? `${h} jam ${m} menit lagi` : `${h} jam lagi`;
 	}
-
-	const today = getEffectiveToday();
-	const todayDay = getDayByDate(today);
-	const afterMaghrib = isAfterMaghrib();
-	const nextDay = todayDay ? getNextDay(todayDay.dayNumber) : null;
-	const nextActivity = todayDay ? getNextActivity(todayDay.activities) : null;
-	const climate = todayDay ? getClimate(todayDay.climateNormId) : null;
-
-	const tripStart = itinerary[0].gregorianDate;
-	const tripEnd = itinerary[itinerary.length - 1].gregorianDate;
-	const beforeTrip = today < tripStart;
-	const afterTrip = today > tripEnd;
-
-	const daysUntilTrip = beforeTrip
-		? Math.ceil((new Date(tripStart).getTime() - new Date(today).getTime()) / 86400000)
-		: 0;
 </script>
 
 <svelte:head><title>Patuna Coklat-B — Hajj Companion</title></svelte:head>
 
-<main class="pt-safe mx-auto max-w-120 space-y-4 px-4 py-5">
+<main class="pt-safe mx-auto max-w-120 space-y-5 px-4 py-6">
 	<!-- ── Header ── -->
 	<header class="flex items-center justify-between">
 		<div>
@@ -96,13 +82,13 @@
 	{#if beforeTrip}
 		<HeroCard phase="arrival">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">Keberangkatan</p>
+				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Keberangkatan</p>
 			{/snippet}
-			<p class="text-2xl font-semibold text-white">
+			<p class="text-2xl font-semibold text-foreground">
 				{daysUntilTrip} hari lagi
 			</p>
-			<p class="mt-1 text-sm text-white/80">Menuju Jakarta → Jeddah</p>
-			<p class="mt-3 text-xs text-white/60">Senin, 11 Mei 2026 · Bandara T3 pukul 20:40</p>
+			<p class="mt-1 text-sm text-muted">Menuju Jakarta → Jeddah</p>
+			<p class="mt-3 text-xs text-muted">Senin, 11 Mei 2026 · Bandara T3 pukul 20:40</p>
 		</HeroCard>
 
 		<Card>
@@ -129,12 +115,12 @@
 		<!-- Persiapan Besok card -->
 		<HeroCard phase={nextDay.phase}>
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">Persiapan Besok</p>
+				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Persiapan Besok</p>
 			{/snippet}
-			<p class="text-xl font-semibold text-white">
+			<p class="text-xl font-semibold text-foreground">
 				Hari {nextDay.dayNumber} — {nextDay.routeLabel}
 			</p>
-			<p class="mt-1 text-sm text-white/80">{nextDay.gregorianDate} · {nextDay.hijriDate}</p>
+			<p class="mt-1 text-sm text-muted">{nextDay.gregorianDate} · {nextDay.hijriDate}</p>
 		</HeroCard>
 
 		<!-- Tomorrow's key info -->
@@ -179,7 +165,7 @@
 		{/if}
 
 		<!-- Today card (secondary) -->
-		<div class="border-t border-border pt-4">
+		<div class="border-t border-border/40 pt-5">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
 			<Card>
 				<p class="font-medium">Hari {todayDay.dayNumber} — {todayDay.location}</p>
@@ -197,12 +183,12 @@
 		<!-- NOW card -->
 		<HeroCard phase={todayDay.phase}>
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">
+				<p class="text-xs font-semibold tracking-widest text-muted uppercase">
 					Hari {todayDay.dayNumber} · {todayDay.hijriDate}
 				</p>
 			{/snippet}
-			<p class="text-xl font-semibold text-white">{todayDay.routeLabel}</p>
-			<p class="mt-1 text-sm text-white/80">{todayDay.location} · {todayDay.gregorianDate}</p>
+			<p class="text-xl font-semibold text-foreground">{todayDay.routeLabel}</p>
+			<p class="mt-1 text-sm text-muted">{todayDay.location} · {todayDay.gregorianDate}</p>
 		</HeroCard>
 
 		<!-- What to do today -->
@@ -259,7 +245,7 @@
 				<ul class="space-y-2">
 					{#each todayDay.tips as tip}
 						<li class="flex gap-2 text-sm text-foreground">
-							<span class="shrink-0 text-gold">·</span>
+							<span class="shrink-0 text-(--color-brand)">·</span>
 							<span>{tip}</span>
 						</li>
 					{/each}
@@ -283,7 +269,7 @@
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2"
+						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						class="shrink-0 text-(--color-brand)"
@@ -301,10 +287,10 @@
 	{:else if afterTrip}
 		<HeroCard phase="departure">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">Alhamdulillah</p>
+				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Alhamdulillah</p>
 			{/snippet}
-			<p class="text-2xl font-semibold text-white">Haji Selesai</p>
-			<p class="mt-2 text-sm text-white/80">Semoga menjadi haji yang mabrur. Amin.</p>
+			<p class="text-2xl font-semibold text-foreground">Haji Selesai</p>
+			<p class="mt-2 text-sm text-muted">Semoga menjadi haji yang mabrur. Amin.</p>
 		</HeroCard>
 
 		<Card>
