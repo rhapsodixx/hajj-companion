@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { X, Phone } from 'phosphor-svelte';
 	import type { Contact } from '$lib/types/contact';
 
 	interface Props {
@@ -25,20 +26,7 @@
 			class="tap-target flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface"
 			aria-label="Tutup"
 		>
-			<svg
-				width="20"
-				height="20"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<line x1="18" y1="6" x2="6" y2="18" />
-				<line x1="6" y1="6" x2="18" y2="18" />
-			</svg>
+			<X size={20} weight="regular" />
 		</button>
 	</div>
 
@@ -69,21 +57,7 @@
 				class="tap-target flex w-full items-center justify-center gap-2 rounded-pill bg-foreground px-6 py-4 text-base font-semibold text-surface transition-transform duration-100 ease-out active:scale-[0.98]"
 				aria-label="Telepon {hotel.name}"
 			>
-				<svg
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path
-						d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-					/>
-				</svg>
+				<Phone size={20} weight="regular" />
 				Telepon Hotel
 			</a>
 		{/if}

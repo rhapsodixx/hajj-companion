@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { CaretDown } from 'phosphor-svelte';
 	import type { Dua } from '$lib/types/dua';
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -22,20 +23,12 @@
 	>
 		<div class="flex items-center justify-between gap-3">
 			<p class="text-sm font-semibold text-foreground">{dua.title}</p>
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+			<CaretDown
+				size={16}
+				weight="regular"
 				class="shrink-0 text-muted transition-transform duration-200 {expanded ? 'rotate-180' : ''}"
 				aria-hidden="true"
-			>
-				<polyline points="6 9 12 15 18 9" />
-			</svg>
+			/>
 		</div>
 		{#if showCategory && categoryLabel}
 			<p class="mt-0.5 text-[10px] text-muted">{categoryLabel}</p>

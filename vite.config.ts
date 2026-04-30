@@ -53,5 +53,8 @@ export default defineConfig({
 				type: 'module'
 			}
 		})
-	]
+	],
+	ssr: {
+		noExternal: ['phosphor-svelte']
+	}
 });

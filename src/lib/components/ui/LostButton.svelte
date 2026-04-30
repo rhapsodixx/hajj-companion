@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { MapPin } from 'phosphor-svelte';
 	import type { Contact } from '$lib/types/contact';
 	import ArabicAddressCard from './ArabicAddressCard.svelte';
 
@@ -21,20 +22,7 @@
 		class="tap-target flex w-full items-center justify-center gap-2 rounded-pill border border-border bg-surface px-5 py-3.5 text-sm font-semibold text-foreground shadow-level-3 transition-transform duration-100 ease-out active:scale-[0.98]"
 		aria-label="Tunjukkan alamat hotel dalam bahasa Arab"
 	>
-		<svg
-			width="18"
-			height="18"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.5"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			aria-hidden="true"
-		>
-			<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-			<circle cx="12" cy="10" r="3" />
-		</svg>
+		<MapPin size={18} weight="regular" />
 		Bingung jalan? — Lihat alamat hotel
 	</button>
 </div>

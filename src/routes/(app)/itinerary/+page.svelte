@@ -3,6 +3,7 @@
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { CaretRight } from 'phosphor-svelte';
 
 	const PHASE_ORDER = [
 		'manasik',
@@ -188,20 +189,7 @@
 										>Hari ini</span
 									>
 								{:else}
-									<svg
-										width="16"
-										height="16"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										class="text-border"
-										aria-hidden="true"
-									>
-										<polyline points="9 18 15 12 9 6" />
-									</svg>
+									<CaretRight size={16} weight="bold" class="text-border" aria-hidden="true" />
 								{/if}
 							</div>
 						</a>
