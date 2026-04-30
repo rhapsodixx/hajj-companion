@@ -1,5 +1,130 @@
 [
 	{
+		"dayNumber": -2,
+		"gregorianDate": "2026-05-09",
+		"hijriDate": "22 Zulqa'dah 1447",
+		"hijriDay": 22,
+		"hijriMonth": "Zulqa'dah",
+		"hijriYear": 1447,
+		"phase": "manasik",
+		"location": "Tangerang",
+		"routeLabel": "Manasik Hari 1",
+		"activities": [
+			{
+				"time": "16:00",
+				"title": "Registrasi Kamar & Penyerahan Koper",
+				"description": "Registrasi kamar dan menyerahkan koper bagasi besar. Koper akan disimpan dan dibawa langsung ke hotel di Saudi.",
+				"location": "Hotel Santika ICE BSD"
+			},
+			{
+				"time": "18:00",
+				"title": "Registrasi & Makan Malam",
+				"description": "Registrasi ulang dan makan malam bersama seluruh jamaah.",
+				"location": "Hotel Santika ICE BSD"
+			},
+			{
+				"time": "19:00",
+				"title": "Pembekalan Tasiq & Lokta Jannah",
+				"description": "Pembekalan mengenai aplikasi Tasiq dan Lokta Jannah yang akan digunakan selama perjalanan."
+			},
+			{
+				"time": "19:10",
+				"title": "Pembekalan Ayat Suci Al-Qur'an",
+				"description": "Pembekalan ayat-ayat suci Al-Qur'an yang berkaitan dengan ibadah haji.",
+				"location": "Ballroom Santika ICE BSD"
+			},
+			{
+				"time": "19:20",
+				"title": "Program & Pembekalan Akhir",
+				"description": "Program utama dan pembekalan akhir sebelum keberangkatan.",
+				"location": "Ballroom Santika ICE BSD"
+			}
+		],
+		"whatToDo": "Hari pertama manasik. Jamaah berkumpul di Hotel Santika ICE BSD untuk registrasi, penyerahan koper bagasi besar, dan pembekalan malam. Koper besar akan diserahkan hari ini dan dibawa langsung ke hotel di Saudi.",
+		"whatToBring": [
+			"Koper bagasi besar (diserahkan hari ini)",
+			"Kartu identitas (KTP) untuk registrasi",
+			"Tas kabin kecil untuk perlengkapan 3 hari manasik",
+			"Obat pribadi secukupnya"
+		],
+		"dressCode": {
+			"men": "Pakaian sopan dan nyaman",
+			"women": "Pakaian sopan dan nyaman + hijab"
+		},
+		"koperNote": "Koper bagasi besar diserahkan saat registrasi kamar pukul 16:00. Bawa tas kabin kecil untuk kebutuhan 3 hari manasik.",
+		"tips": [
+			"Koper besar akan dibawa langsung ke hotel di Saudi — masukkan semua kebutuhan untuk Arab Saudi.",
+			"Bawa hanya tas kecil untuk 3 hari manasik di hotel.",
+			"Simpan dokumen penting (paspor, visa) di tas tangan, jangan di koper besar.",
+			"Pastikan power bank dibawa di tas kabin, tidak boleh di koper."
+		],
+		"duaIds": [],
+		"climateNormId": "none"
+	},
+	{
+		"dayNumber": -1,
+		"gregorianDate": "2026-05-10",
+		"hijriDate": "23 Zulqa'dah 1447",
+		"hijriDay": 23,
+		"hijriMonth": "Zulqa'dah",
+		"hijriYear": 1447,
+		"phase": "manasik",
+		"location": "Tangerang",
+		"routeLabel": "Manasik Hari 2",
+		"activities": [
+			{
+				"time": "08:00",
+				"title": "Tata Cara Berhaji",
+				"description": "Sesi pembelajaran tata cara berhaji secara lengkap, dari niat hingga selesai.",
+				"location": "Ballroom Santika ICE BSD"
+			},
+			{
+				"time": "10:00",
+				"title": "Kesesuaian & Koordinasi",
+				"description": "Sesi kesesuaian dan koordinasi antar jamaah dan pembimbing."
+			},
+			{
+				"time": "13:00",
+				"title": "Mengenal Madinah & Tempat Bersejarah",
+				"description": "Pengenalan lokasi-lokasi bersejarah di Madinah yang akan dikunjungi.",
+				"location": "Ballroom Santika ICE BSD"
+			},
+			{
+				"time": "14:30",
+				"title": "Amanah Sunnah",
+				"description": "Sesi pembekalan tentang amanah dan sunnah dalam ibadah haji."
+			},
+			{
+				"time": "19:00",
+				"title": "Ibadah Sholat & Pembekalan",
+				"description": "Sesi ibadah sholat bersama dan pembekalan oleh pembimbing."
+			},
+			{
+				"time": "20:00",
+				"title": "Malam Keakraban & Pemakaian Kaus",
+				"description": "Malam keakraban (tanwir), pemakaian kaus kelompok, dan sesi foto bersama.",
+				"location": "Ballroom Santika ICE BSD"
+			}
+		],
+		"whatToDo": "Hari kedua manasik — sesi pembelajaran intensif tata cara berhaji, mengenal lokasi di Madinah, dan malam keakraban. Gunakan hari ini untuk bertanya kepada pembimbing jika ada yang belum dipahami.",
+		"whatToBring": [
+			"Alat tulis untuk mencatat",
+			"Buku panduan haji (jika ada)",
+			"Tas kecil untuk ke ballroom"
+		],
+		"dressCode": {
+			"men": "Pakaian sopan dan nyaman",
+			"women": "Pakaian sopan dan nyaman + hijab"
+		},
+		"tips": [
+			"Siapkan pertanyaan tentang tata cara haji yang belum dipahami.",
+			"Perhatikan penjelasan tata cara — ini adalah latihan terakhir sebelum berangkat.",
+			"Foto bersama malam ini — siapkan kaus kelompok."
+		],
+		"duaIds": [],
+		"climateNormId": "none"
+	},
+	{
 		"dayNumber": 1,
 		"gregorianDate": "2026-05-11",
 		"hijriDate": "24 Zulqa'dah 1447",
@@ -10,6 +135,47 @@
 		"location": "Jakarta",
 		"routeLabel": "JAKARTA → JEDDAH",
 		"activities": [
+			{
+				"time": "06:00",
+				"title": "Sarapan",
+				"description": "Sarapan pagi di restoran hotel. Hari terakhir manasik.",
+				"location": "Restoran Santika ICE BSD"
+			},
+			{
+				"time": "08:05",
+				"title": "Rangkuman Tata Cara & Pemakaian Kain Ihram",
+				"description": "Rangkuman tata cara berhaji dan demonstrasi pemakaian kain ihram."
+			},
+			{
+				"time": "09:00",
+				"title": "Praktik Tawaf & Sa'i",
+				"description": "Praktik tawaf dan sa'i bersama pembimbing. Latihan terakhir sebelum berangkat."
+			},
+			{
+				"time": "10:30",
+				"title": "Sesi Tanya Jawab",
+				"description": "Sesi tanya jawab terakhir — tanyakan hal yang belum dipahami."
+			},
+			{
+				"time": "11:30",
+				"title": "Evaluasi & Doa Penutup",
+				"description": "Evaluasi manasik dan doa penutup bersama."
+			},
+			{
+				"time": "17:00",
+				"title": "Sholat Maghrib & Malam",
+				"description": "Sholat Maghrib dan malam di hotel."
+			},
+			{
+				"time": "18:00",
+				"title": "Pemberkatan Doa Bersama",
+				"description": "Pemberkatan doa bersama sebelum keberangkatan."
+			},
+			{
+				"time": "18:05",
+				"title": "Pembagian ID Card",
+				"description": "Pembagian ID card jamaah dan dokumen perjalanan."
+			},
 			{
 				"time": "20:40",
 				"title": "Berkumpul di Bandara Soekarno-Hatta T3",
@@ -23,7 +189,7 @@
 				"location": "Bandara Soekarno-Hatta Terminal 3"
 			}
 		],
-		"whatToDo": "Hari keberangkatan. Kenakan seragam batik haji Patuna dan bawahan hitam (pria) atau bawahan bebas (wanita) dengan hijab segi empat. Paspor akan dibagikan di hotel sebelumnya. Berkumpul tepat waktu di Terminal 3 dan ikuti arahan pembimbing ibadah.",
+		"whatToDo": "Manasik hari terakhir (pagi) dan keberangkatan (malam). Pagi: evaluasi manasik, praktik tawaf & sa'i, doa penutup. Sore: sholat, pemberkatan, pembagian ID card. Malam: berkumpul di Bandara T3 pukul 20:40. Kenakan seragam batik haji Patuna.",
 		"whatToBring": [
 			"Dokumen: paspor, visa, tiket, kartu identitas",
 			"Tas kabin dengan perlengkapan darurat ihram",
@@ -36,7 +202,8 @@
 			"women": "Seragam batik haji Patuna + bawahan bebas + hijab segi empat"
 		},
 		"tips": [
-			"Paspor akan dibagikan di hotel sebelum berangkat — pastikan sudah diterima.",
+			"Manasik berakhir siang — dari sini pakai seragam batik haji Patuna.",
+			"Paspor dibagikan sore hari — pastikan sudah diterima.",
 			"Simpan dokumen penting di tas badan yang tidak mudah terlepas.",
 			"Cek koper besar sudah dikunci dan ada label nama Patuna."
 		],

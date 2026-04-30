@@ -160,7 +160,7 @@ Use `onclick={handler}` (lowercase, no colon). Use `{@render children()}` instea
 | `.phase-ribbon`                         | 800ms color transition for phase indicator bars               |
 | `.page-enter`                           | 200ms fade+slide-up page transition animation                 |
 | `.card-enter`                           | 300ms fade+slide-up entrance for cards                        |
-| `.stagger-1` … `.stagger-5`            | 50ms-increment animation-delay for staggered card lists       |
+| `.stagger-1` … `.stagger-5`             | 50ms-increment animation-delay for staggered card lists       |
 | `.expand-enter`                         | 200ms slide-down for expand/collapse content                  |
 
 **Arabic RTL:** Always apply `dir="rtl"` to the parent block of any Arabic text to ensure punctuation and numbers anchor correctly.
@@ -169,18 +169,18 @@ Use `onclick={handler}` (lowercase, no colon). Use `{@render children()}` instea
 
 Use these standard components instead of building one-off containers:
 
-| Component           | Purpose                                                                  |
-| ------------------- | ------------------------------------------------------------------------ |
-| `Card.svelte`       | Standard surface card — `bg-surface`, rounded-2xl, shadow. Supports `pressable` and `href` props. |
-| `HeroCard.svelte`   | Phase-accented card with left border color from `PHASE_COLORS`. Uses `bg-surface` (not phase bg). |
-| `DuaCard.svelte`    | Expandable du'a card with Arabic text, translation, and chevron toggle.  |
-| `PhaseRibbon.svelte` | Thin colored bar for phase indicator.                                   |
-| `BottomNav.svelte`  | Fixed bottom navigation with 4 tabs. Uses `bg-surface/80` + backdrop-blur. |
-| `Button.svelte`     | Standard button with variant support.                                    |
-| `PhoneButton.svelte` / `WhatsAppButton.svelte` | Contact action buttons.                          |
-| `ArabicAddressCard.svelte` | Copyable Arabic address card with clipboard feedback.             |
-| `LostButton.svelte` | Emergency "I'm lost" floating action.                                    |
-| `InstallPrompt.svelte` / `UpdatePrompt.svelte` | PWA install and update prompts.               |
+| Component                                      | Purpose                                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Card.svelte`                                  | Standard surface card — `bg-surface`, rounded-2xl, shadow. Supports `pressable` and `href` props. |
+| `HeroCard.svelte`                              | Phase-accented card with left border color from `PHASE_COLORS`. Uses `bg-surface` (not phase bg). |
+| `DuaCard.svelte`                               | Expandable du'a card with Arabic text, translation, and chevron toggle.                           |
+| `PhaseRibbon.svelte`                           | Thin colored bar for phase indicator.                                                             |
+| `BottomNav.svelte`                             | Fixed bottom navigation with 4 tabs. Uses `bg-surface/80` + backdrop-blur.                        |
+| `Button.svelte`                                | Standard button with variant support.                                                             |
+| `PhoneButton.svelte` / `WhatsAppButton.svelte` | Contact action buttons.                                                                           |
+| `ArabicAddressCard.svelte`                     | Copyable Arabic address card with clipboard feedback.                                             |
+| `LostButton.svelte`                            | Emergency "I'm lost" floating action.                                                             |
+| `InstallPrompt.svelte` / `UpdatePrompt.svelte` | PWA install and update prompts.                                                                   |
 
 ### File Naming
 
@@ -217,22 +217,22 @@ These are defined once in `src/routes/layout.css` under `@theme`. Reference them
 
 ### Brand & Accent Colors (Pastel Green Palette)
 
-| Token                  | Value     | Usage                                     |
-| ---------------------- | --------- | ----------------------------------------- |
-| `--color-brand`        | `#5a8a6a` | Primary green — headers, key actions      |
-| `--color-brand-light`  | `#7aaa8a` | Lighter brand for hover states            |
-| `--color-accent`       | `#d4e8d9` | Soft green accent — badges, highlights    |
-| `--color-accent-light` | `#eef5f0` | Very light green tint — subtle backgrounds|
+| Token                  | Value     | Usage                                      |
+| ---------------------- | --------- | ------------------------------------------ |
+| `--color-brand`        | `#5a8a6a` | Primary green — headers, key actions       |
+| `--color-brand-light`  | `#7aaa8a` | Lighter brand for hover states             |
+| `--color-accent`       | `#d4e8d9` | Soft green accent — badges, highlights     |
+| `--color-accent-light` | `#eef5f0` | Very light green tint — subtle backgrounds |
 
 ### Neutral Colors
 
-| Token                | Value     | Usage                      |
-| -------------------- | --------- | -------------------------- |
-| `--color-background` | `#f8faf9` | Main page background       |
-| `--color-surface`    | `#ffffff` | Card / elevated surface    |
-| `--color-border`     | `#e8ede9` | Subtle borders             |
-| `--color-foreground` | `#1c2b22` | Primary text               |
-| `--color-muted`      | `#7a8f80` | Secondary / helper text    |
+| Token                | Value     | Usage                   |
+| -------------------- | --------- | ----------------------- |
+| `--color-background` | `#f8faf9` | Main page background    |
+| `--color-surface`    | `#ffffff` | Card / elevated surface |
+| `--color-border`     | `#e8ede9` | Subtle borders          |
+| `--color-foreground` | `#1c2b22` | Primary text            |
+| `--color-muted`      | `#7a8f80` | Secondary / helper text |
 
 ### Dark Mode Overrides
 
@@ -246,16 +246,16 @@ These are defined once in `src/routes/layout.css` under `@theme`. Reference them
 
 ### Phase Colors
 
-| Token                            | Value     | Phase             |
-| -------------------------------- | --------- | ----------------- |
-| `--color-phase-arrival`          | `#5a7fa0` | Arrival           |
-| `--color-phase-madinah`          | `#5a8a6a` | Madinah           |
-| `--color-phase-madinah-to-makkah`| `#8a9a78` | Transit           |
-| `--color-phase-makkah`          | `#a08a6a` | Makkah            |
-| `--color-phase-ash-shishah`      | `#9a8a7a` | Ash-Shishah prep  |
-| `--color-phase-rukun`           | `#b8a070` | Rukun (hajj days) |
-| `--color-phase-post-hajj`       | `#6a9a7a` | Post-hajj         |
-| `--color-phase-departure`       | `#5a7fa0` | Departure         |
+| Token                             | Value     | Phase             |
+| --------------------------------- | --------- | ----------------- |
+| `--color-phase-arrival`           | `#5a7fa0` | Arrival           |
+| `--color-phase-madinah`           | `#5a8a6a` | Madinah           |
+| `--color-phase-madinah-to-makkah` | `#8a9a78` | Transit           |
+| `--color-phase-makkah`            | `#a08a6a` | Makkah            |
+| `--color-phase-ash-shishah`       | `#9a8a7a` | Ash-Shishah prep  |
+| `--color-phase-rukun`             | `#b8a070` | Rukun (hajj days) |
+| `--color-phase-post-hajj`         | `#6a9a7a` | Post-hajj         |
+| `--color-phase-departure`         | `#5a7fa0` | Departure         |
 
 ### Typography
 
