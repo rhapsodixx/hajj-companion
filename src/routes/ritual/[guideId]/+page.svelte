@@ -4,6 +4,7 @@
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getContact } from '$lib/data/contacts';
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
+	import Card from '$lib/components/ui/Card.svelte';
 	import LostButton from '$lib/components/ui/LostButton.svelte';
 
 	const guideId = $derived(page.params?.guideId ?? '');
@@ -76,7 +77,7 @@
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
-					stroke-width="2.5"
+					stroke-width="1.5"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
@@ -126,14 +127,16 @@
 				{#if guide.preparation.length > 0}
 					<section class="mb-6">
 						<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
-						<div class="space-y-2 rounded-xl border border-border bg-surface p-4">
+						<Card>
+							<div class="space-y-2">
 							{#each guide.preparation as item (item)}
 								<div class="flex gap-2.5 text-sm text-foreground">
-									<span class="text-gold mt-0.5 shrink-0">·</span>
+									<span class="text-(--color-brand) mt-0.5 shrink-0">·</span>
 									<span>{item}</span>
 								</div>
 							{/each}
-						</div>
+							</div>
+						</Card>
 					</section>
 				{/if}
 
@@ -154,14 +157,14 @@
 					</p>
 
 					<!-- Step content -->
-					<div class="rounded-xl border border-border bg-surface p-5">
+					<div class="rounded-2xl bg-surface p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
 						<p class="text-lg font-semibold text-foreground">{currentStep.title}</p>
 						<p class="mt-3 font-serif text-sm leading-relaxed text-foreground">
 							{currentStep.instruction}
 						</p>
 
 						{#if currentStep.arabic}
-							<div class="mt-4 rounded-xl border border-border bg-background p-4">
+							<div class="mt-4 rounded-2xl bg-(--color-accent-light) p-4">
 								<ArabicText text={currentStep.arabic} size="lg" />
 								{#if currentStep.arabicSource}
 									<p class="mt-2 text-right text-xs text-muted">— {currentStep.arabicSource}</p>
@@ -192,7 +195,7 @@
 				<div class="page-enter">
 					{#if guide.closingNote}
 						<section class="mb-6">
-							<div class="border-gold/30 bg-gold/5 rounded-xl border p-4">
+							<div class="rounded-2xl border border-(--color-brand)/20 bg-(--color-accent-light) p-4">
 								<p class="font-serif text-sm leading-relaxed text-foreground">
 									{guide.closingNote}
 								</p>
@@ -207,7 +210,7 @@
 							</p>
 							<div class="space-y-3">
 								{#each relatedDuas as dua (dua.id)}
-									<div class="rounded-xl border border-border bg-surface p-4">
+									<Card>
 										<p
 											class="mb-2 text-xs font-semibold tracking-wide text-(--color-brand) uppercase"
 										>
@@ -218,7 +221,7 @@
 											<p class="mt-2 text-sm text-muted italic">{dua.latin}</p>
 										{/if}
 										<p class="mt-1 font-serif text-sm text-foreground">{dua.translation}</p>
-									</div>
+									</Card>
 								{/each}
 							</div>
 						</section>
@@ -240,7 +243,7 @@
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2.5"
+						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
@@ -258,7 +261,7 @@
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2.5"
+						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg
@@ -282,7 +285,7 @@
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
-					stroke-width="2.5"
+					stroke-width="1.5"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
