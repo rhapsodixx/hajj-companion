@@ -40,6 +40,72 @@
 	let query = $state('');
 	let selectedCategory: DuaCategory | null = $state(null);
 
+	let scrollY = $state(0);
+	let isFloatingExpanded = $state(false);
+
+	let isScrolled = $derived(scrollY > 150);
+
+	let floatingContainerRef: HTMLElement;
+	let floatingInputRef: HTMLInputElement;
+	let floatingLeftIconRef: HTMLElement;
+	let floatingCloseRef: HTMLElement;
+	let floatingFabIconRef: HTMLElement;
+
+	$effect(() => {
+		if (!floatingContainerRef) return;
+
+		if (isScrolled || isFloatingExpanded || query) {
+			gsap.to(floatingContainerRef, {
+				opacity: 1,
+				scale: 1,
+				pointerEvents: 'auto',
+				duration: 0.4,
+				ease: 'back.out(1.5)'
+			});
+		} else {
+			gsap.to(floatingContainerRef, {
+				opacity: 0,
+				scale: 0.8,
+				pointerEvents: 'none',
+				duration: 0.3,
+				ease: 'power2.in'
+			});
+		}
+	});
+
+	$effect(() => {
+		if (!floatingContainerRef) return;
+
+		if (isFloatingExpanded) {
+			gsap.to(floatingContainerRef, {
+				width: '100%',
+				borderRadius: '16px',
+				duration: 0.4,
+				ease: 'power3.inOut'
+			});
+			if (floatingFabIconRef) gsap.to(floatingFabIconRef, { opacity: 0, scale: 0, duration: 0.2 });
+			if (floatingLeftIconRef)
+				gsap.to(floatingLeftIconRef, { opacity: 1, delay: 0.2, duration: 0.2 });
+			if (floatingCloseRef) gsap.to(floatingCloseRef, { opacity: 1, delay: 0.2, duration: 0.2 });
+		} else {
+			gsap.to(floatingContainerRef, {
+				width: '56px',
+				borderRadius: '9999px',
+				duration: 0.4,
+				ease: 'power3.inOut'
+			});
+			if (floatingFabIconRef)
+				gsap.to(floatingFabIconRef, { opacity: 1, scale: 1, delay: 0.2, duration: 0.2 });
+			if (floatingLeftIconRef) gsap.to(floatingLeftIconRef, { opacity: 0, duration: 0.1 });
+			if (floatingCloseRef) gsap.to(floatingCloseRef, { opacity: 0, duration: 0.1 });
+		}
+	});
+
+	function expandFloatingSearch() {
+		isFloatingExpanded = true;
+		setTimeout(() => floatingInputRef?.focus(), 100);
+	}
+
 	function normalize(s: string) {
 		return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 	}
@@ -119,10 +185,11 @@
 </script>
 
 <svelte:head><title>Kumpulan Doa — Patuna Coklat-B</title></svelte:head>
+<svelte:window bind:scrollY />
 
 <div
 	bind:this={pageContainer}
-	class="page-enter relative mx-auto max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
+	class="page-enter relative mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
 >
 	<!-- Pastel Background Pattern -->
 	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
@@ -139,48 +206,118 @@
 		></div>
 	</div>
 
-	<!-- Sticky header: title + search + chips -->
-	<div class="gsap-card sticky top-0 z-10 bg-background/80 pt-4 pb-2 backdrop-blur-md">
-		<h1 class="text-xl font-semibold">Kumpulan Doa</h1>
+	<!-- Floating Search FAB Wrapper -->
+	<div class="pointer-events-none fixed right-0 bottom-24 left-0 z-50 flex justify-center px-4">
+		<div class="relative h-14 w-full max-w-120">
+			<div
+				bind:this={floatingContainerRef}
+				class="pointer-events-auto absolute top-0 right-0 flex h-14 w-14 items-center overflow-hidden rounded-full border border-border/60 bg-surface/95 shadow-2xl backdrop-blur-xl"
+				style="opacity: 0; pointer-events: none; transform: scale(0.8);"
+			>
+				<input
+					bind:this={floatingInputRef}
+					type="text"
+					bind:value={query}
+					oninput={onSearchInput}
+					onblur={() => {
+						if (!query) isFloatingExpanded = false;
+					}}
+					placeholder="Cari doa..."
+					class="absolute inset-0 h-full w-full bg-transparent pr-12 pl-12 text-base text-foreground opacity-0 focus:outline-none {isFloatingExpanded
+						? 'opacity-100'
+						: ''}"
+					style="transition: opacity 0.2s; {isFloatingExpanded
+						? 'pointer-events: auto'
+						: 'pointer-events: none'}"
+				/>
+
+				<div bind:this={floatingLeftIconRef} class="pointer-events-none absolute left-4 opacity-0">
+					<MagnifyingGlass size={20} weight="regular" class="text-muted" />
+				</div>
+
+				<button
+					bind:this={floatingCloseRef}
+					onclick={() => {
+						query = '';
+						isFloatingExpanded = false;
+					}}
+					class="tap-target absolute right-2 flex h-10 w-10 items-center justify-center rounded-full text-muted opacity-0 hover:bg-black/5 dark:hover:bg-white/5 {query ||
+					isFloatingExpanded
+						? 'pointer-events-auto'
+						: 'pointer-events-none'}"
+				>
+					<X size={18} weight="bold" />
+				</button>
+
+				<button
+					bind:this={floatingFabIconRef}
+					onclick={expandFloatingSearch}
+					class="tap-target absolute right-0 flex h-14 w-14 items-center justify-center rounded-full text-foreground hover:bg-black/5 dark:hover:bg-white/5 {!query &&
+					!isFloatingExpanded
+						? 'pointer-events-auto'
+						: 'pointer-events-none'}"
+					aria-label="Cari doa"
+				>
+					<MagnifyingGlass size={24} weight="bold" />
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Header: title + search + chips -->
+	<div class="gsap-card pt-4 pb-2">
+		<div class="flex items-center justify-between">
+			<h1 class="text-xl font-semibold">Kumpulan Doa</h1>
+		</div>
 
 		<!-- Search input -->
-		<div class="relative mt-4">
-			<MagnifyingGlass
-				size={20}
-				weight="regular"
-				class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-muted"
-				aria-hidden="true"
-			/>
-			<input
-				type="text"
-				value={query}
-				oninput={onSearchInput}
-				placeholder="Cari doa..."
-				class="w-full rounded-2xl border border-border/60 bg-surface/80 py-3.5 pr-12 pl-12 text-base text-foreground shadow-sm backdrop-blur-md transition-all placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-2 focus:ring-(--color-pastel-green) focus:outline-none"
-				aria-label="Cari doa"
-			/>
-			{#if query}
-				<button
-					onclick={clearSearch}
-					class="tap-target absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-2 text-muted hover:bg-black/5 dark:hover:bg-white/5"
-					aria-label="Hapus pencarian"
-				>
-					<X size={16} weight="bold" />
-				</button>
-			{/if}
+		<div class="mt-4">
+			<div class="relative">
+				<MagnifyingGlass
+					size={20}
+					weight="regular"
+					class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-muted"
+					aria-hidden="true"
+				/>
+				<input
+					type="text"
+					bind:value={query}
+					oninput={onSearchInput}
+					placeholder="Cari doa..."
+					class="w-full rounded-2xl border border-border/60 bg-surface/80 py-3.5 pr-12 pl-12 text-base text-foreground shadow-sm backdrop-blur-md transition-all placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-2 focus:ring-(--color-pastel-green) focus:outline-none"
+					aria-label="Cari doa"
+				/>
+				{#if query}
+					<button
+						onclick={clearSearch}
+						class="tap-target absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-2 text-muted hover:bg-black/5 dark:hover:bg-white/5"
+						aria-label="Hapus pencarian"
+					>
+						<X size={16} weight="bold" />
+					</button>
+				{/if}
+			</div>
 		</div>
 
 		<!-- Category chips -->
-		<div class="relative mt-5 mb-2 -mx-4">
+		<div class="relative -mx-4 mt-3 mb-2">
 			<!-- Fade edge masks -->
-			<div class="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-4 bg-gradient-to-r from-[var(--color-background)] to-transparent"></div>
-			<div class="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-8 bg-gradient-to-l from-[var(--color-background)] to-transparent"></div>
-			
-			<div class="scrollbar-none flex gap-2.5 overflow-x-auto px-4 pb-2 pt-1" style="-webkit-overflow-scrolling: touch;">
+			<div
+				class="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-4 bg-gradient-to-r from-[var(--color-background)] to-transparent"
+			></div>
+			<div
+				class="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-8 bg-gradient-to-l from-[var(--color-background)] to-transparent"
+			></div>
+
+			<div
+				class="scrollbar-none flex gap-2.5 overflow-x-auto px-4 pt-1 pb-2"
+				style="-webkit-overflow-scrolling: touch;"
+			>
 				<button
 					onclick={() => selectCategory(null)}
-					class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory === null
-						? 'bg-foreground text-background shadow-md scale-[1.02]'
+					class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory ===
+					null
+						? 'scale-[1.02] bg-foreground text-background shadow-md'
 						: 'border border-border/50 bg-surface text-muted shadow-sm hover:bg-black/5'}"
 					aria-pressed={selectedCategory === null}
 				>
@@ -189,8 +326,9 @@
 				{#each CATEGORY_ORDER as cat (cat)}
 					<button
 						onclick={() => selectCategory(cat)}
-						class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory === cat
-							? 'bg-foreground text-background shadow-md scale-[1.02]'
+						class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedCategory ===
+						cat
+							? 'scale-[1.02] bg-foreground text-background shadow-md'
 							: 'border border-border/50 bg-surface text-muted shadow-sm hover:bg-black/5'}"
 						aria-pressed={selectedCategory === cat}
 					>
@@ -201,7 +339,7 @@
 		</div>
 
 		<!-- Result count or subtitle -->
-		<div class="mt-2">
+		<div class="mt-1">
 			{#if isFiltering}
 				<p class="text-xs text-muted">
 					{resultCount > 0
