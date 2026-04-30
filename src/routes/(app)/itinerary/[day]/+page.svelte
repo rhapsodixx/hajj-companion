@@ -10,6 +10,8 @@
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	const dayNumber = $derived(page.params?.day ? parseInt(page.params.day, 10) : 0);
 	const day = $derived(getDay(dayNumber));
@@ -46,6 +48,40 @@
 	function navLabel(d: (typeof itinerary)[0]): string {
 		return d.phase === 'manasik' ? d.routeLabel : `Hari ${d.dayNumber}`;
 	}
+
+	let pageContainer: HTMLElement | undefined = $state();
+
+	onMount(() => {
+		if (!pageContainer) return;
+		const cards = pageContainer.querySelectorAll('.gsap-card');
+		gsap.fromTo(
+			cards,
+			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				stagger: 0.1,
+				ease: 'back.out(1.2)'
+			}
+		);
+
+		const shapes = pageContainer.querySelectorAll('.gsap-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-20, 20)',
+				x: 'random(-20, 20)',
+				rotation: 'random(-15, 15)',
+				duration: 'random(3, 6)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+	});
 </script>
 
 <svelte:head>
@@ -57,9 +93,24 @@
 </svelte:head>
 
 {#if day}
-	<div class="page-enter mx-auto max-w-120">
+	<div bind:this={pageContainer} class="page-enter relative mx-auto max-w-120 overflow-hidden pb-8">
+		<!-- Pastel Background Pattern -->
+		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
+			<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
+			<!-- Colorful floating shapes -->
+			<div
+				class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
+			></div>
+			<div
+				class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
+			></div>
+			<div
+				class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+			></div>
+		</div>
+
 		<!-- Back nav -->
-		<div class="px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-2">
+		<div class="gsap-card px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-2">
 			<a href="/itinerary" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<svg
 					width="16"
@@ -78,7 +129,7 @@
 
 		<!-- Hero -->
 		<div class="px-4 pb-4">
-			<HeroCard phase={day.phase}>
+			<HeroCard phase={day.phase} class="gsap-card">
 				{#snippet label()}
 					<div class="flex items-center gap-2">
 						<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
@@ -105,7 +156,7 @@
 		<div class="space-y-4 px-4 pb-6">
 			<!-- Ritual guide shortcut (critical days) -->
 			{#if day.ritualGuideId}
-				<Card pressable href="/ritual/{day.ritualGuideId}">
+				<Card pressable href="/ritual/{day.ritualGuideId}" class="gsap-card">
 					<div class="flex items-center justify-between gap-3">
 						<div>
 							<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
@@ -134,7 +185,7 @@
 
 			<!-- Dynamic override note -->
 			{#if noteOverride}
-				<Card>
+				<Card class="gsap-card">
 					<div class="flex items-start gap-2">
 						<span class="text-gold mt-0.5 shrink-0">
 							<svg
@@ -175,7 +226,7 @@
 
 			<!-- Departure override -->
 			{#if departureOverride}
-				<Card>
+				<Card class="gsap-card">
 					<div class="flex items-center gap-2">
 						<svg
 							width="14"
@@ -206,7 +257,7 @@
 
 			<!-- Timeline -->
 			{#if day.activities.length > 0}
-				<div>
+				<div class="gsap-card">
 					<p class="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">Jadwal</p>
 					<div class="overflow-hidden rounded-xl border border-border">
 						{#each day.activities as activity, i}
@@ -247,7 +298,7 @@
 
 			<!-- Dress code -->
 			{#if day.dressCode}
-				<Card>
+				<Card class="gsap-card">
 					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian</p>
 					<div class="space-y-1.5 text-sm">
 						<div class="flex gap-2">
@@ -264,7 +315,7 @@
 
 			<!-- Koper note -->
 			{#if day.koperNote}
-				<Card>
+				<Card class="gsap-card">
 					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 						Info Koper
 					</p>
@@ -274,7 +325,7 @@
 
 			<!-- What to bring -->
 			{#if day.whatToBring.length > 0}
-				<Card>
+				<Card class="gsap-card">
 					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
 						Yang perlu dibawa
 					</p>
@@ -291,7 +342,7 @@
 
 			<!-- Tips -->
 			{#if day.tips.length > 0}
-				<Card>
+				<Card class="gsap-card">
 					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips</p>
 					<ul class="space-y-2">
 						{#each day.tips as tip}
@@ -306,7 +357,7 @@
 
 			<!-- Climate -->
 			{#if climate}
-				<Card>
+				<Card class="gsap-card">
 					<div class="flex items-start justify-between gap-3">
 						<div class="min-w-0 flex-1">
 							<p class="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
@@ -330,7 +381,7 @@
 					</p>
 					<div class="space-y-3">
 						{#each duas as dua}
-							<Card>
+							<Card class="gsap-card">
 								<p class="mb-2 text-xs font-semibold text-(--color-brand)">{dua.title}</p>
 								<ArabicText text={dua.arabic} size="base" />
 								<p class="mt-2 text-xs leading-relaxed text-muted italic">{dua.latin}</p>
@@ -344,7 +395,7 @@
 
 			<!-- Patuna note -->
 			{#if day.patunaNote}
-				<Card>
+				<Card class="gsap-card">
 					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 						Catatan Patuna
 					</p>

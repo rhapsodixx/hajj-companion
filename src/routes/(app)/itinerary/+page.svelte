@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { itinerary, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	const PHASE_ORDER = [
 		'manasik',
@@ -50,13 +52,66 @@
 	function scrollToToday() {
 		document.getElementById('today-row')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
+
+	let pageContainer: HTMLElement;
+
+	onMount(() => {
+		const cards = pageContainer.querySelectorAll('.gsap-card');
+		gsap.fromTo(
+			cards,
+			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				stagger: 0.05,
+				ease: 'back.out(1.2)'
+			}
+		);
+
+		const shapes = pageContainer.querySelectorAll('.gsap-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-20, 20)',
+				x: 'random(-20, 20)',
+				rotation: 'random(-15, 15)',
+				duration: 'random(3, 6)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+	});
 </script>
 
 <svelte:head><title>Jadwal — Patuna Coklat-B</title></svelte:head>
 
-<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
+<div
+	bind:this={pageContainer}
+	class="page-enter relative mx-auto max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
+>
+	<!-- Pastel Background Pattern -->
+	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
+		<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
+		<!-- Colorful floating shapes -->
+		<div
+			class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+	</div>
+
 	<!-- Header -->
-	<div class="sticky top-0 z-10 flex items-center justify-between bg-background pt-4 pb-3">
+	<div
+		class="gsap-card sticky top-0 z-10 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
+	>
 		<div>
 			<h1 class="text-xl font-semibold">Jadwal Perjalanan</h1>
 			<p class="mt-0.5 text-xs text-muted">Manasik + 26 hari · Coklat B · 1447 H</p>
@@ -74,7 +129,7 @@
 	<!-- Phase groups -->
 	<div class="space-y-6">
 		{#each groups as group}
-			<div>
+			<div class="gsap-card">
 				<div class="mb-2 flex items-center gap-3">
 					<PhaseRibbon phase={group.phase} label={PHASE_LABELS[group.phase] ?? group.phase} />
 					<span class="text-xs text-muted">{phaseDayRange(group)}</span>
@@ -157,7 +212,7 @@
 	</div>
 
 	<!-- Footer note -->
-	<p class="mt-6 text-center text-xs text-muted">
+	<p class="gsap-card mt-6 text-center text-xs text-muted">
 		Program dapat berubah sesuai kondisi lapangan.<br />
 		Hotel: Grand Plaza Badr (Madinah) · Marriott Jabal Omar (Makkah)
 	</p>
