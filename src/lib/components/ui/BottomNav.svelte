@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { animate } from 'motion';
 
 	const nav = [
 		{
@@ -29,6 +30,37 @@
 	];
 
 	const currentPath = $derived(page.url.pathname);
+
+	function tapAnimation(node: HTMLElement) {
+		const handlePointerDown = () => {
+			animate(node, { scale: 0.9, y: 1 }, { type: 'spring', stiffness: 400, damping: 15 });
+		};
+		const handlePointerUp = () => {
+			animate(node, { scale: 1, y: 0 }, { type: 'spring', stiffness: 400, damping: 15 });
+		};
+
+		node.addEventListener('pointerdown', handlePointerDown);
+		node.addEventListener('pointerup', handlePointerUp);
+		node.addEventListener('pointercancel', handlePointerUp);
+		node.addEventListener('pointerleave', handlePointerUp);
+
+		return {
+			destroy() {
+				node.removeEventListener('pointerdown', handlePointerDown);
+				node.removeEventListener('pointerup', handlePointerUp);
+				node.removeEventListener('pointercancel', handlePointerUp);
+				node.removeEventListener('pointerleave', handlePointerUp);
+			}
+		};
+	}
+
+	function indicatorAnimation(node: HTMLElement) {
+		animate(
+			node,
+			{ scale: [0, 1.2, 1], opacity: [0, 1], y: [4, 0] },
+			{ duration: 0.4, type: 'spring', stiffness: 500, damping: 20 }
+		);
+	}
 </script>
 
 <nav
@@ -41,7 +73,8 @@
 			{@const active = item.match(currentPath)}
 			<a
 				href={item.href}
-				class="tap-target flex flex-1 flex-col items-center gap-0.5 px-2 text-xs font-medium transition-colors duration-150"
+				use:tapAnimation
+				class="tap-target flex flex-1 flex-col items-center gap-0.5 px-2 text-xs font-medium transition-colors duration-150 relative"
 				class:text-foreground={active}
 				class:text-muted={!active}
 				aria-current={active ? 'page' : undefined}
@@ -50,7 +83,7 @@
 				{@html item.icon}
 				<span>{item.label}</span>
 				{#if active}
-					<span class="mt-0.5 h-1 w-1 rounded-full bg-foreground"></span>
+					<span use:indicatorAnimation class="absolute -bottom-2 h-1 w-1 rounded-full bg-foreground"></span>
 				{/if}
 			</a>
 		{/each}
