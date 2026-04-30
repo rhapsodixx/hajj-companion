@@ -6,6 +6,8 @@
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import LostButton from '$lib/components/ui/LostButton.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	const guideId = $derived(page.params?.guideId ?? '');
 	const guide = $derived(getGuide(guideId));
@@ -60,6 +62,39 @@
 		if (dx < 0) nextStep();
 		else prevStep();
 	}
+
+	let pageContainer: HTMLElement;
+
+	onMount(() => {
+		const cards = pageContainer.querySelectorAll('.gsap-card');
+		gsap.fromTo(
+			cards,
+			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				stagger: 0.05,
+				ease: 'back.out(1.2)'
+			}
+		);
+
+		const shapes = pageContainer.querySelectorAll('.gsap-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-20, 20)',
+				x: 'random(-20, 20)',
+				rotation: 'random(-15, 15)',
+				duration: 'random(3, 6)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+	});
 </script>
 
 <svelte:head>
@@ -67,9 +102,27 @@
 </svelte:head>
 
 {#if guide}
-	<div class="page-enter mx-auto flex min-h-dvh max-w-120 flex-col px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
+	<div
+		bind:this={pageContainer}
+		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8"
+	>
+		<!-- Pastel Background Pattern -->
+		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
+			<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
+			<!-- Colorful floating shapes -->
+			<div
+				class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
+			></div>
+			<div
+				class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
+			></div>
+			<div
+				class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+			></div>
+		</div>
+
 		<!-- Back link -->
-		<div class="pt-4 pb-3">
+		<div class="gsap-card pt-4 pb-3">
 			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<svg
 					width="16"
@@ -87,7 +140,7 @@
 		</div>
 
 		<!-- Title block -->
-		<header class="mb-5">
+		<header class="gsap-card mb-5">
 			<p class="text-xs font-semibold tracking-widest text-(--color-brand) uppercase">
 				{guide.subtitle}
 			</p>
@@ -122,10 +175,12 @@
 		<div class="flex-1">
 			<!-- ═══ OVERVIEW MODE ═══ -->
 			{#if mode === 'overview'}
-				<p class="mb-6 font-serif text-sm leading-relaxed text-foreground">{guide.overview}</p>
+				<p class="gsap-card mb-6 font-serif text-sm leading-relaxed text-foreground">
+					{guide.overview}
+				</p>
 
 				{#if guide.preparation.length > 0}
-					<section class="mb-6">
+					<section class="gsap-card mb-6">
 						<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
 						<Card>
 							<div class="space-y-2">
@@ -143,7 +198,7 @@
 				<!-- Start button -->
 				<button
 					onclick={startSteps}
-					class="tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="gsap-card tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
 				>
 					Mulai Panduan — {totalSteps} Langkah
 				</button>

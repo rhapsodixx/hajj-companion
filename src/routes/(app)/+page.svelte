@@ -5,6 +5,8 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	let nowTick = $state(Date.now());
 	$effect(() => {
@@ -69,13 +71,64 @@
 		const d = new Date(iso + 'T00:00:00');
 		return d.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
 	}
+
+	let pageContainer: HTMLElement;
+
+	onMount(() => {
+		// Playful entry animation for all cards
+		const cards = pageContainer.querySelectorAll('.gsap-card');
+		gsap.fromTo(
+			cards,
+			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				stagger: 0.1,
+				ease: 'back.out(1.2)'
+			}
+		);
+
+		// Animate background shapes
+		const shapes = pageContainer.querySelectorAll('.gsap-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-20, 20)',
+				x: 'random(-20, 20)',
+				rotation: 'random(-15, 15)',
+				duration: 'random(3, 6)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+	});
 </script>
 
 <svelte:head><title>quwa</title></svelte:head>
 
-<main class="mx-auto max-w-120 space-y-6 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
+<main
+	bind:this={pageContainer}
+	class="relative mx-auto max-w-120 space-y-6 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
+>
+	<!-- Background Playful Shapes -->
+	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden">
+		<div
+			class="gsap-shape absolute top-[-5%] left-[-10%] h-64 w-64 rounded-full bg-[var(--color-pastel-green)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute bottom-[10%] left-[20%] h-72 w-72 rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+	</div>
+
 	<!-- ── Header ── -->
-	<header class="flex items-center justify-between">
+	<header class="gsap-card flex items-center justify-between">
 		<div class="flex items-center gap-3">
 			<img src="/logo.png" alt="quwa logo" class="h-8 w-8 object-contain" />
 			<h1 class="text-xl font-bold tracking-tight text-foreground">quwa</h1>
@@ -89,7 +142,7 @@
 	     STATE 1: Before trip (no matching day)
 	══════════════════════════════════════ -->
 	{#if beforeTrip}
-		<HeroCard phase="arrival">
+		<HeroCard phase="arrival" class="gsap-card">
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Keberangkatan</p>
 			{/snippet}
@@ -100,14 +153,14 @@
 			<p class="mt-3 text-xs opacity-80">Senin, 11 Mei 2026 · Bandara T3 pukul 20:40</p>
 		</HeroCard>
 
-		<Card>
+		<Card class="gsap-card">
 			<p class="text-sm font-semibold text-foreground">Manasik — Santika ICE BSD</p>
 			<p class="mt-1 text-sm text-muted">
 				9–11 Mei 2026 · Persiapan terakhir sebelum keberangkatan
 			</p>
 		</Card>
 
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Haji</p>
 			<ul class="space-y-1 text-sm text-foreground">
 				<li>✓ Pastikan paspor & visa sudah di tangan</li>
@@ -121,7 +174,7 @@
 	     STATE 2: After Maghrib — "Persiapan Besok"
 	══════════════════════════════════════ -->
 	{:else if todayDay && afterMaghrib && nextDay}
-		<HeroCard phase={nextDay.phase}>
+		<HeroCard phase={nextDay.phase} class="gsap-card">
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Persiapan Besok</p>
 			{/snippet}
@@ -134,13 +187,13 @@
 		</HeroCard>
 
 		<!-- Tomorrow's key info -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas besok</p>
 			<p class="text-sm leading-relaxed text-foreground">{nextDay.whatToDo}</p>
 		</Card>
 
 		{#if nextDay.whatToBring.length > 0}
-			<Card>
+			<Card class="gsap-card">
 				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
 					Yang perlu dibawa
 				</p>
@@ -156,7 +209,7 @@
 		{/if}
 
 		{#if nextDay.dressCode}
-			<Card>
+			<Card class="gsap-card">
 				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian besok</p>
 				<div class="space-y-1 text-sm">
 					<p><span class="text-muted">Pria:</span> {nextDay.dressCode.men}</p>
@@ -166,7 +219,7 @@
 		{/if}
 
 		{#if nextDay.koperNote}
-			<Card>
+			<Card class="gsap-card">
 				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 					Info Koper
 				</p>
@@ -177,7 +230,7 @@
 		<!-- Today card (secondary) -->
 		<div class="border-t border-border/40 pt-5">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
-			<Card>
+			<Card class="gsap-card">
 				<p class="font-medium">
 					{todayDay.phase === 'manasik'
 						? todayDay.routeLabel
@@ -195,7 +248,7 @@
 	══════════════════════════════════════ -->
 	{:else if todayDay}
 		<!-- NOW card -->
-		<HeroCard phase={todayDay.phase}>
+		<HeroCard phase={todayDay.phase} class="gsap-card">
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
 					{todayDay.phase === 'manasik'
@@ -210,7 +263,7 @@
 		</HeroCard>
 
 		<!-- What to do today -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
 				Aktivitas hari ini
 			</p>
@@ -223,7 +276,7 @@
 		<!-- NEXT activity -->
 		{#if nextActivity && nextActivity.time}
 			{@const mins = minutesUntil(nextActivity.time)}
-			<Card>
+			<Card class="gsap-card">
 				<div class="flex items-start justify-between gap-3">
 					<div class="min-w-0 flex-1">
 						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Setelah ini</p>
@@ -242,7 +295,7 @@
 
 		<!-- Climate strip -->
 		{#if climate}
-			<Card>
+			<Card class="gsap-card">
 				<div class="flex items-center justify-between gap-3">
 					<div class="min-w-0 flex-1">
 						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Info Cuaca</p>
@@ -258,7 +311,7 @@
 
 		<!-- Tips -->
 		{#if todayDay.tips.length > 0}
-			<Card>
+			<Card class="gsap-card">
 				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips hari ini</p>
 				<ul class="space-y-2">
 					{#each todayDay.tips as tip}
@@ -273,7 +326,7 @@
 
 		<!-- Koper note -->
 		{#if todayDay.koperNote}
-			<Card>
+			<Card class="gsap-card">
 				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 					Info Koper
 				</p>
@@ -283,7 +336,7 @@
 
 		<!-- Ritual guide link (for critical days) -->
 		{#if todayDay.ritualGuideId}
-			<Card pressable href="/ritual/{todayDay.ritualGuideId}">
+			<Card pressable href="/ritual/{todayDay.ritualGuideId}" class="gsap-card">
 				<div class="flex items-center justify-between gap-3">
 					<div>
 						<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
@@ -313,7 +366,7 @@
 	     STATE 4: After trip
 	══════════════════════════════════════ -->
 	{:else if afterTrip}
-		<HeroCard phase="departure">
+		<HeroCard phase="departure" class="gsap-card">
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Alhamdulillah</p>
 			{/snippet}
@@ -321,7 +374,7 @@
 			<p class="mt-2 text-sm opacity-80">Semoga menjadi haji yang mabrur. Amin.</p>
 		</HeroCard>
 
-		<Card>
+		<Card class="gsap-card">
 			<p class="text-sm text-foreground">Kenangan perjalanan haji tersimpan di bawah ini.</p>
 			<Button href="/itinerary" variant="secondary" size="md" class="mt-3 w-full">
 				Lihat Semua Jadwal

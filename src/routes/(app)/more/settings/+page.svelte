@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import Card from '$lib/components/ui/Card.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	type ThemePref = 'auto' | 'dark' | 'light';
 
@@ -74,13 +76,65 @@
 		const id = setInterval(() => applyTheme('auto'), 60_000);
 		return () => clearInterval(id);
 	});
+
+	let pageContainer: HTMLElement | undefined = $state();
+
+	onMount(() => {
+		if (!pageContainer) return;
+		const cards = pageContainer.querySelectorAll('.gsap-card');
+		gsap.fromTo(
+			cards,
+			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				stagger: 0.05,
+				ease: 'back.out(1.2)'
+			}
+		);
+
+		const shapes = pageContainer.querySelectorAll('.gsap-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-20, 20)',
+				x: 'random(-20, 20)',
+				rotation: 'random(-15, 15)',
+				duration: 'random(3, 6)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+	});
 </script>
 
 <svelte:head><title>Pengaturan — Patuna Coklat-B</title></svelte:head>
 
-<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
+<div
+	bind:this={pageContainer}
+	class="page-enter relative mx-auto max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8"
+>
+	<!-- Pastel Background Pattern -->
+	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
+		<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
+		<!-- Colorful floating shapes -->
+		<div
+			class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+		<div
+			class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+		></div>
+	</div>
+
 	<!-- Header -->
-	<div class="pt-4 pb-3">
+	<div class="gsap-card pt-4 pb-3">
 		<a href="/more" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 			<svg
 				width="16"
@@ -100,7 +154,7 @@
 
 	<div class="space-y-4">
 		<!-- Bus selector -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Bus / Kelompok</p>
 			<div class="space-y-2">
 				{#each BUS_OPTIONS as option}
@@ -120,7 +174,7 @@
 		</Card>
 
 		<!-- About -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tentang Aplikasi</p>
 			<p class="text-sm text-foreground">Patuna Coklat-B Hajj Companion</p>
 			<p class="mt-1 text-xs text-muted">v1.0.0 · Bisa dibuka offline</p>
@@ -131,7 +185,7 @@
 		</Card>
 
 		<!-- Credits -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Informasi</p>
 			<div class="space-y-1.5 text-sm text-foreground">
 				<p>Kloter: Coklat B · Bus {selectedBus}</p>
@@ -142,7 +196,7 @@
 		</Card>
 
 		<!-- Appearance -->
-		<Card>
+		<Card class="gsap-card">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Tampilan</p>
 			<div class="flex rounded-xl border border-border bg-background p-1">
 				{#each [{ value: 'auto' as ThemePref, label: 'Otomatis' }, { value: 'light' as ThemePref, label: 'Terang' }, { value: 'dark' as ThemePref, label: 'Gelap' }] as opt}
@@ -169,7 +223,7 @@
 		</Card>
 
 		<!-- Date override (dev/demo) -->
-		<Card>
+		<Card class="gsap-card">
 			<div class="flex items-center justify-between">
 				<p class="text-xs font-semibold tracking-wide text-muted uppercase">Coba Tanggal Lain</p>
 				<button

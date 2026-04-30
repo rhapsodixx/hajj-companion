@@ -51,6 +51,7 @@
 		"@fontsource-variable/piazzolla": "^5.2.8",
 		"@fontsource/noto-naskh-arabic": "^5.2.11",
 		"@supabase/supabase-js": "^2.105.1",
+		"gsap": "^3.15.0",
 		"motion": "^12.38.0"
 	}
 }

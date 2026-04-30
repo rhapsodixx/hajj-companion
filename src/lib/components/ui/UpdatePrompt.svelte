@@ -19,9 +19,7 @@
 		style="padding-top: calc(0.75rem + env(safe-area-inset-top, 0px))"
 	>
 		<div class="mx-auto flex max-w-120 items-center gap-3">
-			<p class="min-w-0 flex-1 text-sm text-surface">
-				Ada informasi jadwal terbaru. Silakan muat ulang.
-			</p>
+			<p class="min-w-0 flex-1 text-sm text-surface">Ada versi terbaru. Silakan muat ulang.</p>
 			<button
 				onclick={update}
 				class="tap-target shrink-0 rounded-lg bg-surface px-4 text-sm font-semibold text-(--color-brand)"
