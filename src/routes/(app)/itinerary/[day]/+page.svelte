@@ -4,7 +4,22 @@
 	import { itinerary, getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
-	import { CaretLeft, CaretRight, Info, Clock } from 'phosphor-svelte';
+	import {
+		CaretLeft,
+		CaretRight,
+		Info,
+		Clock,
+		Target,
+		CalendarBlank,
+		TShirt,
+		SuitcaseRolling,
+		ListChecks,
+		Lightbulb,
+		CloudSun,
+		HandsPraying,
+		Note,
+		CheckCircle
+	} from 'phosphor-svelte';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
@@ -53,20 +68,37 @@
 
 	onMount(() => {
 		if (!pageContainer) return;
+		const tl = gsap.timeline();
+
 		const cards = pageContainer.querySelectorAll('.gsap-card');
-		gsap.fromTo(
+		tl.fromTo(
 			cards,
-			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{ y: 40, opacity: 0, scale: 0.98 },
 			{
 				y: 0,
 				opacity: 1,
 				scale: 1,
-				rotation: 0,
-				duration: 0.8,
-				stagger: 0.1,
-				ease: 'back.out(1.2)'
+				duration: 0.6,
+				stagger: 0.08,
+				ease: 'power3.out'
 			}
 		);
+
+		const listItems = pageContainer.querySelectorAll('.gsap-list-item');
+		if (listItems.length > 0) {
+			tl.fromTo(
+				listItems,
+				{ x: -10, opacity: 0 },
+				{
+					x: 0,
+					opacity: 1,
+					duration: 0.4,
+					stagger: 0.05,
+					ease: 'power2.out'
+				},
+				'-=0.4'
+			);
+		}
 
 		const shapes = pageContainer.querySelectorAll('.gsap-shape');
 		shapes.forEach((shape, i) => {
@@ -183,10 +215,13 @@
 			{/if}
 
 			<!-- What to do -->
-			<Card>
-				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-					Aktivitas hari ini
-				</p>
+			<Card class="gsap-card">
+				<div class="mb-3 flex items-center gap-2">
+					<Target size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+						Aktivitas Hari Ini
+					</h2>
+				</div>
 				<p class="text-sm leading-relaxed text-foreground">{day.whatToDo}</p>
 			</Card>
 
@@ -217,10 +252,13 @@
 			<!-- Timeline -->
 			{#if day.activities.length > 0}
 				<div class="gsap-card">
-					<p class="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">Jadwal</p>
+					<div class="mb-3 px-1 flex items-center gap-2">
+						<CalendarBlank size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Jadwal</h2>
+					</div>
 					<div class="overflow-hidden rounded-xl border border-border">
 						{#each day.activities as activity, i}
-							<div class="flex gap-3 px-4 py-3 {i > 0 ? 'border-t border-border' : ''} bg-surface">
+							<div class="gsap-list-item flex gap-3 px-4 py-3 {i > 0 ? 'border-t border-border' : ''} bg-surface">
 								<!-- Time -->
 								<div class="w-12 shrink-0 pt-0.5">
 									{#if activity.time}
@@ -258,15 +296,18 @@
 			<!-- Dress code -->
 			{#if day.dressCode}
 				<Card class="gsap-card">
-					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian</p>
-					<div class="space-y-1.5 text-sm">
-						<div class="flex gap-2">
-							<span class="w-12 shrink-0 text-muted">Pria</span>
-							<span class="text-foreground">{day.dressCode.men}</span>
+					<div class="mb-3 flex items-center gap-2">
+						<TShirt size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Pakaian</h2>
+					</div>
+					<div class="space-y-2 text-sm">
+						<div class="flex items-start gap-2">
+							<span class="w-14 shrink-0 font-medium text-muted">Pria</span>
+							<span class="leading-relaxed text-foreground">{day.dressCode.men}</span>
 						</div>
-						<div class="flex gap-2">
-							<span class="w-12 shrink-0 text-muted">Wanita</span>
-							<span class="text-foreground">{day.dressCode.women}</span>
+						<div class="flex items-start gap-2">
+							<span class="w-14 shrink-0 font-medium text-muted">Wanita</span>
+							<span class="leading-relaxed text-foreground">{day.dressCode.women}</span>
 						</div>
 					</div>
 				</Card>
@@ -275,24 +316,30 @@
 			<!-- Koper note -->
 			{#if day.koperNote}
 				<Card class="gsap-card">
-					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-						Info Koper
-					</p>
-					<p class="text-sm text-foreground">{day.koperNote}</p>
+					<div class="mb-3 flex items-center gap-2">
+						<SuitcaseRolling size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+							Info Koper
+						</h2>
+					</div>
+					<p class="text-sm leading-relaxed text-foreground">{day.koperNote}</p>
 				</Card>
 			{/if}
 
 			<!-- What to bring -->
 			{#if day.whatToBring.length > 0}
 				<Card class="gsap-card">
-					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-						Yang perlu dibawa
-					</p>
-					<ul class="space-y-1.5">
+					<div class="mb-3 flex items-center gap-2">
+						<ListChecks size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+							Yang Perlu Dibawa
+						</h2>
+					</div>
+					<ul class="space-y-2">
 						{#each day.whatToBring as item}
-							<li class="flex gap-2 text-sm text-foreground">
-								<span class="mt-0.5 shrink-0 text-(--color-brand)">·</span>
-								<span>{item}</span>
+							<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+								<CheckCircle size={16} weight="fill" class="mt-0.5 shrink-0 text-muted" aria-hidden="true" />
+								<span class="leading-relaxed">{item}</span>
 							</li>
 						{/each}
 					</ul>
@@ -302,12 +349,15 @@
 			<!-- Tips -->
 			{#if day.tips.length > 0}
 				<Card class="gsap-card">
-					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips</p>
-					<ul class="space-y-2">
+					<div class="mb-3 flex items-center gap-2">
+						<Lightbulb size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Tips</h2>
+					</div>
+					<ul class="space-y-2.5">
 						{#each day.tips as tip}
-							<li class="flex gap-2 text-sm text-foreground">
-								<span class="text-gold mt-0.5 shrink-0">·</span>
-								<span>{tip}</span>
+							<li class="gsap-list-item flex items-start gap-2.5 text-sm text-foreground">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>
+								<span class="leading-relaxed">{tip}</span>
 							</li>
 						{/each}
 					</ul>
@@ -317,16 +367,19 @@
 			<!-- Climate -->
 			{#if climate}
 				<Card class="gsap-card">
-					<div class="flex items-start justify-between gap-3">
+					<div class="mb-3 flex items-center gap-2">
+						<CloudSun size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+							Info Cuaca · {climate.city}
+						</h2>
+					</div>
+					<div class="flex items-start justify-between gap-4">
 						<div class="min-w-0 flex-1">
-							<p class="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
-								Info Cuaca · {climate.city}
-							</p>
 							<p class="text-sm leading-relaxed text-foreground">{climate.advice}</p>
 						</div>
 						<div class="shrink-0 text-right">
-							<p class="text-2xl font-semibold text-foreground">{climate.tempMaxC}°</p>
-							<p class="text-xs text-muted">{climate.tempMinC}°–{climate.tempMaxC}°C</p>
+							<p class="text-2xl font-bold tracking-tight text-foreground">{climate.tempMaxC}°</p>
+							<p class="mt-0.5 text-xs font-medium text-muted">{climate.tempMinC}°–{climate.tempMaxC}°C</p>
 						</div>
 					</div>
 				</Card>
@@ -334,13 +387,16 @@
 
 			<!-- Du'a of the day -->
 			{#if duas.length > 0}
-				<div>
-					<p class="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">
-						Doa Hari Ini
-					</p>
+				<div class="gsap-card">
+					<div class="mb-3 px-1 flex items-center gap-2">
+						<HandsPraying size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+							Doa Hari Ini
+						</h2>
+					</div>
 					<div class="space-y-3">
 						{#each duas as dua}
-							<Card class="gsap-card">
+							<Card class="gsap-list-item">
 								<p class="mb-2 text-xs font-semibold text-(--color-brand)">{dua.title}</p>
 								<ArabicText text={dua.arabic} size="base" />
 								<p class="mt-2 text-xs leading-relaxed text-muted italic">{dua.latin}</p>
@@ -355,9 +411,12 @@
 			<!-- Patuna note -->
 			{#if day.patunaNote}
 				<Card class="gsap-card">
-					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-						Catatan Patuna
-					</p>
+					<div class="mb-3 flex items-center gap-2">
+						<Note size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+							Catatan Patuna
+						</h2>
+					</div>
 					<p class="text-sm leading-relaxed text-foreground">{day.patunaNote}</p>
 				</Card>
 			{/if}
