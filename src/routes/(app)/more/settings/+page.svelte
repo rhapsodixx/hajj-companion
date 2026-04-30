@@ -69,13 +69,10 @@
 
 	if (browser) initFromStorage();
 
-	let intervalId: ReturnType<typeof setInterval> | undefined;
 	$effect(() => {
-		if (!browser) return;
-		if (intervalId) clearInterval(intervalId);
-		if (themePref === 'auto') {
-			intervalId = setInterval(() => applyTheme('auto'), 60_000);
-		}
+		if (!browser || themePref !== 'auto') return;
+		const id = setInterval(() => applyTheme('auto'), 60_000);
+		return () => clearInterval(id);
 	});
 </script>
 
@@ -128,8 +125,8 @@
 			<p class="text-sm text-foreground">Patuna Coklat-B Hajj Companion</p>
 			<p class="mt-1 text-xs text-muted">v1.0.0 · Bisa dibuka offline</p>
 			<p class="mt-2 text-xs leading-relaxed text-muted">
-				Dibuat khusus untuk jamaah haji Patuna kelompok Coklat B, Bus {selectedBus}. Semua data tersimpan di HP
-				Anda dan bisa dibuka walau tanpa internet.
+				Dibuat khusus untuk jamaah haji Patuna kelompok Coklat B, Bus {selectedBus}. Semua data
+				tersimpan di HP Anda dan bisa dibuka walau tanpa internet.
 			</p>
 		</Card>
 

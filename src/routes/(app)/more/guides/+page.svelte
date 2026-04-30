@@ -7,43 +7,48 @@
 		url: string;
 		size: string;
 		icon: 'pdf' | 'link';
+		offline?: boolean;
 	}
 
 	const guides: Guide[] = [
 		{
-			title: 'Panduan Manasik Patuna',
-			description: 'Panduan lengkap manasik haji dari Patuna Travel',
-			url: '#',
-			size: '—',
-			icon: 'pdf'
+			title: 'Rundown Manasik Coklat B',
+			description: 'Jadwal lengkap manasik di ICE BSD, 9–11 Mei 2026',
+			url: '/pdfs/rundown-manasik.pdf',
+			size: '56 KB',
+			icon: 'pdf',
+			offline: true
 		},
 		{
-			title: 'Buku Saku Haji Kemenag',
-			description: 'Panduan resmi ibadah haji dari Kementerian Agama RI',
-			url: '#',
-			size: '—',
-			icon: 'pdf'
+			title: 'Itinerary Haji 2026 — Coklat B',
+			description: 'Jadwal 26 hari keberangkatan haji Patuna Coklat B',
+			url: '/pdfs/itinerary-coklat-b.pdf',
+			size: '106 KB',
+			icon: 'pdf',
+			offline: true
 		},
 		{
-			title: 'Peta Makkah & Madinah',
-			description: 'Peta area sekitar Masjidil Haram dan Masjid Nabawi',
-			url: '#',
-			size: '—',
-			icon: 'pdf'
+			title: 'Panduan Persiapan Jamaah Haji',
+			description: 'Panduan lengkap persiapan dari Patuna Travel',
+			url: '/pdfs/panduan-persiapan.pdf',
+			size: '330 KB',
+			icon: 'pdf',
+			offline: true
 		},
 		{
-			title: 'Daftar Koper Patuna',
-			description: 'Checklist resmi barang yang harus dibawa',
-			url: '#',
-			size: '—',
-			icon: 'pdf'
+			title: 'Dokumen Pendukung Manasik',
+			description: 'Dokumen tambahan untuk manasik di Santika ICE BSD',
+			url: '/pdfs/dokumen-pendukung-manasik.pdf',
+			size: '626 KB',
+			icon: 'pdf',
+			offline: true
 		},
 		{
-			title: 'Jadwal Penerbangan',
-			description: 'Detail jadwal keberangkatan dan kepulangan',
-			url: '#',
-			size: '—',
-			icon: 'pdf'
+			title: 'Doa Zikir Haji & Umrah',
+			description: 'Kumpulan doa dan zikir untuk ibadah haji dan umrah',
+			url: 'https://drive.google.com/file/d/1PLrAgbFMv-Fg_O8ufU1VKw_RlLMrNlSB/view',
+			size: '44.7 MB',
+			icon: 'link'
 		}
 	];
 </script>
@@ -123,9 +128,15 @@
 					<div class="min-w-0 flex-1">
 						<p class="text-sm font-medium text-foreground">{guide.title}</p>
 						<p class="mt-0.5 text-xs text-muted">{guide.description}</p>
-						{#if guide.size !== '—'}
-							<p class="mt-1 text-xs text-muted">{guide.size}</p>
-						{/if}
+						<div class="mt-1 flex items-center gap-2">
+							<p class="text-xs text-muted">{guide.size}</p>
+							{#if guide.offline}
+								<span
+									class="rounded-full bg-(--color-phase-madinah)/10 px-1.5 py-0.5 text-[10px] text-(--color-phase-madinah)"
+									>Tersedia offline</span
+								>
+							{/if}
+						</div>
 					</div>
 					<svg
 						width="16"
@@ -147,7 +158,6 @@
 	</div>
 
 	<p class="mt-6 text-center text-xs text-muted">
-		Link akan aktif setelah Patuna membagikan file PDF.<br />
-		Unduh saat ada koneksi internet untuk akses offline.
+		Panduan bertanda "Tersedia offline" bisa dibuka tanpa internet setelah pertama kali dibuka.
 	</p>
 </div>

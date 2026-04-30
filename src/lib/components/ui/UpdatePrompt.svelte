@@ -15,7 +15,7 @@
 
 {#if $needRefresh}
 	<div
-		class="fixed top-0 right-0 left-0 z-50 border-b border-gold bg-(--color-brand) px-4 py-3"
+		class="border-gold fixed top-0 right-0 left-0 z-50 border-b bg-(--color-brand) px-4 py-3"
 		style="padding-top: calc(0.75rem + env(safe-area-inset-top, 0px))"
 	>
 		<div class="mx-auto flex max-w-120 items-center gap-3">

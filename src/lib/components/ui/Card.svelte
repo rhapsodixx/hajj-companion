@@ -10,7 +10,7 @@
 
 	let { children, pressable = false, href, class: className = '' }: Props = $props();
 
-	const base = 'rounded-xl border border-border bg-surface p-4';
+	const base = 'rounded-2xl bg-surface p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] card-enter';
 	const press = $derived(pressable ? 'card-pressable' : '');
 </script>
 

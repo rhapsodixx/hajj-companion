@@ -129,7 +129,7 @@
 						<div class="space-y-2 rounded-xl border border-border bg-surface p-4">
 							{#each guide.preparation as item (item)}
 								<div class="flex gap-2.5 text-sm text-foreground">
-									<span class="mt-0.5 shrink-0 text-gold">·</span>
+									<span class="text-gold mt-0.5 shrink-0">·</span>
 									<span>{item}</span>
 								</div>
 							{/each}
@@ -192,7 +192,7 @@
 				<div class="page-enter">
 					{#if guide.closingNote}
 						<section class="mb-6">
-							<div class="rounded-xl border border-gold/30 bg-gold/5 p-4">
+							<div class="border-gold/30 bg-gold/5 rounded-xl border p-4">
 								<p class="font-serif text-sm leading-relaxed text-foreground">
 									{guide.closingNote}
 								</p>

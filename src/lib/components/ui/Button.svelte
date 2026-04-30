@@ -24,12 +24,12 @@
 	}: Props = $props();
 
 	const base =
-		'inline-flex items-center justify-center font-medium rounded-lg tap-target transition-transform duration-100 ease-out active:scale-[0.98] select-none';
+		'inline-flex items-center justify-center font-medium rounded-lg tap-target transition-all duration-100 ease-out active:scale-[0.98] select-none';
 
 	const variants = {
-		primary: 'bg-(--color-brand) text-white',
-		secondary: 'bg-surface text-foreground border border-border',
-		ghost: 'text-(--color-brand) bg-transparent'
+		primary: 'bg-(--color-brand) text-white shadow-sm',
+		secondary: 'bg-surface text-foreground border border-border/60',
+		ghost: 'text-(--color-brand) bg-transparent hover:bg-(--color-accent-light)'
 	};
 
 	const sizes = {

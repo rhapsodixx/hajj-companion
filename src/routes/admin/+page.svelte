@@ -181,8 +181,10 @@
 					<span class="mb-1 block text-xs font-medium text-muted">Nilai</span>
 					<input
 						type="text"
-						bind:value={value}
-						placeholder={field === 'departureTime' ? 'contoh: 16:30' : 'contoh: Jamarat langsung, tidak mabit'}
+						bind:value
+						placeholder={field === 'departureTime'
+							? 'contoh: 16:30'
+							: 'contoh: Jamarat langsung, tidak mabit'}
 						class="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
 					/>
 				</div>
