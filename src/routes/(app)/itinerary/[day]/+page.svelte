@@ -4,10 +4,10 @@
 	import { itinerary, getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
+	import { CaretLeft, CaretRight, Info, Clock } from 'phosphor-svelte';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
-	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { onMount } from 'svelte';
@@ -112,17 +112,7 @@
 		<!-- Back nav -->
 		<div class="gsap-card px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-2">
 			<a href="/itinerary" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-				>
+				<CaretLeft size={16} weight="bold" aria-hidden="true" />
 				Jadwal
 			</a>
 		</div>
@@ -165,20 +155,12 @@
 							<p class="mt-0.5 font-medium text-foreground">Buka panduan langkah demi langkah</p>
 							<p class="mt-0.5 text-xs text-muted">Niat, tawaf, doa, dan tips penting</p>
 						</div>
-						<svg
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+						<CaretRight
+							size={20}
+							weight="bold"
 							class="shrink-0 text-(--color-brand)"
 							aria-hidden="true"
-						>
-							<polyline points="9 18 15 12 9 6" />
-						</svg>
+						/>
 					</div>
 				</Card>
 			{/if}
@@ -188,23 +170,7 @@
 				<Card class="gsap-card">
 					<div class="flex items-start gap-2">
 						<span class="text-gold mt-0.5 shrink-0">
-							<svg
-								width="14"
-								height="14"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-								><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line
-									x1="12"
-									y1="16"
-									x2="12.01"
-									y2="16"
-								/></svg
-							>
+							<Info size={14} weight="bold" aria-hidden="true" />
 						</span>
 						<div class="min-w-0 flex-1">
 							<p class="text-sm leading-relaxed font-medium text-foreground">
@@ -228,19 +194,12 @@
 			{#if departureOverride}
 				<Card class="gsap-card">
 					<div class="flex items-center gap-2">
-						<svg
-							width="14"
-							height="14"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+						<Clock
+							size={14}
+							weight="bold"
 							class="shrink-0 text-(--color-brand)"
 							aria-hidden="true"
-							><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
-						>
+						/>
 						<div class="min-w-0 flex-1">
 							<p class="text-sm font-medium text-foreground">
 								Waktu berangkat diperbarui: <span class="font-semibold text-(--color-brand)"

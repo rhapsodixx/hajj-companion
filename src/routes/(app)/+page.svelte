@@ -7,6 +7,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { CaretRight } from 'phosphor-svelte';
 
 	let nowTick = $state(Date.now());
 	$effect(() => {
@@ -344,20 +345,12 @@
 						</p>
 						<p class="mt-1 font-medium text-foreground">Buka panduan langkah demi langkah →</p>
 					</div>
-					<svg
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+					<CaretRight
+						size={20}
+						weight="bold"
 						class="shrink-0 text-(--color-brand)"
 						aria-hidden="true"
-					>
-						<polyline points="9 18 15 12 9 6" />
-					</svg>
+					/>
 				</div>
 			</Card>
 		{/if}

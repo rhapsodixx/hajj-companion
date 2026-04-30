@@ -2,6 +2,7 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { CaretLeft, CaretRight, FilePdf, Link } from 'phosphor-svelte';
 
 	interface Guide {
 		title: string;
@@ -113,17 +114,7 @@
 	<!-- Header -->
 	<div class="gsap-card pt-4 pb-3">
 		<a href="/more" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-			>
+			<CaretLeft size={16} weight="bold" aria-hidden="true" />
 			Lainnya
 		</a>
 		<h1 class="mt-2 text-xl font-semibold">Panduan PDF</h1>
@@ -137,46 +128,9 @@
 					<!-- PDF icon -->
 					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-500/10">
 						{#if guide.icon === 'pdf'}
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-								<path
-									d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-									stroke="currentColor"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<polyline
-									points="14 2 14 8 20 8"
-									stroke="currentColor"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<text
-									x="12"
-									y="18"
-									text-anchor="middle"
-									fill="#ef4444"
-									font-size="6"
-									font-weight="bold"
-									font-family="sans-serif">PDF</text
-								>
-							</svg>
+							<FilePdf size={20} weight="bold" class="text-red-500" aria-hidden="true" />
 						{:else}
-							<svg
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-							>
-								<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-								<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-							</svg>
+							<Link size={20} weight="bold" aria-hidden="true" />
 						{/if}
 					</div>
 					<div class="min-w-0 flex-1">
@@ -192,20 +146,7 @@
 							{/if}
 						</div>
 					</div>
-					<svg
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="mt-1 shrink-0 text-muted"
-						aria-hidden="true"
-					>
-						<polyline points="9 18 15 12 9 6" />
-					</svg>
+					<CaretRight size={16} weight="bold" class="mt-1 shrink-0 text-muted" aria-hidden="true" />
 				</div>
 			</Card>
 		{/each}

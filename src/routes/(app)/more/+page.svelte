@@ -59,54 +59,87 @@
 		></div>
 	</div>
 
-	<div class="gsap-card mb-8 mt-2">
+	<div class="gsap-card mt-2 mb-8">
 		<h1 class="text-3xl font-extrabold tracking-tight text-foreground">Lainnya</h1>
 		<p class="mt-2 text-sm text-muted">Akses informasi tambahan dan pengaturan aplikasi.</p>
 	</div>
 
 	<div class="mt-8 space-y-4">
 		<Card pressable href="/more/contacts" class="gsap-card group">
-			<div class="flex items-center justify-between gap-4">
-				<div class="flex items-center gap-4">
-					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface">
+			<div class="flex w-full items-center justify-between">
+				<div class="flex flex-1 items-center gap-4 text-left">
+					<div
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface"
+					>
 						<PhoneCall size={24} weight="regular" />
 					</div>
-					<div>
-						<p class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand">Kontak Penting</p>
+					<div class="flex-1">
+						<p
+							class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand"
+						>
+							Kontak Penting
+						</p>
 						<p class="mt-0.5 text-sm text-muted">Tim bus, hotel, darurat, konsuler</p>
 					</div>
 				</div>
-				<CaretRight size={20} weight="bold" class="shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand" aria-hidden="true" />
+				<CaretRight
+					size={20}
+					weight="bold"
+					class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand"
+					aria-hidden="true"
+				/>
 			</div>
 		</Card>
 
 		<Card pressable href="/more/guides" class="gsap-card group">
-			<div class="flex items-center justify-between gap-4">
-				<div class="flex items-center gap-4">
-					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface">
+			<div class="flex w-full items-center justify-between">
+				<div class="flex flex-1 items-center gap-4 text-left">
+					<div
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface"
+					>
 						<BookOpenText size={24} weight="regular" />
 					</div>
-					<div>
-						<p class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand">Panduan PDF</p>
+					<div class="flex-1">
+						<p
+							class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand"
+						>
+							Panduan PDF
+						</p>
 						<p class="mt-0.5 text-sm text-muted">Buku panduan & materi manasik</p>
 					</div>
 				</div>
-				<CaretRight size={20} weight="bold" class="shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand" aria-hidden="true" />
+				<CaretRight
+					size={20}
+					weight="bold"
+					class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand"
+					aria-hidden="true"
+				/>
 			</div>
 		</Card>
 
 		<Card pressable href="/more/settings" class="gsap-card group">
-			<div class="flex items-center justify-between gap-4">
-				<div class="flex items-center gap-4">
-					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface">
+			<div class="flex w-full items-center justify-between">
+				<div class="flex flex-1 items-center gap-4 text-left">
+					<div
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface"
+					>
 						<Gear size={24} weight="regular" />
 					</div>
-					<div>
-						<p class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand">Pengaturan</p>
+					<div class="flex-1">
+						<p
+							class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand"
+						>
+							Pengaturan
+						</p>
 						<p class="mt-0.5 text-sm text-muted">Tema, nomor bus, preferensi</p>
 					</div>
 				</div>
-				<CaretRight size={20} weight="bold" class="shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand" aria-hidden="true" />
+				<CaretRight
+					size={20}
+					weight="bold"
+					class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand"
+					aria-hidden="true"
+				/>
 			</div>
 		</Card>
 	</div>

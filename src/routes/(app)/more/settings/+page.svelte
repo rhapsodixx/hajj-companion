@@ -3,6 +3,7 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { CaretLeft } from 'phosphor-svelte';
 
 	type ThemePref = 'auto' | 'dark' | 'light';
 
@@ -136,17 +137,7 @@
 	<!-- Header -->
 	<div class="gsap-card pt-4 pb-3">
 		<a href="/more" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-			>
+			<CaretLeft size={16} weight="bold" aria-hidden="true" />
 			Lainnya
 		</a>
 		<h1 class="mt-2 text-xl font-semibold">Pengaturan</h1>

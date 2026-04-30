@@ -8,6 +8,7 @@
 	import LostButton from '$lib/components/ui/LostButton.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { CaretLeft, CaretRight } from 'phosphor-svelte';
 
 	const guideId = $derived(page.params?.guideId ?? '');
 	const guide = $derived(getGuide(guideId));
@@ -124,17 +125,7 @@
 		<!-- Back link -->
 		<div class="gsap-card pt-4 pb-3">
 			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-				>
+				<CaretLeft size={16} weight="bold" />
 				Kembali
 			</a>
 		</div>
@@ -294,17 +285,7 @@
 					onclick={prevStep}
 					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-border bg-surface px-4 py-3.5 text-sm font-semibold text-foreground transition-transform duration-100 ease-out active:scale-[0.98]"
 				>
-					<svg
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-					>
+					<CaretLeft size={16} weight="bold" />
 					Sebelumnya
 				</button>
 				<button
@@ -312,17 +293,7 @@
 					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-(--color-brand) px-4 py-3.5 text-sm font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
 				>
 					{mode === 'steps' && stepIndex === totalSteps - 1 ? 'Selesai' : 'Selanjutnya'}
-					<svg
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg
-					>
+					<CaretRight size={16} weight="bold" />
 				</button>
 			</div>
 		{/if}
@@ -336,17 +307,7 @@
 	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-6">
 		<div class="pt-4 pb-3">
 			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg
-				>
+				<CaretLeft size={16} weight="bold" />
 				Kembali
 			</a>
 		</div>
