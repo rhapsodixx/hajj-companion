@@ -164,7 +164,6 @@
 		<Card class="gsap-card">
 			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Haji</p>
 			<ul class="space-y-1 text-sm text-foreground">
-				<li>✓ Pastikan paspor & visa sudah di tangan</li>
 				<li>✓ Cek koper: seragam batik Patuna, ihram, obat pribadi</li>
 				<li>✓ Power bank di kabin (WAJIB — tidak boleh di koper)</li>
 				<li>✓ Pelajari niat umrah & talbiyah</li>

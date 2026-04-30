@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { itinerary, getDay, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
+	import { itinerary, getDay, PHASE_LABELS } from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
 	import {
@@ -32,9 +32,6 @@
 	const day = $derived(getDay(dayNumber));
 	const duas = $derived(day ? getDuaByIds(day.duaIds) : []);
 	const climate = $derived(day ? getClimate(day.climateNormId) : null);
-	const today = getEffectiveToday();
-	const isToday = $derived(day?.gregorianDate === today);
-
 	const dayIndex = $derived(day ? itinerary.indexOf(day) : -1);
 	const prevDay = $derived(dayIndex > 0 ? itinerary[dayIndex - 1] : null);
 	const nextDayEntry = $derived(
@@ -65,9 +62,90 @@
 	}
 
 	let pageContainer: HTMLElement | undefined = $state();
+	let isBlipping = $state(false);
+
+	let currentSaudiDateStr = $state('');
+	let currentSaudiTimeStr = $state('');
+
+	const overrideDate = browser ? localStorage.getItem('patuna-date-override') : null;
+	const isToday = $derived(
+		day && currentSaudiDateStr ? day.gregorianDate === (overrideDate || currentSaudiDateStr) : false
+	);
+
+	const activeIndices = $derived.by(() => {
+		if (!isToday || !currentSaudiTimeStr || !day || day.activities.length === 0) return [];
+
+		let activeEffectiveTime: string | null = null;
+		let lastTime = '00:00';
+
+		for (let i = 0; i < day.activities.length; i++) {
+			const t = day.activities[i].time;
+			if (t) lastTime = t;
+
+			if (lastTime <= currentSaudiTimeStr) {
+				activeEffectiveTime = lastTime;
+			} else {
+				break;
+			}
+		}
+
+		if (!activeEffectiveTime) return [];
+
+		const indices: number[] = [];
+		let currentEffective = '00:00';
+		for (let i = 0; i < day.activities.length; i++) {
+			const t = day.activities[i].time;
+			if (t) currentEffective = t;
+			if (currentEffective === activeEffectiveTime) {
+				indices.push(i);
+			}
+		}
+
+		return indices;
+	});
+
+	const firstActiveIndex = $derived(activeIndices[0]);
+
+	$effect(() => {
+		if (firstActiveIndex !== undefined) {
+			isBlipping = true;
+			const timer = setTimeout(() => {
+				isBlipping = false;
+			}, 3000);
+			return () => clearTimeout(timer);
+		}
+	});
 
 	onMount(() => {
-		if (!pageContainer) return;
+		const updateTime = () => {
+			const now = new Date();
+
+			const parts = new Intl.DateTimeFormat('en-US', {
+				timeZone: 'Asia/Riyadh',
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit'
+			}).formatToParts(now);
+			const year = parts.find((p) => p.type === 'year')?.value;
+			const month = parts.find((p) => p.type === 'month')?.value;
+			const dayPart = parts.find((p) => p.type === 'day')?.value;
+			if (year && month && dayPart) {
+				currentSaudiDateStr = `${year}-${month}-${dayPart}`;
+			}
+
+			currentSaudiTimeStr = new Intl.DateTimeFormat('en-GB', {
+				timeZone: 'Asia/Riyadh',
+				hour: '2-digit',
+				minute: '2-digit'
+			}).format(now);
+		};
+		updateTime();
+		const interval = setInterval(updateTime, 60000);
+
+		if (!pageContainer) {
+			return () => clearInterval(interval);
+		}
+
 		const tl = gsap.timeline();
 
 		const cards = pageContainer.querySelectorAll('.gsap-card');
@@ -113,6 +191,11 @@
 				delay: i * 0.5
 			});
 		});
+
+		return () => {
+			clearInterval(interval);
+			tl.kill();
+		};
 	});
 </script>
 
@@ -252,40 +335,80 @@
 			<!-- Timeline -->
 			{#if day.activities.length > 0}
 				<div class="gsap-card">
-					<div class="mb-3 px-1 flex items-center gap-2">
-						<CalendarBlank size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<div class="mb-3 flex items-center gap-2 px-1">
+						<CalendarBlank
+							size={18}
+							class="text-(--color-brand)"
+							weight="bold"
+							aria-hidden="true"
+						/>
 						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Jadwal</h2>
 					</div>
 					<div class="overflow-hidden rounded-xl border border-border">
 						{#each day.activities as activity, i}
-							<div class="gsap-list-item flex gap-3 px-4 py-3 {i > 0 ? 'border-t border-border' : ''} bg-surface">
+							{@const isActive = activeIndices.includes(i)}
+							<div
+								class="gsap-list-item relative flex gap-3 px-4 py-3 {i > 0
+									? 'border-t border-border'
+									: ''} bg-surface transition-colors duration-500"
+							>
+								{#if isActive}
+									<div class="absolute inset-0 bg-(--color-brand) opacity-[0.08]"></div>
+									<div class="absolute top-0 bottom-0 left-0 w-1 bg-(--color-brand)"></div>
+								{/if}
 								<!-- Time -->
-								<div class="w-12 shrink-0 pt-0.5">
+								<div class="relative w-12 shrink-0 pt-0.5">
 									{#if activity.time}
-										<span class="text-xs font-semibold text-(--color-brand) tabular-nums"
-											>{activity.time}</span
+										<span
+											class="text-xs font-semibold {isActive
+												? 'text-(--color-brand)'
+												: 'text-(--color-brand)/80'} tabular-nums">{activity.time}</span
 										>
 									{:else}
 										<span class="text-xs text-muted">—</span>
 									{/if}
 								</div>
 								<!-- Activity -->
-								<div class="min-w-0 flex-1">
+								<div class="relative min-w-0 flex-1">
 									<div class="flex items-start gap-2">
-										<p class="flex-1 text-sm leading-tight font-medium text-foreground">
+										<p
+											class="flex-1 text-sm leading-tight font-medium {isActive
+												? 'text-(--color-brand)'
+												: 'text-foreground'}"
+										>
 											{activity.title}
 										</p>
 										{#if activity.conditional}
 											<span
-												class="mt-0.5 shrink-0 rounded border border-border px-1 py-0.5 text-[9px] font-bold tracking-wide text-muted uppercase"
+												class="mt-0.5 shrink-0 rounded border {isActive
+													? 'border-(--color-brand)/30 text-(--color-brand)'
+													: 'border-border text-muted'} px-1 py-0.5 text-[9px] font-bold tracking-wide uppercase"
 												>Waktu Fleksibel</span
 											>
 										{/if}
+										{#if isActive && i === activeIndices[0]}
+											<span class="mt-0.5 flex h-2 w-2 shrink-0 items-center justify-center">
+												{#if isBlipping}
+													<span
+														class="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--color-brand) opacity-75"
+													></span>
+												{/if}
+												<span
+													class="relative inline-flex h-1.5 w-1.5 rounded-full bg-(--color-brand)"
+												></span>
+											</span>
+										{/if}
 									</div>
 									{#if activity.location}
-										<p class="mt-0.5 text-xs text-muted">{activity.location}</p>
+										<p class="mt-0.5 text-xs {isActive ? 'text-(--color-brand)/80' : 'text-muted'}">
+											{activity.location}
+										</p>
 									{/if}
-									<p class="mt-1 text-xs leading-snug text-muted">{activity.description}</p>
+									<p
+										class="mt-1 text-xs leading-snug {isActive ? 'text-foreground' : 'text-muted'}"
+									>
+										{activity.description}
+									</p>
 								</div>
 							</div>
 						{/each}
@@ -317,10 +440,13 @@
 			{#if day.koperNote}
 				<Card class="gsap-card">
 					<div class="mb-3 flex items-center gap-2">
-						<SuitcaseRolling size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-							Info Koper
-						</h2>
+						<SuitcaseRolling
+							size={18}
+							class="text-(--color-brand)"
+							weight="bold"
+							aria-hidden="true"
+						/>
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Info Koper</h2>
 					</div>
 					<p class="text-sm leading-relaxed text-foreground">{day.koperNote}</p>
 				</Card>
@@ -338,7 +464,12 @@
 					<ul class="space-y-2">
 						{#each day.whatToBring as item}
 							<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
-								<CheckCircle size={16} weight="fill" class="mt-0.5 shrink-0 text-muted" aria-hidden="true" />
+								<CheckCircle
+									size={16}
+									weight="fill"
+									class="mt-0.5 shrink-0 text-muted"
+									aria-hidden="true"
+								/>
 								<span class="leading-relaxed">{item}</span>
 							</li>
 						{/each}
@@ -356,7 +487,7 @@
 					<ul class="space-y-2.5">
 						{#each day.tips as tip}
 							<li class="gsap-list-item flex items-start gap-2.5 text-sm text-foreground">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>
+								<span class="bg-gold mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"></span>
 								<span class="leading-relaxed">{tip}</span>
 							</li>
 						{/each}
@@ -379,7 +510,9 @@
 						</div>
 						<div class="shrink-0 text-right">
 							<p class="text-2xl font-bold tracking-tight text-foreground">{climate.tempMaxC}°</p>
-							<p class="mt-0.5 text-xs font-medium text-muted">{climate.tempMinC}°–{climate.tempMaxC}°C</p>
+							<p class="mt-0.5 text-xs font-medium text-muted">
+								{climate.tempMinC}°–{climate.tempMaxC}°C
+							</p>
 						</div>
 					</div>
 				</Card>
@@ -388,11 +521,9 @@
 			<!-- Du'a of the day -->
 			{#if duas.length > 0}
 				<div class="gsap-card">
-					<div class="mb-3 px-1 flex items-center gap-2">
+					<div class="mb-3 flex items-center gap-2 px-1">
 						<HandsPraying size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-							Doa Hari Ini
-						</h2>
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Doa Hari Ini</h2>
 					</div>
 					<div class="space-y-3">
 						{#each duas as dua}
@@ -413,9 +544,7 @@
 				<Card class="gsap-card">
 					<div class="mb-3 flex items-center gap-2">
 						<Note size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-							Catatan Patuna
-						</h2>
+						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Catatan Patuna</h2>
 					</div>
 					<p class="text-sm leading-relaxed text-foreground">{day.patunaNote}</p>
 				</Card>
