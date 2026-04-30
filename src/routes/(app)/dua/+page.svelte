@@ -84,7 +84,7 @@
 
 <svelte:head><title>Kumpulan Doa — Patuna Coklat-B</title></svelte:head>
 
-<div class="pt-safe mx-auto max-w-120 px-4 pb-6">
+<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<!-- Sticky header: title + search + chips -->
 	<div class="sticky top-0 z-10 bg-background pt-4 pb-2">
 		<h1 class="text-xl font-semibold">Kumpulan Doa</h1>
@@ -111,7 +111,7 @@
 				value={query}
 				oninput={onSearchInput}
 				placeholder="Cari doa..."
-				class="w-full rounded-lg border border-border/50 bg-white py-2.5 pr-9 pl-9 text-sm text-foreground placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-1 focus:ring-(--color-brand)/20 focus:outline-none"
+				class="w-full rounded-lg border border-border/50 bg-surface py-2.5 pr-9 pl-9 text-sm text-foreground placeholder:text-muted/60 focus:border-(--color-brand) focus:ring-1 focus:ring-(--color-brand)/20 focus:outline-none"
 				aria-label="Cari doa"
 			/>
 			{#if query}
@@ -144,7 +144,7 @@
 				class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
 				null
 					? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
-					: 'border border-border/50 bg-white text-muted'}"
+					: 'border border-border/50 bg-surface text-muted'}"
 				aria-pressed={selectedCategory === null}
 			>
 				Semua
@@ -155,7 +155,7 @@
 					class="tap-target shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors {selectedCategory ===
 					cat
 						? 'border border-(--color-brand) bg-(--color-accent-light) text-(--color-brand)'
-						: 'border border-border/50 bg-white text-muted'}"
+						: 'border border-border/50 bg-surface text-muted'}"
 					aria-pressed={selectedCategory === cat}
 				>
 					{CATEGORY_LABELS[cat]}

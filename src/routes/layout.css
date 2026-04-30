@@ -107,9 +107,15 @@ html[data-theme='dark'] {
 }
 
 html[data-theme='dark'] body {
+	--color-background: var(--color-background-dark);
 	--color-surface: var(--color-surface-dark);
 	--color-border: var(--color-border-dark);
+	--color-foreground: var(--color-foreground-dark);
 	--color-muted: var(--color-muted-dark);
+	--color-brand: var(--color-foreground-dark);
+	--color-brand-light: #333333;
+	--color-accent: #1e1e1e;
+	--color-accent-light: #242424;
 }
 
 /* ── Arabic text ── */

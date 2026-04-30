@@ -97,10 +97,10 @@
 		{#each phases as p}
 			<HeroCard phase={p.key}>
 				{#snippet label()}
-					<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">{p.label}</p>
+					<p class="text-xs font-semibold tracking-widest text-surface/70 uppercase">{p.label}</p>
 				{/snippet}
-				<p class="text-xl font-semibold text-white">Hari 16 — Wukuf di Arafah</p>
-				<p class="mt-1 text-sm text-white/80">9 Zulhijjah · 26 Mei 2026</p>
+				<p class="text-xl font-semibold text-surface">Hari 16 — Wukuf di Arafah</p>
+				<p class="mt-1 text-sm text-surface/80">9 Zulhijjah · 26 Mei 2026</p>
 			</HeroCard>
 		{/each}
 	</section>
@@ -130,10 +130,10 @@
 		<h2 class="text-lg font-semibold">HeroCard + Arabic (Niat Card)</h2>
 		<HeroCard phase="rukun">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-white/70 uppercase">Niat Haji</p>
+				<p class="text-xs font-semibold tracking-widest text-surface/70 uppercase">Niat Haji</p>
 			{/snippet}
-			<ArabicText text={niatHaji} size="xl" class="text-white" />
-			<p class="mt-2 text-sm text-white/70 italic">Labbaik Allahumma Hajjan</p>
+			<ArabicText text={niatHaji} size="xl" class="text-surface" />
+			<p class="mt-2 text-sm text-surface/70 italic">Labbaik Allahumma Hajjan</p>
 		</HeroCard>
 	</section>
 

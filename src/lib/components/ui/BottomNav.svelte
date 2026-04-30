@@ -32,17 +32,17 @@
 </script>
 
 <nav
-	class="fixed right-0 bottom-0 left-0 z-40 bg-surface/80 shadow-[0_-1px_3px_rgba(0,0,0,0.03)] backdrop-blur-md"
+	class="fixed right-0 bottom-0 left-0 z-40 mx-auto max-w-120 bg-surface/80 shadow-[0_-1px_3px_rgba(0,0,0,0.03)] backdrop-blur-md"
 	style="padding-bottom: env(safe-area-inset-bottom, 0px)"
 	aria-label="Navigasi utama"
 >
-	<div class="mx-auto flex max-w-120">
+	<div class="flex py-1.5">
 		{#each nav as item}
 			{@const active = item.match(currentPath)}
 			<a
 				href={item.href}
 				class="tap-target flex flex-1 flex-col items-center gap-0.5 px-2 text-xs font-medium transition-colors duration-150"
-				class:text-(--color-brand)={active}
+				class:text-foreground={active}
 				class:text-muted={!active}
 				aria-current={active ? 'page' : undefined}
 			>
@@ -50,7 +50,7 @@
 				{@html item.icon}
 				<span>{item.label}</span>
 				{#if active}
-					<span class="mt-0.5 h-1 w-1 rounded-full bg-(--color-brand)"></span>
+					<span class="mt-0.5 h-1 w-1 rounded-full bg-foreground"></span>
 				{/if}
 			</a>
 		{/each}

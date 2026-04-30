@@ -17,12 +17,12 @@ export default defineConfig({
 				globIgnores: ['**/*.pdf', 'server/**']
 			},
 			manifest: {
-				name: 'Patuna Coklat-B Hajj Companion',
-				short_name: 'Patuna B',
+				name: 'quwa',
+				short_name: 'quwa',
 				description:
 					'Panduan ibadah haji Patuna Coklat B — jadwal, doa, dan bimbingan ritual untuk jamaah 2026.',
-				theme_color: '#5a8a6a',
-				background_color: '#f8faf9',
+				theme_color: '#000000',
+				background_color: '#ffffff',
 				display: 'standalone',
 				orientation: 'portrait',
 				scope: '/',
@@ -31,17 +31,17 @@ export default defineConfig({
 				categories: ['lifestyle', 'utilities'],
 				icons: [
 					{
-						src: '/icons/icon-192.png',
+						src: '/favicon.png',
 						sizes: '192x192',
 						type: 'image/png'
 					},
 					{
-						src: '/icons/icon-512.png',
+						src: '/favicon.png',
 						sizes: '512x512',
 						type: 'image/png'
 					},
 					{
-						src: '/icons/icon-512-maskable.png',
+						src: '/favicon.png',
 						sizes: '512x512',
 						type: 'image/png',
 						purpose: 'maskable'

@@ -78,10 +78,10 @@
 
 <svelte:head><title>Pengaturan — Patuna Coklat-B</title></svelte:head>
 
-<div class="pt-safe mx-auto max-w-120 px-4 pb-6">
+<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<!-- Header -->
 	<div class="pt-4 pb-3">
-		<a href="/more" class="inline-flex items-center gap-1 text-sm text-muted">
+		<a href="/more" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 			<svg
 				width="16"
 				height="16"
@@ -150,7 +150,7 @@
 						onclick={() => (themePref = opt.value)}
 						class="tap-target flex-1 rounded-lg px-3 py-2 text-center text-xs font-semibold transition-colors duration-150 {themePref ===
 						opt.value
-							? 'bg-(--color-brand) text-white'
+							? 'bg-(--color-brand) text-background'
 							: 'text-muted'}"
 					>
 						{opt.label}
@@ -190,7 +190,10 @@
 						class="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground"
 					/>
 					{#if dateOverride}
-						<button onclick={() => (dateOverride = '')} class="mt-2 text-xs text-muted underline">
+						<button
+							onclick={() => (dateOverride = '')}
+							class="tap-target mt-2 text-xs text-muted underline"
+						>
 							Gunakan tanggal asli (hari ini)
 						</button>
 					{/if}

@@ -73,7 +73,7 @@
 			{#if !isIos}
 				<button
 					onclick={install}
-					class="tap-target shrink-0 rounded-lg bg-(--color-brand) px-4 text-sm font-semibold text-white"
+					class="tap-target shrink-0 rounded-lg bg-(--color-brand) px-4 text-sm font-semibold text-surface"
 				>
 					Simpan
 				</button>

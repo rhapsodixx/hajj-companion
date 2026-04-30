@@ -67,10 +67,10 @@
 </svelte:head>
 
 {#if guide}
-	<div class="pt-safe page-enter mx-auto flex min-h-dvh max-w-120 flex-col px-4 pb-8">
+	<div class="page-enter mx-auto flex min-h-dvh max-w-120 flex-col px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 		<!-- Back link -->
 		<div class="pt-4 pb-3">
-			<a href="/" class="inline-flex items-center gap-1 text-sm text-muted">
+			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<svg
 					width="16"
 					height="16"
@@ -143,7 +143,7 @@
 				<!-- Start button -->
 				<button
 					onclick={startSteps}
-					class="tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
 				>
 					Mulai Panduan — {totalSteps} Langkah
 				</button>
@@ -254,7 +254,7 @@
 				</button>
 				<button
 					onclick={nextStep}
-					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-(--color-brand) px-4 py-3.5 text-sm font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-(--color-brand) px-4 py-3.5 text-sm font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
 				>
 					{mode === 'steps' && stepIndex === totalSteps - 1 ? 'Selesai' : 'Selanjutnya'}
 					<svg
@@ -278,9 +278,9 @@
 		{/if}
 	</div>
 {:else}
-	<div class="pt-safe mx-auto max-w-120 px-4 py-6">
+	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-6">
 		<div class="pt-4 pb-3">
-			<a href="/" class="inline-flex items-center gap-1 text-sm text-muted">
+			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<svg
 					width="16"
 					height="16"

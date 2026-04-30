@@ -28,7 +28,7 @@
 
 	const variants = {
 		primary:
-			'bg-(--color-brand) text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/50',
+			'bg-(--color-brand) text-surface shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-surface/50',
 		secondary: 'bg-surface text-foreground border border-border hover:bg-(--color-brand-light)',
 		ghost: 'text-(--color-brand) bg-transparent hover:bg-(--color-accent-light)'
 	};
