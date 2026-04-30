@@ -106,14 +106,14 @@
 		const cards = pageContainer.querySelectorAll('.gsap-card, header');
 		tl.fromTo(
 			cards,
-			{ y: 40, opacity: 0, scale: 0.98 },
+			{ y: 60, opacity: 0, scale: 0.95 },
 			{
 				y: 0,
 				opacity: 1,
 				scale: 1,
-				duration: 0.6,
-				stagger: 0.08,
-				ease: 'power3.out'
+				duration: 0.8,
+				stagger: 0.05,
+				ease: 'back.out(1.2)'
 			}
 		);
 
@@ -121,15 +121,15 @@
 		if (listItems.length > 0) {
 			tl.fromTo(
 				listItems,
-				{ x: -10, opacity: 0 },
+				{ x: -15, opacity: 0 },
 				{
 					x: 0,
 					opacity: 1,
-					duration: 0.4,
-					stagger: 0.05,
-					ease: 'power2.out'
+					duration: 0.5,
+					stagger: 0.08,
+					ease: 'back.out(1.1)'
 				},
-				'-=0.4'
+				'-=0.5'
 			);
 		}
 
@@ -202,9 +202,13 @@
 		</HeroCard>
 
 		<Card class="gsap-card">
-			<div class="mb-3 flex items-center gap-2">
-				<CalendarCheck size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Akhir</h2>
+			<div class="mb-4 flex items-center gap-3">
+				<div
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+				>
+					<CalendarCheck size={18} weight="fill" aria-hidden="true" />
+				</div>
+				<h2 class="text-sm font-bold text-foreground">Persiapan Akhir</h2>
 			</div>
 			<p class="text-sm font-bold text-foreground">Manasik — Santika ICE BSD</p>
 			<p class="mt-1 text-xs text-muted">
@@ -213,36 +217,38 @@
 		</Card>
 
 		<Card class="gsap-card">
-			<div class="mb-3 flex items-center gap-2">
-				<SuitcaseRolling size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-					Ceklis Keberangkatan
-				</h2>
+			<div class="mb-4 flex items-center gap-3">
+				<div
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+				>
+					<SuitcaseRolling size={18} weight="fill" aria-hidden="true" />
+				</div>
+				<h2 class="text-sm font-bold text-foreground">Ceklis Keberangkatan</h2>
 			</div>
-			<ul class="space-y-2">
-				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+			<ul class="space-y-3">
+				<li class="gsap-list-item flex items-start gap-3 text-sm text-foreground">
 					<CheckCircle
-						size={16}
+						size={18}
 						weight="fill"
-						class="mt-0.5 shrink-0 text-muted"
+						class="mt-[2px] shrink-0 text-(--color-brand)"
 						aria-hidden="true"
 					/>
 					<span class="leading-relaxed">Cek koper: seragam batik Patuna, ihram, obat pribadi</span>
 				</li>
-				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+				<li class="gsap-list-item flex items-start gap-3 text-sm text-foreground">
 					<CheckCircle
-						size={16}
+						size={18}
 						weight="fill"
-						class="mt-0.5 shrink-0 text-muted"
+						class="mt-[2px] shrink-0 text-(--color-brand)"
 						aria-hidden="true"
 					/>
 					<span class="leading-relaxed">Power bank di kabin (WAJIB — tidak boleh di koper)</span>
 				</li>
-				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+				<li class="gsap-list-item flex items-start gap-3 text-sm text-foreground">
 					<CheckCircle
-						size={16}
+						size={18}
 						weight="fill"
-						class="mt-0.5 shrink-0 text-muted"
+						class="mt-[2px] shrink-0 text-(--color-brand)"
 						aria-hidden="true"
 					/>
 					<span class="leading-relaxed">Pelajari niat umrah & talbiyah</span>
@@ -274,28 +280,34 @@
 
 		<!-- Tomorrow's key info -->
 		<Card class="gsap-card">
-			<div class="mb-3 flex items-center gap-2">
-				<Target size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas Besok</h2>
+			<div class="mb-4 flex items-center gap-3">
+				<div
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+				>
+					<Target size={18} weight="fill" aria-hidden="true" />
+				</div>
+				<h2 class="text-sm font-bold text-foreground">Aktivitas Besok</h2>
 			</div>
 			<p class="text-sm leading-relaxed text-foreground">{nextDay.whatToDo}</p>
 		</Card>
 
 		{#if nextDay.whatToBring.length > 0}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<ListChecks size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-						Yang Perlu Dibawa
-					</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<ListChecks size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Yang Perlu Dibawa</h2>
 				</div>
-				<ul class="space-y-2">
+				<ul class="space-y-3">
 					{#each nextDay.whatToBring as item}
-						<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+						<li class="gsap-list-item flex items-start gap-3 text-sm text-foreground">
 							<CheckCircle
-								size={16}
+								size={18}
 								weight="fill"
-								class="mt-0.5 shrink-0 text-muted"
+								class="mt-[2px] shrink-0 text-(--color-brand)"
 								aria-hidden="true"
 							/>
 							<span class="leading-relaxed">{item}</span>
@@ -307,9 +319,13 @@
 
 		{#if nextDay.dressCode}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<TShirt size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Pakaian Besok</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<TShirt size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Pakaian Besok</h2>
 				</div>
 				<div class="space-y-2 text-sm">
 					<div class="flex items-start gap-2">
@@ -326,14 +342,13 @@
 
 		{#if nextDay.koperNote}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<SuitcaseRolling
-						size={18}
-						class="text-(--color-brand)"
-						weight="bold"
-						aria-hidden="true"
-					/>
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Info Koper</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<SuitcaseRolling size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Info Koper</h2>
 				</div>
 				<p class="text-sm leading-relaxed text-foreground">{nextDay.koperNote}</p>
 			</Card>
@@ -382,9 +397,13 @@
 
 		<!-- What to do today -->
 		<Card class="gsap-card">
-			<div class="mb-3 flex items-center gap-2">
-				<Target size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas Hari Ini</h2>
+			<div class="mb-4 flex items-center gap-3">
+				<div
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+				>
+					<Target size={18} weight="fill" aria-hidden="true" />
+				</div>
+				<h2 class="text-sm font-bold text-foreground">Aktivitas Hari Ini</h2>
 			</div>
 			<p class="text-sm leading-relaxed text-foreground">{todayDay.whatToDo}</p>
 			<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
@@ -397,9 +416,13 @@
 			{@const mins = minutesUntil(nextActivity.time)}
 			{@const transportType = getTransportType(nextActivity)}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<Clock size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Setelah Ini</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<Clock size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Setelah Ini</h2>
 				</div>
 				<div class="flex items-start justify-between gap-4">
 					<div class="min-w-0 flex-1">
@@ -437,11 +460,13 @@
 		<!-- Climate strip -->
 		{#if climate}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<CloudSun size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
-						Info Cuaca · {climate.city}
-					</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<CloudSun size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Info Cuaca · {climate.city}</h2>
 				</div>
 				<div class="flex items-start justify-between gap-4">
 					<div class="min-w-0 flex-1">
@@ -460,14 +485,18 @@
 		<!-- Tips -->
 		{#if todayDay.tips.length > 0}
 			<Card class="gsap-card">
-				<div class="mb-3 flex items-center gap-2">
-					<Lightbulb size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Tips Hari Ini</h2>
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<Lightbulb size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Tips Hari Ini</h2>
 				</div>
-				<ul class="space-y-2.5">
+				<ul class="space-y-3">
 					{#each todayDay.tips as tip}
-						<li class="gsap-list-item flex items-start gap-2.5 text-sm text-foreground">
-							<span class="bg-gold mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"></span>
+						<li class="gsap-list-item flex items-start gap-3 text-sm text-foreground">
+							<span class="bg-gold mt-2 h-1.5 w-1.5 shrink-0 rounded-full"></span>
 							<span class="leading-relaxed">{tip}</span>
 						</li>
 					{/each}
@@ -493,25 +522,25 @@
 
 		<!-- Ritual guide link (for critical days) -->
 		{#if todayDay.ritualGuideId}
-			<Card pressable href="/ritual/{todayDay.ritualGuideId}" class="gsap-card">
-				<div class="flex items-center justify-between gap-3">
-					<div>
-						<div class="mb-1.5 flex items-center gap-2">
-							<BookOpenText
-								size={18}
-								class="text-(--color-brand)"
-								weight="bold"
-								aria-hidden="true"
-							/>
-							<p class="text-xs font-semibold tracking-wide text-muted uppercase">Panduan Ibadah</p>
+			<Card pressable href="/ritual/{todayDay.ritualGuideId}" class="gsap-card group">
+				<div class="flex items-center justify-between gap-4">
+					<div class="flex items-center gap-3">
+						<div
+							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-brand)/10 text-(--color-brand) transition-colors duration-300 group-hover:bg-(--color-brand) group-hover:text-surface"
+						>
+							<BookOpenText size={20} weight="fill" aria-hidden="true" />
 						</div>
-						<p class="mt-0.5 font-medium text-foreground">Buka panduan langkah demi langkah</p>
-						<p class="mt-0.5 text-xs text-muted">Niat, tawaf, doa, dan tips penting</p>
+						<div>
+							<p class="text-sm font-bold text-foreground">Panduan Ibadah</p>
+							<p class="mt-0.5 text-xs leading-relaxed text-muted">
+								Buka panduan langkah demi langkah
+							</p>
+						</div>
 					</div>
 					<CaretRight
 						size={20}
 						weight="bold"
-						class="shrink-0 text-(--color-brand)"
+						class="shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
 						aria-hidden="true"
 					/>
 				</div>
@@ -531,9 +560,13 @@
 		</HeroCard>
 
 		<Card class="gsap-card">
-			<div class="mb-3 flex items-center gap-2">
-				<Archive size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
-				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Arsip Perjalanan</h2>
+			<div class="mb-4 flex items-center gap-3">
+				<div
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+				>
+					<Archive size={18} weight="fill" aria-hidden="true" />
+				</div>
+				<h2 class="text-sm font-bold text-foreground">Arsip Perjalanan</h2>
 			</div>
 			<p class="text-sm font-medium text-foreground">Perjalanan haji telah selesai.</p>
 			<p class="mt-1 text-xs text-muted">Seluruh jadwal tersimpan di bawah ini.</p>
