@@ -1,5 +1,12 @@
 <script lang="ts">
-	import { itinerary, getDayByDate, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
+	import {
+		itinerary,
+		getDayByDate,
+		getEffectiveToday,
+		PHASE_LABELS,
+		getTransportType,
+		stripMovementKeywords
+	} from '$lib/data/itinerary';
 	import { getClimate } from '$lib/data/climate';
 	import HeroCard from '$lib/components/ui/HeroCard.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -7,7 +14,25 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
-	import { CaretRight } from 'phosphor-svelte';
+	import {
+		CaretRight,
+		ListChecks,
+		SuitcaseRolling,
+		Suitcase,
+		TShirt,
+		Clock,
+		CloudSun,
+		Lightbulb,
+		BookOpenText,
+		CalendarCheck,
+		CheckCircle,
+		Archive,
+		Target,
+		Note,
+		AirplaneInFlight,
+		Train,
+		Bus
+	} from 'phosphor-svelte';
 
 	let nowTick = $state(Date.now());
 	$effect(() => {
@@ -76,21 +101,37 @@
 	let pageContainer: HTMLElement;
 
 	onMount(() => {
-		// Playful entry animation for all cards
-		const cards = pageContainer.querySelectorAll('.gsap-card');
-		gsap.fromTo(
+		const tl = gsap.timeline();
+
+		const cards = pageContainer.querySelectorAll('.gsap-card, header');
+		tl.fromTo(
 			cards,
-			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			{ y: 40, opacity: 0, scale: 0.98 },
 			{
 				y: 0,
 				opacity: 1,
 				scale: 1,
-				rotation: 0,
-				duration: 0.8,
-				stagger: 0.1,
-				ease: 'back.out(1.2)'
+				duration: 0.6,
+				stagger: 0.08,
+				ease: 'power3.out'
 			}
 		);
+
+		const listItems = pageContainer.querySelectorAll('.gsap-list-item');
+		if (listItems.length > 0) {
+			tl.fromTo(
+				listItems,
+				{ x: -10, opacity: 0 },
+				{
+					x: 0,
+					opacity: 1,
+					duration: 0.4,
+					stagger: 0.05,
+					ease: 'power2.out'
+				},
+				'-=0.4'
+			);
+		}
 
 		// Animate background shapes
 		const shapes = pageContainer.querySelectorAll('.gsap-shape');
@@ -106,6 +147,10 @@
 				delay: i * 0.5
 			});
 		});
+
+		return () => {
+			tl.kill();
+		};
 	});
 </script>
 
@@ -113,23 +158,25 @@
 
 <main
 	bind:this={pageContainer}
-	class="relative mx-auto max-w-120 space-y-6 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
+	class="page-enter relative mx-auto max-w-120 space-y-4 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
 >
-	<!-- Background Playful Shapes -->
-	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden">
+	<!-- Pastel Background Pattern -->
+	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
+		<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
+		<!-- Colorful floating shapes -->
 		<div
-			class="gsap-shape absolute top-[-5%] left-[-10%] h-64 w-64 rounded-full bg-[var(--color-pastel-green)] opacity-30 mix-blend-multiply blur-3xl"
+			class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
 		></div>
 		<div
 			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
 		></div>
 		<div
-			class="gsap-shape absolute bottom-[10%] left-[20%] h-72 w-72 rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
+			class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
 		></div>
 	</div>
 
 	<!-- ── Header ── -->
-	<header class="gsap-card flex items-center justify-between">
+	<header class="mb-6 flex items-center justify-between">
 		<div class="flex items-center gap-3">
 			<img src="/logo.png" alt="quwa logo" class="h-8 w-8 object-contain" />
 			<h1 class="text-xl font-bold tracking-tight text-foreground">quwa</h1>
@@ -155,18 +202,51 @@
 		</HeroCard>
 
 		<Card class="gsap-card">
-			<p class="text-sm font-semibold text-foreground">Manasik — Santika ICE BSD</p>
-			<p class="mt-1 text-sm text-muted">
+			<div class="mb-3 flex items-center gap-2">
+				<CalendarCheck size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Akhir</h2>
+			</div>
+			<p class="text-sm font-bold text-foreground">Manasik — Santika ICE BSD</p>
+			<p class="mt-1 text-xs text-muted">
 				9–11 Mei 2026 · Persiapan terakhir sebelum keberangkatan
 			</p>
 		</Card>
 
 		<Card class="gsap-card">
-			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Persiapan Haji</p>
-			<ul class="space-y-1 text-sm text-foreground">
-				<li>✓ Cek koper: seragam batik Patuna, ihram, obat pribadi</li>
-				<li>✓ Power bank di kabin (WAJIB — tidak boleh di koper)</li>
-				<li>✓ Pelajari niat umrah & talbiyah</li>
+			<div class="mb-3 flex items-center gap-2">
+				<SuitcaseRolling size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+					Ceklis Keberangkatan
+				</h2>
+			</div>
+			<ul class="space-y-2">
+				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+					<CheckCircle
+						size={16}
+						weight="fill"
+						class="mt-0.5 shrink-0 text-muted"
+						aria-hidden="true"
+					/>
+					<span class="leading-relaxed">Cek koper: seragam batik Patuna, ihram, obat pribadi</span>
+				</li>
+				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+					<CheckCircle
+						size={16}
+						weight="fill"
+						class="mt-0.5 shrink-0 text-muted"
+						aria-hidden="true"
+					/>
+					<span class="leading-relaxed">Power bank di kabin (WAJIB — tidak boleh di koper)</span>
+				</li>
+				<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+					<CheckCircle
+						size={16}
+						weight="fill"
+						class="mt-0.5 shrink-0 text-muted"
+						aria-hidden="true"
+					/>
+					<span class="leading-relaxed">Pelajari niat umrah & talbiyah</span>
+				</li>
 			</ul>
 		</Card>
 
@@ -176,9 +256,15 @@
 	{:else if todayDay && afterMaghrib && nextDay}
 		<HeroCard phase={nextDay.phase} class="gsap-card">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Persiapan Besok</p>
+				<div class="flex items-center gap-2">
+					<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Persiapan Besok</p>
+					<span
+						class="rounded-full bg-surface/20 px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase"
+						>Besok</span
+					>
+				</div>
 			{/snippet}
-			<p class="text-xl font-semibold">
+			<p class="mt-2 text-xl font-semibold">
 				{nextDay.phase === 'manasik'
 					? nextDay.routeLabel
 					: `Hari ${nextDay.dayNumber} — ${nextDay.routeLabel}`}
@@ -188,20 +274,31 @@
 
 		<!-- Tomorrow's key info -->
 		<Card class="gsap-card">
-			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas besok</p>
+			<div class="mb-3 flex items-center gap-2">
+				<Target size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas Besok</h2>
+			</div>
 			<p class="text-sm leading-relaxed text-foreground">{nextDay.whatToDo}</p>
 		</Card>
 
 		{#if nextDay.whatToBring.length > 0}
 			<Card class="gsap-card">
-				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-					Yang perlu dibawa
-				</p>
-				<ul class="space-y-1">
+				<div class="mb-3 flex items-center gap-2">
+					<ListChecks size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+						Yang Perlu Dibawa
+					</h2>
+				</div>
+				<ul class="space-y-2">
 					{#each nextDay.whatToBring as item}
-						<li class="flex gap-2 text-sm text-foreground">
-							<span class="shrink-0 text-(--color-brand)">·</span>
-							<span>{item}</span>
+						<li class="gsap-list-item flex items-start gap-2 text-sm text-foreground">
+							<CheckCircle
+								size={16}
+								weight="fill"
+								class="mt-0.5 shrink-0 text-muted"
+								aria-hidden="true"
+							/>
+							<span class="leading-relaxed">{item}</span>
 						</li>
 					{/each}
 				</ul>
@@ -210,25 +307,40 @@
 
 		{#if nextDay.dressCode}
 			<Card class="gsap-card">
-				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian besok</p>
-				<div class="space-y-1 text-sm">
-					<p><span class="text-muted">Pria:</span> {nextDay.dressCode.men}</p>
-					<p><span class="text-muted">Wanita:</span> {nextDay.dressCode.women}</p>
+				<div class="mb-3 flex items-center gap-2">
+					<TShirt size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Pakaian Besok</h2>
+				</div>
+				<div class="space-y-2 text-sm">
+					<div class="flex items-start gap-2">
+						<span class="w-14 shrink-0 font-medium text-muted">Pria</span>
+						<span class="leading-relaxed text-foreground">{nextDay.dressCode.men}</span>
+					</div>
+					<div class="flex items-start gap-2">
+						<span class="w-14 shrink-0 font-medium text-muted">Wanita</span>
+						<span class="leading-relaxed text-foreground">{nextDay.dressCode.women}</span>
+					</div>
 				</div>
 			</Card>
 		{/if}
 
 		{#if nextDay.koperNote}
 			<Card class="gsap-card">
-				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-					Info Koper
-				</p>
-				<p class="text-sm text-foreground">{nextDay.koperNote}</p>
+				<div class="mb-3 flex items-center gap-2">
+					<SuitcaseRolling
+						size={18}
+						class="text-(--color-brand)"
+						weight="bold"
+						aria-hidden="true"
+					/>
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Info Koper</h2>
+				</div>
+				<p class="text-sm leading-relaxed text-foreground">{nextDay.koperNote}</p>
 			</Card>
 		{/if}
 
 		<!-- Today card (secondary) -->
-		<div class="border-t border-border/40 pt-5">
+		<div class="mt-6 border-t border-border/40 pt-5">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
 			<Card class="gsap-card">
 				<p class="font-medium">
@@ -250,13 +362,19 @@
 		<!-- NOW card -->
 		<HeroCard phase={todayDay.phase} class="gsap-card">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
-					{todayDay.phase === 'manasik'
-						? todayDay.routeLabel
-						: `Hari ${todayDay.dayNumber} · ${todayDay.hijriDate}`}
-				</p>
+				<div class="flex items-center gap-2">
+					<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
+						{todayDay.phase === 'manasik'
+							? todayDay.routeLabel
+							: `Hari ${todayDay.dayNumber} · ${todayDay.hijriDate}`}
+					</p>
+					<span
+						class="rounded-full bg-surface/20 px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase"
+						>Hari ini</span
+					>
+				</div>
 			{/snippet}
-			<p class="text-xl font-semibold">{todayDay.routeLabel}</p>
+			<h1 class="mt-2 text-2xl font-semibold">{todayDay.routeLabel}</h1>
 			<p class="mt-1 text-sm opacity-80">
 				{todayDay.location} · {formatGregorian(todayDay.gregorianDate)}
 			</p>
@@ -264,9 +382,10 @@
 
 		<!-- What to do today -->
 		<Card class="gsap-card">
-			<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-				Aktivitas hari ini
-			</p>
+			<div class="mb-3 flex items-center gap-2">
+				<Target size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Aktivitas Hari Ini</h2>
+			</div>
 			<p class="text-sm leading-relaxed text-foreground">{todayDay.whatToDo}</p>
 			<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
 				Jadwal lengkap →
@@ -276,18 +395,40 @@
 		<!-- NEXT activity -->
 		{#if nextActivity && nextActivity.time}
 			{@const mins = minutesUntil(nextActivity.time)}
+			{@const transportType = getTransportType(nextActivity)}
 			<Card class="gsap-card">
-				<div class="flex items-start justify-between gap-3">
+				<div class="mb-3 flex items-center gap-2">
+					<Clock size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Setelah Ini</h2>
+				</div>
+				<div class="flex items-start justify-between gap-4">
 					<div class="min-w-0 flex-1">
-						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Setelah ini</p>
-						<p class="mt-1 font-medium text-foreground">{nextActivity.title}</p>
+						<div class="flex flex-wrap items-center gap-2">
+							<p class="font-medium text-foreground">
+								{transportType ? stripMovementKeywords(nextActivity.title) : nextActivity.title}
+							</p>
+							{#if transportType}
+								<span
+									class="flex h-5 items-center justify-center rounded-sm bg-surface px-1.5 text-muted ring-1 ring-border/50"
+									title={transportType}
+								>
+									{#if transportType === 'plane'}
+										<AirplaneInFlight size={14} weight="fill" />
+									{:else if transportType === 'train'}
+										<Train size={14} weight="fill" />
+									{:else if transportType === 'bus'}
+										<Bus size={14} weight="fill" />
+									{/if}
+								</span>
+							{/if}
+						</div>
 						{#if nextActivity.location}
 							<p class="mt-0.5 text-sm text-muted">{nextActivity.location}</p>
 						{/if}
 					</div>
 					<div class="shrink-0 text-right">
-						<p class="text-sm font-semibold text-(--color-brand)">{nextActivity.time}</p>
-						<p class="text-xs text-muted">{formatCountdown(mins)}</p>
+						<p class="text-2xl font-bold tracking-tight text-foreground">{nextActivity.time}</p>
+						<p class="mt-0.5 text-xs font-medium text-(--color-brand)">{formatCountdown(mins)}</p>
 					</div>
 				</div>
 			</Card>
@@ -296,14 +437,21 @@
 		<!-- Climate strip -->
 		{#if climate}
 			<Card class="gsap-card">
-				<div class="flex items-center justify-between gap-3">
+				<div class="mb-3 flex items-center gap-2">
+					<CloudSun size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">
+						Info Cuaca · {climate.city}
+					</h2>
+				</div>
+				<div class="flex items-start justify-between gap-4">
 					<div class="min-w-0 flex-1">
-						<p class="text-xs font-semibold tracking-wide text-muted uppercase">Info Cuaca</p>
-						<p class="mt-1 text-sm leading-relaxed text-foreground">{climate.advice}</p>
+						<p class="text-sm leading-relaxed text-foreground">{climate.advice}</p>
 					</div>
 					<div class="shrink-0 text-right">
-						<p class="text-2xl font-semibold text-foreground">{climate.tempMaxC}°</p>
-						<p class="text-xs text-muted">{climate.tempMinC}°–{climate.tempMaxC}°C</p>
+						<p class="text-2xl font-bold tracking-tight text-foreground">{climate.tempMaxC}°</p>
+						<p class="mt-0.5 text-xs font-medium text-muted">
+							{climate.tempMinC}°–{climate.tempMaxC}°C
+						</p>
 					</div>
 				</div>
 			</Card>
@@ -312,12 +460,15 @@
 		<!-- Tips -->
 		{#if todayDay.tips.length > 0}
 			<Card class="gsap-card">
-				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips hari ini</p>
-				<ul class="space-y-2">
+				<div class="mb-3 flex items-center gap-2">
+					<Lightbulb size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Tips Hari Ini</h2>
+				</div>
+				<ul class="space-y-2.5">
 					{#each todayDay.tips as tip}
-						<li class="flex gap-2 text-sm text-foreground">
-							<span class="shrink-0 text-(--color-brand)">·</span>
-							<span>{tip}</span>
+						<li class="gsap-list-item flex items-start gap-2.5 text-sm text-foreground">
+							<span class="bg-gold mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"></span>
+							<span class="leading-relaxed">{tip}</span>
 						</li>
 					{/each}
 				</ul>
@@ -327,10 +478,16 @@
 		<!-- Koper note -->
 		{#if todayDay.koperNote}
 			<Card class="gsap-card">
-				<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-					Info Koper
-				</p>
-				<p class="text-sm text-foreground">{todayDay.koperNote}</p>
+				<div class="mb-3 flex items-center gap-2">
+					<SuitcaseRolling
+						size={18}
+						class="text-(--color-brand)"
+						weight="bold"
+						aria-hidden="true"
+					/>
+					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Info Koper</h2>
+				</div>
+				<p class="text-sm leading-relaxed text-foreground">{todayDay.koperNote}</p>
 			</Card>
 		{/if}
 
@@ -339,10 +496,17 @@
 			<Card pressable href="/ritual/{todayDay.ritualGuideId}" class="gsap-card">
 				<div class="flex items-center justify-between gap-3">
 					<div>
-						<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-							Panduan Ritual
-						</p>
-						<p class="mt-1 font-medium text-foreground">Buka panduan langkah demi langkah →</p>
+						<div class="mb-1.5 flex items-center gap-2">
+							<BookOpenText
+								size={18}
+								class="text-(--color-brand)"
+								weight="bold"
+								aria-hidden="true"
+							/>
+							<p class="text-xs font-semibold tracking-wide text-muted uppercase">Panduan Ibadah</p>
+						</div>
+						<p class="mt-0.5 font-medium text-foreground">Buka panduan langkah demi langkah</p>
+						<p class="mt-0.5 text-xs text-muted">Niat, tawaf, doa, dan tips penting</p>
 					</div>
 					<CaretRight
 						size={20}
@@ -367,7 +531,12 @@
 		</HeroCard>
 
 		<Card class="gsap-card">
-			<p class="text-sm text-foreground">Kenangan perjalanan haji tersimpan di bawah ini.</p>
+			<div class="mb-3 flex items-center gap-2">
+				<Archive size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
+				<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Arsip Perjalanan</h2>
+			</div>
+			<p class="text-sm font-medium text-foreground">Perjalanan haji telah selesai.</p>
+			<p class="mt-1 text-xs text-muted">Seluruh jadwal tersimpan di bawah ini.</p>
 			<Button href="/itinerary" variant="secondary" size="md" class="mt-3 w-full">
 				Lihat Semua Jadwal
 			</Button>

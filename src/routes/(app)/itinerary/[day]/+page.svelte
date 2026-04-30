@@ -1,7 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { itinerary, getDay, PHASE_LABELS } from '$lib/data/itinerary';
+	import {
+		itinerary,
+		getDay,
+		PHASE_LABELS,
+		getTransportType,
+		stripMovementKeywords
+	} from '$lib/data/itinerary';
 	import { getDuaByIds } from '$lib/data/dua';
 	import { getClimate } from '$lib/data/climate';
 	import {
@@ -62,14 +68,6 @@
 
 	function navLabel(d: (typeof itinerary)[0]): string {
 		return d.phase === 'manasik' ? d.routeLabel : `Hari ${d.dayNumber}`;
-	}
-
-	function getTransportType(activity: { title?: string; description?: string }) {
-		const text = `${activity.title || ''} ${activity.description || ''}`.toLowerCase();
-		if (text.match(/\b(pesawat|penerbangan|bandara|airport|flight|terbang|take-off|landing)\b/)) return 'plane';
-		if (text.match(/\b(kereta|train|stasiun|haramain)\b/)) return 'train';
-		if (text.match(/\b(bus|bis)\b/)) return 'bus';
-		return null;
 	}
 
 	let pageContainer: HTMLElement | undefined = $state();
@@ -388,11 +386,11 @@
 												? 'text-(--color-brand)'
 												: 'text-foreground'}"
 										>
-											{activity.title}
+											{transportType ? stripMovementKeywords(activity.title) : activity.title}
 										</p>
 										{#if transportType}
 											<span
-												class="mt-0.5 shrink-0 inline-flex items-center justify-center rounded bg-(--color-brand)/10 p-1 text-(--color-brand)"
+												class="mt-0.5 inline-flex shrink-0 items-center justify-center rounded bg-(--color-brand)/10 p-1 text-(--color-brand)"
 											>
 												{#if transportType === 'plane'}
 													<AirplaneTilt size={12} weight="bold" aria-hidden="true" />
@@ -432,7 +430,9 @@
 									<p
 										class="mt-1 text-xs leading-snug {isActive ? 'text-foreground' : 'text-muted'}"
 									>
-										{activity.description}
+										{transportType
+											? stripMovementKeywords(activity.description)
+											: activity.description}
 									</p>
 								</div>
 							</div>
