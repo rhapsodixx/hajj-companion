@@ -24,6 +24,19 @@
 	--color-muted: #4b4b4b;
 	--color-muted-light: #afafaf;
 
+	/* ── Bottom Nav Light Mode ── */
+	--nav-bg-green: rgba(209, 242, 225, 0.8);
+	--nav-text-green: #064e3b;
+	
+	--nav-bg-blue: rgba(212, 232, 252, 0.8);
+	--nav-text-blue: #1e3a8a;
+	
+	--nav-bg-yellow: rgba(254, 240, 199, 0.8);
+	--nav-text-yellow: #713f12;
+	
+	--nav-bg-default: rgba(226, 226, 226, 0.8);
+	--nav-text-default: #171717;
+
 	/* ── Dark mode ── */
 	--color-background-dark: #000000;
 	--color-surface-dark: #121212;
@@ -119,6 +132,20 @@ html[data-theme='dark'] body {
 	--color-brand-light: #333333;
 	--color-accent: #1e1e1e;
 	--color-accent-light: #242424;
+
+	/* ── Bottom Nav Dark Mode Alternate Color Scheme ── */
+	/* Subtle glowing background with pastel text for high contrast & premium look */
+	--nav-bg-green: rgba(209, 242, 225, 0.15); 
+	--nav-text-green: #d1f2e1;
+
+	--nav-bg-blue: rgba(212, 232, 252, 0.15);
+	--nav-text-blue: #d4e8fc;
+
+	--nav-bg-yellow: rgba(254, 240, 199, 0.15);
+	--nav-text-yellow: #fef0c7;
+
+	--nav-bg-default: rgba(226, 226, 226, 0.15);
+	--nav-text-default: #e2e2e2;
 }
 
 /* ── Arabic text ── */
