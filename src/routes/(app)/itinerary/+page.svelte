@@ -14,6 +14,7 @@
 		CheckCircle,
 		AirplaneTakeoff
 	} from 'phosphor-svelte';
+	import KaabaIcon from '$lib/components/ui/KaabaIcon.svelte';
 
 	const PHASE_ORDER = [
 		'manasik',
@@ -75,7 +76,7 @@
 			case 'ash-shishah':
 				return Buildings;
 			case 'rukun':
-				return Flag;
+				return KaabaIcon;
 			case 'post-hajj':
 				return CheckCircle;
 			case 'departure':
