@@ -24,11 +24,6 @@
 	async function triggerUpdate() {
 		$needRefresh = false;
 		await updateServiceWorker(true);
-
-		// Fallback reload just in case controllerchange doesn't fire from the plugin
-		setTimeout(() => {
-			window.location.reload();
-		}, 1200);
 	}
 
 	async function update() {

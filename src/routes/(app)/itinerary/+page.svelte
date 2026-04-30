@@ -1,9 +1,19 @@
 <script lang="ts">
 	import { itinerary, getEffectiveToday, PHASE_LABELS } from '$lib/data/itinerary';
-	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
+	import Card from '$lib/components/ui/Card.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
-	import { CaretRight } from 'phosphor-svelte';
+	import {
+		CaretRight,
+		MapTrifold,
+		AirplaneLanding,
+		Mosque,
+		MapPin,
+		Buildings,
+		Flag,
+		CheckCircle,
+		AirplaneTakeoff
+	} from 'phosphor-svelte';
 
 	const PHASE_ORDER = [
 		'manasik',
@@ -50,6 +60,31 @@
 		return dN > d0 ? `Hari ${d0}–${dN}` : `Hari ${d0}`;
 	}
 
+	function getPhaseIcon(phase: string) {
+		switch (phase) {
+			case 'manasik':
+				return MapTrifold;
+			case 'arrival':
+				return AirplaneLanding;
+			case 'madinah':
+				return Mosque;
+			case 'madinah-to-makkah':
+				return MapPin;
+			case 'makkah':
+				return Buildings;
+			case 'ash-shishah':
+				return Buildings;
+			case 'rukun':
+				return Flag;
+			case 'post-hajj':
+				return CheckCircle;
+			case 'departure':
+				return AirplaneTakeoff;
+			default:
+				return MapPin;
+		}
+	}
+
 	function scrollToToday() {
 		document.getElementById('today-row')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
@@ -57,15 +92,14 @@
 	let pageContainer: HTMLElement;
 
 	onMount(() => {
-		const cards = pageContainer.querySelectorAll('.gsap-card');
+		const items = pageContainer.querySelectorAll('.gsap-item');
 		gsap.fromTo(
-			cards,
-			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+			items,
+			{ y: 60, opacity: 0, scale: 0.95 },
 			{
 				y: 0,
 				opacity: 1,
 				scale: 1,
-				rotation: 0,
 				duration: 0.8,
 				stagger: 0.05,
 				ease: 'back.out(1.2)'
@@ -111,7 +145,7 @@
 
 	<!-- Header -->
 	<div
-		class="gsap-card sticky top-0 z-10 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
+		class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
 	>
 		<div>
 			<h1 class="text-xl font-semibold">Jadwal Perjalanan</h1>
@@ -128,71 +162,107 @@
 	</div>
 
 	<!-- Phase groups -->
-	<div class="space-y-6">
+	<div class="mt-4 space-y-10">
 		{#each groups as group}
-			<div class="gsap-card">
-				<div class="mb-2 flex items-center gap-3">
-					<PhaseRibbon phase={group.phase} label={PHASE_LABELS[group.phase] ?? group.phase} />
-					<span class="text-xs text-muted">{phaseDayRange(group)}</span>
+			{@const PhaseIcon = getPhaseIcon(group.phase)}
+			<div class="relative">
+				<!-- Sticky Phase Header -->
+				<div
+					class="gsap-item sticky top-[68px] z-20 mb-4 flex items-center gap-3 bg-background/95 py-2 backdrop-blur-md"
+				>
+					<div
+						class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<PhaseIcon size={20} weight="fill" />
+					</div>
+					<div>
+						<h2 class="text-base font-bold text-foreground">
+							{PHASE_LABELS[group.phase] ?? group.phase}
+						</h2>
+						<p class="text-xs font-medium text-muted">{phaseDayRange(group)}</p>
+					</div>
 				</div>
 
-				<!-- Day rows -->
-				<div class="overflow-hidden rounded-xl border border-border">
-					{#each group.days as day, i}
+				<!-- Days List -->
+				<div class="space-y-3">
+					{#each group.days as day}
 						{@const isToday = day.dayNumber === todayDayNumber}
 						{@const isPast = today > day.gregorianDate}
-						<a
+						<Card
+							pressable
 							href="/itinerary/{day.dayNumber}"
-							id={isToday ? 'today-row' : undefined}
-							class="flex items-center gap-3 px-4 py-3 transition-colors duration-100
-								{i > 0 ? 'border-t border-border' : ''}
-								{isToday ? 'bg-(--color-brand)/8' : isPast ? 'bg-surface/40' : 'bg-surface'}
-								active:bg-(--color-brand)/10"
+							class="gsap-item group relative overflow-hidden"
 						>
-							<!-- Day number badge -->
-							<div
-								class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-bold
-								{isToday
-									? 'bg-(--color-brand) text-background'
-									: isPast
-										? 'bg-border text-muted'
-										: 'bg-border/60 text-foreground'}"
-							>
-								{dayBadge(day)}
-							</div>
+							<!-- Highlight bar for today -->
+							{#if isToday}
+								<div class="absolute inset-y-0 left-0 w-1.5 bg-(--color-brand)"></div>
+							{/if}
 
-							<!-- Content -->
-							<div class="min-w-0 flex-1">
-								<div class="flex items-baseline gap-2">
-									<p
-										class="truncate text-sm leading-tight font-medium
-										{isPast && !isToday ? 'text-muted' : 'text-foreground'}"
+							<div
+								id={isToday ? 'today-row' : undefined}
+								class="flex w-full items-center justify-between {isToday ? 'pl-2' : ''}"
+							>
+								<div class="flex flex-1 items-center gap-4 text-left">
+									<!-- Custom day badge -->
+									<div
+										class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-brand) group-hover:text-surface
+										{isToday
+											? 'bg-(--color-brand) text-surface'
+											: isPast
+												? 'bg-muted/10 text-muted'
+												: 'bg-(--color-brand)/10 text-(--color-brand)'}"
 									>
-										{day.phase === 'manasik' ? day.routeLabel : day.location}
-									</p>
-									{#if day.ritualGuideId}
+										{#if day.phase === 'manasik'}
+											<span class="text-xs leading-none font-bold uppercase">H-{dayBadge(day)}</span
+											>
+										{:else}
+											<span class="text-[10px] leading-none font-medium uppercase opacity-80"
+												>Hari</span
+											>
+											<span class="text-lg leading-none font-bold">{dayBadge(day)}</span>
+										{/if}
+									</div>
+
+									<div class="flex-1">
+										<div class="flex items-center gap-2">
+											<p
+												class="font-bold transition-colors duration-300 group-hover:text-(--color-brand) {isPast &&
+												!isToday
+													? 'text-muted'
+													: 'text-foreground'}"
+											>
+												{day.phase === 'manasik' ? day.routeLabel : day.location}
+											</p>
+											{#if day.ritualGuideId}
+												<span
+													class="shrink-0 rounded bg-(--color-brand)/10 px-1.5 py-0.5 text-[9px] font-bold tracking-wide text-(--color-brand) uppercase"
+													>Ritual</span
+												>
+											{/if}
+										</div>
+										<p class="mt-0.5 text-xs text-muted">
+											{formatGregorian(day.gregorianDate)} · {day.hijriDate}
+										</p>
+									</div>
+								</div>
+
+								<div class="ml-4 flex shrink-0 flex-col items-end gap-1">
+									{#if isToday}
 										<span
-											class="shrink-0 text-[10px] font-semibold tracking-wide text-(--color-brand) uppercase"
-											>Ritual</span
+											class="rounded-full bg-(--color-brand) px-2 py-0.5 text-[10px] font-bold tracking-wide text-surface uppercase shadow-sm"
+											>Hari ini</span
 										>
+									{:else}
+										<CaretRight
+											size={20}
+											weight="bold"
+											class="text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
+											aria-hidden="true"
+										/>
 									{/if}
 								</div>
-								<p class="mt-0.5 truncate text-xs text-muted">
-									{formatGregorian(day.gregorianDate)} · {day.hijriDate}
-								</p>
 							</div>
-
-							<!-- Today indicator / chevron -->
-							<div class="shrink-0">
-								{#if isToday}
-									<span class="text-[10px] font-bold tracking-wide text-(--color-brand) uppercase"
-										>Hari ini</span
-									>
-								{:else}
-									<CaretRight size={16} weight="bold" class="text-border" aria-hidden="true" />
-								{/if}
-							</div>
-						</a>
+						</Card>
 					{/each}
 				</div>
 			</div>
@@ -200,7 +270,7 @@
 	</div>
 
 	<!-- Footer note -->
-	<p class="gsap-card mt-6 text-center text-xs text-muted">
+	<p class="gsap-item mt-8 text-center text-xs text-muted">
 		Program dapat berubah sesuai kondisi lapangan.<br />
 		Hotel: Grand Plaza Badr (Madinah) · Marriott Jabal Omar (Makkah)
 	</p>
