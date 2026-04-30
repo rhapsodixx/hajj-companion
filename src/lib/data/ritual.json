@@ -21,11 +21,23 @@
 				"note": "Setelah niat, perbanyak talbiyah sepanjang perjalanan ke Makkah."
 			},
 			{
+				"title": "Doa Setelah Berihram",
+				"instruction": "Setelah mengenakan pakaian ihram dan berniat ihram, disunnahkan membaca doa:",
+				"arabic": "اللَّهُمَّ حَرَّمْتُ شَعْرِي وَبَشَرِي وَجَسَدِي وَجَمِيعَ جَوَارِحِي مِنْ كُلِّ شَيْءٍ حَرَّمْتَهُ عَلَى الْمُحْرِمِ",
+				"arabicSource": "dua-setelah-berihram"
+			},
+			{
 				"title": "Perbanyak Talbiyah",
 				"instruction": "Selama dalam ihram, terus ulangi talbiyah hingga melihat Ka'bah:",
 				"arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيكَ لَكَ",
 				"arabicSource": "talbiyah",
 				"note": "Laki-laki disunnahkan mengeraskan suara, wanita cukup terdengar oleh diri sendiri."
+			},
+			{
+				"title": "Memasuki Kota Makkah",
+				"instruction": "Disunnahkan mandi sebelum masuk Makkah jika memungkinkan. Saat melihat kota Makkah atau masuk batas haram, disunnahkan membaca doa:",
+				"arabic": "اللَّهُمَّ هَذَا حَرَمُكَ وَأَمْنُكَ فَحَرِّمْ لَحْمِي وَدَمِي عَلَى النَّارِ وَأَمِنِّي مِنْ عَذَابِكَ يَوْمَ تَبْعَثُ عِبَادَكَ وَاجْعَلْنِي مِنْ أَوْلِيَائِكَ وَأَهْلِ طَاعَتِكَ",
+				"arabicSource": "dua-masuk-makkah"
 			},
 			{
 				"title": "Tawaf 7 Putaran",
@@ -35,11 +47,15 @@
 			},
 			{
 				"title": "Shalat 2 Rakaat di Belakang Maqam Ibrahim",
-				"instruction": "Setelah tawaf selesai, shalat 2 rakaat di belakang Maqam Ibrahim. Al Fatihah + Al Kafirun (rakaat 1), Al Fatihah + Al Ikhlas (rakaat 2)."
+				"instruction": "Setelah tawaf selesai, shalat 2 rakaat di belakang Maqam Ibrahim. Al Fatihah + Al Kafirun (rakaat 1), Al Fatihah + Al Ikhlas (rakaat 2). Setelah shalat membaca doa:",
+				"arabic": "اللَّهُمَّ إِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ، قَائِمٌ تَحْتَ بَابِكَ، مُلْتَزِمٌ بِأَعْتَابِكَ، أَرْجُو رَحْمَتَكَ وَأَخْشَى عَذَابَكَ، يَا ذَا الْإِحْسَانِ الْقَدِيمِ",
+				"arabicSource": "dua-maqam-ibrahim"
 			},
 			{
 				"title": "Minum Air Zamzam",
-				"instruction": "Minum air zamzam secukupnya. Baca doa minum zamzam jika hafal."
+				"instruction": "Minum air zamzam secukupnya. Baca doa minum zamzam:",
+				"arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا وَاسِعًا وَشِفَاءً مِنْ كُلِّ دَاءٍ",
+				"arabicSource": "dua-minum-zamzam"
 			},
 			{
 				"title": "Sa'i Safa — Marwah (7 Kali)",
@@ -48,12 +64,25 @@
 			},
 			{
 				"title": "Tahallul",
-				"instruction": "Setelah sa'i selesai: pria cukur rambut (halq — lebih utama) atau potong pendek (taqsir). Wanita potong ujung rambut sejengkal.",
+				"instruction": "Setelah sa'i selesai: pria cukur rambut (halq — lebih utama) atau potong pendek (taqsir). Wanita potong ujung rambut sejengkal. Sambil membaca doa:",
+				"arabic": "اللَّهُمَّ هَذِهِ نَاصِيَتِي بِيَدِكَ، فَاجْعَلْ لِي بِكُلِّ شَعْرَةٍ نُورًا يَوْمَ الْقِيَامَةِ، وَامْحُ عَنِّي بِهَا سَيِّئَةً، وَارْفَعْ لِي بِهَا دَرَجَةً",
+				"arabicSource": "dua-bercukur",
 				"note": "Setelah tahallul, semua larangan ihram terlepas. Umrah selesai."
 			}
 		],
 		"closingNote": "Alhamdulillah, ibadah Umrah telah selesai. Segala larangan ihram sudah terlepas. Istirahat dan persiapkan diri untuk ibadah haji.",
-		"duaIds": ["niat-umrah", "talbiyah", "dua-melihat-kabah", "dua-tawaf", "dua-safa-marwah"],
+		"duaIds": [
+			"niat-umrah",
+			"dua-setelah-berihram",
+			"talbiyah",
+			"dua-masuk-makkah",
+			"dua-melihat-kabah",
+			"dua-tawaf",
+			"dua-maqam-ibrahim",
+			"dua-minum-zamzam",
+			"dua-safa-marwah",
+			"dua-bercukur"
+		],
 		"dayNumbers": [7]
 	},
 	{
@@ -79,7 +108,7 @@
 				"instruction": "Setelah bus berangkat dari Ash Shishah (sekitar pukul 23:59), niat Haji dalam hati:",
 				"arabic": "لَبَّيْكَ اللَّهُمَّ حَجًّا",
 				"arabicSource": "niat-haji",
-				"note": "Perbanyak talbiyah sepanjang perjalanan menuju Arafah."
+				"note": "Bagi yang khawatir terhalang (sakit/haid), dianjurkan niat haji isytirat. Perbanyak talbiyah sepanjang perjalanan menuju Arafah."
 			},
 			{
 				"title": "Tiba di Tenda Arafah — Sholat Subuh",
@@ -102,7 +131,14 @@
 			}
 		],
 		"closingNote": "Alhamdulillah, wukuf selesai. Ini adalah hari paling agung. Semoga Allah menerima seluruh ibadah jamaah.",
-		"duaIds": ["niat-haji", "talbiyah", "dua-wukuf-arafah", "dua-arafah", "dua-muzdalifah"],
+		"duaIds": [
+			"niat-haji",
+			"niat-haji-isytirat",
+			"talbiyah",
+			"dua-wukuf-arafah",
+			"dua-arafah",
+			"dua-muzdalifah"
+		],
 		"dayNumbers": [15, 16]
 	},
 	{
@@ -129,7 +165,9 @@
 			},
 			{
 				"title": "Tahallul Awal",
-				"instruction": "Setelah Sa'i, tahallul: pria cukur/gunting rambut, wanita potong ujung rambut sejengkal.",
+				"instruction": "Setelah Sa'i, tahallul: pria cukur/gunting rambut, wanita potong ujung rambut sejengkal. Sambil membaca doa:",
+				"arabic": "اللَّهُمَّ هَذِهِ نَاصِيَتِي بِيَدِكَ، فَاجْعَلْ لِي بِكُلِّ شَعْرَةٍ نُورًا يَوْمَ الْقِيَامَةِ، وَامْحُ عَنِّي بِهَا سَيِّئَةً، وَارْفَعْ لِي بِهَا دَرَجَةً",
+				"arabicSource": "dua-bercukur",
 				"note": "Tahallul Awal mengangkat sebagian larangan ihram — boleh ganti baju biasa, tapi hubungan suami-istri belum halal."
 			},
 			{
@@ -149,7 +187,7 @@
 			}
 		],
 		"closingNote": "Alhamdulillah — hari terberat sudah lewat. Semua larangan ihram terlepas. Besok dan lusa tinggal lontar 3 jumrah.",
-		"duaIds": ["dua-tawaf", "dua-safa-marwah", "dua-lontar-jumrah"],
+		"duaIds": ["dua-tawaf", "dua-safa-marwah", "dua-bercukur", "dua-lontar-jumrah"],
 		"dayNumbers": [17]
 	},
 	{
@@ -227,7 +265,9 @@
 			},
 			{
 				"title": "Shalat 2 Rakaat + Minum Zamzam",
-				"instruction": "Shalat di belakang Maqam Ibrahim. Minum zamzam terakhir kali."
+				"instruction": "Shalat di belakang Maqam Ibrahim. Minum zamzam terakhir kali sambil membaca doa:",
+				"arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا وَاسِعًا وَشِفَاءً مِنْ كُلِّ دَاءٍ",
+				"arabicSource": "dua-minum-zamzam"
 			},
 			{
 				"title": "Pandangan Terakhir ke Ka'bah",
@@ -242,7 +282,7 @@
 			}
 		],
 		"closingNote": "Semoga Allah menerima ibadah haji jamaah sebagai haji yang mabrur. Semoga kita dikembalikan ke Baitullah. Amin.",
-		"duaIds": ["dua-thawaf-wada", "dua-tawaf", "dua-safar"],
+		"duaIds": ["dua-thawaf-wada", "dua-tawaf", "dua-minum-zamzam", "dua-safar"],
 		"dayNumbers": [25]
 	}
 ]
