@@ -36,3 +36,23 @@ export const PHASE_LABELS: Record<string, string> = {
 	'post-hajj': 'Setelah Haji',
 	departure: 'Kepulangan'
 };
+
+export function getTransportType(activity: {
+	title?: string;
+	description?: string;
+}): 'plane' | 'train' | 'bus' | null {
+	const text = `${activity.title || ''} ${activity.description || ''}`.toLowerCase();
+	if (text.match(/\b(pesawat|penerbangan|bandara|airport|flight|terbang|take-off|landing)\b/))
+		return 'plane';
+	if (text.match(/\b(kereta|train|stasiun|haramain)\b/)) return 'train';
+	if (text.match(/\b(bus|bis)\b/)) return 'bus';
+	return null;
+}
+
+export function stripMovementKeywords(text: string | undefined): string {
+	if (!text) return '';
+	return text
+		.replace(/\b(berangkat|perjalanan|menuju|transfer)\b/gi, '')
+		.replace(/^[\s,:-]+|[\s,:-]+$/g, '')
+		.trim();
+}
