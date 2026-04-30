@@ -27,7 +27,7 @@
 		: 0;
 
 	let afterMaghrib = $derived.by(() => {
-		nowTick;
+		const _ = nowTick;
 		const h = new Date().getHours();
 		return h >= 18 || h < 4;
 	});
@@ -39,7 +39,7 @@
 	});
 
 	let nextActivity = $derived.by(() => {
-		nowTick;
+		const _ = nowTick;
 		if (!todayDay) return null;
 		const now = new Date();
 		const hhmm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
@@ -48,9 +48,10 @@
 	});
 
 	function minutesUntil(timeStr: string): number {
-		nowTick;
+		const _ = nowTick;
 		const [hh, mm] = timeStr.split(':').map(Number);
 		const now = new Date();
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
 		const target = new Date(now);
 		target.setHours(hh, mm, 0, 0);
 		if (target <= now) target.setDate(target.getDate() + 1);
