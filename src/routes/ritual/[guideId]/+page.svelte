@@ -64,9 +64,10 @@
 		else prevStep();
 	}
 
-	let pageContainer: HTMLElement;
+	let pageContainer: HTMLElement | undefined = $state();
 
 	onMount(() => {
+		if (!pageContainer) return;
 		const cards = pageContainer.querySelectorAll('.gsap-card');
 		gsap.fromTo(
 			cards,
