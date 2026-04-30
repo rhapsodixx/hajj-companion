@@ -217,7 +217,7 @@
 		</div>
 	{:else if query}
 		<!-- Flat list when searching -->
-		<div class="gsap-card space-y-2">
+		<div class="gsap-card space-y-4">
 			{#each filteredFlat as dua (dua.id)}
 				<DuaCard
 					{dua}
@@ -230,20 +230,20 @@
 		</div>
 	{:else if selectedCategory}
 		<!-- Single category (no group header needed) -->
-		<div class="gsap-card space-y-2">
+		<div class="gsap-card space-y-4">
 			{#each filteredFlat as dua (dua.id)}
 				<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
 			{/each}
 		</div>
 	{:else}
 		<!-- Default grouped view -->
-		<div class="space-y-6">
+		<div class="space-y-8">
 			{#each groups as group (group.category)}
 				<div class="gsap-card">
-					<p class="mb-2 text-[10px] font-bold tracking-widest text-muted uppercase">
+					<p class="mb-3 pl-1 text-xs font-bold tracking-widest text-muted/80 uppercase">
 						{CATEGORY_LABELS[group.category]}
 					</p>
-					<div class="space-y-2">
+					<div class="space-y-4">
 						{#each group.duas as dua (dua.id)}
 							<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
 						{/each}

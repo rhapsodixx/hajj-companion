@@ -27,13 +27,13 @@
 	/* ── Bottom Nav Light Mode ── */
 	--nav-bg-green: rgba(209, 242, 225, 0.8);
 	--nav-text-green: #064e3b;
-	
+
 	--nav-bg-blue: rgba(212, 232, 252, 0.8);
 	--nav-text-blue: #1e3a8a;
-	
+
 	--nav-bg-yellow: rgba(254, 240, 199, 0.8);
 	--nav-text-yellow: #713f12;
-	
+
 	--nav-bg-default: rgba(226, 226, 226, 0.8);
 	--nav-text-default: #171717;
 
@@ -135,7 +135,7 @@ html[data-theme='dark'] body {
 
 	/* ── Bottom Nav Dark Mode Alternate Color Scheme ── */
 	/* Subtle glowing background with pastel text for high contrast & premium look */
-	--nav-bg-green: rgba(209, 242, 225, 0.15); 
+	--nav-bg-green: rgba(209, 242, 225, 0.15);
 	--nav-text-green: #d1f2e1;
 
 	--nav-bg-blue: rgba(212, 232, 252, 0.15);

@@ -38,6 +38,7 @@ Additional context files:
 - All inline SVG icons must use `stroke-width="1.5"` — no other weights.
 - Use `bg-surface` instead of `bg-white` for dark-mode compatibility.
 - Every page root container should include the `page-enter` class for entrance animation.
+- Use GSAP for complex state transitions, expand/collapse behaviors, and staggered item entrances to create a tactile, "pro-max" feel.
 - Global `focus-visible` outlines are in `layout.css` — do not add per-component focus styles.
 
 ## File References
