@@ -18,7 +18,10 @@
 		CloudSun,
 		HandsPraying,
 		Note,
-		CheckCircle
+		CheckCircle,
+		Bus,
+		AirplaneTilt,
+		Train
 	} from 'phosphor-svelte';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -59,6 +62,14 @@
 
 	function navLabel(d: (typeof itinerary)[0]): string {
 		return d.phase === 'manasik' ? d.routeLabel : `Hari ${d.dayNumber}`;
+	}
+
+	function getTransportType(activity: { title?: string; description?: string }) {
+		const text = `${activity.title || ''} ${activity.description || ''}`.toLowerCase();
+		if (text.match(/\b(pesawat|penerbangan|bandara|airport|flight|terbang|take-off|landing)\b/)) return 'plane';
+		if (text.match(/\b(kereta|train|stasiun|haramain)\b/)) return 'train';
+		if (text.match(/\b(bus|bis)\b/)) return 'bus';
+		return null;
 	}
 
 	let pageContainer: HTMLElement | undefined = $state();
@@ -347,6 +358,7 @@
 					<div class="overflow-hidden rounded-xl border border-border">
 						{#each day.activities as activity, i}
 							{@const isActive = activeIndices.includes(i)}
+							{@const transportType = getTransportType(activity)}
 							<div
 								class="gsap-list-item relative flex gap-3 px-4 py-3 {i > 0
 									? 'border-t border-border'
@@ -378,6 +390,19 @@
 										>
 											{activity.title}
 										</p>
+										{#if transportType}
+											<span
+												class="mt-0.5 shrink-0 inline-flex items-center justify-center rounded bg-(--color-brand)/10 p-1 text-(--color-brand)"
+											>
+												{#if transportType === 'plane'}
+													<AirplaneTilt size={12} weight="bold" aria-hidden="true" />
+												{:else if transportType === 'train'}
+													<Train size={12} weight="bold" aria-hidden="true" />
+												{:else}
+													<Bus size={12} weight="bold" aria-hidden="true" />
+												{/if}
+											</span>
+										{/if}
 										{#if activity.conditional}
 											<span
 												class="mt-0.5 shrink-0 rounded border {isActive
