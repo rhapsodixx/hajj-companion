@@ -62,7 +62,7 @@
 	/* ── Spacing ── */
 	--spacing-safe-top: env(safe-area-inset-top, 0px);
 	--spacing-safe-bottom: env(safe-area-inset-bottom, 0px);
-	--spacing-nav-height: 64px;
+	--spacing-nav-height: 112px; /* 64px nav height + 24px bottom-6 + 24px padding */
 
 	/* ── Radius ── */
 	--radius-pill: 999px;
