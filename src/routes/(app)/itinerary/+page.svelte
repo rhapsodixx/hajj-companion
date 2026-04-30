@@ -54,7 +54,7 @@
 
 <svelte:head><title>Jadwal — Patuna Coklat-B</title></svelte:head>
 
-<div class="page-enter pt-safe mx-auto max-w-120 px-4 pb-4">
+<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<!-- Header -->
 	<div class="sticky top-0 z-10 flex items-center justify-between bg-background pt-4 pb-3">
 		<div>
@@ -97,7 +97,7 @@
 							<div
 								class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-bold
 								{isToday
-									? 'bg-(--color-brand) text-white'
+									? 'bg-(--color-brand) text-background'
 									: isPast
 										? 'bg-border text-muted'
 										: 'bg-border/60 text-foreground'}"

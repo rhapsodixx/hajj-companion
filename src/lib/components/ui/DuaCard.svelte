@@ -15,9 +15,13 @@
 </script>
 
 <Card>
-	<button class="w-full text-left" onclick={onToggle} aria-expanded={expanded}>
+	<button
+		class="tap-target min-h-[44px] w-full text-left"
+		onclick={onToggle}
+		aria-expanded={expanded}
+	>
 		<div class="flex items-center justify-between gap-3">
-			<p class="text-sm font-semibold text-(--color-brand)">{dua.title}</p>
+			<p class="text-sm font-semibold text-foreground">{dua.title}</p>
 			<svg
 				width="16"
 				height="16"

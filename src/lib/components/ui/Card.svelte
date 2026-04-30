@@ -15,7 +15,7 @@
 </script>
 
 {#if href}
-	<a {href} class="{base} {press} block text-foreground no-underline {className}">
+	<a {href} class="{base} {press} tap-target block text-foreground no-underline {className}">
 		{@render children()}
 	</a>
 {:else}

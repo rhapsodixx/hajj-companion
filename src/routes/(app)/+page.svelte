@@ -71,16 +71,14 @@
 	}
 </script>
 
-<svelte:head><title>Patuna Coklat-B — Hajj Companion</title></svelte:head>
+<svelte:head><title>quwa</title></svelte:head>
 
-<main class="pt-safe mx-auto max-w-120 space-y-5 px-4 py-6">
+<main class="mx-auto max-w-120 space-y-6 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<!-- ── Header ── -->
 	<header class="flex items-center justify-between">
-		<div>
-			<p class="text-xs font-semibold tracking-widest text-(--color-brand) uppercase">
-				Patuna Coklat-B
-			</p>
-			<h1 class="text-lg font-semibold text-foreground">Hajj Companion</h1>
+		<div class="flex items-center gap-3">
+			<img src="/logo.png" alt="quwa logo" class="h-8 w-8 object-contain" />
+			<h1 class="text-xl font-bold tracking-tight text-foreground">quwa</h1>
 		</div>
 		{#if todayDay}
 			<PhaseRibbon phase={todayDay.phase} label={PHASE_LABELS[todayDay.phase] ?? todayDay.phase} />
@@ -93,13 +91,13 @@
 	{#if beforeTrip}
 		<HeroCard phase="arrival">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Keberangkatan</p>
+				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Keberangkatan</p>
 			{/snippet}
-			<p class="text-2xl font-semibold text-foreground">
+			<p class="text-2xl font-semibold">
 				{daysUntilTrip} hari lagi
 			</p>
-			<p class="mt-1 text-sm text-muted">Menuju Jakarta → Jeddah</p>
-			<p class="mt-3 text-xs text-muted">Senin, 11 Mei 2026 · Bandara T3 pukul 20:40</p>
+			<p class="mt-1 text-sm opacity-80">Menuju Jakarta → Jeddah</p>
+			<p class="mt-3 text-xs opacity-80">Senin, 11 Mei 2026 · Bandara T3 pukul 20:40</p>
 		</HeroCard>
 
 		<Card>
@@ -125,14 +123,14 @@
 	{:else if todayDay && afterMaghrib && nextDay}
 		<HeroCard phase={nextDay.phase}>
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Persiapan Besok</p>
+				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Persiapan Besok</p>
 			{/snippet}
-			<p class="text-xl font-semibold text-foreground">
+			<p class="text-xl font-semibold">
 				{nextDay.phase === 'manasik'
 					? nextDay.routeLabel
 					: `Hari ${nextDay.dayNumber} — ${nextDay.routeLabel}`}
 			</p>
-			<p class="mt-1 text-sm text-muted">{nextDay.gregorianDate} · {nextDay.hijriDate}</p>
+			<p class="mt-1 text-sm opacity-80">{nextDay.gregorianDate} · {nextDay.hijriDate}</p>
 		</HeroCard>
 
 		<!-- Tomorrow's key info -->
@@ -199,14 +197,14 @@
 		<!-- NOW card -->
 		<HeroCard phase={todayDay.phase}>
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-muted uppercase">
+				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
 					{todayDay.phase === 'manasik'
 						? todayDay.routeLabel
 						: `Hari ${todayDay.dayNumber} · ${todayDay.hijriDate}`}
 				</p>
 			{/snippet}
-			<p class="text-xl font-semibold text-foreground">{todayDay.routeLabel}</p>
-			<p class="mt-1 text-sm text-muted">
+			<p class="text-xl font-semibold">{todayDay.routeLabel}</p>
+			<p class="mt-1 text-sm opacity-80">
 				{todayDay.location} · {formatGregorian(todayDay.gregorianDate)}
 			</p>
 		</HeroCard>
@@ -317,10 +315,10 @@
 	{:else if afterTrip}
 		<HeroCard phase="departure">
 			{#snippet label()}
-				<p class="text-xs font-semibold tracking-widest text-muted uppercase">Alhamdulillah</p>
+				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Alhamdulillah</p>
 			{/snippet}
-			<p class="text-2xl font-semibold text-foreground">Haji Selesai</p>
-			<p class="mt-2 text-sm text-muted">Semoga menjadi haji yang mabrur. Amin.</p>
+			<p class="text-2xl font-semibold">Haji Selesai</p>
+			<p class="mt-2 text-sm opacity-80">Semoga menjadi haji yang mabrur. Amin.</p>
 		</HeroCard>
 
 		<Card>

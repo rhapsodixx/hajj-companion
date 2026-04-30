@@ -59,8 +59,8 @@
 {#if day}
 	<div class="page-enter mx-auto max-w-120">
 		<!-- Back nav -->
-		<div class="pt-safe px-4 pt-4 pb-2">
-			<a href="/itinerary" class="inline-flex items-center gap-1 text-sm text-muted">
+		<div class="px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-2">
+			<a href="/itinerary" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<svg
 					width="16"
 					height="16"
@@ -81,21 +81,23 @@
 			<HeroCard phase={day.phase}>
 				{#snippet label()}
 					<div class="flex items-center gap-2">
-						<PhaseRibbon phase={day.phase} label={PHASE_LABELS[day.phase] ?? day.phase} />
+						<p class="text-xs font-semibold tracking-widest uppercase opacity-80">
+							{PHASE_LABELS[day.phase] ?? day.phase}
+						</p>
 						{#if isToday}
 							<span
-								class="rounded-full bg-(--color-accent) px-2 py-0.5 text-[10px] font-bold tracking-wide text-(--color-brand) uppercase"
+								class="rounded-full bg-surface px-2 py-0.5 text-[10px] font-bold tracking-wide text-foreground uppercase"
 								>Hari ini</span
 							>
 						{/if}
 					</div>
 				{/snippet}
 
-				<h1 class="mt-2 text-2xl leading-tight font-semibold text-foreground">
+				<h1 class="mt-2 text-2xl leading-tight font-semibold">
 					{dayTitle(day)}
 				</h1>
-				<p class="mt-1.5 text-sm text-muted">{formatGregorian(day.gregorianDate)}</p>
-				<p class="mt-0.5 text-sm text-muted">{day.hijriDate}</p>
+				<p class="mt-1.5 text-sm opacity-80">{formatGregorian(day.gregorianDate)}</p>
+				<p class="mt-0.5 text-sm opacity-80">{day.hijriDate}</p>
 			</HeroCard>
 		</div>
 
@@ -106,7 +108,7 @@
 				<Card pressable href="/ritual/{day.ritualGuideId}">
 					<div class="flex items-center justify-between gap-3">
 						<div>
-							<p class="text-[10px] font-bold tracking-widest text-(--color-brand) uppercase">
+							<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 								Panduan Ibadah
 							</p>
 							<p class="mt-0.5 font-medium text-foreground">Buka panduan langkah demi langkah</p>
@@ -165,7 +167,7 @@
 
 			<!-- What to do -->
 			<Card>
-				<p class="mb-2 text-[10px] font-bold tracking-widest text-muted uppercase">
+				<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
 					Aktivitas hari ini
 				</p>
 				<p class="text-sm leading-relaxed text-foreground">{day.whatToDo}</p>
@@ -205,7 +207,7 @@
 			<!-- Timeline -->
 			{#if day.activities.length > 0}
 				<div>
-					<p class="mb-2 px-1 text-[10px] font-bold tracking-widest text-muted uppercase">Jadwal</p>
+					<p class="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">Jadwal</p>
 					<div class="overflow-hidden rounded-xl border border-border">
 						{#each day.activities as activity, i}
 							<div class="flex gap-3 px-4 py-3 {i > 0 ? 'border-t border-border' : ''} bg-surface">
@@ -246,7 +248,7 @@
 			<!-- Dress code -->
 			{#if day.dressCode}
 				<Card>
-					<p class="mb-2 text-[10px] font-bold tracking-widest text-muted uppercase">Pakaian</p>
+					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Pakaian</p>
 					<div class="space-y-1.5 text-sm">
 						<div class="flex gap-2">
 							<span class="w-12 shrink-0 text-muted">Pria</span>
@@ -263,7 +265,7 @@
 			<!-- Koper note -->
 			{#if day.koperNote}
 				<Card>
-					<p class="mb-1 text-[10px] font-bold tracking-widest text-(--color-brand) uppercase">
+					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 						Info Koper
 					</p>
 					<p class="text-sm text-foreground">{day.koperNote}</p>
@@ -273,7 +275,7 @@
 			<!-- What to bring -->
 			{#if day.whatToBring.length > 0}
 				<Card>
-					<p class="mb-2 text-[10px] font-bold tracking-widest text-muted uppercase">
+					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
 						Yang perlu dibawa
 					</p>
 					<ul class="space-y-1.5">
@@ -290,7 +292,7 @@
 			<!-- Tips -->
 			{#if day.tips.length > 0}
 				<Card>
-					<p class="mb-2 text-[10px] font-bold tracking-widest text-muted uppercase">Tips</p>
+					<p class="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Tips</p>
 					<ul class="space-y-2">
 						{#each day.tips as tip}
 							<li class="flex gap-2 text-sm text-foreground">
@@ -307,7 +309,7 @@
 				<Card>
 					<div class="flex items-start justify-between gap-3">
 						<div class="min-w-0 flex-1">
-							<p class="mb-1 text-[10px] font-bold tracking-widest text-muted uppercase">
+							<p class="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
 								Info Cuaca · {climate.city}
 							</p>
 							<p class="text-sm leading-relaxed text-foreground">{climate.advice}</p>
@@ -323,7 +325,7 @@
 			<!-- Du'a of the day -->
 			{#if duas.length > 0}
 				<div>
-					<p class="mb-2 px-1 text-[10px] font-bold tracking-widest text-muted uppercase">
+					<p class="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">
 						Doa Hari Ini
 					</p>
 					<div class="space-y-3">
@@ -343,7 +345,7 @@
 			<!-- Patuna note -->
 			{#if day.patunaNote}
 				<Card>
-					<p class="mb-1 text-[10px] font-bold tracking-widest text-(--color-brand) uppercase">
+					<p class="mb-1 text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
 						Catatan Patuna
 					</p>
 					<p class="text-sm leading-relaxed text-foreground">{day.patunaNote}</p>
@@ -380,7 +382,7 @@
 		</div>
 	</div>
 {:else}
-	<div class="pt-safe mx-auto max-w-120 px-4 py-12 text-center">
+	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-12 text-center">
 		<p class="text-muted">Hari tidak ditemukan.</p>
 		<Button href="/itinerary" variant="ghost" size="md" class="mt-4">← Kembali ke Jadwal</Button>
 	</div>

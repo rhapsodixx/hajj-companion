@@ -66,7 +66,7 @@
 		{#if phoneHref}
 			<a
 				href={phoneHref}
-				class="tap-target flex w-full items-center justify-center gap-2 rounded-pill bg-foreground px-6 py-4 text-base font-semibold text-white transition-transform duration-100 ease-out active:scale-[0.98]"
+				class="tap-target flex w-full items-center justify-center gap-2 rounded-pill bg-foreground px-6 py-4 text-base font-semibold text-surface transition-transform duration-100 ease-out active:scale-[0.98]"
 				aria-label="Telepon {hotel.name}"
 			>
 				<svg

@@ -2,13 +2,13 @@
 	import type { Snippet } from 'svelte';
 
 	interface Props {
-		_phase?: string;
+		phase?: string;
 		children: Snippet;
 		label?: Snippet;
 		class?: string;
 	}
 
-	let { _phase, children, label, class: className = '' }: Props = $props();
+	let { phase: _phase, children, label, class: className = '' }: Props = $props();
 </script>
 
 <div

@@ -4,7 +4,7 @@
 
 <svelte:head><title>Lainnya — Patuna Coklat-B</title></svelte:head>
 
-<div class="page-enter mx-auto max-w-120 px-4 py-6">
+<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<h1 class="text-xl font-semibold">Lainnya</h1>
 
 	<div class="mt-6 space-y-2">

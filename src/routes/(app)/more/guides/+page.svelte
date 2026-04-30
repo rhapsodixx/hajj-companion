@@ -55,10 +55,10 @@
 
 <svelte:head><title>Panduan PDF — Patuna Coklat-B</title></svelte:head>
 
-<div class="pt-safe mx-auto max-w-120 px-4 pb-6">
+<div class="page-enter mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8">
 	<!-- Header -->
 	<div class="pt-4 pb-3">
-		<a href="/more" class="inline-flex items-center gap-1 text-sm text-muted">
+		<a href="/more" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 			<svg
 				width="16"
 				height="16"
