@@ -123,30 +123,53 @@
 
 	<div class="space-y-2">
 		{#each guides as guide}
-			<Card pressable href={guide.url} class="gsap-card">
-				<div class="flex items-start gap-3">
-					<!-- PDF icon -->
-					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-500/10">
-						{#if guide.icon === 'pdf'}
-							<FilePdf size={20} weight="bold" class="text-red-500" aria-hidden="true" />
-						{:else}
-							<Link size={20} weight="bold" aria-hidden="true" />
-						{/if}
-					</div>
-					<div class="min-w-0 flex-1">
-						<p class="text-sm font-medium text-foreground">{guide.title}</p>
-						<p class="mt-0.5 text-xs text-muted">{guide.description}</p>
-						<div class="mt-1 flex items-center gap-2">
-							<p class="text-xs text-muted">{guide.size}</p>
-							{#if guide.offline}
-								<span
-									class="rounded-full bg-(--color-phase-madinah)/10 px-1.5 py-0.5 text-[10px] text-(--color-phase-madinah)"
-									>Tersedia offline</span
-								>
+			<Card pressable href={guide.url} class="gsap-card group">
+				<div class="flex w-full items-center justify-between">
+					<div class="flex flex-1 items-center gap-4 text-left">
+						<!-- PDF icon -->
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface"
+						>
+							{#if guide.icon === 'pdf'}
+								<FilePdf
+									size={24}
+									weight="regular"
+									class="transition-colors duration-300 group-hover:text-surface"
+									aria-hidden="true"
+								/>
+							{:else}
+								<Link
+									size={24}
+									weight="regular"
+									class="transition-colors duration-300 group-hover:text-surface"
+									aria-hidden="true"
+								/>
 							{/if}
 						</div>
+						<div class="flex-1">
+							<p
+								class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand"
+							>
+								{guide.title}
+							</p>
+							<p class="mt-0.5 text-sm text-muted">{guide.description}</p>
+							<div class="mt-1 flex items-center gap-2">
+								<p class="text-xs font-medium text-muted">{guide.size}</p>
+								{#if guide.offline}
+									<span
+										class="rounded-full bg-(--color-brand)/10 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-(--color-brand) uppercase"
+										>Offline</span
+									>
+								{/if}
+							</div>
+						</div>
 					</div>
-					<CaretRight size={16} weight="bold" class="mt-1 shrink-0 text-muted" aria-hidden="true" />
+					<CaretRight
+						size={20}
+						weight="bold"
+						class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand"
+						aria-hidden="true"
+					/>
 				</div>
 			</Card>
 		{/each}
