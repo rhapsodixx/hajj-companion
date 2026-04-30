@@ -15,11 +15,7 @@
 </script>
 
 <Card>
-	<button
-		class="w-full text-left"
-		onclick={onToggle}
-		aria-expanded={expanded}
-	>
+	<button class="w-full text-left" onclick={onToggle} aria-expanded={expanded}>
 		<div class="flex items-center justify-between gap-3">
 			<p class="text-sm font-semibold text-(--color-brand)">{dua.title}</p>
 			<svg
@@ -31,9 +27,7 @@
 				stroke-width="2.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="shrink-0 text-muted transition-transform duration-200 {expanded
-					? 'rotate-180'
-					: ''}"
+				class="shrink-0 text-muted transition-transform duration-200 {expanded ? 'rotate-180' : ''}"
 				aria-hidden="true"
 			>
 				<polyline points="6 9 12 15 18 9" />
