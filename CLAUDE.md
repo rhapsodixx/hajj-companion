@@ -19,6 +19,7 @@ Offline-first PWA for Indonesian hajj pilgrims (jamaah) on the Patuna Coklat-B H
 | Runtime   | Bun                                                   | `>=1.3.0`                                |
 | Styling   | Tailwind CSS v4 (`@tailwindcss/vite`, no config file) | `tailwindcss@^4.2`                       |
 | Fonts     | Self-hosted via `@fontsource`                         | Inter, Source Serif 4, Noto Naskh Arabic |
+| Motion    | GSAP (GreenSock Animation Platform)                   | `gsap@^3.12`                             |
 | Adapter   | `@sveltejs/adapter-cloudflare`                        | Cloudflare Pages                         |
 | PWA       | `vite-plugin-pwa` with `injectManifest`               | Workbox                                  |
 | Linting   | ESLint + Prettier (see `.prettierrc`)                 |                                          |
@@ -147,6 +148,7 @@ Use `onclick={handler}` (lowercase, no colon). Use `{@render children()}` instea
 - **Max content width:** `max-w-120` (480px / 30rem). Mobile-first, single-column.
 - **Min tap target:** 44×44px. Use `.tap-target` utility class.
 - **Card press effect:** Use `.card-pressable` utility class.
+- **Motion:** Use GSAP for high-quality, tactile component animations (collapsible elements, staggered lists, spring effects). Do not rely solely on CSS transitions for complex state changes.
 
 ### Custom CSS Classes (defined in `layout.css`)
 

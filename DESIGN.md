@@ -1,19 +1,20 @@
 # DESIGN.md — Patuna Coklat-B Hajj Companion
 
-This document is the source of truth for the UI and design system of the Patuna Coklat-B Hajj Companion app. It is heavily inspired by Uber's minimalist, high-contrast, black-and-white aesthetic, combined with the specific needs of Hajj pilgrims.
+This document is the source of truth for the UI and design system of the Patuna Coklat-B Hajj Companion app. It is defined by a "Tactile Illustrative Minimalism" aesthetic featuring refined pastel-toned palettes, high-contrast elements, and high-quality, physical GSAP-powered animations, combined with the specific needs of Hajj pilgrims.
 
 ## 1. Visual Theme & Atmosphere
 
-Uber's design language is a masterclass in confident minimalism — a black-and-white universe where every pixel serves a purpose and nothing decorates without earning its place. The entire experience is built on a stark duality: jet black (`#000000`) and pure white (`#ffffff`).
+The design language is "Tactile Illustrative Minimalism" — a balance between modern accessibility and trusted, intuitive usability. The experience is built on calming pastel tones (especially pastel greens), high-contrast elements for readability, and physical/retro affordances that make the app feel like a premium, reliable companion.
 
 **Key Characteristics:**
 
-- Pure black-and-white foundation.
+- Calming pastel-toned foundation, especially pastel greens.
 - Geometric sans-serif typography (Inter used as fallback).
 - Pill-shaped everything: buttons, chips, nav items all use 999px border-radius.
 - Card-based layout with whisper-soft shadows (0.12–0.16 opacity).
 - 8px spacing grid with compact, information-dense layouts.
 - High Contrast: Every UI element must maintain a contrast ratio of at least 4.5:1 for readability in intense Saudi sunlight.
+- GSAP-powered motion: Interactions use smooth, tactile animations (spring-based, staggered entrances) to provide physical feedback without being overwhelming.
 
 ## 2. Design Tokens
 
@@ -97,7 +98,7 @@ Uber's design language is a masterclass in confident minimalism — a black-and-
 
 ## 7. Principles
 
-- **Quiet, sacred, contemplative.** Not corporate, not flashy.
+- **Quiet, sacred, contemplative.** Not corporate, not flashy. "Tenang dan Cerah" (calm and bright).
 - **High Contrast:** Vital for Saudi sun glare. Every UI element must maintain a 4.5:1 ratio.
-- **Motion:** Subtle only. 200ms ease-out page transitions, 100ms scale on tap.
+- **Motion:** GSAP-powered tactile motion. Delightful spring-based animations, staggered reveals, and smooth height transitions for a polished "pro-max" feel.
 - **No checklists in Ritual Guide** — read-before, not interact-during.

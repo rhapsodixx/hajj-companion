@@ -187,5 +187,68 @@
 		"translation": "Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang luas, dan kesembuhan dari segala penyakit.",
 		"whenToRead": "Dibaca sebelum minum air zamzam — boleh berdoa apa saja karena air zamzam diminum sesuai niat.",
 		"category": "umum"
+	},
+	{
+		"id": "dua-keluar-rumah",
+		"title": "Doa Keluar Rumah",
+		"arabic": "اللَّهُمَّ إِلَيْكَ تَوَجَّهْتُ، وَبِكَ اعْتَصَمْتُ، اللَّهُمَّ اكْفِنِي مَا أَهَمَّنِي وَمَا لَا أَهْتَمُّ بِهِ، اللَّهُمَّ زَوِّدْنِي التَّقْوَى، وَاغْفِرْ لِي ذَنْبِي، وَوَجِّهْنِي لِلْخَيْرِ أَيْنَمَا تَوَجَّهْتُ",
+		"latin": "Allahumma ilayka tawajjahtu, wabika i'tashamtu, Allahummakfinii maa ahammanii wamaa laa ahtammu bihi, Allahumma zawwidnittaqwaa, waghfir lii dzanbii, wawajjihnii lilkhairi aynamaa tawajjahtu",
+		"translation": "Ya Allah, kepada-Mu aku menghadap dan dengan-Mu aku berpegang teguh. Ya Allah lindungilah aku dari sesuatu yang menyusahkan dan sesuatu yang tidak aku perlukan. Ya Allah, bekalilah aku dengan takwa dan ampunilah dosaku serta hadapkanlah wajahku pada hal-hal yang baik kemana-pun aku menghadapkan.",
+		"whenToRead": "Dibaca saat keluar rumah menuju embarkasi atau memulai perjalanan haji/umrah.",
+		"category": "safar"
+	},
+	{
+		"id": "niat-haji-isytirat",
+		"title": "Niat Haji Bersyarat (Isytirat)",
+		"arabic": "لَبَّيْكَ اللَّهُمَّ حَجًّا، فَإِنْ حَبَسَنِي حَابِسٌ فَمَحِلِّي حَيْثُ حَبَسْتَنِي",
+		"latin": "Labbaik Allahumma hajjan, fa in habasani haabisun fa mahilli haitsu habastani",
+		"translation": "Aku sambut panggilan-Mu ya Allah untuk berhaji. Tetapi jika aku terhalang oleh sesuatu, ya Allah, maka aku akan ber-tahallul di tempat aku terhalang itu.",
+		"whenToRead": "Dibaca saat berniat haji apabila dalam kondisi sakit, khawatir terhalang rintangan, atau bagi wanita haid/hamil.",
+		"category": "niat"
+	},
+	{
+		"id": "dua-setelah-berihram",
+		"title": "Doa Setelah Berihram",
+		"arabic": "اللَّهُمَّ حَرَّمْتُ شَعْرِي وَبَشَرِي وَجَسَدِي وَجَمِيعَ جَوَارِحِي مِنْ كُلِّ شَيْءٍ حَرَّمْتَهُ عَلَى الْمُحْرِمِ",
+		"latin": "Allahumma harramtu sya'rii wa basyarii wa jasadii wa jamii'a jawaarihii min kulli syai'in harramtahu 'alal muhrimi",
+		"translation": "Ya Allah, aku haramkan rambut, kulit, tubuh, dan seluruh anggota tubuhku dari semua yang Engkau haramkan bagi orang yang berihram.",
+		"whenToRead": "Dibaca setelah berniat ihram dan mengenakan pakaian ihram.",
+		"category": "niat"
+	},
+	{
+		"id": "dua-masuk-makkah",
+		"title": "Doa Memasuki Kota Makkah",
+		"arabic": "اللَّهُمَّ هَذَا حَرَمُكَ وَأَمْنُكَ، فَحَرِّمْ لَحْمِي وَدَمِي وَشَعْرِي وَبَشَرِي عَلَى النَّارِ، وَآمِنِّي مِنْ عَذَابِكَ يَوْمَ تَبْعَثُ عِبَادَكَ، وَاجْعَلْنِي مِنْ أَوْلِيَائِكَ وَأَهْلِ طَاعَتِكَ",
+		"latin": "Allahumma haadzaa haramuka wa amnuka, faharim lahmii wa damii wa sya'rii wa basyarii 'alan naari, wa aaminni min 'adzaabika yawma tab'atsu 'ibaadak, waj'alni min awliyaa'ika wa ahli thaa'atik",
+		"translation": "Ya Allah, kota ini adalah Tanah Haram-Mu dan tempat aman-Mu, maka hindarkanlah daging, darah, rambut, dan kulitku dari neraka. Dan selamatkanlah diriku dari siksa-Mu pada hari Engkau bangkitkan kembali hamba-hamba-Mu.",
+		"whenToRead": "Dibaca saat pertama kali memasuki batas kota Makkah (Tanah Haram).",
+		"category": "safar"
+	},
+	{
+		"id": "dua-maqam-ibrahim",
+		"title": "Doa Salat di Maqam Ibrahim",
+		"arabic": "اللَّهُمَّ إِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ، قَائِمٌ تَحْتَ بَابِكَ، مُلْتَزِمٌ بِأَعْتَابِكَ، أَرْجُو رَحْمَتَكَ وَأَخْشَى عَذَابَكَ، يَا ذَا الْإِحْسَانِ الْقَدِيمِ",
+		"latin": "Allahumma inni 'abduka wabnu 'abdika, qaaimun tahta baabika, multazimun bi'ataabik, arju rahmataka wa akhsya 'adzabak, yaa dzal ihsaanil qadiim",
+		"translation": "Ya Allah, aku adalah hamba-Mu, anak dari hamba-Mu, tegak berdiri merapat di bawah pintu Ka'bah-Mu, menundukkan diri di hadapan-Mu sambil mengharapkan rahmat dan kasih sayang-Mu, serta takut akan siksa-Mu. Wahai Tuhan pemilik kebaikan abadi.",
+		"whenToRead": "Dibaca setelah melaksanakan shalat sunnah dua rakaat di belakang Maqam Ibrahim sesudah tawaf.",
+		"category": "tawaf"
+	},
+	{
+		"id": "dua-bercukur",
+		"title": "Doa Bercukur (Tahallul)",
+		"arabic": "اللَّهُمَّ هَذِهِ نَاصِيَتِي بِيَدِكَ، فَاجْعَلْ لِي بِكُلِّ شَعْرَةٍ نُورًا يَوْمَ الْقِيَامَةِ، وَامْحُ عَنِّي بِهَا سَيِّئَةً، وَارْفَعْ لِي بِهَا دَرَجَةً",
+		"latin": "Allahumma hadzihi naashiyatii biyadika, faj'al lii bikulli sya'ratin nuuran yawmal qiyaamah, wamhu 'annii bihaa sayyi'atan, warfa' lii bihaa darajah",
+		"translation": "Ya Allah, ini ubun-ubunku berada di tangan-Mu, maka jadikanlah bagiku dengan setiap helai rambut sebuah cahaya pada hari kiamat, dan hapuskanlah dengannya dariku sebuah keburukan, dan angkatlah bagiku dengannya sebuah derajat.",
+		"whenToRead": "Dibaca saat prosesi mencukur atau menggunting rambut (tahallul) setelah sa'i umrah atau setelah melempar Jumrah Aqobah.",
+		"category": "sai"
+	},
+	{
+		"id": "dua-raudah",
+		"title": "Doa di Raudah",
+		"arabic": "السَّلَامُ عَلَيْكَ يَا رَسُولَ اللهِ، السَّلَامُ عَلَيْكَ يَا نَبِيَّ اللهِ. السَّلَامُ عَلَيْكَ يَا أَبَا بَكْرٍ، السَّلَامُ عَلَيْكَ يَا عُمَرُ",
+		"latin": "Assalaamu 'alaika yaa rasuulallah, assalaamu 'alaika yaa nabiyyallah. Assalaamu 'alaika yaa abaa bakr, assalaamu 'alaika yaa 'umar",
+		"translation": "Salam sejahtera untukmu wahai Utusan Allah. Salam sejahtera padamu wahai Nabi Allah. Salam sejahtera untukmu wahai Abu Bakar. Salam sejahtera untukmu wahai Umar.",
+		"whenToRead": "Dibaca saat berada di Raudah atau ketika berziarah ke makam Rasulullah ﷺ dan para sahabatnya di Masjid Nabawi.",
+		"category": "masjid"
 	}
 ]
