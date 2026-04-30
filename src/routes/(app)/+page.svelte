@@ -31,7 +31,9 @@
 		return h >= 18 || h < 4;
 	});
 
-	let nextDay = $derived(todayDay ? itinerary.find((d) => d.dayNumber === todayDay.dayNumber + 1) : null);
+	let nextDay = $derived(
+		todayDay ? itinerary.find((d) => d.dayNumber === todayDay.dayNumber + 1) : null
+	);
 
 	let nextActivity = $derived.by(() => {
 		nowTick;

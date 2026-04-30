@@ -4,7 +4,7 @@ import type { DailyOverride } from '$lib/types/override';
 
 type OverrideMap = Map<string, DailyOverride>;
 
-let overrides = $state<OverrideMap>(new Map());
+const store = $state({ overrides: new Map<string, DailyOverride>() as OverrideMap });
 let lastFetched = $state<string>('');
 let loading = $state(false);
 
@@ -13,7 +13,7 @@ function overrideKey(dayNumber: number, field: string, bus: string): string {
 }
 
 export function getOverrides() {
-	return overrides;
+	return store.overrides;
 }
 
 export function getLastFetched() {
@@ -27,7 +27,7 @@ export function isLoading() {
 export function getOverrideForDay(dayNumber: number, bus: string): DailyOverride[] {
 	const results: DailyOverride[] = [];
 	const buses = ['all', bus === 'all' ? 'all' : `B-${bus}`];
-	for (const o of overrides.values()) {
+	for (const o of store.overrides.values()) {
 		if (o.dayNumber === dayNumber && buses.includes(o.bus)) {
 			results.push(o);
 		}
@@ -72,7 +72,7 @@ export async function fetchOverrides(): Promise<void> {
 					map.set(key, row);
 				}
 			}
-			overrides = map;
+			store.overrides = map;
 			lastFetched = new Date().toISOString();
 			localStorage.setItem('patuna-overrides', JSON.stringify(data));
 			localStorage.setItem('patuna-overrides-ts', lastFetched);
@@ -98,7 +98,7 @@ function restoreFromCache() {
 					map.set(key, row);
 				}
 			}
-			overrides = map;
+			store.overrides = map;
 			lastFetched = cachedTs ?? '';
 		} catch {
 			// Corrupted cache, ignore
