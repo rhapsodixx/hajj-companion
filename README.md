@@ -10,7 +10,7 @@ This repository contains the source code for the **Patuna Coklat-B Hajj Companio
 
 ## 🤖 Built with AI
 
-This project is **publicly shared** and was built autonomously using **Google Gemini** and **GLM** (Google Language Model) through an advanced agentic workflow. It served as a practical exploration of:
+This project is **publicly shared** and was built assisted by **Google Gemini** and **GLM** (z.ai with claude code). It served as a practical exploration of:
 
 - Modern full-stack development with **SvelteKit** and the **Bun** runtime.
 - Creating fluid, dynamic micro-interactions using the **GSAP** animation library.
@@ -22,8 +22,9 @@ This project is **publicly shared** and was built autonomously using **Google Ge
   - Official government Hajj guide PDF ebooks
   - Patuna Travel guide documentation
   - Haji Mandiri tips and tricks
-- **Most Frequent Agent Skills Invoked:** `sveltekit`, `frontend-design`, `git-commit`
-- **Most Frequent MCP Servers Invoked:** `svelte` (for documentation and autofixing), `serena` (for codebase context and persistent memory)
+- **Most Frequent Agent Skills Invoked:** `using-agent-skills` (Addy Osmani patterns), `ui-ux-pro-max`, `impeccable`, `sveltekit`
+- **Most Frequent MCP Servers Invoked:** `Context7`, `sequential-thinking`, `svelte`, `serena`
+- **Token Optimization:** Utilized [RTK](https://github.com/rtk-ai/rtk) to aggressively manage context, saving tokens during long development sessions.
 
 ## 📖 About The Project
 
