@@ -120,10 +120,6 @@
 		}
 	}
 
-	function goToStep(i: number) {
-		transitionStep(i);
-	}
-
 	let touchStartX = 0;
 	const SWIPE_THRESHOLD = 50;
 
@@ -241,23 +237,15 @@
 			</header>
 		{/if}
 
-		<!-- Step dots (always visible when in step mode) -->
+		<!-- Step progress indicator (segmented bar) -->
 		{#if mode === 'steps'}
-			<div
-				class="gsap-item mt-4 mb-6 flex flex-wrap items-center justify-center gap-1.5 px-2"
-				role="tablist"
-				aria-label="Langkah"
-			>
+			<div class="gsap-item mt-4 mb-6 flex items-center gap-1.5 px-2" aria-hidden="true">
 				{#each guide.steps as _, i (i)}
-					<button
-						onclick={() => goToStep(i)}
-						role="tab"
-						aria-selected={i === stepIndex}
-						aria-label="Langkah {i + 1}"
-						class="tap-target rounded-full transition-all duration-300 {i === stepIndex
-							? 'h-2 w-6 bg-(--color-brand)'
-							: 'h-2 w-2 bg-border hover:bg-muted/30'}"
-					></button>
+					<div
+						class="h-1.5 flex-1 rounded-full transition-all duration-500 ease-out {i <= stepIndex
+							? 'bg-(--color-brand)'
+							: 'bg-border/40'}"
+					></div>
 				{/each}
 			</div>
 		{/if}

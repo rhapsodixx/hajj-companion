@@ -14,6 +14,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import { ScrambleTextPlugin } from 'gsap/dist/ScrambleTextPlugin';
 	import {
 		CaretRight,
 		ListChecks,
@@ -99,6 +100,7 @@
 	let pageContainer: HTMLElement;
 
 	onMount(() => {
+		gsap.registerPlugin(ScrambleTextPlugin);
 		const tl = gsap.timeline();
 
 		const cards = pageContainer.querySelectorAll('.gsap-card, header');
@@ -128,6 +130,24 @@
 					ease: 'back.out(1.1)'
 				},
 				'-=0.5'
+			);
+		}
+
+		const heroHeading = pageContainer.querySelector('.gsap-hero-heading');
+		if (heroHeading) {
+			tl.to(
+				heroHeading,
+				{
+					duration: 1.5,
+					scrambleText: {
+						text: '{original}',
+						chars: '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+						speed: 0.5,
+						revealDelay: 0.2
+					},
+					ease: 'power2.out'
+				},
+				'-=0.4'
 			);
 		}
 
@@ -192,7 +212,7 @@
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Keberangkatan</p>
 			{/snippet}
-			<p class="text-2xl font-semibold">
+			<p class="gsap-hero-heading text-2xl font-semibold">
 				{daysUntilTrip} hari lagi
 			</p>
 			<p class="mt-1 text-sm opacity-80">Menuju Jakarta → Jeddah</p>
@@ -268,7 +288,7 @@
 					>
 				</div>
 			{/snippet}
-			<p class="mt-2 text-xl font-semibold">
+			<p class="gsap-hero-heading mt-2 text-xl font-semibold">
 				{nextDay.phase === 'manasik'
 					? nextDay.routeLabel
 					: `Hari ${nextDay.dayNumber} — ${nextDay.routeLabel}`}
@@ -387,7 +407,7 @@
 					>
 				</div>
 			{/snippet}
-			<h1 class="mt-2 text-2xl font-semibold">{todayDay.routeLabel}</h1>
+			<h1 class="gsap-hero-heading mt-2 text-2xl font-semibold">{todayDay.routeLabel}</h1>
 			<p class="mt-1 text-sm opacity-80">
 				{todayDay.location} · {formatGregorian(todayDay.gregorianDate)}
 			</p>
@@ -555,7 +575,7 @@
 			{#snippet label()}
 				<p class="text-xs font-semibold tracking-widest uppercase opacity-80">Alhamdulillah</p>
 			{/snippet}
-			<p class="text-2xl font-semibold">Haji Selesai</p>
+			<p class="gsap-hero-heading text-2xl font-semibold">Haji Selesai</p>
 			<p class="mt-2 text-sm opacity-80">Semoga menjadi haji yang mabrur. Amin.</p>
 		</HeroCard>
 
