@@ -110,7 +110,7 @@
 </svelte:head>
 
 {#if dua}
-	<div bind:this={pageContainer} class="page-enter relative mx-auto max-w-120 overflow-hidden">
+	<div bind:this={pageContainer} class="page-enter relative mx-auto max-w-120 overflow-hidden pb-5">
 		<!-- Pastel Background Pattern -->
 		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
 			<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
