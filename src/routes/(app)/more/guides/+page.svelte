@@ -55,6 +55,14 @@
 			offline: true
 		},
 		{
+			title: 'Kumpulan Doa di Arafah',
+			description: 'Panduan dan kumpulan doa saat wukuf di Arafah',
+			url: '/pdfs/kumpulan-doa-di-arafah.pdf',
+			size: '3.5 MB',
+			icon: 'pdf',
+			offline: true
+		},
+		{
 			title: 'Doa Zikir Haji & Umrah',
 			description: 'Kumpulan doa dan zikir untuk ibadah haji dan umrah',
 			url: 'https://drive.google.com/file/d/1PLrAgbFMv-Fg_O8ufU1VKw_RlLMrNlSB/view',
