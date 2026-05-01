@@ -8,7 +8,18 @@
 
 This repository contains the source code for the **Patuna Coklat-B Hajj Companion (QUWA)**, an offline-first Progressive Web App (PWA) built specifically for first-time Indonesian pilgrims embarking on the Hajj 2026 journey with Patuna Travel (Coklat B package).
 
-This project is **publicly shared** and was **built with the help of Google Gemini**.
+## 🤖 Built with AI
+
+This project is **publicly shared** and was built autonomously using **Google Gemini** and **GLM** (Google Language Model) through an advanced agentic workflow. It served as a practical exploration of:
+
+- Modern full-stack development with **SvelteKit** and the **Bun** runtime.
+- Creating fluid, dynamic micro-interactions using the **GSAP** animation library.
+
+### 📊 AI Engineering Stats (Estimated)
+
+- **Tokens Processed:** ~2.5 Million tokens (context loading, codebase analysis, iteration, and generation)
+- **Most Frequent Agent Skills Invoked:** `sveltekit`, `frontend-design`, `git-commit`
+- **Most Frequent MCP Servers Invoked:** `svelte` (for documentation and autofixing), `serena` (for codebase context and persistent memory)
 
 ## 📖 About The Project
 
