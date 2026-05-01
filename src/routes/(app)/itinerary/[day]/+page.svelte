@@ -27,7 +27,8 @@
 		CheckCircle,
 		Bus,
 		AirplaneTilt,
-		Train
+		Train,
+		ArrowDown
 	} from 'phosphor-svelte';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -72,6 +73,10 @@
 
 	let pageContainer: HTMLElement | undefined = $state();
 	let isBlipping = $state(false);
+
+	let duaSectionEl: HTMLElement | undefined = $state();
+	let floatingBtnEl: HTMLElement | undefined = $state();
+	let isDuaVisible = $state(false);
 
 	let currentSaudiDateStr = $state('');
 	let currentSaudiTimeStr = $state('');
@@ -122,6 +127,35 @@
 				isBlipping = false;
 			}, 3000);
 			return () => clearTimeout(timer);
+		}
+	});
+
+	function scrollToDua() {
+		duaSectionEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	$effect(() => {
+		if (!floatingBtnEl) return;
+		if (isDuaVisible) {
+			gsap.to(floatingBtnEl, {
+				y: 20,
+				opacity: 0,
+				scale: 0.9,
+				duration: 0.3,
+				ease: 'power2.in',
+				onComplete: () => {
+					if (floatingBtnEl) floatingBtnEl.style.visibility = 'hidden';
+				}
+			});
+		} else {
+			floatingBtnEl.style.visibility = 'visible';
+			gsap.to(floatingBtnEl, {
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				duration: 0.5,
+				ease: 'back.out(1.7)'
+			});
 		}
 	});
 
@@ -201,9 +235,34 @@
 			});
 		});
 
+		let observer: IntersectionObserver | undefined;
+		if (duaSectionEl) {
+			observer = new IntersectionObserver(
+				(entries) => {
+					const entry = entries[0];
+					isDuaVisible = entry.isIntersecting;
+				},
+				{ threshold: 0.15 }
+			);
+			observer.observe(duaSectionEl);
+
+			if (floatingBtnEl) {
+				gsap.set(floatingBtnEl, { y: 20, opacity: 0, scale: 0.9 });
+				gsap.to(floatingBtnEl, {
+					y: 0,
+					opacity: 1,
+					scale: 1,
+					duration: 0.5,
+					delay: 0.8,
+					ease: 'back.out(1.7)'
+				});
+			}
+		}
+
 		return () => {
 			clearInterval(interval);
 			tl.kill();
+			observer?.disconnect();
 		};
 	});
 </script>
@@ -545,7 +604,7 @@
 
 			<!-- Du'a of the day -->
 			{#if duas.length > 0}
-				<div class="gsap-card">
+				<div bind:this={duaSectionEl} id="dua-section" class="gsap-card">
 					<div class="mb-3 flex items-center gap-2 px-1">
 						<HandsPraying size={18} class="text-(--color-brand)" weight="bold" aria-hidden="true" />
 						<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Doa Hari Ini</h2>
@@ -602,6 +661,32 @@
 					<div class="flex-1"></div>
 				{/if}
 			</div>
+
+			<!-- Floating dua anchor button -->
+			{#if duas.length > 0}
+				<!-- Desktop alignment wrapper -->
+				<div
+					class="pointer-events-none fixed inset-x-0 z-50 mx-auto max-w-120"
+					style="bottom: calc(var(--spacing-nav-height) + env(safe-area-inset-bottom, 0px) + 0.5rem)"
+				>
+					<div
+						bind:this={floatingBtnEl}
+						class="absolute right-4 bottom-0 {isDuaVisible
+							? 'pointer-events-none'
+							: 'pointer-events-auto'}"
+					>
+						<button
+							onclick={scrollToDua}
+							class="tap-target pointer-events-auto flex items-center gap-2 rounded-pill border border-border bg-surface px-4 py-3 text-sm font-semibold text-foreground shadow-level-3 transition-transform duration-100 ease-out active:scale-[0.98]"
+							aria-label="Lompat ke bagian doa hari ini"
+						>
+							<HandsPraying size={18} weight="bold" aria-hidden="true" />
+							Doa
+							<ArrowDown size={14} weight="bold" aria-hidden="true" />
+						</button>
+					</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 {:else}
