@@ -49,8 +49,12 @@
 	role="dialog"
 	aria-modal="true"
 	aria-labelledby="modal-title"
+	tabindex="-1"
 	onclick={(e) => {
 		if (e.target === overlay) closeCard();
+	}}
+	onkeydown={(e) => {
+		if (e.key === 'Escape') closeCard();
 	}}
 >
 	<div
