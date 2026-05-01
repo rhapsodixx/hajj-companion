@@ -131,7 +131,7 @@
 
 <div
 	bind:this={pageContainer}
-	class="page-enter relative mx-auto max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8"
+	class="page-enter relative mx-auto max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 >
 	<!-- Pastel Background Pattern -->
 	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">

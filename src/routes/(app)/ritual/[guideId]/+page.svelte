@@ -178,7 +178,7 @@
 {#if guide}
 	<div
 		bind:this={pageContainer}
-		class="page-enter pb-nav relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
+		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 	>
 		<!-- Pastel Background Pattern -->
 		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
@@ -465,7 +465,7 @@
 		{/if}
 	</div>
 {:else}
-	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-6">
+	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)]">
 		<div class="pt-4 pb-3">
 			<a href="/ritual" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<CaretLeft size={16} weight="bold" />

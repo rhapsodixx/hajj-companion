@@ -286,7 +286,7 @@
 
 <div
 	bind:this={pageContainer}
-	class="page-enter relative mx-auto min-h-dvh max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-24"
+	class="page-enter relative mx-auto min-h-dvh max-w-120 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 >
 	<!-- Pastel Background Pattern -->
 	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
@@ -371,16 +371,16 @@
 				>
 					Semua
 				</button>
-				{#each PHASE_ORDER as phase (phase)}
+				{#each groups as group (group.phase)}
 					<button
-						onclick={() => selectPhase(phase)}
+						onclick={() => selectPhase(group.phase)}
 						class="tap-target shrink-0 rounded-2xl px-5 py-2 text-sm font-semibold transition-all {selectedPhase ===
-						phase
+						group.phase
 							? 'scale-[1.02] bg-foreground text-background shadow-md'
 							: 'border border-border/50 bg-surface text-muted shadow-sm hover:bg-black/5'}"
-						aria-pressed={selectedPhase === phase}
+						aria-pressed={selectedPhase === group.phase}
 					>
-						{PHASE_LABELS[phase] ?? phase}
+						{PHASE_LABELS[group.phase] ?? group.phase}
 					</button>
 				{/each}
 			</div>
