@@ -36,7 +36,6 @@
 		if (duas.length > 0) groups.push({ category: cat, duas });
 	}
 
-	let expanded: string | null = $state(null);
 	let query = $state('');
 	let selectedCategory: DuaCategory | null = $state(null);
 
@@ -132,13 +131,8 @@
 
 	let resultCount = $derived(filteredFlat.length);
 
-	function toggle(id: string) {
-		expanded = expanded === id ? null : id;
-	}
-
 	function selectCategory(cat: DuaCategory | null) {
 		selectedCategory = selectedCategory === cat ? null : cat;
-		expanded = null;
 	}
 
 	function clearSearch() {
@@ -147,7 +141,6 @@
 
 	function onSearchInput(e: Event) {
 		query = (e.target as HTMLInputElement).value;
-		expanded = null;
 	}
 
 	let pageContainer: HTMLElement;
@@ -350,7 +343,7 @@
 						: 'Doa tidak ditemukan. Coba kata lain.'}
 				</p>
 			{:else}
-				<p class="text-xs text-muted">{duaLibrary.length} doa · Arab, latin, terjemah</p>
+				<p class="text-xs text-muted">{duaLibrary.length} doa · Ketuk untuk membaca</p>
 			{/if}
 		</div>
 	</div>
@@ -362,22 +355,16 @@
 		</div>
 	{:else if query}
 		<!-- Flat list when searching -->
-		<div class="gsap-card space-y-4">
+		<div class="gsap-card space-y-3">
 			{#each filteredFlat as dua (dua.id)}
-				<DuaCard
-					{dua}
-					expanded={expanded === dua.id}
-					onToggle={() => toggle(dua.id)}
-					showCategory={true}
-					categoryLabel={CATEGORY_LABELS[dua.category]}
-				/>
+				<DuaCard {dua} showCategory={true} categoryLabel={CATEGORY_LABELS[dua.category]} />
 			{/each}
 		</div>
 	{:else if selectedCategory}
 		<!-- Single category (no group header needed) -->
-		<div class="gsap-card space-y-4">
+		<div class="gsap-card space-y-3">
 			{#each filteredFlat as dua (dua.id)}
-				<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
+				<DuaCard {dua} />
 			{/each}
 		</div>
 	{:else}
@@ -388,9 +375,9 @@
 					<p class="mb-3 pl-1 text-xs font-bold tracking-widest text-muted/80 uppercase">
 						{CATEGORY_LABELS[group.category]}
 					</p>
-					<div class="space-y-4">
+					<div class="space-y-3">
 						{#each group.duas as dua (dua.id)}
-							<DuaCard {dua} expanded={expanded === dua.id} onToggle={() => toggle(dua.id)} />
+							<DuaCard {dua} />
 						{/each}
 					</div>
 				</div>

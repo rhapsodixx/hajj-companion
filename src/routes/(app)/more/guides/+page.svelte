@@ -63,6 +63,14 @@
 			offline: true
 		},
 		{
+			title: 'Bekal Doa Terbaik di Hari Arafah',
+			description: 'Kumpulan doa terbaik untuk hari Arafah 1446 H',
+			url: '/pdfs/bekal-doa-terbaik-di-hari-arafah.pdf',
+			size: '500 KB',
+			icon: 'pdf',
+			offline: true
+		},
+		{
 			title: 'Doa Zikir Haji & Umrah',
 			description: 'Kumpulan doa dan zikir untuk ibadah haji dan umrah',
 			url: 'https://drive.google.com/file/d/1PLrAgbFMv-Fg_O8ufU1VKw_RlLMrNlSB/view',

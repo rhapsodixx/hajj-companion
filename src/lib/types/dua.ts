@@ -6,6 +6,7 @@ export type Dua = {
 	translation: string; // Bahasa Indonesia
 	whenToRead: string; // konteks kapan dibaca
 	category: 'niat' | 'tawaf' | 'sai' | 'wukuf' | 'jumrah' | 'safar' | 'masjid' | 'umum';
+	sources: string; // Referensi sumber doa
 };
 
 export type DuaLibrary = Dua[];
