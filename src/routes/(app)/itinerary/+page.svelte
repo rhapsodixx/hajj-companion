@@ -145,7 +145,7 @@
 
 	<!-- Header -->
 	<div
-		class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
+		class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-transparent pt-4 pb-3 backdrop-blur-md"
 	>
 		<div>
 			<h1 class="text-xl font-semibold">Jadwal Perjalanan</h1>
@@ -168,7 +168,7 @@
 			<div class="relative">
 				<!-- Sticky Phase Header -->
 				<div
-					class="gsap-item sticky top-[68px] z-20 mb-4 flex items-center gap-3 bg-background/95 py-2 backdrop-blur-md"
+					class="gsap-item sticky top-[68px] z-20 mb-4 flex items-center gap-3 bg-transparent py-2 backdrop-blur-md"
 				>
 					<div
 						class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-brand)/10 text-(--color-brand)"

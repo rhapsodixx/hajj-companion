@@ -7,6 +7,7 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import LostButton from '$lib/components/ui/LostButton.svelte';
 	import { onMount, tick } from 'svelte';
+	import { goto } from '$app/navigation';
 	import gsap from 'gsap';
 	import { CaretLeft, CaretRight, BookOpenText, CheckCircle } from 'phosphor-svelte';
 
@@ -54,6 +55,8 @@
 		mode = newMode;
 		await tick();
 
+		gsap.set(contentContainer, { clearProps: 'all' });
+
 		gsap.fromTo(
 			contentContainer.children,
 			{ y: 20, opacity: 0 },
@@ -98,13 +101,23 @@
 	}
 
 	function nextStep() {
+		if (mode === 'closing') {
+			goto('/ritual');
+			return;
+		}
 		if (stepIndex < totalSteps - 1) transitionStep(stepIndex + 1);
 		else transitionMode('closing');
 	}
 
 	function prevStep() {
-		if (stepIndex > 0) transitionStep(stepIndex - 1);
-		else transitionMode('overview');
+		if (mode === 'closing') {
+			stepIndex = totalSteps - 1;
+			transitionMode('steps');
+		} else if (stepIndex > 0) {
+			transitionStep(stepIndex - 1);
+		} else {
+			transitionMode('overview');
+		}
 	}
 
 	function goToStep(i: number) {
@@ -188,7 +201,7 @@
 
 		<!-- Back link -->
 		<div
-			class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
+			class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-transparent pt-4 pb-3 backdrop-blur-md"
 		>
 			<a
 				href="/ritual"
@@ -432,7 +445,11 @@
 					onclick={nextStep}
 					class="tap-target flex flex-1 items-center justify-center gap-2 rounded-2xl bg-(--color-brand) px-4 py-4 text-sm font-bold text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] active:scale-[0.98]"
 				>
-					{mode === 'steps' && stepIndex === totalSteps - 1 ? 'Selesai' : 'Selanjutnya'}
+					{mode === 'closing'
+						? 'Selesai'
+						: mode === 'steps' && stepIndex === totalSteps - 1
+							? 'Selesai'
+							: 'Selanjutnya'}
 					<CaretRight size={18} weight="bold" />
 				</button>
 			</div>
