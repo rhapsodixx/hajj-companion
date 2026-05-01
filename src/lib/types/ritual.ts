@@ -15,6 +15,7 @@ export type RitualGuide = {
 	subtitle: string;
 	phase: string;
 	overview: string;
+	timing?: string;
 	preparation: string[];
 	steps: RitualStep[];
 	closingNote?: string;

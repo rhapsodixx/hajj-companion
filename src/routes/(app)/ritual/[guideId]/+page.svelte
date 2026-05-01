@@ -14,6 +14,8 @@
 	const guideId = $derived(page.params?.guideId ?? '');
 	const guide = $derived(getGuide(guideId));
 	const relatedDuas = $derived(guide ? getDuaByIds(guide.duaIds) : []);
+	const backHref = $derived(guide?.phase === 'shalat' ? '/more/shalat' : '/ritual');
+	const backLabel = $derived(guide?.phase === 'shalat' ? 'Panduan Shalat' : 'Kembali ke Daftar');
 
 	function getHotelForDay(dayNumbers: number[]) {
 		const firstDay = dayNumbers[0] ?? 0;
@@ -178,7 +180,7 @@
 {#if guide}
 	<div
 		bind:this={pageContainer}
-		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-5"
+		class="page-enter pb-nav relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 	>
 		<!-- Pastel Background Pattern -->
 		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
@@ -200,11 +202,11 @@
 			class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-transparent pt-4 pb-3 backdrop-blur-md"
 		>
 			<a
-				href="/ritual"
+				href={backHref}
 				class="tap-target flex items-center gap-1 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-(--color-brand)"
 			>
 				<CaretLeft size={14} weight="bold" />
-				Kembali ke Daftar
+				{backLabel}
 			</a>
 			{#if mode === 'steps'}
 				<div class="text-xs font-bold tracking-widest text-(--color-brand) uppercase">
@@ -285,15 +287,15 @@
 							</Card>
 						</section>
 					{/if}
-				</div>
 
-				<!-- Start button -->
-				<button
-					onclick={startSteps}
-					class="gsap-item tap-target mt-auto w-full rounded-2xl bg-(--color-brand) px-5 py-4 text-center text-base font-bold text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] active:scale-[0.98]"
-				>
-					Mulai Panduan — {totalSteps} Langkah
-				</button>
+					<!-- Start button -->
+					<button
+						onclick={startSteps}
+						class="gsap-item tap-target mt-2 w-full rounded-2xl bg-(--color-brand) px-5 py-4 text-center text-base font-bold text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] active:scale-[0.98]"
+					>
+						Mulai Panduan — {totalSteps} Langkah
+					</button>
+				</div>
 
 				<!-- ═══ STEP-BY-STEP MODE ═══ -->
 			{:else if mode === 'steps' && currentStep}

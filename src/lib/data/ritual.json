@@ -544,5 +544,228 @@
 		"closingNote": "Alhamdulillah, selesai membaca dzikir.",
 		"duaIds": [],
 		"dayNumbers": []
+	},
+	{
+		"id": "shalat-jenazah",
+		"title": "Shalat Jenazah",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Saat imam menyerukan shalat jenazah di masjid (setelah shalat fardhu)",
+		"overview": "Shalat jenazah dilakukan berdiri tanpa rukuk dan sujud, terdiri dari 4 kali takbir lalu salam. Pahalanya besar: satu qirath (seperti Gunung Uhud) jika ikut menyolatkan. Di Masjidil Haram dan Nabawi, jangan lewatkan kesempatan ini.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Luruskan shaf mengikuti imam",
+			"Niat dalam hati sesuai kondisi jenazah (laki-laki/perempuan)"
+		],
+		"steps": [
+			{
+				"title": "Takbir Pertama — Membaca Al-Fatihah",
+				"instruction": "Angkat tangan lalu ucapkan Allahu Akbar. Kemudian baca surah Al-Fatihah secara lengkap.",
+				"arabic": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+				"latin": "Bismillahir rahmanir rahim. Alhamdulillahi rabbil 'alamin. Ar-rahmanir rahim. Maliki yawmiddin. Iyyaka na'budu wa iyyaka nasta'in. Ihdinas-siratal mustaqim. Siratal-ladzina an'amta 'alayhim ghayril maghdubi 'alayhim wa lad-dhallin.",
+				"translation": "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Segala puji bagi Allah, Tuhan seluruh alam. Yang Maha Pengasih, Maha Penyayang. Pemilik hari pembalasan. Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan. Tunjukilah kami jalan yang lurus.",
+				"arabicSource": "QS. Al-Fatihah"
+			},
+			{
+				"title": "Takbir Kedua — Shalawat Nabi ﷺ",
+				"instruction": "Angkat tangan lalu Allahu Akbar. Kemudian baca shalawat. Minimal: Allahumma sholli 'ala Muhammad. Shalawat lengkap (seperti tasyahud akhir) lebih utama.",
+				"arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ ، وَعَلَى آلِ مُحَمَّدٍ ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ ، إِنَّكَ حَمِيدٌ مَجِيدٌ ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ ، وَعَلَى آلِ مُحَمَّدٍ ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ ، وَعَلَى آلِ إِبْرَاهِيمَ ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
+				"latin": "Allahumma sholli 'ala Muhammad wa 'ala ali Muhammad kama shollaita 'ala Ibrahim wa 'ala ali Ibrahim, innaka hamidun majid. Allahumma barik 'ala Muhammad wa 'ala ali Muhammad kama barokta 'ala Ibrahim wa 'ala ali Ibrahim, innaka hamidun majid.",
+				"translation": "Ya Allah, curahkanlah shalawat kepada Muhammad dan keluarga Muhammad, sebagaimana Engkau mencurahkan shalawat kepada Ibrahim dan keluarga Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia. Ya Allah, berkahilah Muhammad dan keluarga Muhammad, sebagaimana Engkau memberkahi Ibrahim dan keluarga Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia.",
+				"arabicSource": "Shalawat Ibrahimiyah"
+			},
+			{
+				"title": "Takbir Ketiga — Doa untuk Jenazah",
+				"instruction": "Angkat tangan lalu Allahu Akbar. Kemudian baca doa untuk mayit. Gunakan 'hu' untuk laki-laki, 'ha' untuk perempuan.",
+				"arabic": "اَللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مَدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ اْلأَبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَارًا خَيْرًا مِنْ دَارِهِ، وَأَهْلاً خَيْرًا مِنْ أَهْلِهِ، وَزَوْجًا خَيْرًا مِنْ زَوْجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ",
+				"latin": "Allahummaghfir la-hu warham-hu wa 'aafi-hi wa'fu 'an-hu wa akrim nuzula-hu, wa wassi' madkhola-hu, waghsil-hu bil maa-i wats tsalji wal barod wa naqqi-hi minal khothoyaa kamaa naqqoitats tsaubal abyadho minad danaas, wa abdil-hu daaron khoirom min daari-hi, wa ahlan khoirom min ahli-hi, wa zawjan khoirom min zawji-hi, wa ad-khil-hul jannata, wa a'idz-hu min 'adzabil qobri wa 'adzabin naar.",
+				"translation": "Ya Allah, ampunilah dia, rahmatilah dia, selamatkan dan maafkanlah dia. Muliakanlah tempat tinggalnya, luaskanlah tempat masuknya. Basuhlah dia dengan air, salju, dan embun. Bersihkanlah dia dari kesalahan sebagaimana Engkau membersihkan baju putih dari kotoran. Gantikanlah untuknya rumah yang lebih baik, keluarga yang lebih baik, pasangan yang lebih baik. Masukkanlah dia ke surga, dan lindungilah dari azab kubur dan azab neraka.",
+				"arabicSource": "HR. Muslim"
+			},
+			{
+				"title": "Takbir Keempat — Doa Penutup",
+				"instruction": "Angkat tangan lalu Allahu Akbar. Kemudian baca doa penutup. Bila belum hafal, berhenti sejenak mengikuti imam.",
+				"arabic": "اللَّهُمَّ لاَ تَحْرِمْنَا أَجْرَهُ وَلاَ تَفْتِنَّ بَعْدَهُ وَاغْفِرْلَناَ وَلَهُ",
+				"latin": "Allahumma laa tahrimnaa ajro-hu wa laa taftinnaa ba'da-hu waghfir lanaa wa la-hu.",
+				"translation": "Ya Allah, janganlah Engkau halangi kami dari pahalanya, janganlah Engkau beri fitnah kepada kami sepeninggalnya, dan ampunilah kami dan dia.",
+				"arabicSource": "Doa Takbir Keempat"
+			},
+			{
+				"title": "Salam",
+				"instruction": "Ucapkan salam ke kanan. Salam ke kiri hukumnya sunnah.",
+				"arabic": "السَّلامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ",
+				"latin": "Assalamu 'alaikum wa rahmatullahi wa barakatuh.",
+				"translation": "Semoga keselamatan, rahmat Allah, dan keberkahan-Nya tercurah atas kalian.",
+				"note": "Shalat jenazah selesai. Pahalanya satu qirath — seperti Gunung Uhud."
+			}
+		],
+		"closingNote": "Alhamdulillah. Barang siapa yang menghadiri prosesi jenazah sampai menyolatkannya, baginya satu qirath. Jika sampai dimakamkan, baginya dua qirath — semisal dua gunung yang besar. (HR. Bukhari & Muslim)",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-rawatib",
+		"title": "Shalat Sunnah Rawatib",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Sebelum atau sesudah shalat fardhu (qabliyah/ba'diyah)",
+		"overview": "Rawatib adalah shalat sunnah yang dikerjakan sebelum (qabliyah) atau sesudah (ba'diyah) shalat fardhu. Mengerjakan 12 rakaat rawatib muakkad setiap hari dijanjikan surga oleh Rasulullah ﷺ.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Dikerjakan setelah adzan, sebelum iqamah (qabliyah) — atau langsung setelah fardhu (ba'diyah)",
+			"Lebih utama dikerjakan di tempat berbeda dari lokasi shalat fardhu",
+			"Setiap 2 rakaat diakhiri salam"
+		],
+		"steps": [
+			{
+				"title": "Qabliyah Subuh — 2 Rakaat (Muakkad)",
+				"instruction": "Dikerjakan setelah adzan Subuh, sebelum iqamah. Sangat ditekankan — Rasulullah ﷺ hampir tidak pernah meninggalkannya. Baca surah pendek (dianjurkan Al-Kafirun dan Al-Ikhlas). Kerjakan dengan cepat.",
+				"note": "Waktu: setelah adzan Subuh hingga sebelum iqamah."
+			},
+			{
+				"title": "Qabliyah Zuhur — 2 atau 4 Rakaat (Muakkad)",
+				"instruction": "Dikerjakan setelah adzan Zuhur, sebelum iqamah. Boleh 2 rakaat (2 salam) atau 4 rakaat (2 salam, masing-masing 2 rakaat). Ini termasuk rawatib muakkad.",
+				"note": "Waktu: setelah adzan Zuhur hingga sebelum iqamah."
+			},
+			{
+				"title": "Ba'diyah Zuhur — 2 Rakaat (Muakkad)",
+				"instruction": "Dikerjakan langsung setelah shalat Zuhur selesai. Bagian dari 12 rakaat sunnah muakkad yang dijanjikan surga.",
+				"note": "Waktu: langsung setelah salam shalat Zuhur."
+			},
+			{
+				"title": "Qabliyah Asr — 2 atau 4 Rakaat (Ghairu Muakkad)",
+				"instruction": "Dikerjakan sebelum shalat Asr. Termasuk rawatib ghairu muakkad — sunnah yang kadang dikerjakan Nabi ﷺ, kadang tidak. Jika sempat, kerjakan.",
+				"note": "Waktu: setelah adzan Asr hingga sebelum iqamah."
+			},
+			{
+				"title": "Ba'diyah Maghrib — 2 Rakaat (Muakkad)",
+				"instruction": "Dikerjakan langsung setelah shalat Maghrib. Termasuk rawatib muakkad — bagian dari 12 rakaat yang dijanjikan surga.",
+				"note": "Waktu: langsung setelah salam shalat Maghrib."
+			},
+			{
+				"title": "Ba'diyah Isya — 2 Rakaat (Muakkad)",
+				"instruction": "Dikerjakan langsung setelah shalat Isya. Termasuk rawatib muakkad — penutup 12 rakaat harian yang dijanjikan surga.",
+				"note": "Waktu: langsung setelah salam shalat Isya."
+			}
+		],
+		"closingNote": "Rasulullah ﷺ bersabda: 'Barang siapa yang shalat 12 rakaat dalam sehari semalam, Allah akan membangunkan untuknya sebuah rumah di surga.' (HR. Muslim). Target 12 rakaat muakkad: 2 qabliyah Subuh + 4 qabliyah Zuhur + 2 ba'diyah Zuhur + 2 ba'diyah Maghrib + 2 ba'diyah Isya.",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-tahiyyatul-masjid",
+		"title": "Shalat Tahiyyatul Masjid",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Saat masuk masjid, sebelum duduk",
+		"overview": "Shalat 2 rakaat sebagai penghormatan masuk masjid. Dikerjakan sebelum duduk, kapanpun masuk masjid. Sangat dianjurkan di Masjidil Haram dan Masjid Nabawi.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Kerjakan sebelum duduk — segera saat memasuki masjid",
+			"2 rakaat, 1 salam"
+		],
+		"steps": [
+			{
+				"title": "Panduan Lengkap — Segera Tersedia",
+				"instruction": "Panduan langkah demi langkah Shalat Tahiyyatul Masjid sedang disiapkan. Untuk sementara: niat 2 rakaat tahiyyatul masjid, baca Al-Fatihah + surah pendek di setiap rakaat, akhiri dengan salam.",
+				"note": "Kerjakan segera saat masuk masjid, sebelum duduk."
+			}
+		],
+		"closingNote": "Dari Abu Qatadah, Rasulullah ﷺ bersabda: 'Apabila salah seorang dari kalian masuk masjid, janganlah ia duduk hingga shalat dua rakaat.' (HR. Bukhari & Muslim)",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-qabliyah-subuh",
+		"title": "Shalat Qabliyah Subuh",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Setelah adzan Subuh, sebelum iqamah",
+		"overview": "Dua rakaat sunnah sebelum Subuh — yang paling ditekankan dari seluruh rawatib. Rasulullah ﷺ bersabda: 'Dua rakaat fajar lebih baik dari dunia dan seisinya.' Kerjakan dengan singkat dan khusyuk.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Dikerjakan setelah adzan Subuh, sebelum iqamah",
+			"Baca surah pendek (dianjurkan Al-Kafirun rakaat 1, Al-Ikhlas rakaat 2)",
+			"Kerjakan dengan cepat — jangan sampai terlewat iqamah"
+		],
+		"steps": [
+			{
+				"title": "Panduan Lengkap — Segera Tersedia",
+				"instruction": "Panduan langkah demi langkah Shalat Qabliyah Subuh sedang disiapkan. Untuk sementara: niat 2 rakaat qabliyah Subuh, rakaat 1 baca Al-Kafirun, rakaat 2 baca Al-Ikhlas, akhiri salam.",
+				"note": "Kerjakan setelah adzan Subuh, sebelum iqamah. Jangan ditinggal walau sedang melakukan apapun."
+			}
+		],
+		"closingNote": "Aisyah r.a. berkata: 'Nabi ﷺ tidak pernah lebih menjaga shalat sunnah apapun melebihi dua rakaat sebelum Subuh.' (HR. Bukhari & Muslim)",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-isyraq",
+		"title": "Shalat Sunnah Isyraq",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "15-20 menit setelah matahari terbit, sambil tetap duduk di tempat shalat Subuh",
+		"overview": "Shalat 2 rakaat yang dikerjakan beberapa menit setelah matahari terbit. Keutamaannya sangat besar jika dikerjakan setelah duduk berdzikir dari usai Subuh hingga matahari terbit.",
+		"preparation": [
+			"Duduk berdzikir di tempat shalat Subuh hingga matahari terbit",
+			"Tunggu sekitar 15-20 menit setelah matahari terbit",
+			"Kemudian kerjakan 2 rakaat"
+		],
+		"steps": [
+			{
+				"title": "Panduan Lengkap — Segera Tersedia",
+				"instruction": "Panduan langkah demi langkah Shalat Isyraq sedang disiapkan. Untuk sementara: setelah matahari terbit sekitar 15-20 menit, shalat 2 rakaat seperti shalat biasa.",
+				"note": "Keutamaan besar: Rasulullah ﷺ bersabda pahalanya seperti haji dan umrah yang sempurna bagi yang duduk berdzikir dari Subuh hingga shalat Isyraq."
+			}
+		],
+		"closingNote": "Rasulullah ﷺ bersabda: 'Siapa yang shalat Subuh berjamaah kemudian duduk berdzikir kepada Allah hingga matahari terbit, kemudian shalat dua rakaat, baginya pahala seperti haji dan umrah — sempurna, sempurna, sempurna.' (HR. Tirmidzi)",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-dhuha",
+		"title": "Shalat Sunnah Dhuha",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Pagi hari: sekitar 15-20 menit setelah matahari terbit hingga menjelang Zuhur",
+		"overview": "Shalat sunnah pagi hari, minimal 2 rakaat dan maksimal 12 rakaat. Merupakan bentuk sedekah dari seluruh sendi tubuh setiap hari. Sangat dianjurkan dikerjakan setiap pagi.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Waktu: setelah matahari naik sekitar 15-20 menit hingga sebelum waktu Zuhur",
+			"Minimal 2 rakaat, maksimal 12 rakaat (2 rakaat per salam)"
+		],
+		"steps": [
+			{
+				"title": "Panduan Lengkap — Segera Tersedia",
+				"instruction": "Panduan langkah demi langkah Shalat Dhuha sedang disiapkan. Untuk sementara: shalat minimal 2 rakaat seperti shalat biasa, niat shalat dhuha.",
+				"note": "Abu Hurairah r.a. berkata: 'Kekasihku (Rasulullah ﷺ) mewasiatkan kepadaku tiga hal: puasa tiga hari setiap bulan, dua rakaat Dhuha, dan witir sebelum tidur.' (HR. Bukhari & Muslim)"
+			}
+		],
+		"closingNote": "Dari Abu Dzar r.a., Rasulullah ﷺ bersabda: 'Setiap pagi, setiap sendi tubuh salah seorang dari kalian ada sedekahnya... dan dua rakaat Dhuha mencukupi itu semua.' (HR. Muslim)",
+		"duaIds": [],
+		"dayNumbers": []
+	},
+	{
+		"id": "shalat-awwabin",
+		"title": "Shalat Sunnah Awwabin",
+		"subtitle": "Panduan Shalat",
+		"phase": "shalat",
+		"timing": "Setelah shalat Maghrib (ba'diyah Maghrib hingga waktu Isya)",
+		"overview": "Shalat sunnah antara Maghrib dan Isya, dikerjakan 6 rakaat. Awwabin artinya orang-orang yang kembali kepada Allah. Keutamaannya setara beribadah 12 tahun.",
+		"preparation": [
+			"Dalam kondisi suci (berwudhu)",
+			"Dikerjakan setelah shalat Maghrib dan rawatib ba'diyah Maghrib",
+			"6 rakaat (3 kali salam, masing-masing 2 rakaat)"
+		],
+		"steps": [
+			{
+				"title": "Panduan Lengkap — Segera Tersedia",
+				"instruction": "Panduan langkah demi langkah Shalat Awwabin sedang disiapkan. Untuk sementara: setelah rawatib ba'diyah Maghrib, shalat 6 rakaat (2 rakaat 3 salam) hingga waktu Isya.",
+				"note": "Awwabin artinya 'orang-orang yang kembali (kepada Allah)' — tanda orang yang terus menjaga hubungannya dengan Allah di sela waktu luang."
+			}
+		],
+		"closingNote": "Rasulullah ﷺ bersabda: 'Barang siapa yang shalat 6 rakaat setelah Maghrib tanpa berbicara buruk di antara rakaatnya, maka (pahalanya) sama dengan ibadah 12 tahun.' (HR. Tirmidzi & Ibnu Majah)",
+		"duaIds": [],
+		"dayNumbers": []
 	}
 ]
