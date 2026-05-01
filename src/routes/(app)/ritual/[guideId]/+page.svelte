@@ -178,7 +178,7 @@
 {#if guide}
 	<div
 		bind:this={pageContainer}
-		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-nav"
+		class="page-enter pb-nav relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 	>
 		<!-- Pastel Background Pattern -->
 		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
@@ -331,9 +331,23 @@
 								></div>
 								<div class="relative z-10">
 									<ArabicText text={currentStep.arabic} size="lg" />
+
+									{#if currentStep.latin}
+										<p class="mt-4 text-sm leading-relaxed text-muted italic">
+											{currentStep.latin}
+										</p>
+									{/if}
+
+									{#if currentStep.translation}
+										<div class="mt-4 h-px w-full bg-border/50"></div>
+										<p class="mt-4 font-serif text-[14px] leading-relaxed text-foreground">
+											{currentStep.translation}
+										</p>
+									{/if}
+
 									{#if currentStep.arabicSource}
 										<p
-											class="mt-3 text-right text-xs font-medium tracking-wide text-muted/70 uppercase"
+											class="mt-4 text-right text-xs font-medium tracking-wide text-muted/70 uppercase"
 										>
 											— {currentStep.arabicSource}
 										</p>

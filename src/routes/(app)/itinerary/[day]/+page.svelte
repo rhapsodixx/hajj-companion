@@ -28,7 +28,8 @@
 		Bus,
 		AirplaneTilt,
 		Train,
-		ArrowDown
+		ArrowDown,
+		BookOpenText
 	} from 'phosphor-svelte';
 	import { getOverrideForDay } from '$lib/state/overrides.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -329,19 +330,30 @@
 		<div class="space-y-4 px-4 pb-6">
 			<!-- Ritual guide shortcut (critical days) -->
 			{#if day.ritualGuideId}
-				<Card pressable href="/ritual/{day.ritualGuideId}" class="gsap-card">
-					<div class="flex items-center justify-between gap-3">
-						<div>
-							<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
-								Panduan Ibadah
-							</p>
-							<p class="mt-0.5 font-medium text-foreground">Buka panduan langkah demi langkah</p>
-							<p class="mt-0.5 text-xs text-muted">Niat, tawaf, doa, dan tips penting</p>
+				<Card pressable href="/ritual/{day.ritualGuideId}" class="gsap-card group">
+					<div class="flex w-full items-center justify-between">
+						<div class="flex flex-1 items-center gap-4 text-left">
+							<div
+								class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-brand) group-hover:text-surface"
+							>
+								<BookOpenText size={24} weight="regular" aria-hidden="true" />
+							</div>
+							<div class="flex-1">
+								<p class="text-xs font-semibold tracking-wide text-(--color-brand) uppercase">
+									Panduan Ibadah
+								</p>
+								<p
+									class="mt-0.5 font-bold text-foreground transition-colors duration-300 group-hover:text-(--color-brand)"
+								>
+									Buka panduan langkah demi langkah
+								</p>
+								<p class="mt-0.5 text-xs text-muted">Niat, tawaf, doa, dan tips penting</p>
+							</div>
 						</div>
 						<CaretRight
 							size={20}
 							weight="bold"
-							class="shrink-0 text-(--color-brand)"
+							class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
 							aria-hidden="true"
 						/>
 					</div>

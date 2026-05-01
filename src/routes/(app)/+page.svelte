@@ -420,16 +420,28 @@
 
 		<!-- Today card (secondary) -->
 		<div class="mt-6 border-t border-border/40 pt-5">
-			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
 			<Card class="gsap-card">
-				<p class="font-medium">
+				<div class="mb-4 flex items-center gap-3">
+					<div
+						class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<CalendarCheck size={18} weight="fill" aria-hidden="true" />
+					</div>
+					<h2 class="text-sm font-bold text-foreground">Hari Ini</h2>
+				</div>
+				<p class="font-medium text-foreground">
 					{todayDay.phase === 'manasik'
 						? todayDay.routeLabel
 						: `Hari ${todayDay.dayNumber} — ${todayDay.location}`}
 				</p>
 				<p class="mt-1 text-sm text-muted">{todayDay.hijriDate}</p>
-				<Button href="/itinerary/{todayDay.dayNumber}" variant="ghost" size="sm" class="mt-3 -ml-2">
-					Lihat jadwal lengkap →
+				<Button
+					href="/itinerary/{todayDay.dayNumber}"
+					variant="secondary"
+					size="md"
+					class="mt-4 w-full"
+				>
+					Lihat jadwal lengkap
 				</Button>
 			</Card>
 		</div>

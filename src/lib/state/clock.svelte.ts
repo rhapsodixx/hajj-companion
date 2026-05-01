@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { SvelteDate } from 'svelte/reactivity';
 import itinerary from '$lib/data/itinerary.json';
 
 export class AppClock {
@@ -20,7 +21,7 @@ export class AppClock {
 
 	update() {
 		const overrideDayStr = localStorage.getItem('patuna-debug-day');
-		let dateToUse = new Date();
+		const dateToUse = new SvelteDate();
 
 		let dayObj;
 		if (overrideDayStr) {
@@ -30,7 +31,7 @@ export class AppClock {
 
 		if (!dayObj) {
 			// Get YYYY-MM-DD format for local timezone
-			const localDate = new Date(dateToUse.getTime() - dateToUse.getTimezoneOffset() * 60000);
+			const localDate = new SvelteDate(dateToUse.getTime() - dateToUse.getTimezoneOffset() * 60000);
 			const yyyymmdd = localDate.toISOString().split('T')[0];
 
 			dayObj = itinerary.find((d) => d.gregorianDate === yyyymmdd);
