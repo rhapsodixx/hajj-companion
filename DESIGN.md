@@ -102,3 +102,8 @@ The design language is "Tactile Illustrative Minimalism" — a balance between m
 - **High Contrast:** Vital for Saudi sun glare. Every UI element must maintain a 4.5:1 ratio.
 - **Motion:** GSAP-powered tactile motion. Delightful spring-based animations, staggered reveals, and smooth height transitions for a polished "pro-max" feel.
 - **No checklists in Ritual Guide** — read-before, not interact-during.
+
+## 8. Iconography
+
+- **Library**: Phosphor Icons (`phosphor-svelte`). No inline SVGs.
+- **Weight standard**: Use `weight="regular"` for standard UI elements and icons in lists. Use `weight="bold"` or `weight="fill"` for active states, highlighted actions, and primary buttons.

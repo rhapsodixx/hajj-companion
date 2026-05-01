@@ -82,8 +82,9 @@ src/routes/
     dua/+page.svelte          → Du'a library
     more/+page.svelte         → "Lainnya" hub (links to contacts, guides, settings)
     more/contacts/+page.svelte → Emergency contacts
-    more/guides/+page.svelte   → Ritual guides list
+    more/guides/+page.svelte   → PDF Guides
     more/settings/+page.svelte → Settings (dark mode, phase override)
+  ritual/+page.svelte           → Ritual guides list
   ritual/[guideId]/+page.svelte → Ritual walkthrough (outside app group — no bottom nav, immersive)
   admin/+page.svelte          → Admin override panel (dev/internal use)
   _design/+page.svelte        → Dev-only component gallery
@@ -199,9 +200,9 @@ Use these standard components instead of building one-off containers:
 
 ### Icons
 
-No icon library. All icons are inline SVGs — either directly in markup or stored as template-literal constants rendered via `{@html icon}`.
+Use `phosphor-svelte` for all icons.
 
-**Stroke-width standard:** All inline SVG icons must use `stroke-width="1.5"` for visual consistency. Do not use `2`, `2.5`, or other weights.
+**Weight standard:** Use `weight="regular"` for default UI elements and `weight="bold"` for active states or highlighted buttons.
 
 ### Page Titles
 
@@ -234,7 +235,7 @@ Please refer to `DESIGN.md` for any UI design direction.
 - Do not use `moment.js` — use native `Date` or `Intl` APIs.
 - Do not use `$lib/index.ts` barrel file — import directly from subpaths.
 - Do not add comments in code unless explicitly asked.
-- Do not use `stroke-width` values other than `1.5` for inline SVG icons.
+- Do not use inline SVGs for standard icons — use `phosphor-svelte`.
 - Do not use `bg-white` in components — use `bg-surface` for dark-mode compatibility.
 
 ## Formatting

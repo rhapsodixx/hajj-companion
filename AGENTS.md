@@ -35,7 +35,7 @@ Additional context files:
 - Max content width is 480px (`max-w-120`). Mobile-first, single-column.
 - Min tap target 44×44px. The target user is 45–65 years old with medium phone literacy.
 - Dark mode uses `html[data-theme='dark']` CSS variable overrides, not Tailwind `dark:` classes.
-- All inline SVG icons must use `stroke-width="1.5"` — no other weights.
+- Use `phosphor-svelte` for all icons. Do not use inline SVGs.
 - Use `bg-surface` instead of `bg-white` for dark-mode compatibility.
 - Every page root container should include the `page-enter` class for entrance animation.
 - Use GSAP for complex state transitions, expand/collapse behaviors, and staggered item entrances to create a tactile, "pro-max" feel.
