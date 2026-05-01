@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { duaLibrary } from '$lib/data/dua';
 	import DuaCard from '$lib/components/ui/DuaCard.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import { MagnifyingGlass, X } from 'phosphor-svelte';
+	import PageBackground from '$lib/components/ui/PageBackground.svelte';
 
 	type DuaCategory =
 		| 'niat'
@@ -65,46 +66,27 @@
 	$effect(() => {
 		if (!floatingContainerRef) return;
 
-		if (isScrolled || isFloatingExpanded || query) {
-			gsap.to(floatingContainerRef, {
-				opacity: 1,
-				scale: 1,
-				pointerEvents: 'auto',
-				duration: 0.4,
-				ease: 'back.out(1.5)'
-			});
-		} else {
-			gsap.to(floatingContainerRef, {
-				opacity: 0,
-				scale: 0.8,
-				pointerEvents: 'none',
-				duration: 0.3,
-				ease: 'power2.in'
-			});
-		}
-	});
+		const shouldShow = isScrolled || isFloatingExpanded || !!query;
+		gsap.to(
+			floatingContainerRef,
+			shouldShow
+				? { opacity: 1, scale: 1, pointerEvents: 'auto', duration: 0.4, ease: 'back.out(1.5)' }
+				: { opacity: 0, scale: 0.8, pointerEvents: 'none', duration: 0.3, ease: 'power2.in' }
+		);
 
-	$effect(() => {
-		if (!floatingContainerRef) return;
+		gsap.to(
+			floatingContainerRef,
+			isFloatingExpanded
+				? { width: '100%', borderRadius: '16px', duration: 0.4, ease: 'power3.inOut' }
+				: { width: '56px', borderRadius: '9999px', duration: 0.4, ease: 'power3.inOut' }
+		);
 
 		if (isFloatingExpanded) {
-			gsap.to(floatingContainerRef, {
-				width: '100%',
-				borderRadius: '16px',
-				duration: 0.4,
-				ease: 'power3.inOut'
-			});
 			if (floatingFabIconRef) gsap.to(floatingFabIconRef, { opacity: 0, scale: 0, duration: 0.2 });
 			if (floatingLeftIconRef)
 				gsap.to(floatingLeftIconRef, { opacity: 1, delay: 0.2, duration: 0.2 });
 			if (floatingCloseRef) gsap.to(floatingCloseRef, { opacity: 1, delay: 0.2, duration: 0.2 });
 		} else {
-			gsap.to(floatingContainerRef, {
-				width: '56px',
-				borderRadius: '9999px',
-				duration: 0.4,
-				ease: 'power3.inOut'
-			});
 			if (floatingFabIconRef)
 				gsap.to(floatingFabIconRef, { opacity: 1, scale: 1, delay: 0.2, duration: 0.2 });
 			if (floatingLeftIconRef) gsap.to(floatingLeftIconRef, { opacity: 0, duration: 0.1 });
@@ -158,12 +140,12 @@
 	let pageContainer: HTMLElement;
 
 	onMount(() => {
-		const catParam = $page.url.searchParams.get('category');
+		const catParam = page.url.searchParams.get('category');
 		if (catParam && CATEGORY_ORDER.includes(catParam as DuaCategory)) {
 			selectedCategory = catParam as DuaCategory;
 		}
 
-		const qParam = $page.url.searchParams.get('q');
+		const qParam = page.url.searchParams.get('q');
 		if (qParam) {
 			query = qParam;
 			isFloatingExpanded = true;
@@ -183,20 +165,6 @@
 				ease: 'back.out(1.2)'
 			}
 		);
-
-		const shapes = pageContainer.querySelectorAll('.gsap-shape');
-		shapes.forEach((shape, i) => {
-			gsap.to(shape, {
-				y: 'random(-20, 20)',
-				x: 'random(-20, 20)',
-				rotation: 'random(-15, 15)',
-				duration: 'random(3, 6)',
-				repeat: -1,
-				yoyo: true,
-				ease: 'sine.inOut',
-				delay: i * 0.5
-			});
-		});
 	});
 </script>
 
@@ -207,20 +175,7 @@
 	bind:this={pageContainer}
 	class="page-enter relative mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-5"
 >
-	<!-- Pastel Background Pattern -->
-	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
-		<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
-		<!-- Colorful floating shapes -->
-		<div
-			class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
-		></div>
-		<div
-			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
-		></div>
-		<div
-			class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
-		></div>
-	</div>
+	<PageBackground />
 
 	<!-- Floating Search FAB Wrapper -->
 	<div

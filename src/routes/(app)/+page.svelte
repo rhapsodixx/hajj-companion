@@ -13,6 +13,7 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import PhaseRibbon from '$lib/components/ui/PhaseRibbon.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import PageBackground from '$lib/components/ui/PageBackground.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import { ScrambleTextPlugin } from 'gsap/dist/ScrambleTextPlugin';
@@ -42,19 +43,23 @@
 		return () => clearInterval(id);
 	});
 
-	const today = getEffectiveToday();
-	const todayDay = getDayByDate(today);
-	const climate = todayDay ? getClimate(todayDay.climateNormId) : null;
-
 	const hajjStart =
 		itinerary.find((d) => d.dayNumber === 1)?.gregorianDate ?? itinerary[0].gregorianDate;
 	const tripEnd = itinerary[itinerary.length - 1].gregorianDate;
-	const beforeTrip = !todayDay && today < hajjStart;
-	const afterTrip = !todayDay && today > tripEnd;
 
-	const daysUntilTrip = beforeTrip
-		? Math.ceil((new Date(hajjStart).getTime() - new Date(today).getTime()) / 86400000)
-		: 0;
+	const today = $derived.by(() => {
+		const _ = nowTick;
+		return getEffectiveToday();
+	});
+	const todayDay = $derived(getDayByDate(today));
+	const climate = $derived(todayDay ? getClimate(todayDay.climateNormId) : null);
+	const beforeTrip = $derived(!todayDay && today < hajjStart);
+	const afterTrip = $derived(!todayDay && today > tripEnd);
+	const daysUntilTrip = $derived(
+		beforeTrip
+			? Math.ceil((new Date(hajjStart).getTime() - new Date(today).getTime()) / 86400000)
+			: 0
+	);
 
 	let afterMaghrib = $derived.by(() => {
 		const _ = nowTick;
@@ -62,7 +67,7 @@
 		return h >= 18 || h < 4;
 	});
 
-	let dzikirType = $derived.by<'pagi' | 'petang' | null>(() => {
+	let dzikirType = $derived.by<'pagi' | 'petang'>(() => {
 		const _ = nowTick;
 		const h = getEffectiveHour();
 		if (h >= 3 && h < 15) {
@@ -167,21 +172,6 @@
 			);
 		}
 
-		// Animate background shapes
-		const shapes = pageContainer.querySelectorAll('.gsap-shape');
-		shapes.forEach((shape, i) => {
-			gsap.to(shape, {
-				y: 'random(-20, 20)',
-				x: 'random(-20, 20)',
-				rotation: 'random(-15, 15)',
-				duration: 'random(3, 6)',
-				repeat: -1,
-				yoyo: true,
-				ease: 'sine.inOut',
-				delay: i * 0.5
-			});
-		});
-
 		// Occasional shine sweep on quwa brand
 		gsap.set(shineEl, { x: -100 });
 		let shineTimer: gsap.core.Tween;
@@ -221,20 +211,7 @@
 	bind:this={pageContainer}
 	class="page-enter relative mx-auto max-w-120 space-y-4 overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-5"
 >
-	<!-- Pastel Background Pattern -->
-	<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
-		<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
-		<!-- Colorful floating shapes -->
-		<div
-			class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
-		></div>
-		<div
-			class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
-		></div>
-		<div
-			class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
-		></div>
-	</div>
+	<PageBackground />
 
 	<!-- ── Header ── -->
 	<header class="mb-6 flex items-center justify-between">

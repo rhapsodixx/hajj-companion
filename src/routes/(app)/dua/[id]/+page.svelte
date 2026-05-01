@@ -4,6 +4,7 @@
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import PageBackground from '$lib/components/ui/PageBackground.svelte';
 	import { CaretLeft, BookOpenText, HandsPraying, Copy, Check } from 'phosphor-svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
@@ -84,21 +85,6 @@
 			);
 		}
 
-		// Floating shapes
-		const shapes = pageContainer.querySelectorAll('.gsap-shape');
-		shapes.forEach((shape, i) => {
-			gsap.to(shape, {
-				y: 'random(-20, 20)',
-				x: 'random(-20, 20)',
-				rotation: 'random(-15, 15)',
-				duration: 'random(3, 6)',
-				repeat: -1,
-				yoyo: true,
-				ease: 'sine.inOut',
-				delay: i * 0.5
-			});
-		});
-
 		return () => {
 			tl.kill();
 		};
@@ -111,19 +97,7 @@
 
 {#if dua}
 	<div bind:this={pageContainer} class="page-enter relative mx-auto max-w-120 overflow-hidden pb-5">
-		<!-- Pastel Background Pattern -->
-		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
-			<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
-			<div
-				class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
-			></div>
-			<div
-				class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
-			></div>
-			<div
-				class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
-			></div>
-		</div>
+		<PageBackground />
 
 		<!-- Back nav -->
 		<div class="px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-2">

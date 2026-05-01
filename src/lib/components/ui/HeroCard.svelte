@@ -8,11 +8,12 @@
 		class?: string;
 	}
 
-	let { phase: _phase, children, label, class: className = '' }: Props = $props();
+	let { phase, children, label, class: className = '' }: Props = $props();
 </script>
 
 <div
 	class="card-enter relative overflow-hidden rounded-xl bg-foreground p-5 text-surface shadow-level-1 {className}"
+	style={phase ? `border-left: 4px solid var(--color-phase-${phase})` : ''}
 >
 	<div class="relative z-10">
 		{#if label}

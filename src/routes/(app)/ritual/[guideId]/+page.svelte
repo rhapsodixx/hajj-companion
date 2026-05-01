@@ -6,6 +6,7 @@
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import LostButton from '$lib/components/ui/LostButton.svelte';
+	import PageBackground from '$lib/components/ui/PageBackground.svelte';
 	import { onMount, tick } from 'svelte';
 	import { goto } from '$app/navigation';
 	import gsap from 'gsap';
@@ -156,20 +157,6 @@
 				ease: 'back.out(1.2)'
 			}
 		);
-
-		const shapes = pageContainer.querySelectorAll('.gsap-shape');
-		shapes.forEach((shape, i) => {
-			gsap.to(shape, {
-				y: 'random(-20, 20)',
-				x: 'random(-20, 20)',
-				rotation: 'random(-15, 15)',
-				duration: 'random(3, 6)',
-				repeat: -1,
-				yoyo: true,
-				ease: 'sine.inOut',
-				delay: i * 0.5
-			});
-		});
 	});
 </script>
 
@@ -182,20 +169,7 @@
 		bind:this={pageContainer}
 		class="page-enter pb-nav relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)]"
 	>
-		<!-- Pastel Background Pattern -->
-		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">
-			<div class="app-bg absolute inset-0 opacity-[0.03]"></div>
-			<!-- Colorful floating shapes -->
-			<div
-				class="gsap-shape absolute top-[-10%] left-[-10%] h-96 w-96 rounded-full bg-[var(--color-pastel-green)] opacity-40 mix-blend-multiply blur-3xl"
-			></div>
-			<div
-				class="gsap-shape absolute top-[20%] right-[-10%] h-80 w-80 rounded-full bg-[var(--color-pastel-blue)] opacity-30 mix-blend-multiply blur-3xl"
-			></div>
-			<div
-				class="gsap-shape absolute bottom-[10%] left-[20%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-pastel-yellow)] opacity-30 mix-blend-multiply blur-3xl"
-			></div>
-		</div>
+		<PageBackground />
 
 		<!-- Back link -->
 		<div

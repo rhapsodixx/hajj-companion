@@ -55,6 +55,7 @@ export async function fetchOverrides(): Promise<void> {
 		const { data, error } = await supabase
 			.from('daily_overrides')
 			.select('*')
+			.abortSignal(controller.signal)
 			.order('published_at', { ascending: false });
 
 		clearTimeout(timeout);

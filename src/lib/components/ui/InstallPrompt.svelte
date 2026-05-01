@@ -12,7 +12,7 @@
 		if (window.navigator.standalone === true) return;
 
 		// Respect 3-day dismissal cooldown
-		const dismissedUntil = localStorage.getItem('patuna.installDismissed');
+		const dismissedUntil = localStorage.getItem('patuna-install-dismissed');
 		if (dismissedUntil && Number(dismissedUntil) > Date.now()) return;
 
 		// Check for iOS
@@ -46,7 +46,7 @@
 	function dismiss() {
 		showBanner = false;
 		// Don't show again for 3 days
-		localStorage.setItem('patuna.installDismissed', String(Date.now() + 3 * 86400000));
+		localStorage.setItem('patuna-install-dismissed', String(Date.now() + 3 * 86400000));
 	}
 </script>
 
