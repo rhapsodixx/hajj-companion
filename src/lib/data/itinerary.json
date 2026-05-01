@@ -900,7 +900,7 @@
 			"Perbanyak talbiyah di bus — ini momen yang sangat khidmat.",
 			"Simpan tenaga untuk Wukuf esok hari."
 		],
-		"duaIds": ["niat-haji", "talbiyah"],
+		"duaIds": ["niat-haji", "talbiyah", "dua-arafah-sayyidul-istighfar", "dua-arafah-rabbana-dhunia-akhirah", "dua-arafah-rabbana-taqabbal"],
 		"climateNormId": "arafah-may",
 		"ritualGuideId": "wukuf-arafah",
 		"patunaNote": "Dengan seragam untuk Laki-laki Ihrom Patuna dan Wanita baju/Gamis Putih bebas (Mukena Atasan Putih Patuna). Seluruh Jamaah memasuki Bus Patuna pukul 23:59 dan berangkat menuju Arafah. Pada waktu yang telah ditentukan, bersama-sama berniat: Niat Haji: Labbaik Allohumma Hajjan."
@@ -964,7 +964,7 @@
 			"Jangan keluar area tenda tanpa pembimbing.",
 			"Setelah maghrib, segera bersiap ke Muzdalifah mengikuti bus Patuna."
 		],
-		"duaIds": ["dua-wukuf-arafah", "dua-arafah"],
+		"duaIds": ["dua-wukuf-arafah", "dua-arafah", "dua-arafah-sayyidul-istighfar", "dua-arafah-rabbana-dhunia-akhirah", "dua-arafah-laa-ilaha-illa-anta", "dua-arafah-mohon-ampunan", "dua-arafah-perlindungan-kubur", "dua-arafah-mohon-petunjuk", "dua-arafah-kebaikan-agama", "dua-arafah-rabbana-la-tuzigh", "dua-arafah-rabbana-dzalamna", "dua-arafah-rabbana-taqabbal"],
 		"climateNormId": "arafah-may",
 		"ritualGuideId": "wukuf-arafah"
 	},
