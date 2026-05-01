@@ -47,6 +47,14 @@
 			offline: true
 		},
 		{
+			title: 'Manasik Haji Sesuai Sunnah',
+			description: 'Buku panduan manasik haji karya Dr. Abdullah Roy',
+			url: '/pdfs/manasik-haji-sesuai-sunnah.pdf',
+			size: '1.8 MB',
+			icon: 'pdf',
+			offline: true
+		},
+		{
 			title: 'Doa Zikir Haji & Umrah',
 			description: 'Kumpulan doa dan zikir untuk ibadah haji dan umrah',
 			url: 'https://drive.google.com/file/d/1PLrAgbFMv-Fg_O8ufU1VKw_RlLMrNlSB/view',
