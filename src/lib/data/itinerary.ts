@@ -45,7 +45,8 @@ export const PHASE_LABELS: Record<string, string> = {
 	'ash-shishah': 'Ash Shishah',
 	rukun: 'Rukun Haji',
 	'post-hajj': 'Setelah Haji',
-	departure: 'Kepulangan'
+	departure: 'Kepulangan',
+	harian: 'Amalan Harian'
 };
 
 export function getTransportType(activity: {

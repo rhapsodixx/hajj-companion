@@ -15,10 +15,12 @@
 		CheckCircle,
 		AirplaneTakeoff,
 		MapTrifold,
-		AirplaneLanding
+		AirplaneLanding,
+		Clock
 	} from 'phosphor-svelte';
 
 	const PHASE_ORDER = [
+		'harian',
 		'manasik',
 		'arrival',
 		'madinah',
@@ -57,6 +59,8 @@
 				return CheckCircle;
 			case 'departure':
 				return AirplaneTakeoff;
+			case 'harian':
+				return Clock;
 			default:
 				return MapPin;
 		}
