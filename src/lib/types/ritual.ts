@@ -3,6 +3,8 @@ export type RitualStep = {
 	instruction: string;
 	note?: string;
 	arabic?: string;
+	latin?: string;
+	translation?: string;
 	arabicSource?: string;
 	warning?: string;
 };

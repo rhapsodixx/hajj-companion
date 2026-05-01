@@ -178,7 +178,7 @@
 {#if guide}
 	<div
 		bind:this={pageContainer}
-		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-8"
+		class="page-enter relative mx-auto flex min-h-dvh max-w-120 flex-col overflow-hidden px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-nav"
 	>
 		<!-- Pastel Background Pattern -->
 		<div class="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-background">

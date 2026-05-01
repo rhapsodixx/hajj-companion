@@ -25,6 +25,17 @@ export function getTodayNumber(): number | undefined {
 	return itinerary.find((d) => d.gregorianDate === today)?.dayNumber;
 }
 
+export function getEffectiveHour(): number {
+	if (browser) {
+		const override = localStorage.getItem('patuna-time-override');
+		if (override) {
+			const [hours] = override.split(':').map(Number);
+			return hours;
+		}
+	}
+	return new Date().getHours();
+}
+
 export const PHASE_LABELS: Record<string, string> = {
 	manasik: 'Manasik',
 	arrival: 'Kedatangan',

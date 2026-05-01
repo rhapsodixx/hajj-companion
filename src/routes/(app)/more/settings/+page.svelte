@@ -18,6 +18,8 @@
 	let themePref = $state<ThemePref>('auto');
 	let dateOverride = $state('');
 	let showDateOverride = $state(false);
+	let timeOverride = $state('');
+	let showTimeOverride = $state(false);
 
 	function isAfterMaghrib(): boolean {
 		const h = new Date().getHours();
@@ -41,6 +43,12 @@
 			localStorage.setItem('patuna-date-override', dateOverride);
 		} else {
 			localStorage.removeItem('patuna-date-override');
+		}
+
+		if (timeOverride) {
+			localStorage.setItem('patuna-time-override', timeOverride);
+		} else {
+			localStorage.removeItem('patuna-time-override');
 		}
 	});
 
@@ -67,6 +75,12 @@
 		if (savedDate) {
 			dateOverride = savedDate;
 			showDateOverride = true;
+		}
+
+		const savedTime = localStorage.getItem('patuna-time-override');
+		if (savedTime) {
+			timeOverride = savedTime;
+			showTimeOverride = true;
 		}
 	}
 
@@ -240,6 +254,37 @@
 							class="tap-target mt-2 text-xs text-muted underline"
 						>
 							Gunakan tanggal asli (hari ini)
+						</button>
+					{/if}
+				</div>
+			{/if}
+		</Card>
+
+		<!-- Time override (dev/demo) -->
+		<Card class="gsap-card">
+			<div class="flex items-center justify-between">
+				<p class="text-xs font-semibold tracking-wide text-muted uppercase">Coba Waktu Lain</p>
+				<button
+					onclick={() => (showTimeOverride = !showTimeOverride)}
+					class="text-xs text-(--color-brand)"
+				>
+					{showTimeOverride ? 'Tutup' : 'Atur'}
+				</button>
+			</div>
+			<p class="mt-1 text-xs text-muted">Simulasi waktu untuk preview dzikir pagi/petang.</p>
+			{#if showTimeOverride}
+				<div class="mt-3">
+					<input
+						type="time"
+						bind:value={timeOverride}
+						class="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground"
+					/>
+					{#if timeOverride}
+						<button
+							onclick={() => (timeOverride = '')}
+							class="tap-target mt-2 text-xs text-muted underline"
+						>
+							Gunakan waktu asli
 						</button>
 					{/if}
 				</div>

@@ -3,6 +3,7 @@
 		itinerary,
 		getDayByDate,
 		getEffectiveToday,
+		getEffectiveHour,
 		PHASE_LABELS,
 		getTransportType,
 		stripMovementKeywords
@@ -30,7 +31,9 @@
 		Target,
 		AirplaneInFlight,
 		Train,
-		Bus
+		Bus,
+		MoonStars,
+		SunHorizon
 	} from 'phosphor-svelte';
 
 	let nowTick = $state(Date.now());
@@ -55,8 +58,18 @@
 
 	let afterMaghrib = $derived.by(() => {
 		const _ = nowTick;
-		const h = new Date().getHours();
+		const h = getEffectiveHour();
 		return h >= 18 || h < 4;
+	});
+
+	let dzikirType = $derived.by<'pagi' | 'petang' | null>(() => {
+		const _ = nowTick;
+		const h = getEffectiveHour();
+		if (h >= 3 && h < 15) {
+			return 'pagi';
+		} else {
+			return 'petang';
+		}
 	});
 
 	let nextDay = $derived.by(() => {
@@ -372,6 +385,39 @@
 			</Card>
 		{/if}
 
+		<!-- Dzikir Link -->
+		{#if dzikirType}
+			<Card pressable href="/ritual/dzikir-{dzikirType}" class="gsap-card group">
+				<div class="flex w-full items-center justify-between">
+					<div class="flex flex-1 items-center gap-4 text-left">
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-brand) group-hover:text-surface"
+						>
+							{#if dzikirType === 'pagi'}
+								<SunHorizon size={24} weight="regular" aria-hidden="true" />
+							{:else}
+								<MoonStars size={24} weight="regular" aria-hidden="true" />
+							{/if}
+						</div>
+						<div class="flex-1">
+							<p
+								class="font-bold text-foreground transition-colors duration-300 group-hover:text-(--color-brand)"
+							>
+								Dzikir {dzikirType === 'pagi' ? 'Pagi' : 'Petang'}
+							</p>
+							<p class="mt-0.5 text-sm text-muted">Rutinitas dzikir harian Anda</p>
+						</div>
+					</div>
+					<CaretRight
+						size={20}
+						weight="bold"
+						class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
+						aria-hidden="true"
+					/>
+				</div>
+			</Card>
+		{/if}
+
 		<!-- Today card (secondary) -->
 		<div class="mt-6 border-t border-border/40 pt-5">
 			<p class="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Hari ini</p>
@@ -535,6 +581,39 @@
 					<h2 class="text-xs font-semibold tracking-wide text-muted uppercase">Info Koper</h2>
 				</div>
 				<p class="text-sm leading-relaxed text-foreground">{todayDay.koperNote}</p>
+			</Card>
+		{/if}
+
+		<!-- Dzikir Link -->
+		{#if dzikirType}
+			<Card pressable href="/ritual/dzikir-{dzikirType}" class="gsap-card group">
+				<div class="flex w-full items-center justify-between">
+					<div class="flex flex-1 items-center gap-4 text-left">
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-brand) group-hover:text-surface"
+						>
+							{#if dzikirType === 'pagi'}
+								<SunHorizon size={24} weight="regular" aria-hidden="true" />
+							{:else}
+								<MoonStars size={24} weight="regular" aria-hidden="true" />
+							{/if}
+						</div>
+						<div class="flex-1">
+							<p
+								class="font-bold text-foreground transition-colors duration-300 group-hover:text-(--color-brand)"
+							>
+								Dzikir {dzikirType === 'pagi' ? 'Pagi' : 'Petang'}
+							</p>
+							<p class="mt-0.5 text-sm text-muted">Rutinitas dzikir harian Anda</p>
+						</div>
+					</div>
+					<CaretRight
+						size={20}
+						weight="bold"
+						class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
+						aria-hidden="true"
+					/>
+				</div>
 			</Card>
 		{/if}
 

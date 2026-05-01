@@ -1,11 +1,21 @@
 <script lang="ts">
 	import { duaLibrary } from '$lib/data/dua';
 	import DuaCard from '$lib/components/ui/DuaCard.svelte';
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import { MagnifyingGlass, X } from 'phosphor-svelte';
 
-	type DuaCategory = 'niat' | 'tawaf' | 'sai' | 'wukuf' | 'jumrah' | 'safar' | 'masjid' | 'umum';
+	type DuaCategory =
+		| 'niat'
+		| 'tawaf'
+		| 'sai'
+		| 'wukuf'
+		| 'jumrah'
+		| 'safar'
+		| 'masjid'
+		| 'dzikir'
+		| 'umum';
 
 	const CATEGORY_ORDER: DuaCategory[] = [
 		'niat',
@@ -15,6 +25,7 @@
 		'wukuf',
 		'jumrah',
 		'safar',
+		'dzikir',
 		'umum'
 	];
 
@@ -26,6 +37,7 @@
 		wukuf: 'Wukuf & Arafah',
 		jumrah: 'Lontar Jumrah',
 		safar: 'Perjalanan',
+		dzikir: 'Dzikir Pagi Petang',
 		umum: 'Umum'
 	};
 
@@ -146,6 +158,17 @@
 	let pageContainer: HTMLElement;
 
 	onMount(() => {
+		const catParam = $page.url.searchParams.get('category');
+		if (catParam && CATEGORY_ORDER.includes(catParam as DuaCategory)) {
+			selectedCategory = catParam as DuaCategory;
+		}
+
+		const qParam = $page.url.searchParams.get('q');
+		if (qParam) {
+			query = qParam;
+			isFloatingExpanded = true;
+		}
+
 		const cards = pageContainer.querySelectorAll('.gsap-card');
 		gsap.fromTo(
 			cards,

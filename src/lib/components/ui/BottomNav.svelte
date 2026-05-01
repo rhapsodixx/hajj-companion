@@ -32,7 +32,7 @@
 		{
 			href: '/more',
 			label: 'Lainnya',
-			match: (p: string) => p.startsWith('/more'),
+			match: (p: string) => p.startsWith('/more') || p.startsWith('/ritual'),
 			icon: List,
 			bgColor: 'var(--nav-bg-default)',
 			textColor: 'var(--nav-text-default)'

@@ -5,7 +5,7 @@ export type Dua = {
 	latin: string;
 	translation: string; // Bahasa Indonesia
 	whenToRead: string; // konteks kapan dibaca
-	category: 'niat' | 'tawaf' | 'sai' | 'wukuf' | 'jumrah' | 'safar' | 'masjid' | 'umum';
+	category: 'niat' | 'tawaf' | 'sai' | 'wukuf' | 'jumrah' | 'safar' | 'masjid' | 'umum' | 'dzikir';
 	sources: string; // Referensi sumber doa
 };
 
