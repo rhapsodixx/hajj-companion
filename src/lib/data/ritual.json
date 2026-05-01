@@ -614,7 +614,8 @@
 			"Dalam kondisi suci (berwudhu)",
 			"Dikerjakan setelah adzan, sebelum iqamah (qabliyah) — atau langsung setelah fardhu (ba'diyah)",
 			"Lebih utama dikerjakan di tempat berbeda dari lokasi shalat fardhu",
-			"Setiap 2 rakaat diakhiri salam"
+			"Setiap 2 rakaat diakhiri salam",
+			"Target 12 rakaat muakkad: 2 qabliyah Subuh + 4 qabliyah Zuhur + 2 ba'diyah Zuhur + 2 ba'diyah Maghrib + 2 ba'diyah Isya."
 		],
 		"steps": [
 			{
@@ -676,53 +677,6 @@
 		"dayNumbers": []
 	},
 	{
-		"id": "shalat-qabliyah-subuh",
-		"title": "Shalat Qabliyah Subuh",
-		"subtitle": "Panduan Shalat",
-		"phase": "shalat",
-		"timing": "Setelah adzan Subuh, sebelum iqamah",
-		"overview": "Dua rakaat sunnah sebelum Subuh — yang paling ditekankan dari seluruh rawatib. Rasulullah ﷺ bersabda: 'Dua rakaat fajar lebih baik dari dunia dan seisinya.' Kerjakan dengan singkat dan khusyuk.",
-		"preparation": [
-			"Dalam kondisi suci (berwudhu)",
-			"Dikerjakan setelah adzan Subuh, sebelum iqamah",
-			"Baca surah pendek (dianjurkan Al-Kafirun rakaat 1, Al-Ikhlas rakaat 2)",
-			"Kerjakan dengan cepat — jangan sampai terlewat iqamah"
-		],
-		"steps": [
-			{
-				"title": "Panduan Lengkap — Segera Tersedia",
-				"instruction": "Panduan langkah demi langkah Shalat Qabliyah Subuh sedang disiapkan. Untuk sementara: niat 2 rakaat qabliyah Subuh, rakaat 1 baca Al-Kafirun, rakaat 2 baca Al-Ikhlas, akhiri salam.",
-				"note": "Kerjakan setelah adzan Subuh, sebelum iqamah. Jangan ditinggal walau sedang melakukan apapun."
-			}
-		],
-		"closingNote": "Aisyah r.a. berkata: 'Nabi ﷺ tidak pernah lebih menjaga shalat sunnah apapun melebihi dua rakaat sebelum Subuh.' (HR. Bukhari & Muslim)",
-		"duaIds": [],
-		"dayNumbers": []
-	},
-	{
-		"id": "shalat-isyraq",
-		"title": "Shalat Sunnah Isyraq",
-		"subtitle": "Panduan Shalat",
-		"phase": "shalat",
-		"timing": "15-20 menit setelah matahari terbit, sambil tetap duduk di tempat shalat Subuh",
-		"overview": "Shalat 2 rakaat yang dikerjakan beberapa menit setelah matahari terbit. Keutamaannya sangat besar jika dikerjakan setelah duduk berdzikir dari usai Subuh hingga matahari terbit.",
-		"preparation": [
-			"Duduk berdzikir di tempat shalat Subuh hingga matahari terbit",
-			"Tunggu sekitar 15-20 menit setelah matahari terbit",
-			"Kemudian kerjakan 2 rakaat"
-		],
-		"steps": [
-			{
-				"title": "Panduan Lengkap — Segera Tersedia",
-				"instruction": "Panduan langkah demi langkah Shalat Isyraq sedang disiapkan. Untuk sementara: setelah matahari terbit sekitar 15-20 menit, shalat 2 rakaat seperti shalat biasa.",
-				"note": "Keutamaan besar: Rasulullah ﷺ bersabda pahalanya seperti haji dan umrah yang sempurna bagi yang duduk berdzikir dari Subuh hingga shalat Isyraq."
-			}
-		],
-		"closingNote": "Rasulullah ﷺ bersabda: 'Siapa yang shalat Subuh berjamaah kemudian duduk berdzikir kepada Allah hingga matahari terbit, kemudian shalat dua rakaat, baginya pahala seperti haji dan umrah — sempurna, sempurna, sempurna.' (HR. Tirmidzi)",
-		"duaIds": [],
-		"dayNumbers": []
-	},
-	{
 		"id": "shalat-dhuha",
 		"title": "Shalat Sunnah Dhuha",
 		"subtitle": "Panduan Shalat",
@@ -742,29 +696,6 @@
 			}
 		],
 		"closingNote": "Dari Abu Dzar r.a., Rasulullah ﷺ bersabda: 'Setiap pagi, setiap sendi tubuh salah seorang dari kalian ada sedekahnya... dan dua rakaat Dhuha mencukupi itu semua.' (HR. Muslim)",
-		"duaIds": [],
-		"dayNumbers": []
-	},
-	{
-		"id": "shalat-awwabin",
-		"title": "Shalat Sunnah Awwabin",
-		"subtitle": "Panduan Shalat",
-		"phase": "shalat",
-		"timing": "Setelah shalat Maghrib (ba'diyah Maghrib hingga waktu Isya)",
-		"overview": "Shalat sunnah antara Maghrib dan Isya, dikerjakan 6 rakaat. Awwabin artinya orang-orang yang kembali kepada Allah. Keutamaannya setara beribadah 12 tahun.",
-		"preparation": [
-			"Dalam kondisi suci (berwudhu)",
-			"Dikerjakan setelah shalat Maghrib dan rawatib ba'diyah Maghrib",
-			"6 rakaat (3 kali salam, masing-masing 2 rakaat)"
-		],
-		"steps": [
-			{
-				"title": "Panduan Lengkap — Segera Tersedia",
-				"instruction": "Panduan langkah demi langkah Shalat Awwabin sedang disiapkan. Untuk sementara: setelah rawatib ba'diyah Maghrib, shalat 6 rakaat (2 rakaat 3 salam) hingga waktu Isya.",
-				"note": "Awwabin artinya 'orang-orang yang kembali (kepada Allah)' — tanda orang yang terus menjaga hubungannya dengan Allah di sela waktu luang."
-			}
-		],
-		"closingNote": "Rasulullah ﷺ bersabda: 'Barang siapa yang shalat 6 rakaat setelah Maghrib tanpa berbicara buruk di antara rakaatnya, maka (pahalanya) sama dengan ibadah 12 tahun.' (HR. Tirmidzi & Ibnu Majah)",
 		"duaIds": [],
 		"dayNumbers": []
 	}

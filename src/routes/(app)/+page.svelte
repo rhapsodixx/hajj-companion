@@ -111,6 +111,9 @@
 	}
 
 	let pageContainer: HTMLElement;
+	let brandEl: HTMLElement;
+	let shineEl: HTMLElement;
+	let logoEl: HTMLImageElement;
 
 	onMount(() => {
 		gsap.registerPlugin(ScrambleTextPlugin);
@@ -179,8 +182,35 @@
 			});
 		});
 
+		// Occasional shine sweep on quwa brand
+		gsap.set(shineEl, { x: -100 });
+		let shineTimer: gsap.core.Tween;
+
+		function runShine() {
+			const containerW = brandEl.offsetWidth;
+			const shineW = shineEl.offsetWidth;
+			const shineTl = gsap.timeline({
+				onComplete: () => {
+					shineTimer = gsap.delayedCall(Math.random() * 6 + 6, runShine);
+				}
+			});
+			shineTl.fromTo(
+				shineEl,
+				{ x: -shineW - 10 },
+				{ x: containerW + 10, duration: 0.7, ease: 'power2.inOut' }
+			);
+			shineTl.to(
+				logoEl,
+				{ scale: 1.1, duration: 0.18, ease: 'back.out(2)', yoyo: true, repeat: 1 },
+				'<0.1'
+			);
+		}
+
+		shineTimer = gsap.delayedCall(Math.random() * 3 + 3, runShine);
+
 		return () => {
 			tl.kill();
+			shineTimer?.kill();
 		};
 	});
 </script>
@@ -208,9 +238,13 @@
 
 	<!-- ── Header ── -->
 	<header class="mb-6 flex items-center justify-between">
-		<div class="flex items-center gap-3">
-			<img src="/logo.png" alt="quwa logo" class="h-8 w-8 object-contain" />
+		<div bind:this={brandEl} class="relative flex items-center gap-3 overflow-hidden rounded-md">
+			<img bind:this={logoEl} src="/logo.png" alt="quwa logo" class="h-8 w-8 object-contain" />
 			<h1 class="text-xl font-bold tracking-tight text-foreground">quwa</h1>
+			<div
+				bind:this={shineEl}
+				class="pointer-events-none absolute -inset-y-3 left-0 w-20 -skew-x-12 bg-gradient-to-r from-transparent via-white/70 to-transparent"
+			></div>
 		</div>
 		{#if todayDay}
 			<PhaseRibbon phase={todayDay.phase} label={PHASE_LABELS[todayDay.phase] ?? todayDay.phase} />
