@@ -18,7 +18,7 @@ This project is **publicly shared** and was built assisted by **Google Gemini** 
 ### 📊 AI Engineering Stats (Estimated)
 
 - **Tokens Processed:** ~2.5 Million tokens (context loading, codebase analysis, iteration, and generation)
-- **Estimated API Cost:** ~$5.00 - $10.00 (based on Gemini API blended pricing for 2.5M tokens). The majority of these tokens were spent analyzing massive context windows, specifically:
+- **Estimated API Cost:** ~$5.00 - $15.00 (based on Gemini 3.1 Pro API pricing for 2.5M tokens). The majority of these tokens were spent analyzing massive context windows, specifically:
   - Official government Hajj guide PDF ebooks
   - Patuna Travel guide documentation
   - Haji Mandiri tips and tricks
