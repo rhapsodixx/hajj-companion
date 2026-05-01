@@ -10,7 +10,6 @@
 		Mosque,
 		MapPin,
 		Buildings,
-		Flag,
 		CheckCircle,
 		AirplaneTakeoff
 	} from 'phosphor-svelte';

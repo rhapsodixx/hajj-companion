@@ -2,7 +2,7 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
-	import { PhoneCall, BookOpenText, Gear, CaretRight } from 'phosphor-svelte';
+	import { PhoneCall, BookOpenText, Gear, CaretRight, ListChecks } from 'phosphor-svelte';
 
 	let pageContainer: HTMLElement;
 
@@ -106,6 +106,32 @@
 							Panduan PDF
 						</p>
 						<p class="mt-0.5 text-sm text-muted">Buku panduan & materi manasik</p>
+					</div>
+				</div>
+				<CaretRight
+					size={20}
+					weight="bold"
+					class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand"
+					aria-hidden="true"
+				/>
+			</div>
+		</Card>
+
+		<Card pressable href="/ritual" class="gsap-card group">
+			<div class="flex w-full items-center justify-between">
+				<div class="flex flex-1 items-center gap-4 text-left">
+					<div
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-brand group-hover:text-surface"
+					>
+						<ListChecks size={24} weight="regular" />
+					</div>
+					<div class="flex-1">
+						<p
+							class="font-bold text-foreground transition-colors duration-300 group-hover:text-brand"
+						>
+							Daftar Ritual
+						</p>
+						<p class="mt-0.5 text-sm text-muted">Daftar lengkap urutan dan panduan ibadah</p>
 					</div>
 				</div>
 				<CaretRight

@@ -18,7 +18,6 @@
 		CaretRight,
 		ListChecks,
 		SuitcaseRolling,
-		Suitcase,
 		TShirt,
 		Clock,
 		CloudSun,
@@ -28,7 +27,6 @@
 		CheckCircle,
 		Archive,
 		Target,
-		Note,
 		AirplaneInFlight,
 		Train,
 		Bus
@@ -523,24 +521,26 @@
 		<!-- Ritual guide link (for critical days) -->
 		{#if todayDay.ritualGuideId}
 			<Card pressable href="/ritual/{todayDay.ritualGuideId}" class="gsap-card group">
-				<div class="flex items-center justify-between gap-4">
-					<div class="flex items-center gap-3">
+				<div class="flex w-full items-center justify-between">
+					<div class="flex flex-1 items-center gap-4 text-left">
 						<div
-							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-brand)/10 text-(--color-brand) transition-colors duration-300 group-hover:bg-(--color-brand) group-hover:text-surface"
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted/10 text-foreground transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-brand) group-hover:text-surface"
 						>
-							<BookOpenText size={20} weight="fill" aria-hidden="true" />
+							<BookOpenText size={24} weight="regular" aria-hidden="true" />
 						</div>
-						<div>
-							<p class="text-sm font-bold text-foreground">Panduan Ibadah</p>
-							<p class="mt-0.5 text-xs leading-relaxed text-muted">
-								Buka panduan langkah demi langkah
+						<div class="flex-1">
+							<p
+								class="font-bold text-foreground transition-colors duration-300 group-hover:text-(--color-brand)"
+							>
+								Panduan Ibadah
 							</p>
+							<p class="mt-0.5 text-sm text-muted">Buka panduan langkah demi langkah</p>
 						</div>
 					</div>
 					<CaretRight
 						size={20}
 						weight="bold"
-						class="shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
+						class="ml-4 shrink-0 text-muted/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-(--color-brand)"
 						aria-hidden="true"
 					/>
 				</div>

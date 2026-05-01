@@ -6,9 +6,9 @@
 	import ArabicText from '$lib/components/ui/ArabicText.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import LostButton from '$lib/components/ui/LostButton.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import gsap from 'gsap';
-	import { CaretLeft, CaretRight } from 'phosphor-svelte';
+	import { CaretLeft, CaretRight, BookOpenText, CheckCircle } from 'phosphor-svelte';
 
 	const guideId = $derived(page.params?.guideId ?? '');
 	const guide = $derived(getGuide(guideId));
@@ -30,24 +30,85 @@
 	const totalSteps = $derived(guide ? guide.steps.length : 0);
 	const currentStep = $derived(guide?.steps[stepIndex] ?? null);
 
+	let contentContainer: HTMLElement | undefined = $state();
+	let stepContainer: HTMLElement | undefined = $state();
+	let isAnimating = false;
+
+	async function transitionMode(newMode: Mode) {
+		if (isAnimating) return;
+		isAnimating = true;
+
+		if (!contentContainer) {
+			mode = newMode;
+			isAnimating = false;
+			return;
+		}
+
+		await gsap.to(contentContainer, {
+			y: 10,
+			opacity: 0,
+			duration: 0.2,
+			ease: 'power2.in'
+		});
+
+		mode = newMode;
+		await tick();
+
+		gsap.fromTo(
+			contentContainer.children,
+			{ y: 20, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(1.2)' }
+		);
+		isAnimating = false;
+	}
+
+	async function transitionStep(newIndex: number) {
+		if (isAnimating || newIndex === stepIndex) return;
+		isAnimating = true;
+
+		if (!stepContainer) {
+			stepIndex = newIndex;
+			isAnimating = false;
+			return;
+		}
+
+		const isNext = newIndex > stepIndex;
+
+		await gsap.to(stepContainer, {
+			x: isNext ? -30 : 30,
+			opacity: 0,
+			duration: 0.2,
+			ease: 'power2.in'
+		});
+
+		stepIndex = newIndex;
+		await tick();
+
+		gsap.fromTo(
+			stepContainer,
+			{ x: isNext ? 30 : -30, opacity: 0 },
+			{ x: 0, opacity: 1, duration: 0.4, ease: 'back.out(1)' }
+		);
+		isAnimating = false;
+	}
+
 	function startSteps() {
 		stepIndex = 0;
-		mode = 'steps';
+		transitionMode('steps');
 	}
 
 	function nextStep() {
-		if (stepIndex < totalSteps - 1) stepIndex++;
-		else mode = 'closing';
+		if (stepIndex < totalSteps - 1) transitionStep(stepIndex + 1);
+		else transitionMode('closing');
 	}
 
 	function prevStep() {
-		if (stepIndex > 0) stepIndex--;
-		else mode = 'overview';
+		if (stepIndex > 0) transitionStep(stepIndex - 1);
+		else transitionMode('overview');
 	}
 
 	function goToStep(i: number) {
-		stepIndex = i;
-		mode = 'steps';
+		transitionStep(i);
 	}
 
 	let touchStartX = 0;
@@ -68,17 +129,19 @@
 
 	onMount(() => {
 		if (!pageContainer) return;
-		const cards = pageContainer.querySelectorAll('.gsap-card');
-		gsap.fromTo(
-			cards,
-			{ y: 60, opacity: 0, scale: 0.95, rotation: () => Math.random() * 4 - 2 },
+
+		const tl = gsap.timeline();
+
+		const items = pageContainer.querySelectorAll('.gsap-item');
+		tl.fromTo(
+			items,
+			{ y: 40, opacity: 0, scale: 0.98 },
 			{
 				y: 0,
 				opacity: 1,
 				scale: 1,
-				rotation: 0,
-				duration: 0.8,
-				stagger: 0.05,
+				duration: 0.6,
+				stagger: 0.08,
 				ease: 'back.out(1.2)'
 			}
 		);
@@ -124,28 +187,51 @@
 		</div>
 
 		<!-- Back link -->
-		<div class="gsap-card pt-4 pb-3">
-			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
-				<CaretLeft size={16} weight="bold" />
-				Kembali
+		<div
+			class="gsap-item sticky top-0 z-30 flex items-center justify-between bg-background/80 pt-4 pb-3 backdrop-blur-md"
+		>
+			<a
+				href="/ritual"
+				class="tap-target flex items-center gap-1 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-(--color-brand)"
+			>
+				<CaretLeft size={14} weight="bold" />
+				Kembali ke Daftar
 			</a>
+			{#if mode === 'steps'}
+				<div class="text-xs font-bold tracking-widest text-(--color-brand) uppercase">
+					Langkah {stepIndex + 1} <span class="font-normal text-muted/50">/ {totalSteps}</span>
+				</div>
+			{/if}
 		</div>
 
 		<!-- Title block -->
-		<header class="gsap-card mb-5">
-			<p class="text-xs font-semibold tracking-widest text-(--color-brand) uppercase">
-				{guide.subtitle}
-			</p>
-			<h1 class="mt-1 text-2xl leading-tight font-semibold text-foreground">{guide.title}</h1>
-			{#if guide.dayNumbers.length > 0}
-				<p class="mt-1 text-sm text-muted">Hari {guide.dayNumbers.join(' & ')}</p>
-			{/if}
-		</header>
+		{#if mode !== 'steps'}
+			<header class="gsap-item relative z-10 mt-2 mb-5">
+				<div class="flex items-start gap-4">
+					<div
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-(--color-brand)/10 text-(--color-brand)"
+					>
+						<BookOpenText size={24} weight="fill" aria-hidden="true" />
+					</div>
+					<div>
+						<p class="mb-1 text-[10px] font-bold tracking-widest text-(--color-brand) uppercase">
+							{guide.subtitle}
+						</p>
+						<h1 class="text-2xl leading-tight font-bold text-foreground">{guide.title}</h1>
+						{#if guide.dayNumbers.length > 0}
+							<p class="mt-1.5 text-sm font-medium text-muted">
+								Hari {guide.dayNumbers.join(' & ')}
+							</p>
+						{/if}
+					</div>
+				</div>
+			</header>
+		{/if}
 
 		<!-- Step dots (always visible when in step mode) -->
 		{#if mode === 'steps'}
 			<div
-				class="mb-5 flex items-center justify-center gap-1.5"
+				class="gsap-item mt-4 mb-6 flex flex-wrap items-center justify-center gap-1.5 px-2"
 				role="tablist"
 				aria-label="Langkah"
 			>
@@ -155,83 +241,123 @@
 						role="tab"
 						aria-selected={i === stepIndex}
 						aria-label="Langkah {i + 1}"
-						class="tap-target rounded-full transition-all duration-150 {i === stepIndex
-							? 'h-2.5 w-2.5 bg-(--color-brand)'
-							: 'h-2 w-2 bg-border'}"
+						class="tap-target rounded-full transition-all duration-300 {i === stepIndex
+							? 'h-2 w-6 bg-(--color-brand)'
+							: 'h-2 w-2 bg-border hover:bg-muted/30'}"
 					></button>
 				{/each}
 			</div>
 		{/if}
 
 		<!-- Content area -->
-		<div class="flex-1">
+		<div class="relative z-10 flex flex-1 flex-col" bind:this={contentContainer}>
 			<!-- ═══ OVERVIEW MODE ═══ -->
 			{#if mode === 'overview'}
-				<p class="gsap-card mb-6 font-serif text-sm leading-relaxed text-foreground">
-					{guide.overview}
-				</p>
+				<div class="flex-1">
+					<p
+						class="gsap-item mb-6 rounded-3xl border border-border/50 bg-surface/50 p-5 font-serif text-[15px] leading-relaxed text-foreground"
+					>
+						{guide.overview}
+					</p>
 
-				{#if guide.preparation.length > 0}
-					<section class="gsap-card mb-6">
-						<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">Persiapan</p>
-						<Card>
-							<div class="space-y-2">
-								{#each guide.preparation as item (item)}
-									<div class="flex gap-2.5 text-sm text-foreground">
-										<span class="mt-0.5 shrink-0 text-(--color-brand)">·</span>
-										<span>{item}</span>
-									</div>
-								{/each}
+					{#if guide.preparation.length > 0}
+						<section class="gsap-item mb-6">
+							<div class="mb-3 flex items-center gap-2">
+								<div class="h-6 w-1 rounded-full bg-(--color-brand)"></div>
+								<h2 class="text-sm font-bold tracking-widest text-foreground uppercase">
+									Persiapan
+								</h2>
 							</div>
-						</Card>
-					</section>
-				{/if}
+							<Card class="bg-surface/80 p-5 backdrop-blur-md">
+								<ul class="space-y-4">
+									{#each guide.preparation as item (item)}
+										<li class="flex items-start gap-3 text-[15px] text-foreground">
+											<CheckCircle
+												size={20}
+												weight="fill"
+												class="mt-0.5 shrink-0 text-(--color-brand)"
+											/>
+											<span class="leading-relaxed">{item}</span>
+										</li>
+									{/each}
+								</ul>
+							</Card>
+						</section>
+					{/if}
+				</div>
 
 				<!-- Start button -->
 				<button
 					onclick={startSteps}
-					class="gsap-card tap-target w-full rounded-xl bg-(--color-brand) px-5 py-4 text-center text-base font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="gsap-item tap-target mt-auto w-full rounded-2xl bg-(--color-brand) px-5 py-4 text-center text-base font-bold text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] active:scale-[0.98]"
 				>
 					Mulai Panduan — {totalSteps} Langkah
 				</button>
 
 				<!-- ═══ STEP-BY-STEP MODE ═══ -->
 			{:else if mode === 'steps' && currentStep}
-				<div role="document" class="page-enter" ontouchstart={onTouchStart} ontouchend={onTouchEnd}>
-					<!-- Step number label -->
-					<p class="mb-3 text-xs font-semibold tracking-widest text-(--color-brand) uppercase">
-						Langkah {stepIndex + 1} dari {totalSteps}
-					</p>
-
+				<div
+					role="document"
+					class="flex flex-1 flex-col"
+					ontouchstart={onTouchStart}
+					ontouchend={onTouchEnd}
+					bind:this={stepContainer}
+				>
 					<!-- Step content -->
-					<div class="rounded-2xl bg-surface p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-						<p class="text-lg font-semibold text-foreground">{currentStep.title}</p>
-						<p class="mt-3 font-serif text-sm leading-relaxed text-foreground">
+					<div
+						class="relative flex-1 overflow-hidden rounded-3xl border border-border/50 bg-surface p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+					>
+						<!-- Decorative background for step number -->
+						<div
+							class="pointer-events-none absolute -top-10 -right-10 text-[120px] leading-none font-bold tracking-tighter text-muted/5 select-none"
+						>
+							{stepIndex + 1}
+						</div>
+
+						<h2 class="relative z-10 text-xl leading-tight font-bold text-foreground">
+							{currentStep.title}
+						</h2>
+						<p class="relative z-10 mt-4 font-serif text-[15px] leading-relaxed text-foreground">
 							{currentStep.instruction}
 						</p>
 
 						{#if currentStep.arabic}
-							<div class="mt-4 rounded-2xl bg-(--color-accent-light) p-4">
-								<ArabicText text={currentStep.arabic} size="lg" />
-								{#if currentStep.arabicSource}
-									<p class="mt-2 text-right text-xs text-muted">— {currentStep.arabicSource}</p>
-								{/if}
+							<div
+								class="relative z-10 mt-6 overflow-hidden rounded-2xl bg-(--color-accent-light) p-5"
+							>
+								<div
+									class="absolute top-0 right-0 -mt-10 -mr-10 h-24 w-24 rounded-full bg-(--color-brand)/5 blur-xl"
+								></div>
+								<div class="relative z-10">
+									<ArabicText text={currentStep.arabic} size="lg" />
+									{#if currentStep.arabicSource}
+										<p
+											class="mt-3 text-right text-xs font-medium tracking-wide text-muted/70 uppercase"
+										>
+											— {currentStep.arabicSource}
+										</p>
+									{/if}
+								</div>
 							</div>
 						{/if}
 
 						{#if currentStep.note}
-							<div class="mt-3 flex gap-2 text-sm text-muted">
-								<span class="shrink-0">💡</span>
-								<span class="font-serif">{currentStep.note}</span>
+							<div
+								class="relative z-10 mt-5 flex gap-3 rounded-2xl bg-(--color-pastel-blue)/30 p-4 text-sm text-foreground"
+							>
+								<span class="shrink-0 text-xl leading-none">💡</span>
+								<span class="font-serif leading-relaxed">{currentStep.note}</span>
 							</div>
 						{/if}
 
 						{#if currentStep.warning}
 							<div
-								class="mt-3 flex gap-2 rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-foreground"
+								class="relative z-10 mt-5 flex gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-foreground"
 							>
-								<span class="shrink-0">⚠️</span>
-								<span>{currentStep.warning}</span>
+								<span class="shrink-0 text-xl leading-none">⚠️</span>
+								<span class="leading-relaxed font-medium text-red-900 dark:text-red-200"
+									>{currentStep.warning}</span
+								>
 							</div>
 						{/if}
 					</div>
@@ -239,13 +365,18 @@
 
 				<!-- ═══ CLOSING MODE ═══ -->
 			{:else if mode === 'closing'}
-				<div class="page-enter">
+				<div class="flex-1">
 					{#if guide.closingNote}
 						<section class="mb-6">
 							<div
-								class="rounded-2xl border border-(--color-brand)/20 bg-(--color-accent-light) p-4"
+								class="rounded-3xl border border-(--color-brand)/20 bg-gradient-to-br from-(--color-brand)/5 to-transparent p-6 text-center shadow-sm"
 							>
-								<p class="font-serif text-sm leading-relaxed text-foreground">
+								<div
+									class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-(--color-brand)/10 text-(--color-brand)"
+								>
+									<CheckCircle size={24} weight="fill" />
+								</div>
+								<p class="font-serif text-[15px] leading-relaxed text-foreground">
 									{guide.closingNote}
 								</p>
 							</div>
@@ -254,22 +385,30 @@
 
 					{#if relatedDuas.length > 0}
 						<section class="mb-6">
-							<p class="mb-3 text-[10px] font-bold tracking-widest text-muted uppercase">
-								Doa Terkait
-							</p>
-							<div class="space-y-3">
+							<div class="mb-4 flex items-center gap-2">
+								<div class="h-6 w-1 rounded-full bg-(--color-brand)"></div>
+								<h2 class="text-sm font-bold tracking-widest text-foreground uppercase">
+									Doa Terkait
+								</h2>
+							</div>
+							<div class="space-y-4">
 								{#each relatedDuas as dua (dua.id)}
-									<Card>
+									<Card
+										class="border-l-4 border-l-(--color-brand) bg-surface/80 p-5 backdrop-blur-md"
+									>
 										<p
-											class="mb-2 text-xs font-semibold tracking-wide text-(--color-brand) uppercase"
+											class="mb-3 text-xs font-bold tracking-widest text-(--color-brand) uppercase"
 										>
 											{dua.title}
 										</p>
 										<ArabicText text={dua.arabic} size="base" />
 										{#if dua.latin}
-											<p class="mt-2 text-sm text-muted italic">{dua.latin}</p>
+											<p class="mt-3 text-sm leading-relaxed text-muted italic">{dua.latin}</p>
 										{/if}
-										<p class="mt-1 font-serif text-sm text-foreground">{dua.translation}</p>
+										<div class="mt-4 h-px w-full bg-border/50"></div>
+										<p class="mt-3 font-serif text-[13px] leading-relaxed text-foreground">
+											{dua.translation}
+										</p>
 									</Card>
 								{/each}
 							</div>
@@ -281,33 +420,35 @@
 
 		<!-- Navigation buttons -->
 		{#if mode !== 'overview'}
-			<div class="mt-6 flex gap-3">
+			<div class="relative z-10 mt-6 flex gap-3">
 				<button
 					onclick={prevStep}
-					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-border bg-surface px-4 py-3.5 text-sm font-semibold text-foreground transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="tap-target flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-border bg-surface px-4 py-4 text-sm font-bold text-foreground transition-all duration-200 ease-out hover:border-muted/20 hover:bg-muted/5 active:scale-[0.98]"
 				>
-					<CaretLeft size={16} weight="bold" />
+					<CaretLeft size={18} weight="bold" />
 					Sebelumnya
 				</button>
 				<button
 					onclick={nextStep}
-					class="tap-target flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-(--color-brand) px-4 py-3.5 text-sm font-semibold text-background transition-transform duration-100 ease-out active:scale-[0.98]"
+					class="tap-target flex flex-1 items-center justify-center gap-2 rounded-2xl bg-(--color-brand) px-4 py-4 text-sm font-bold text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] active:scale-[0.98]"
 				>
 					{mode === 'steps' && stepIndex === totalSteps - 1 ? 'Selesai' : 'Selanjutnya'}
-					<CaretRight size={16} weight="bold" />
+					<CaretRight size={18} weight="bold" />
 				</button>
 			</div>
 		{/if}
 
 		<!-- Lost? Show hotel address to taxi driver -->
 		{#if hotel && mode === 'closing'}
-			<LostButton {hotel} />
+			<div class="mt-4">
+				<LostButton {hotel} />
+			</div>
 		{/if}
 	</div>
 {:else}
 	<div class="mx-auto max-w-120 px-4 pt-[calc(env(safe-area-inset-top)+1rem)] pb-6">
 		<div class="pt-4 pb-3">
-			<a href="/" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
+			<a href="/ritual" class="tap-target inline-flex items-center gap-1 text-sm text-muted">
 				<CaretLeft size={16} weight="bold" />
 				Kembali
 			</a>
