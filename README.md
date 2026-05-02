@@ -14,17 +14,19 @@ This project is **publicly shared** and was built assisted by **Google Gemini** 
 
 - Modern full-stack development with **SvelteKit** and the **Bun** runtime.
 - Creating fluid, dynamic micro-interactions using the **GSAP** animation library.
+- Applying Islamic scholarship (Manhaj Salaf) programmatically to verify du'a authenticity.
 
 ### 📊 AI Engineering Stats (Estimated)
 
-- **Tokens Processed:** ~2.5 Million tokens (context loading, codebase analysis, iteration, and generation)
-- **Estimated API Cost:** ~$5.00 - $15.00 (based on Gemini 3.1 Pro API pricing for 2.5M tokens). The majority of these tokens were spent analyzing massive context windows, specifically:
+- **Tokens Processed:** ~3.5 Million tokens (context loading, codebase analysis, iteration, and generation)
+- **Estimated API Cost:** ~$8.00 - $20.00 (based on API pricing Gemini 3 Pro). The majority of these tokens were spent analyzing massive context windows, specifically:
   - Official government Hajj guide PDF ebooks
   - Patuna Travel guide documentation
   - Haji Mandiri tips and tricks
-- **Most Frequent Agent Skills Invoked:** `using-agent-skills` (Addy Osmani patterns), `ui-ux-pro-max`, `impeccable`, `sveltekit`
-- **Most Frequent MCP Servers Invoked:** `Context7`, `sequential-thinking`, `svelte`, `serena`
-- **Token Optimization:** Utilized [RTK](https://github.com/rtk-ai/rtk) to saving an estimated **~1.2 million tokens** (roughly 30-40% reduction)
+  - Crawled Websites with Crawl4Ai
+- **Most Frequent Agent Skills Invoked:** `using-agent-skills`, `ui-ux-pro-max`, `impeccable`, `svelte`, `islamic-salafi`
+- **Most Frequent MCP Servers Invoked:** `Context7`, `svelte`, `serena`, `chrome-devtools`
+- **Token Optimization:** Utilized [RTK](https://github.com/rtk-ai/rtk) saving an estimated **~1.5 million tokens** (roughly 30-40% reduction)
 
 ## 📖 About The Project
 
@@ -36,9 +38,19 @@ A first-time hajji is often anxious, jet-lagged, and surrounded by millions of p
 
 - **Now/Next Interface:** A context-aware homepage that tells you exactly what is happening now and what is coming next, shifting into a "Tomorrow Preparation" mode after Maghrib.
 - **Offline-First Ritual Guide:** Step-by-step guidance for high-stakes ritual days (Umrah, Wukuf, Muzdalifah, Jumrah, Thawaf Wada) with Arabic niat, Latin transliteration, and Bahasa translation.
-- **Du'a Library:** Bundled collection of essential prayers extracted from official guides, searchable and categorized.
+- **Daily Dzikir:** Complete morning (Dzikir Pagi) and evening (Dzikir Petang) adhkar with Arabic, Latin, translation, and faedah — sourced from authenticated hadith collections.
+- **Du'a Library:** Bundled collection of essential prayers extracted from official guides, searchable and categorized. All entries reviewed against Manhaj Salaf — hadith authenticity noted where relevant.
+- **Arafah Du'a Collection:** Dedicated set of 12+ du'as for Wukuf day, all sourced from Quran and authenticated hadiths (Bukhari, Muslim, Tirmidzi) with hadith numbers.
 - **Important Contacts:** Readily available Patuna muthawwif, Saudi emergency, and hotel information.
 - **Climate Reference:** Typical weather norms for each city per Hijri date to help pilgrims prepare appropriately.
+
+### Islamic Content Standards
+
+All du'a and ritual content has been reviewed against the **Manhaj Salaf / Salafiyah** framework:
+
+- Du'as sourced from the Quran and authenticated hadith (Bukhari, Muslim, Abu Dawud, Tirmidzi, etc.) are presented without caveat.
+- Du'as from weaker or unverified narrations carry a `Catatan manhaj` annotation explaining the hadith status and giving pilgrims the correct Salafi position.
+- Ritual instructions follow the Sunnah order where applicable, with scholarly references (Syaikh Ibnu Utsaimin, Syaikh Ibnu Baz, Syaikh al-Albani) cited for key rulings.
 
 ## 📸 Screenshots
 
@@ -54,8 +66,9 @@ Built with modern web technologies focused on offline capabilities, accessibilit
 
 - **Frontend:** SvelteKit 2 + Svelte 5 (Runes) + TypeScript
 - **Styling:** Tailwind CSS v4
+- **Motion:** GSAP (GreenSock) for tactile micro-interactions
 - **Runtime & Build:** Bun
-- **PWA:** `@vite-pwa/sveltekit` with Workbox for robust offline caching
+- **PWA:** `vite-plugin-pwa` with Workbox (`injectManifest` strategy) for robust offline caching
 - **Hosting:** Cloudflare Pages
 - **Database:** Supabase Postgres (for minimal dynamic daily overrides)
 
@@ -78,6 +91,12 @@ To create a production version:
 
 ```sh
 bun run build
+```
+
+Preview the production build locally (required to test PWA/offline behavior):
+
+```sh
+bun run preview
 ```
 
 ## 📜 License
