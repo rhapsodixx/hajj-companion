@@ -125,7 +125,7 @@
 		"arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ أَنْ تُحَقِّقَ لِي مَا أَتَمَنَّى فِي الدِّينِ وَالدُّنْيَا وَالْآخِرَةِ، وَأَنْ تَجْعَلَ لِي فِيمَا قَضَيْتَ خَيْرًا",
 		"latin": "Allahumma inni as'aluka an tuhaqqiqa li maa atamannaa fid diini wad dunyaa wal aakhirah, wa an taj'ala li fiimaa qadhayata khairaa",
 		"translation": "Ya Allah, aku memohon kepada-Mu agar Engkau mewujudkan segala harapanku dalam urusan agama, dunia, dan akhirat, dan agar Engkau menjadikan kebaikan bagiku dalam segala yang telah Engkau tetapkan.",
-		"whenToRead": "Berdoa dengan doa apapun saat wukuf di Arafah — ini waktu paling mustajab dalam setahun.",
+		"whenToRead": "Berdoa dengan doa apapun saat wukuf di Arafah — ini waktu paling mustajab dalam setahun. Catatan manhaj: Lafaz doa di atas tidak terverifikasi dari koleksi hadits sahih primer. Isi permintaannya (kebaikan dunia, akhirat, dan agar yang ditakdirkan membawa kebaikan) sangat sesuai untuk dibaca. Prioritaskan doa-doa Arafah yang bersumber dari Quran dan hadits sahih yang tersedia di bagian ini.",
 		"category": "wukuf",
 		"sources": "Kumpulan Doa di Arafah.pdf"
 	},
@@ -295,7 +295,7 @@
 		"arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ أَنْ تَرْزُقَنِي حَجًّا مَبْرُورًا وَسَعْيًا مَشْكُورًا وَذَنْبًا مَغْفُورًا وَتِجَارَةً لَنْ تَبُورَ",
 		"latin": "Allahumma inni as'aluka an tarzuqani hajjan mabruura wa sa'yan masykuura wa dzanban maghfuura wa tijaaratan lan tabuura",
 		"translation": "Ya Allah, aku memohon kepada-Mu rezeki haji yang mabrur, sa'i yang diterima, dosa yang diampuni, dan perdagangan yang tidak akan rugi.",
-		"whenToRead": "Saat berada di Muzdalifah antara Arafah dan Mina, sambil menunggu waktu fajar.",
+		"whenToRead": "Catatan manhaj: Tidak ada doa khusus yang ditetapkan dari Nabi ﷺ untuk dibaca di Muzdalifah. Yang disunnahkan adalah memperbanyak doa, dzikir, tahlil, dan istighfar secara umum sambil menunggu waktu fajar. Doa di atas boleh dibaca sebagai contoh doa umum, bukan doa khusus Muzdalifah.",
 		"category": "wukuf",
 		"sources": "Manasik Haji Sesuai Sunnah.pdf"
 	},
@@ -305,19 +305,19 @@
 		"arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا وَاسِعًا وَشِفَاءً مِنْ كُلِّ دَاءٍ",
 		"latin": "Allahumma inni as'aluka 'ilman naafi'an wa rizqan waasi'an wa syifaa'an min kulli daa'",
 		"translation": "Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang luas, dan kesembuhan dari segala penyakit.",
-		"whenToRead": "Dibaca sebelum minum air zamzam — boleh berdoa apa saja karena air zamzam diminum sesuai niat.",
+		"whenToRead": "Tidak ada lafaz doa yang ditetapkan secara sahih dari Nabi ﷺ sebelum minum zamzam. Nabi ﷺ bersabda: 'Air zamzam adalah untuk apa ia diminum' (HR. Ibnu Majah, dishahihkan al-Albani). Boleh membaca doa di atas atau berdoa dengan hajat apa saja sesuai kebutuhan.",
 		"category": "umum",
 		"sources": "Manasik Haji Sesuai Sunnah.pdf"
 	},
 	{
 		"id": "dua-keluar-rumah",
 		"title": "Doa Keluar Rumah",
-		"arabic": "اللَّهُمَّ إِلَيْكَ تَوَجَّهْتُ، وَبِكَ اعْتَصَمْتُ، اللَّهُمَّ اكْفِنِي مَا أَهَمَّنِي وَمَا لَا أَهْتَمُّ بِهِ، اللَّهُمَّ زَوِّدْنِي التَّقْوَى، وَاغْفِرْ لِي ذَنْبِي، وَوَجِّهْنِي لِلْخَيْرِ أَيْنَمَا تَوَجَّهْتُ",
-		"latin": "Allahumma ilayka tawajjahtu, wabika i'tashamtu, Allahummakfinii maa ahammanii wamaa laa ahtammu bihi, Allahumma zawwidnittaqwaa, waghfir lii dzanbii, wawajjihnii lilkhairi aynamaa tawajjahtu",
-		"translation": "Ya Allah, kepada-Mu aku menghadap dan dengan-Mu aku berpegang teguh. Ya Allah lindungilah aku dari sesuatu yang menyusahkan dan sesuatu yang tidak aku perlukan. Ya Allah, bekalilah aku dengan takwa dan ampunilah dosaku serta hadapkanlah wajahku pada hal-hal yang baik kemana-pun aku menghadapkan.",
-		"whenToRead": "Dibaca saat keluar rumah menuju embarkasi atau memulai perjalanan haji/umrah.",
+		"arabic": "بِسْمِ اللهِ، تَوَكَّلْتُ عَلَى اللهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ",
+		"latin": "Bismillahi, tawakkaltu 'alallahi, wa laa hawla wa laa quwwata illa billah",
+		"translation": "Dengan nama Allah, aku bertawakkal kepada Allah, dan tidak ada daya serta kekuatan melainkan dari Allah.",
+		"whenToRead": "Dibaca saat keluar rumah menuju embarkasi atau memulai perjalanan haji/umrah. Ini adalah doa keluar rumah yang paling kuat daleel-nya dari Nabi ﷺ.",
 		"category": "safar",
-		"sources": "Manasik Haji Sesuai Sunnah.pdf"
+		"sources": "HR. Abu Dawud no. 5095, Tirmidzi no. 3426 (Sahih)"
 	},
 	{
 		"id": "niat-haji-isytirat",
@@ -335,7 +335,7 @@
 		"arabic": "اللَّهُمَّ حَرَّمْتُ شَعْرِي وَبَشَرِي وَجَسَدِي وَجَمِيعَ جَوَارِحِي مِنْ كُلِّ شَيْءٍ حَرَّمْتَهُ عَلَى الْمُحْرِمِ",
 		"latin": "Allahumma harramtu sya'rii wa basyarii wa jasadii wa jamii'a jawaarihii min kulli syai'in harramtahu 'alal muhrimi",
 		"translation": "Ya Allah, aku haramkan rambut, kulit, tubuh, dan seluruh anggota tubuhku dari semua yang Engkau haramkan bagi orang yang berihram.",
-		"whenToRead": "Dibaca setelah berniat ihram dan mengenakan pakaian ihram.",
+		"whenToRead": "Dibaca setelah berniat ihram dan mengenakan pakaian ihram. Catatan manhaj: Tidak ada hadits marfu' sahih dari Nabi ﷺ yang menetapkan doa spesifik ini setelah berihram. Sunnah setelah niat ihram adalah langsung membaca talbiyah. Doa ini berasal dari sebagian buku manasik — boleh dibaca sebagai doa umum, namun bukan sunnah yang ditetapkan secara tegas.",
 		"category": "niat",
 		"sources": "Manasik Haji Sesuai Sunnah.pdf"
 	},
@@ -365,7 +365,7 @@
 		"arabic": "اللَّهُمَّ هَذِهِ نَاصِيَتِي بِيَدِكَ، فَاجْعَلْ لِي بِكُلِّ شَعْرَةٍ نُورًا يَوْمَ الْقِيَامَةِ، وَامْحُ عَنِّي بِهَا سَيِّئَةً، وَارْفَعْ لِي بِهَا دَرَجَةً",
 		"latin": "Allahumma hadzihi naashiyatii biyadika, faj'al lii bikulli sya'ratin nuuran yawmal qiyaamah, wamhu 'annii bihaa sayyi'atan, warfa' lii bihaa darajah",
 		"translation": "Ya Allah, ini ubun-ubunku berada di tangan-Mu, maka jadikanlah bagiku dengan setiap helai rambut sebuah cahaya pada hari kiamat, dan hapuskanlah dengannya dariku sebuah keburukan, dan angkatlah bagiku dengannya sebuah derajat.",
-		"whenToRead": "Dibaca saat prosesi mencukur atau menggunting rambut (tahallul) setelah sa'i umrah atau setelah melempar Jumrah Aqobah.",
+		"whenToRead": "Dibaca saat prosesi mencukur atau menggunting rambut (tahallul) setelah sa'i umrah atau setelah melempar Jumrah Aqobah. Catatan manhaj: Tidak ada hadits sahih yang menetapkan doa spesifik saat tahallul dari Nabi ﷺ. Doa ini berasal dari sebagian buku manasik — boleh dibaca sebagai doa umum, namun bukan sunnah yang ditetapkan. Yang disunnahkan adalah bertakbir atau berdoa apa saja saat mencukur rambut.",
 		"category": "sai",
 		"sources": "Manasik Haji Sesuai Sunnah.pdf"
 	},
@@ -375,7 +375,7 @@
 		"arabic": "السَّلَامُ عَلَيْكَ يَا رَسُولَ اللهِ، السَّلَامُ عَلَيْكَ يَا نَبِيَّ اللهِ. السَّلَامُ عَلَيْكَ يَا أَبَا بَكْرٍ، السَّلَامُ عَلَيْكَ يَا عُمَرُ",
 		"latin": "Assalaamu 'alaika yaa rasuulallah, assalaamu 'alaika yaa nabiyyallah. Assalaamu 'alaika yaa abaa bakr, assalaamu 'alaika yaa 'umar",
 		"translation": "Salam sejahtera untukmu wahai Utusan Allah. Salam sejahtera padamu wahai Nabi Allah. Salam sejahtera untukmu wahai Abu Bakar. Salam sejahtera untukmu wahai Umar.",
-		"whenToRead": "Dibaca saat berada di Raudah atau ketika berziarah ke makam Rasulullah ﷺ dan para sahabatnya di Masjid Nabawi.",
+		"whenToRead": "Dibaca saat berziarah ke makam Rasulullah ﷺ — ucapkan salam ini saat berdiri di depan makam beliau ﷺ dan makam para sahabat (Abu Bakar dan Umar radhiyallahu 'anhuma). Catatan penting: Bedakan dua konteks di Masjid Nabawi — (1) Shalat di Raudah (area antara kamar Nabi ﷺ dan mimbar): menghadap kiblat sebagaimana shalat biasa, ini tempat yang sangat utama untuk shalat. (2) Memberi salam di makam: berdiri sebentar menghadap makam, ucapkan salam ini, lalu berdoalah menghadap kiblat — bukan menghadap makam. Doa di atas hanya berisi salam penghormatan (bukan tawassul) — tidak ada permintaan kepada Nabi ﷺ, hanya salam yang disyariatkan.",
 		"category": "masjid",
 		"sources": "Manasik Haji Sesuai Sunnah.pdf"
 	}

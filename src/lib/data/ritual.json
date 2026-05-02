@@ -125,8 +125,8 @@
 				"warning": "Jangan tinggalkan batas Arafah sampai matahari terbenam."
 			},
 			{
-				"title": "Berangkat ke Muzdalifah (setelah Maghrib)",
-				"instruction": "Setelah Maghrib, sholat Maghrib dan Isya dijamak takdim qashar di Muzdalifah. Mabit (bermalam) di Muzdalifah.",
+				"title": "Berangkat ke Muzdalifah (setelah matahari terbenam)",
+				"instruction": "Setelah matahari terbenam, segera berangkat dari Arafah. Tahan shalat Maghrib — jangan shalat di Arafah. Tiba di Muzdalifah: shalat Maghrib dan Isya dijamak ta'khir (di waktu Isya) dengan qashar 2 rakaat. Mabit (bermalam) di Muzdalifah.",
 				"note": "Kumpulkan 49 batu kecil untuk lontar jumrah (atau 70 jika 3 hari)."
 			}
 		],
@@ -157,7 +157,7 @@
 			{
 				"title": "Berangkat ke Makkah untuk Thawaf Ifadhah",
 				"instruction": "Setelah lewat tengah malam, berangkat dari Muzdalifah/Mina menuju Makkah. Lakukan Thawaf Ifadhah (7 putaran) di Masjidil Haram.",
-				"note": "Thawaf Ifadhah adalah rukun haji — wajib dikerjakan."
+				"note": "Thawaf Ifadhah adalah rukun haji — wajib dikerjakan. Urutan sunnah pada Yaumun Nahr: Jumrah Aqobah → Halq/Taqsir → Tawaf Ifadhah. Rombongan ini melaksanakan Tawaf lebih dulu karena kondisi lapangan — ini sah. Dari Ibnu Abbas radhiyallahu 'anhu: Nabi ﷺ bersabda 'Tidak mengapa, tidak mengapa' saat ditanya tentang mendahulukan atau mengakhirkan amalan Yaumun Nahr (HR. Bukhari no. 1736, Muslim no. 1307). Syaikh Ibnu Utsaimin (rahimahullah) dalam Syarh al-Mumti' dan Syaikh Ibnu Baz (rahimahullah) menegaskan urutan sunnah lebih utama, namun semua urutan dibolehkan. Jika mendahulukan Tawaf sebelum Jumrah, tetap sah — Nabi ﷺ memberi keluasan."
 			},
 			{
 				"title": "Sa'i Safa — Marwah",
@@ -292,7 +292,7 @@
 		"phase": "harian",
 		"overview": "Dzikir pagi dibaca dari terbit fajar (waktu shubuh) hingga matahari meninggi (waktu dhuha).",
 		"preparation": [
-			"Wudhu sebelum berdzikir",
+			"Dianjurkan berwudhu sebelum berdzikir (bukan syarat — dzikir tetap sah tanpa wudhu)",
 			"Duduk dengan tenang menghadap kiblat",
 			"Membaca Ta'awudz (A'udzu billahi minasy-syaithaanir-rajiim) sebelum memulai dzikir",
 			"Membaca dengan perlahan dan meresapi maknanya"
@@ -436,7 +436,7 @@
 		"phase": "harian",
 		"overview": "Dzikir petang dibaca dari tenggelam matahari (waktu maghrib) hingga pertengahan malam.",
 		"preparation": [
-			"Wudhu sebelum berdzikir",
+			"Dianjurkan berwudhu sebelum berdzikir (bukan syarat — dzikir tetap sah tanpa wudhu)",
 			"Duduk dengan tenang menghadap kiblat",
 			"Membaca Ta'awudz (A'udzu billahi minasy-syaithaanir-rajiim) sebelum memulai dzikir",
 			"Membaca dengan perlahan dan meresapi maknanya"
